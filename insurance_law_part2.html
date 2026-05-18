@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Law — Part II: General Principles & Doctrines</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1209;
+    --parchment: #faf6ee;
+    --cream: #f5efe2;
+    --gold: #b8922a;
+    --gold-light: #d4a843;
+    --gold-pale: #f0dfa8;
+    --burgundy: #6b1e2e;
+    --burgundy-light: #9b2c3f;
+    --navy: #1c2b4a;
+    --navy-mid: #2d4270;
+    --teal: #1a5276;
+    --sage: #2e5942;
+    --sage-light: #4a7c5c;
+    --warm-gray: #8c8070;
+    --border: #d4c4a0;
+    --shadow: rgba(26,18,9,0.15);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: var(--ink);
+    background: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(184,146,42,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(28,43,74,0.04) 0%, transparent 60%);
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, #162038 0%, var(--navy) 50%, #3a1020 100%);
+    color:#fff; padding:64px 48px 56px; position:relative; overflow:hidden;
+  }
+  .cover::before {
+    content:''; position:absolute; inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M0 0h40v40H0zm40 40h40v40H40z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .cover-label { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:3px; color:var(--gold-light); text-transform:uppercase; margin-bottom:20px; opacity:.9; }
+  .cover h1 { font-family:'Playfair Display',serif; font-size:clamp(30px,5vw,50px); font-weight:900; line-height:1.15; margin-bottom:12px; }
+  .cover h1 span { color:var(--gold-light); }
+  .cover-sub { font-size:17px; color:rgba(255,255,255,.72); font-style:italic; margin-bottom:32px; font-weight:300; }
+  .cover-meta { display:flex; flex-wrap:wrap; gap:16px; }
+  .cover-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:4px; padding:6px 14px; font-size:13px; color:rgba(255,255,255,.85); font-family:'JetBrains Mono',monospace; }
+  .cover-badge .dot { width:8px;height:8px;border-radius:50%;background:var(--gold-light); }
+
+  /* NAV */
+  .toc-bar { background:var(--navy); padding:0 48px; position:sticky; top:0; z-index:100; box-shadow:0 2px 20px var(--shadow); }
+  .toc-bar-inner { display:flex; overflow-x:auto; gap:0; scrollbar-width:none; }
+  .toc-bar-inner::-webkit-scrollbar { display:none; }
+  .toc-link { color:rgba(255,255,255,.65); text-decoration:none; font-size:12px; font-family:'JetBrains Mono',monospace; letter-spacing:.4px; padding:14px 16px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+  .toc-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light); }
+
+  /* MAIN */
+  .main { max-width:960px; margin:0 auto; padding:48px 32px 80px; }
+
+  /* CHAPTER DIVIDER */
+  .chapter-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius:8px; padding:20px 28px; margin:48px 0 28px;
+    display:flex; align-items:center; gap:20px;
+  }
+  .chapter-num {
+    font-family:'Playfair Display',serif; font-size:36px; font-weight:900; color:var(--gold-light); line-height:1; min-width:56px;
+  }
+  .chapter-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; line-height:1.25; }
+  .chapter-title em { color:var(--gold-light); font-style:normal; }
+
+  /* SECTION */
+  .section { margin-bottom:48px; animation:fadeUp .5s ease both; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+  h3 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--burgundy); margin:28px 0 12px; padding-left:12px; border-left:3px solid var(--burgundy-light); }
+  h4 { font-size:13.5px; font-weight:600; color:var(--navy-mid); margin:20px 0 8px; font-family:'Source Serif 4',serif; text-transform:uppercase; letter-spacing:.6px; }
+  p { margin-bottom:14px; }
+
+  /* DEF CARD */
+  .def-card { background:linear-gradient(135deg,#fff8ee,#fef9f3); border:1px solid var(--gold-pale); border-left:4px solid var(--gold); border-radius:6px; padding:18px 22px; margin:18px 0; }
+  .def-card .who { font-size:11.5px; font-family:'JetBrains Mono',monospace; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .def-card p { margin-bottom:0; font-style:italic; }
+
+  /* CASE BOX */
+  .case-box { background:#f0f4fa; border:1px solid #c8d4e8; border-left:4px solid var(--navy-mid); border-radius:6px; padding:16px 20px; margin:14px 0; }
+  .case-name { font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--navy); font-weight:600; margin-bottom:6px; letter-spacing:.3px; }
+  .case-box p { margin-bottom:0; font-size:15px; }
+
+  /* EXAM ALERT */
+  .exam-alert { background:linear-gradient(135deg,#fdf3f5,#fdf8f9); border:1px solid #e8b4bc; border-left:5px solid var(--burgundy); border-radius:6px; padding:18px 22px; margin:22px 0; }
+  .exam-alert .label { font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:2px; color:var(--burgundy); text-transform:uppercase; font-weight:600; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .exam-alert .label::before { content:'★'; font-size:13px; }
+  .exam-alert ul { padding-left:20px; }
+  .exam-alert li { margin-bottom:7px; font-size:15px; }
+  .exam-alert p { font-size:15px; margin-bottom:8px; }
+  .exam-alert p:last-child { margin-bottom:0; }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px; }
+  .data-table th { background:var(--navy); color:var(--gold-light); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.8px; text-transform:uppercase; padding:10px 14px; text-align:left; font-weight:600; }
+  .data-table td { padding:10px 14px; border-bottom:1px solid #eae4d8; vertical-align:top; line-height:1.65; }
+  .data-table tr:nth-child(even) td { background:#faf6ee; }
+  .data-table tr:hover td { background:rgba(240,223,168,.25); }
+  .td-key { font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--navy); font-weight:600; white-space:nowrap; }
+
+  /* COMPARE TABLE */
+  .compare-table { width:100%; border-collapse:collapse; margin:16px 0; font-size:14px; }
+  .compare-table th { padding:10px 14px; text-align:left; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.8px; text-transform:uppercase; }
+  .compare-table th:nth-child(1) { background:var(--warm-gray); color:#fff; }
+  .compare-table th:nth-child(2) { background:var(--burgundy); color:#fff; }
+  .compare-table th:nth-child(3) { background:var(--teal); color:#fff; }
+  .compare-table td { padding:9px 14px; border-bottom:1px solid #eae4d8; vertical-align:top; }
+  .compare-table td:nth-child(1) { background:#f5f0ea; font-weight:600; font-size:13px; }
+  .compare-table td:nth-child(2) { background:#fdf5f6; }
+  .compare-table td:nth-child(3) { background:#f3f8f9; }
+
+  /* DOCTRINE CARD */
+  .doctrine-card { border:1px solid var(--border); border-radius:8px; overflow:hidden; margin:20px 0; }
+  .doctrine-header { display:flex; align-items:center; gap:16px; padding:14px 20px; cursor:pointer; user-select:none; transition:background .2s; }
+  .doctrine-header:hover { background:rgba(184,146,42,.06); }
+  .doctrine-icon { width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0; }
+  .doctrine-icon.gold { background:var(--gold-pale); }
+  .doctrine-icon.navy { background:rgba(44,66,112,.12); }
+  .doctrine-icon.burg { background:rgba(107,30,46,.1); }
+  .doctrine-icon.sage { background:rgba(46,89,66,.1); }
+  .doctrine-title-text { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:var(--navy); flex:1; }
+  .doctrine-sub { font-size:12px; font-family:'JetBrains Mono',monospace; color:var(--warm-gray); }
+  .toggle-icon { color:var(--gold); font-size:18px; transition:transform .3s; min-width:20px; text-align:center; }
+  .doctrine-card.open .toggle-icon { transform:rotate(180deg); }
+  .doctrine-body { display:none; padding:4px 20px 20px; border-top:1px solid var(--border); background:#fff; }
+  .doctrine-card.open .doctrine-body { display:block; }
+
+  /* NUMBERED LIST */
+  .num-list { list-style:none; padding:0; margin:12px 0; counter-reset:nl; }
+  .num-list li { display:flex; gap:14px; padding:10px 14px; border-bottom:1px solid #eee; align-items:flex-start; counter-increment:nl; }
+  .num-list li:last-child { border-bottom:none; }
+  .num-list li::before { content:counter(nl); font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--gold); min-width:24px; margin-top:4px; font-weight:600; }
+
+  /* SECTION KEY */
+  .sec-pill { display:inline-block; background:rgba(44,66,112,.1); color:var(--navy); font-family:'JetBrains Mono',monospace; font-size:11.5px; padding:2px 9px; border-radius:3px; margin:2px 3px 2px 0; border:1px solid rgba(44,66,112,.25); font-weight:600; letter-spacing:.3px; }
+  .sec-pill.red { background:rgba(107,30,46,.08); color:var(--burgundy); border-color:rgba(107,30,46,.25); }
+  .sec-pill.gold { background:var(--gold-pale); color:var(--ink); border-color:var(--gold); }
+
+  /* CALC BOX */
+  .calc-box { background:var(--navy); color:#fff; border-radius:8px; padding:20px 24px; margin:18px 0; font-family:'JetBrains Mono',monospace; }
+  .calc-box .calc-label { font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold-light); margin-bottom:12px; }
+  .calc-box .formula { font-size:15px; color:#fff; margin-bottom:10px; padding:10px 14px; background:rgba(255,255,255,.06); border-radius:4px; }
+  .calc-box .result { font-size:13px; color:rgba(255,255,255,.75); }
+
+  /* INFO GRID */
+  .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin:18px 0; }
+  .info-cell { background:#fff; border:1px solid var(--border); border-radius:6px; padding:14px 16px; }
+  .info-cell .k { font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:1px; color:var(--warm-gray); text-transform:uppercase; margin-bottom:5px; }
+  .info-cell .v { font-size:15px; font-weight:600; color:var(--navy); }
+  .info-cell .v.gold { color:var(--gold); }
+  .info-cell .v.red { color:var(--burgundy); }
+
+  /* FACT PANEL */
+  .fact-panel { background:var(--navy); border-radius:10px; padding:28px 32px; margin:32px 0; color:rgba(255,255,255,.9); }
+  .fact-panel h3 { color:var(--gold-light); border-left-color:var(--gold-light); margin-top:0; }
+  .case-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin-top:16px; }
+  .case-item { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:6px; padding:12px 16px; }
+  .case-item .cn { font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--gold-light); margin-bottom:5px; font-weight:600; }
+  .case-item .cp { font-size:14px; color:rgba(255,255,255,.82); }
+
+  /* BLOCKQUOTE */
+  blockquote { border-left:3px solid var(--sage-light); margin:16px 0; padding:12px 20px; color:#3a3025; font-style:italic; background:rgba(46,89,66,.04); border-radius:0 4px 4px 0; font-size:15px; }
+  blockquote cite { display:block; margin-top:8px; font-size:12.5px; font-family:'JetBrains Mono',monospace; color:var(--sage-light); font-style:normal; letter-spacing:.3px; }
+
+  /* DIVIDER */
+  .divider { display:flex; align-items:center; gap:16px; margin:40px 0; color:var(--border); }
+  .divider::before,.divider::after { content:''; flex:1; height:1px; background:var(--border); }
+  .divider span { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--warm-gray); letter-spacing:2px; text-transform:uppercase; white-space:nowrap; }
+
+  mark { background:var(--gold-pale); color:var(--ink); padding:1px 3px; border-radius:2px; }
+  strong { color:var(--navy); font-weight:600; }
+
+  /* SECTION LIST */
+  .sec-ref-list { columns:2; gap:24px; margin:12px 0; list-style:none; padding:0; }
+  .sec-ref-list li { padding:6px 0; border-bottom:1px dotted var(--border); font-size:14.5px; break-inside:avoid; }
+  .sec-ref-list li:last-child { border-bottom:none; }
+  @media(max-width:600px) { .sec-ref-list { columns:1; } }
+
+  /* FOOTER */
+  .footer { background:var(--navy); color:rgba(255,255,255,.5); text-align:center; padding:24px; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.5px; }
+  .footer span { color:var(--gold-light); }
+
+  @media(max-width:640px) {
+    .cover{padding:40px 24px 36px;}
+    .main{padding:32px 20px 60px;}
+    .toc-bar{padding:0 20px;}
+    .chapter-banner{padding:16px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Insurance Law · Study Notes · Part 2 of 5</div>
+  <h1>General <span>Principles</span> &amp;<br>Fundamental Doctrines</h1>
+  <div class="cover-sub">Definition · Essentials · Uberrima Fides · Indemnity · Insurable Interest · Premium · Risk · Causa Proxima · Assignment · Warranty</div>
+  <div class="cover-meta">
+    <span class="cover-badge"><span class="dot"></span> Topic 2 of 7</span>
+    <span class="cover-badge"><span class="dot"></span> Syllabus Unit II</span>
+    <span class="cover-badge"><span class="dot"></span> 8 Chapters · 20+ Leading Cases</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-bar-inner">
+    <a class="toc-link" href="#ch1">§ Ch.1 Definition &amp; Nature</a>
+    <a class="toc-link" href="#ch2">§ Ch.2 Uberrima Fides</a>
+    <a class="toc-link" href="#ch3">§ Ch.3 Indemnity</a>
+    <a class="toc-link" href="#ch4">§ Ch.4 Insurable Interest</a>
+    <a class="toc-link" href="#ch5">§ Ch.5 Premium</a>
+    <a class="toc-link" href="#ch6">§ Ch.6 Risk &amp; Causa Proxima</a>
+    <a class="toc-link" href="#ch7">§ Ch.7 Assignment</a>
+    <a class="toc-link" href="#ch8">§ Ch.8 Warranty</a>
+    <a class="toc-link" href="#exam">§ Exam Summary</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════════ CH 1 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch1">
+  <div class="chapter-num">01</div>
+  <div>
+    <div class="chapter-title">Insurance — Definition, Essentials, <em>Nature &amp; Kinds</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">The intellectual heart of Insurance Law</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>1.1 Definitions of Insurance</h3>
+  <p>There is <strong>no single omnibus statutory definition</strong> of "insurance" in the Insurance Act, 1938. The Act defines specific types — life (§ 2(11)), fire (§ 2(6A)), marine (§ 2(13A)), general (§ 2(6B)) — but not "insurance" itself. We must rely on judicial and scholarly definitions.</p>
+
+  <div class="def-card">
+    <div class="who">Prudential Insurance Company v. Inland Revenue Commissioner (1904) — Channel J.</div>
+    <p>"There must be either some uncertainty whether the event will ever happen or not, or if the event is one which must happen at some time or another, there must be uncertainty as to the time at which it will happen."</p>
+  </div>
+  <div class="def-card">
+    <div class="who">Cotton L.J. in Castellain v. Preston (1883)</div>
+    <p>"A contract whereby one person undertakes in return for agreed consideration to indemnify another person against loss or damage occasioned by fire up to the agreed amount." [Speaking on fire insurance; also the leading case on subrogation.]</p>
+  </div>
+  <div class="def-card">
+    <div class="who">Hardy Ivamy — General Principles of Insurance Law</div>
+    <p>"A contract of insurance is a contract whereby one person called the insurer, undertakes in return for the agreed consideration called the premium, to pay to another person called the insured, a sum of money or its equivalent on the happening of a specified event."</p>
+  </div>
+  <div class="def-card">
+    <div class="who">Lawrence J. in Lucena v. Craufurd (1806) — landmark case on insurable interest</div>
+    <p>"A man is interested in a thing to whom advantage may arise or prejudice happen from the circumstances which may attend it."</p>
+  </div>
+  <div class="def-card">
+    <div class="who">Synthesized Definition for Examination</div>
+    <p>Insurance is a contract of utmost good faith between the insurer and the insured, in which the insured, having an insurable interest in the subject matter, pays a premium as consideration, and the insurer undertakes to indemnify the insured (or pay a stipulated sum) against loss arising from an uncertain event (or certain event of uncertain time) covered by the policy, thereby distributing the risk of financial loss over a large number of similarly situated individuals.</p>
+  </div>
+
+  <h3>1.2 Essentials of a Valid Contract of Insurance</h3>
+
+  <h4>A. General Essentials (Indian Contract Act, 1872)</h4>
+  <ul class="num-list">
+    <li><strong>Offer &amp; Acceptance</strong> — Proposal form = offer; insurer's acceptance (after medical report, premium, agent's report) = acceptance. Policy document is evidence.</li>
+    <li><strong>Free Consent</strong> — Free from coercion (§ 15), undue influence (§ 16), fraud (§ 17), misrepresentation (§ 18), mistake (§ 20–22). In insurance, uberrima fides raises the standard far beyond ordinary contract law.</li>
+    <li><strong>Competency of Parties</strong> — Both must satisfy § 11 Contract Act: majority (18 yrs), sound mind, not disqualified by law.</li>
+    <li><strong>Lawful Consideration</strong> — Premium = insured's consideration. Promise to indemnify/pay = insurer's consideration. Both must be lawful.</li>
+    <li><strong>Lawful Object</strong> — Insurance on illegal adventures is void. § 43 MIA 1963 — implied warranty of legality.</li>
+    <li><strong>Not Expressly Void</strong> — Wagering insurance (without insurable interest) = void under § 30 Contract Act.</li>
+  </ul>
+
+  <h4>B. Special Essentials of Insurance Contracts</h4>
+  <table class="data-table">
+    <tr><th>Essential</th><th>Explanation</th></tr>
+    <tr><td class="td-key">Existence of Risk</td><td>A genuine, measurable uncertainty that may result in financial loss. Must be fortuitous (accidental). If risk has already materialized, no insurance (except "lost or not lost" marine clause).</td></tr>
+    <tr><td class="td-key">Insurable Interest</td><td>Legally recognized interest in the subject matter — occurrence of insured event causes financial loss to insured.</td></tr>
+    <tr><td class="td-key">Uberrima Fides</td><td>All material facts must be disclosed — duty far beyond ordinary commercial contract (caveat emptor).</td></tr>
+    <tr><td class="td-key">Principle of Indemnity</td><td>Except life/personal accident insurance — insured entitled only to indemnification of actual loss. No profit from insurance.</td></tr>
+    <tr><td class="td-key">Payment of Premium</td><td>Consideration for risk undertaken. Without premium (or promise to pay), no binding contract. § 64VB: no risk without advance premium.</td></tr>
+    <tr><td class="td-key">Policy Document</td><td>§ 24 MIA 1963: marine contract "shall not be admitted in evidence unless embodied in a marine policy." For others, policy is evidence of contract.</td></tr>
+    <tr><td class="td-key">Causa Proxima</td><td>Loss must be proximately caused by a covered peril. Remote causes don't give rise to liability.</td></tr>
+  </table>
+
+  <h3>1.3 Nature of a Contract of Insurance</h3>
+
+  <div class="doctrine-card open" id="nat-cards">
+    <div class="doctrine-header" onclick="toggleD('nat-cards')">
+      <div class="doctrine-icon gold">⚖</div>
+      <div class="doctrine-title-text">Six Characterizations of Insurance Contracts</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <table class="data-table">
+        <tr><th>Nature</th><th>Explanation &amp; Cases</th></tr>
+        <tr>
+          <td class="td-key">Uberrima Fides Contract</td>
+          <td>Highest standard of good faith. Unlike caveat emptor in ordinary contracts. Established: <em>Carter v. Boehm (1766)</em>, Lord Mansfield.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Aleatory Contract</td>
+          <td>Performance depends on occurrence of uncertain event. Insurer may never pay, or may pay far more than premium received. Contrasts with commutative contracts where parties exchange certain, equivalent values.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Contract of Indemnity</td>
+          <td>Fire, marine, general insurance — insurer restores insured to pre-loss financial position, no more, no less. Measure: market value of property at time and place of loss.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Contract of Assurance (Non-indemnity)</td>
+          <td>Life insurance &amp; personal accident — NOT a contract of indemnity. Cannot put a monetary value on human life with precision. Settled in <em>Dalby v. India and London Assurance Co. (1854)</em> — House of Lords: "life insurance is not a contract of indemnity."</td>
+        </tr>
+        <tr>
+          <td class="td-key">Personal Contract</td>
+          <td>Policy between insurer and specific insured based on personal character/circumstances. Does NOT automatically transfer with insured property. Exceptions: marine (§ 52 MIA 1963 — assignable); life (§ 38 Insurance Act — assignable with formalities).</td>
+        </tr>
+        <tr>
+          <td class="td-key">Contract of Adhesion</td>
+          <td>Standard form drafted entirely by insurer — "take it or leave it." Courts apply <em>contra proferentem</em> rule: any ambiguity construed against the insurer.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>1.4 Insurance vs. Wagering Contract</h3>
+  <div class="case-box">
+    <div class="case-name">⚖ Alami v. Positive Government Security Life Assurance Co.</div>
+    <p>Distinguished wager from insurance: in wagering, one party must lose and the other win depending on a future event, with no other interest at stake. Sir William Anson: insurance has only a "superficial resemblance" to wagering; it is the <em>intention of the parties</em> that distinguishes them.</p>
+  </div>
+
+  <table class="compare-table">
+    <tr><th>Basis</th><th>Insurance</th><th>Wagering</th></tr>
+    <tr><td>Legal Status</td><td>Valid and enforceable</td><td>Void under § 30, Contract Act</td></tr>
+    <tr><td>Insurable Interest</td><td>Essential</td><td>Absent</td></tr>
+    <tr><td>Nature</td><td>Risk transfer</td><td>Risk creation</td></tr>
+    <tr><td>Public Policy</td><td>Socially desirable</td><td>Contrary to public policy</td></tr>
+    <tr><td>Purpose</td><td>Indemnification / Protection</td><td>Profit from chance</td></tr>
+    <tr><td>Premium/Stake</td><td>Scientifically calculated</td><td>Arbitrarily fixed by parties</td></tr>
+  </table>
+
+  <h3>1.4 Kinds of Insurance</h3>
+
+  <h4>By Subject Matter / Risk (Statutory Definitions)</h4>
+  <table class="data-table">
+    <tr><th>Type</th><th>Section</th><th>Key Features</th></tr>
+    <tr><td class="td-key">Life Insurance</td><td><span class="sec-pill">§ 2(11)</span></td><td>Contracts upon human life. NOT a contract of indemnity. Payment on death or maturity. LIC Act, 1956 + Insurance Act, 1938.</td></tr>
+    <tr><td class="td-key">Fire Insurance</td><td><span class="sec-pill">§ 2(6A)</span></td><td>"Business of effecting, otherwise than incidentally, contracts of insurance against loss by or incidental to fire or other occurrence customarily included among fire insurance risks."</td></tr>
+    <tr><td class="td-key">Marine Insurance</td><td><span class="sec-pill">§ 2(13A)</span></td><td>§ 3 MIA 1963: "agreement whereby the insurer undertakes to indemnify the assured… against marine losses, that is to say, the losses incidental to marine adventure."</td></tr>
+    <tr><td class="td-key">Miscellaneous Insurance</td><td><span class="sec-pill">§ 2(13B)</span></td><td>Not principally fire, life, or marine. Includes motor, burglary, liability, accident, health, crop, cattle.</td></tr>
+    <tr><td class="td-key">Health Insurance</td><td><span class="sec-pill">§ 2(6C)</span></td><td>Inserted by Act 5/2015. Sickness benefits, medical/surgical/hospital expenses, in-patient/out-patient, travel cover, personal accident.</td></tr>
+    <tr><td class="td-key">Re-insurance</td><td><span class="sec-pill">§ 2(16B)</span></td><td>"Insurance of part of one insurer's risk by another insurer who accepts the risk for a mutually acceptable premium."</td></tr>
+  </table>
+
+  <h4>By Nature (Indemnity vs. Non-Indemnity)</h4>
+  <table class="data-table">
+    <tr><th>Category</th><th>Types</th><th>Principle</th></tr>
+    <tr><td class="td-key">Contract of Indemnity</td><td>Fire, Marine, Miscellaneous</td><td>Insurer indemnifies actual loss. Cannot exceed actual loss suffered.</td></tr>
+    <tr><td class="td-key">Contract of Assurance</td><td>Life, Personal Accident</td><td>Insurer pays fixed sum. No proof of loss required. Dalby principle applies.</td></tr>
+  </table>
+</div>
+
+<!-- ══════════════════════════════ CH 2 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch2">
+  <div class="chapter-num">02</div>
+  <div>
+    <div class="chapter-title">Doctrine of Utmost Good Faith — <em>Uberrima Fides</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">§§ 19–22 Marine Insurance Act, 1963 · § 45 Insurance Act, 1938</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>2.1 Introduction &amp; Rationale</h3>
+  <p>In ordinary contracts, the governing maxim is <strong>caveat emptor</strong> (let the buyer beware) — parties deal at arm's length and need not volunteer information. In insurance, this principle is <strong>completely reversed</strong>. The insurer knows nothing about the specific risk; the insured knows everything. The entire actuarial foundation of insurance would collapse if insurers could not rely on information from proposers.</p>
+
+  <div class="exam-alert">
+    <div class="label">Core Principle</div>
+    <p>The duty of utmost good faith is <strong>mutual</strong> — it binds both the insured AND the insurer. Breach entitles the innocent party to <strong>avoid</strong> the contract (treat it as never made).</p>
+  </div>
+
+  <h3>2.2 The Foundational Case — Carter v. Boehm (1766)</h3>
+  <div class="case-box">
+    <div class="case-name">⚖ Carter v. Boehm (1766) — Lord Mansfield — LEADING CASE</div>
+    <p><strong>Facts:</strong> Carter, Governor of Fort Marlborough (Sumatra), insured the fort against capture by foreign enemy. French invaded and captured it. Insurer (Boehm) refused — arguing Carter should have disclosed (i) weakness of the fort and (ii) likelihood of French attack.<br><br>
+    <strong>Held:</strong> Carter succeeded. These facts were within the knowledge of a prudent insurer — matters of common geopolitical knowledge. Lord Mansfield: <em>"Insurance is a contract upon speculation. The special facts... lie most commonly in the knowledge of the insured only: the underwriter trusts to his representation, and proceeds upon confidence that he does not keep back any circumstance in his knowledge."</em><br><br>
+    <strong>Rule:</strong> The standard of materiality is what a <mark>prudent insurer</mark> would consider material — objective, not what the insured personally believes.</p>
+  </div>
+
+  <h3>2.3 Legal Basis of the Duty</h3>
+  <p>The duty does not arise from an implied term, tort, or fiduciary relationship. It arises from the <strong>sui generis</strong> (unique) nature of insurance contracts. In India, the duty is embedded in:</p>
+  <div class="info-grid">
+    <div class="info-cell"><div class="k">Marine Insurance</div><div class="v">§§ 19, 20, 21 — Marine Insurance Act, 1963</div></div>
+    <div class="info-cell"><div class="k">Life Insurance</div><div class="v">§ 45 — Insurance Act, 1938</div></div>
+    <div class="info-cell"><div class="k">General Contract Law</div><div class="v">§ 17 (fraud) &amp; § 18 (misrepresentation) — Indian Contract Act, 1872</div></div>
+  </div>
+
+  <h3>2.4–2.6 The Marine Insurance Act Sections on Disclosure</h3>
+
+  <div class="doctrine-card open" id="mia-disc">
+    <div class="doctrine-header" onclick="toggleD('mia-disc')">
+      <div class="doctrine-icon gold">§</div>
+      <div class="doctrine-title-text">§ 19 — Insurance is Uberrimae Fidei (Marine Insurance Act, 1963)</div>
+      <div class="doctrine-sub">The Statutory Foundation</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <p><em>"A contract of marine insurance is a contract based upon the utmost good faith, and if the utmost good faith be not observed by either party, the contract may be avoided by the other party."</em></p>
+      <p>This is the statutory embodiment of Carter v. Boehm. Note: duty is mutual; remedy is avoidance.</p>
+    </div>
+  </div>
+
+  <div class="doctrine-card open" id="mia-s20">
+    <div class="doctrine-header" onclick="toggleD('mia-s20')">
+      <div class="doctrine-icon navy">§</div>
+      <div class="doctrine-title-text">§ 20 — Disclosure by the Assured</div>
+      <div class="doctrine-sub">The Prudent Insurer Test</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <p><strong>§ 20(1):</strong> The assured must disclose to the insurer, before the contract is concluded, every material circumstance known to the assured. The assured is deemed to know every circumstance which, in the ordinary course of business, ought to be known to him.</p>
+      <p><strong>§ 20(2) — Test of Materiality:</strong> <em>"Every circumstance is material which would influence the judgment of a prudent insurer in fixing the premium, or determining whether he will take the risk."</em> — This is an <mark>objective test</mark>, not the insured's personal view.</p>
+      <h4>§ 20(3) — What Need NOT be Disclosed</h4>
+      <ul class="num-list">
+        <li>Any circumstance which <strong>diminishes the risk</strong> — a fact reducing risk need not be disclosed.</li>
+        <li>Any circumstance <strong>known or presumed to be known to the insurer</strong> — insurer presumed to know matters of common notoriety and ordinary business knowledge.</li>
+        <li>Any circumstance as to which information is <strong>waived by the insurer</strong>.</li>
+        <li>Any circumstance that is <strong>superfluous</strong> to disclose by reason of any express or implied warranty.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="doctrine-card" id="mia-s21">
+    <div class="doctrine-header" onclick="toggleD('mia-s21')">
+      <div class="doctrine-icon burg">§</div>
+      <div class="doctrine-title-text">§ 21 — Disclosure by Agent</div>
+      <div class="doctrine-sub">Knowledge of Agent = Knowledge of Principal</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <p>Where insurance is effected through an agent, the agent must disclose: (a) every material circumstance known to himself; (b) every material circumstance the assured is bound to disclose, unless it comes to the agent's knowledge too late.</p>
+      <div class="case-box">
+        <div class="case-name">⚖ Bawden v. London, Edinburgh &amp; Glasgow Assurance Co. (1892)</div>
+        <p>Agent had knowledge that the assured had only one eye (material for accident insurance). Proposal form did not record this. Held: agent's knowledge imputed to the insurer — insurer liable.</p>
+      </div>
+      <div class="case-box">
+        <div class="case-name">⚖ Wing v. Harvey</div>
+        <p>Agent knowingly accepted premium with knowledge of untrue statement in proposal. Held: insurer estopped from denying liability.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>2.7 What Facts Are Material — Categories</h3>
+  <div class="info-grid">
+    <div class="info-cell"><div class="k">Life Insurance</div><div class="v">Age, health, medical history, family history of hereditary disease, occupation &amp; hazards, habits (alcohol, drugs), previous proposals declined</div></div>
+    <div class="info-cell"><div class="k">Fire Insurance</div><div class="v">Building construction (brick vs timber), nature of goods (flammable), previous fires/claims, other insurance, moral hazard (financial difficulty)</div></div>
+    <div class="info-cell"><div class="k">Marine Insurance</div><div class="v">Seaworthiness of ship, nature of cargo (dangerous), route &amp; destination, previous losses, political risks at destination</div></div>
+  </div>
+
+  <h3>2.8 Indian Cases on Utmost Good Faith</h3>
+  <div class="case-box">
+    <div class="case-name">⚖ LIC v. Shakuntala Devi — TRIVIAL AILMENTS NEED NOT BE DISCLOSED</div>
+    <p>LIC contended insured had not disclosed indigestion for a few days before policy. Insured died within a year. <strong>Held:</strong> Indigestion, headache, etc. are <mark>casual disturbances of health</mark> — not material facts. LIC cannot take advantage. LIC held liable. <em>Principle: Trivial/temporary ailments of no actuarial significance need not be disclosed.</em></p>
+  </div>
+  <div class="case-box">
+    <div class="case-name">⚖ Godfrey v. Brittanic Assurance Co. — SERIOUS CONDITIONS ARE MATERIAL</div>
+    <p>Assured did not disclose lung infection, kidney problem, and pharyngitis while signing proposal. <strong>Held:</strong> These were material facts — company not liable.</p>
+  </div>
+  <div class="case-box">
+    <div class="case-name">⚖ Lambert's Case — CRIMINAL RECORD IS MATERIAL</div>
+    <p>W took policy on jewellery. Husband H had been convicted twice for dishonesty — not disclosed. <strong>Held:</strong> Material fact — moral hazard arising from H's criminal record highly material. Company not liable.</p>
+  </div>
+  <div class="case-box">
+    <div class="case-name">⚖ Ratanlal v. M.I. Co. — MOMENTARY EXHAUSTION NOT MATERIAL</div>
+    <p>Insured had momentary exhaustion on the same day policy was issued. Doctor examined but gave no medicine. Insured died April 19. <strong>Held:</strong> Not a material fact. Company held liable.</p>
+  </div>
+
+  <h3>2.9 The Duty is Mutual</h3>
+  <div class="case-box">
+    <div class="case-name">⚖ Banque Financiere de la Cite SA v. Westgate Insurance Co. Ltd.</div>
+    <p>Confirmed mutual nature of the duty. <em>"The remedy to the insurer for the insured's breach is to avoid the contract; the remedy to the insured for the insurer's breach is also to avoid the contract."</em></p>
+  </div>
+
+  <h3>2.10 Non-Disclosure vs. Misrepresentation</h3>
+  <table class="data-table">
+    <tr><th>Type</th><th>Nature</th><th>Effect</th><th>Premium</th></tr>
+    <tr><td class="td-key">Non-disclosure</td><td>Omission of material fact (Armstrong v. Turquand 1858)</td><td>Contract <mark>voidable</mark> — not void</td><td>Depends</td></tr>
+    <tr><td class="td-key">Fraudulent Misrepresentation</td><td>Deliberate lie</td><td>Voidable; insurer may seek damages</td><td>Forfeited (fraudster cannot benefit)</td></tr>
+    <tr><td class="td-key">Innocent Misrepresentation</td><td>Honest but incorrect belief (<em>Graham v. W.A. Insurance 1931</em>)</td><td>Voidable — right to avoid upheld</td><td><mark>Returnable</mark></td></tr>
+    <tr><td class="td-key">Mere Silence</td><td>Generally not fraud, BUT in insurance = non-disclosure (duty to speak exists)</td><td>Treated as non-disclosure</td><td>Depends</td></tr>
+  </table>
+
+  <h3>2.11 Consequences of Breach + Section 45</h3>
+  <div class="exam-alert">
+    <div class="label">Section 45 — Life Policy Incontestability (as amended by Act 5 of 2015)</div>
+    <ul>
+      <li>Life policy <strong>cannot be questioned on any ground</strong> after <mark>3 years</mark> from date of policy / commencement of risk / revival / rider (whichever is later).</li>
+      <li>Within 3 years — may be challenged on <strong>fraud</strong> (§ 45(2)) or on <strong>misstatement of material fact affecting life expectancy</strong> (§ 45(4)).</li>
+      <li>If repudiated on misstatement (NOT fraud) — insurer must <strong>return premiums collected within 90 days</strong> of repudiation (§ 45(4) proviso).</li>
+      <li><mark>Changed from 2 years to 3 years by Insurance Laws (Amendment) Act, 2015.</mark></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ CH 3 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch3">
+  <div class="chapter-num">03</div>
+  <div>
+    <div class="chapter-title">Doctrine of Indemnity — <em>Subrogation, Contribution &amp; Reinstatement</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">§§ 67–82 MIA 1963 · Average Clause · Standard Fire Policy</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>3.1 The Principle &amp; Its Rationale</h3>
+
+  <blockquote>
+    "The insured shall be placed in the same financial position after a loss as they occupied immediately before the loss — no better, no worse."
+    <cite>— Principle of Indemnity</cite>
+  </blockquote>
+
+  <div class="case-box">
+    <div class="case-name">⚖ Castellain v. Preston (1883) — Cotton L.J. — FOUNDATIONAL CASE</div>
+    <p>"The fundamental principle of insurance law is that the contract of insurance contained in a marine or fire policy is a contract of indemnity, and of indemnity only." The court also established subrogation — the insured must account to the insurer for sums received from third parties that reduce their actual loss.</p>
+  </div>
+
+  <p><strong>Rationale — Two Pillars:</strong> (1) Prevention of unjust enrichment — if insured could profit from loss, people would be incentivized to cause the very losses they are insured against. (2) Preservation of the actuarial basis — premiums are calculated on compensation of actual losses, not profit opportunities.</p>
+
+  <h3>3.2 Measure of Indemnity</h3>
+  <table class="data-table">
+    <tr><th>Insurance Type</th><th>Measure of Indemnity</th></tr>
+    <tr><td class="td-key">Fire Insurance</td><td>Market value of damaged property at time and place of loss, subject to sum insured. Market value = cost of construction/replacement <em>less</em> depreciation for age, usage, wear and tear. Cannot recover anticipated profits, goodwill, or sentimental value.</td></tr>
+    <tr><td class="td-key">Marine Insurance</td><td>§ 17 MIA 1963 defines insurable value precisely for ships, freight, goods. For total loss under valued policy — agreed value conclusive (§ 29(3)). Measure of indemnity detailed in §§ 67–78.</td></tr>
+    <tr><td class="td-key">Life Insurance</td><td>No fixed measure — agreed sum assured is paid without reference to actual financial loss. Hence not a contract of indemnity. <em>Dalby v. India &amp; London Assurance Co. (1854).</em></td></tr>
+  </table>
+
+  <h3>3.3 Exceptions to the Principle of Indemnity</h3>
+  <ul class="num-list">
+    <li><strong>Life Insurance</strong> — Not a contract of indemnity. <em>Dalby v. India and London Assurance Co. (1854)</em>: House of Lords held payment is made on death or maturity without proof of loss.</li>
+    <li><strong>Personal Accident &amp; Sickness Insurance</strong> — Fixed sum paid on happening of specified event; not proportional to financial loss.</li>
+    <li><strong>Valued Policies (Marine Insurance)</strong> — § 28 &amp; § 29(3) MIA 1963: agreed value at outset is conclusive. If full agreed value recovered even though market value lower at time of loss — technically exceeds indemnity.</li>
+  </ul>
+
+  <h3>3.4 Doctrines Flowing from Indemnity</h3>
+
+  <!-- SUBROGATION -->
+  <div class="doctrine-card open" id="subrog">
+    <div class="doctrine-header" onclick="toggleD('subrog')">
+      <div class="doctrine-icon gold">→</div>
+      <div class="doctrine-title-text">(i) Subrogation</div>
+      <div class="doctrine-sub">§ 79 Marine Insurance Act, 1963</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <p><strong>Definition:</strong> Subrogation is the right of the insurer, having indemnified the insured for a loss, to <strong>step into the shoes of the insured</strong> and exercise whatever rights the insured has against third parties responsible for the loss.</p>
+      <p><strong>Basis:</strong> If insurer pays AND insured also recovers from the responsible third party, the insured makes a profit — violating indemnity. Subrogation prevents this.</p>
+      <p>Justice Mansfield: <em>"Every day the insurer is put in the place of the insured."</em> The courts: <em>"The assured cannot take from both hands."</em></p>
+      <div class="case-box">
+        <div class="case-name">⚖ Castellain v. Preston (1883) — THE LEADING SUBROGATION CASE</div>
+        <p>A agreed to sell house to B (B to pay unconditionally). A's house (insured) was destroyed by fire. Insurance company paid total loss. B also paid A under the sale contract. Insurance company claimed the purchase money paid by B. <strong>Held:</strong> Insurance company entitled — insured cannot keep both insurance money and sale proceeds for the same loss.</p>
+      </div>
+      <div class="case-box">
+        <div class="case-name">⚖ Yorkshire v. N.S. Co. — LIMIT OF SUBROGATION</div>
+        <p>Canadian Government vessel caused total loss to Vessel A. Insurer paid ₹72,000. Owner later sued Canadian Government and got ₹1,27,000. Insurer sued to recover. <strong>Held:</strong> Insurer entitled to recover only <mark>₹72,000</mark> — the amount it had paid — not more.</p>
+      </div>
+      <div class="case-box">
+        <div class="case-name">⚖ Glen Line Case — INSURER GETS RECOVERED WRECK</div>
+        <p>Ship A insured for £10,000, lost in maritime peril, insurer paid total loss. Ship later recovered from seabed and sold. <strong>Held:</strong> Insurer entitled to the sale value — subrogation entitles insurer to whatever remains of the subject matter.</p>
+      </div>
+      <h4>Key Principles of Subrogation</h4>
+      <ul class="num-list">
+        <li>Right arises only upon actual payment of the total loss to the insured.</li>
+        <li>Insurer gets the rights of the assured when the latter has a right of action against third parties.</li>
+        <li>Insurer's claim is <strong>limited to what he has paid</strong> — not more.</li>
+        <li><strong>NOT applicable</strong> to life insurance, personal accident insurance, or any non-indemnity insurance.</li>
+        <li>Insured must not compromise or settle rights against third parties in a manner that defeats the insurer's subrogation rights.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONTRIBUTION -->
+  <div class="doctrine-card open" id="contrib">
+    <div class="doctrine-header" onclick="toggleD('contrib')">
+      <div class="doctrine-icon navy">⚖</div>
+      <div class="doctrine-title-text">(ii) Contribution</div>
+      <div class="doctrine-sub">§ 80 Marine Insurance Act, 1963 · Average Clause</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <p><strong>Definition:</strong> Where the insured has taken out <strong>two or more insurance policies covering the same risk and interest</strong>, and a loss occurs, each insurer contributes <em>rateably</em> to the loss. No insurer pays more than their proportionate share; insured cannot recover more than the actual loss in total.</p>
+
+      <h4>Mathematical Formula</h4>
+      <div class="calc-box">
+        <div class="calc-label">Contribution Formula</div>
+        <div class="formula">Each Insurer's Share = (That Insurer's Sum Insured ÷ Total Insured Amount) × Amount of Loss</div>
+        <div class="result">
+          Example: Property value ₹80,000. Insured with A for ₹30,000, with B for ₹20,000. Loss: ₹25,000.<br>
+          A's share = (30,000 ÷ 80,000) × 25,000 = <strong>₹9,375</strong><br>
+          B's share = (20,000 ÷ 80,000) × 25,000 = <strong>₹6,250</strong><br>
+          Balance ₹9,375 borne by insured (under-insurer by ₹30,000 of actual value).
+        </div>
+      </div>
+
+      <h4>Average Clause (Condition 10, Standard Fire Policy)</h4>
+      <p>Penalizes under-insurance. If the insured has insured for less than the property's value, they bear a proportionate share as their own insurer.</p>
+      <div class="calc-box">
+        <div class="calc-label">Average Clause Formula</div>
+        <div class="formula">Amount Payable = (Sum Insured ÷ Actual Value of Property) × Amount of Loss</div>
+        <div class="result">
+          Example: Building insured for ₹1,50,000; actual value ₹2,50,000; fire loss ₹90,000.<br>
+          Amount payable = (1,50,000 ÷ 2,50,000) × 90,000 = <strong>₹54,000</strong><br>
+          Balance ₹36,000 borne by insured. Exception: If sum insured ≥ 85% of actual value, clause does not apply.
+        </div>
+      </div>
+
+      <div class="exam-alert">
+        <div class="label">Double Insurance — Section 34 MIA, 1963</div>
+        <p>§ 34(1): Where two or more policies are effected on the same adventure and interest, and sums insured exceed the indemnity allowed — the assured is over-insured by double insurance. The insured may claim from insurers in such order as he thinks fit — but cannot receive more than the indemnity allowed. <strong>Excess received is held in trust for the insurers</strong> according to their right of contribution.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REINSTATEMENT -->
+  <div class="doctrine-card" id="reinstat">
+    <div class="doctrine-header" onclick="toggleD('reinstat')">
+      <div class="doctrine-icon sage">🏗</div>
+      <div class="doctrine-title-text">(iii) Reinstatement</div>
+      <div class="doctrine-sub">Clause 7 — Standard Fire Policy</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <p><strong>Definition:</strong> Instead of paying the loss in cash, the insurer has the <strong>option to reinstate or replace</strong> the property damaged or destroyed, effectively restoring it to its pre-loss condition.</p>
+      <p><strong>Statutory Basis:</strong> Clause 7 of the Standard Fire Policy (as approved by the Tariff Advisory Committee) gives the insurer this option.</p>
+      <p>If the insurer elects to reinstate, they must put the premises <em>substantially as they were before the fire.</em> Failure to properly reinstate = liability for damages for the failure. Maximum liability under reinstatement does not exceed the <strong>total sum assured</strong>.</p>
+      <p><strong>Why important:</strong> Paying the depreciated market value may leave the insured unable to reconstruct. Reinstatement bridges this gap by rebuilding to original condition without deduction for depreciation. <em>Reinstatement Value Policies</em> are designed specifically for this purpose.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ CH 4 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch4">
+  <div class="chapter-num">04</div>
+  <div>
+    <div class="chapter-title">Insurable Interest — <em>The Legal Pillar of Insurance</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">§ 7 Marine Insurance Act, 1963 · Dalby · Macaura · Griffith</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>4.1 Introduction</h3>
+  <p>Insurable interest is what transforms an insurance contract from a <strong>wager into a legitimate commercial transaction</strong>. Without it, insurance is mere gambling. No comprehensive statutory definition in the Insurance Act, 1938 — must rely on § 7 MIA 1963 and case law.</p>
+
+  <div class="def-card">
+    <div class="who">§ 7(2) Marine Insurance Act, 1963 — Statutory Definition</div>
+    <p>"A person is interested in a marine adventure where he stands in any legal or equitable relation to the adventure or to any insurable property at risk therein, in consequence of which he may benefit by the safety or due arrival of insurable property, or may be prejudiced by its loss, or by damage thereto, or by the detention thereof, or may incur liability in respect thereof."</p>
+  </div>
+  <div class="def-card">
+    <div class="who">Lawrence J. in Lucena v. Craufurd (1806) — Classic Definition</div>
+    <p>"A man is interested in a thing to whom advantage may arise or prejudice happen from the circumstances which may attend it... and whom it importeth, that its condition, as to safety or other quality, should continue."</p>
+  </div>
+
+  <h3>4.2 Essentials of Insurable Interest</h3>
+  <ul class="num-list">
+    <li>There must be a <strong>subject matter of insurance</strong> — property, life, liability, or any other subject.</li>
+    <li>The insured must stand in a <strong>defined legal or equitable relationship</strong> to the subject matter (ownership, contractual right, statutory right, family relationship, potential liability to third party).</li>
+    <li>The relationship must be such that the insured <strong>benefits from safety/survival</strong> or <strong>suffers loss from damage/destruction</strong>.</li>
+    <li>The interest must be <strong>legally recognized</strong> — enforceable in courts. Purely sentimental interest is insufficient.</li>
+    <li>The interest must be <strong>pecuniary (financial)</strong> in nature — measurable in money.</li>
+    <li>The interest must not be <strong>void on grounds of public policy</strong> — criminal interests, interests against national law, interests of enemy alien during war.</li>
+  </ul>
+
+  <h3>4.3 When Must Insurable Interest Exist?</h3>
+  <table class="data-table">
+    <tr><th>Insurance Type</th><th>When Required</th><th>Key Authority</th></tr>
+    <tr><td class="td-key">Fire Insurance</td><td>At the time of taking the policy <strong>AND at the time of loss</strong>. Must persist throughout (personal contract of indemnity).</td><td><em>Colling Ridge v. Royal Exchange Assurance</em> — property awaiting conveyance; insured still had legal title at time of fire; claim succeeded.</td></tr>
+    <tr><td class="td-key">Marine Insurance</td><td>§ 8(1): <strong>At the time of loss</strong>, though need not exist when insurance is effected. Exception: "lost or not lost" clause — may recover even if interest acquired after loss (unless aware of loss when insuring).</td><td><em>Anderson v. Morice</em> — no insurable interest when goods not yet loaded as per policy terms; claim failed.</td></tr>
+    <tr><td class="td-key">Life Insurance</td><td><strong>At the time of effecting the policy only</strong>. Need not exist at the time of the claim (since life insurance ≠ contract of indemnity).</td><td><em>Dalby v. India and London Assurance Co. (1854)</em> — House of Lords; original policies surrendered but re-insurance policy paid; insurable interest existed at inception.</td></tr>
+  </table>
+
+  <h3>4.4 Persons Having Insurable Interest</h3>
+
+  <h4>A. In Life Insurance</h4>
+  <table class="data-table">
+    <tr><th>Person</th><th>Insurable Interest In</th><th>Note</th></tr>
+    <tr><td class="td-key">Every person</td><td>Own life — to unlimited extent</td><td>No cap on sum assured</td></tr>
+    <tr><td class="td-key">Husband in wife's life / Wife in husband's life</td><td>Each other's lives</td><td>Mutually presumed by law. <em>Griffith v. Fleming</em> — W committed suicide; G claimed; insurer's objection rejected — interest of spouses is presumed.</td></tr>
+    <tr><td class="td-key">Employer</td><td>Employee's life</td><td>Recognized insurable interest</td></tr>
+    <tr><td class="td-key">Creditor</td><td>Debtor's life — up to extent of debt</td><td>Debtor's death = loss of opportunity to recover</td></tr>
+    <tr><td class="td-key">Surety</td><td>Principal debtor's life</td><td>Same rationale as creditor</td></tr>
+    <tr><td class="td-key">Business partners</td><td>Each other's lives</td><td>Recognized</td></tr>
+    <tr><td class="td-key">Parent</td><td>Minor child's life</td><td>Legal right to child's services and earnings</td></tr>
+    <tr><td class="td-key">Natural love &amp; affection alone</td><td>—</td><td><strong>Does NOT create insurable interest.</strong> Must have pecuniary interest in addition to familial relationship.</td></tr>
+  </table>
+
+  <div class="case-box">
+    <div class="case-name">⚖ Cleaver v. Mutual Reserve — NO RECOVERY WHERE NOMINEE CAUSED DEATH</div>
+    <p>M insured his life in wife's favour. Wife poisoned M. W convicted. <strong>Held:</strong> W was not entitled to recover — <em>"no person shall be allowed to take advantage of their own wrong."</em> However, executors of M's estate could recover and hold it for M's creditors or heirs.</p>
+  </div>
+
+  <h4>B. In Fire Insurance</h4>
+  <div class="case-box">
+    <div class="case-name">⚖ Macaura v. Northern Assurance Co. (1925) — CRITICAL CASE</div>
+    <p><strong>Facts:</strong> Macaura (M) owned timber. Sold it to a company where he was the sole shareholder. Timber insured in M's own name against fire. Timber destroyed by fire. M claimed.<br>
+    <strong>Held:</strong> M had <mark>NO insurable interest</mark> at the time of loss. The timber belonged to the company — not M. As a mere shareholder, M had no legal or equitable interest in company's assets (only in his shares). Claim rejected.<br>
+    <strong>Significance:</strong> A shareholder — even a <em>sole</em> shareholder — does NOT have insurable interest in the company's assets. Doctrine of separate corporate personality (Salomon v. Salomon) applies fully in insurance law.</p>
+  </div>
+
+  <h4>C. In Marine Insurance — Key Persons (§ 7 MIA 1963)</h4>
+  <div class="info-grid">
+    <div class="info-cell"><div class="k">Shipowner</div><div class="v">Full value of the ship</div></div>
+    <div class="info-cell"><div class="k">Charterer</div><div class="v">In the freight</div></div>
+    <div class="info-cell"><div class="k">Consignor/Shipper</div><div class="v">In the cargo and profits</div></div>
+    <div class="info-cell"><div class="k">Master &amp; Crew (§ 13)</div><div class="v">In their wages</div></div>
+    <div class="info-cell"><div class="k">Lender on Bottomry (§ 12)</div><div class="v">In respect of the loan</div></div>
+    <div class="info-cell"><div class="k">Mortgagor (§ 16(1)(a))</div><div class="v">Full value of mortgaged property</div></div>
+    <div class="info-cell"><div class="k">Mortgagee (§ 16(1)(b))</div><div class="v">To extent of mortgage debt</div></div>
+    <div class="info-cell"><div class="k">Partial interest (§ 10)</div><div class="v">"A partial interest of any nature is insurable."</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ CH 5 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch5">
+  <div class="chapter-num">05</div>
+  <div>
+    <div class="chapter-title">Premium — Definition, Modes, Days of Grace, <em>Forfeiture &amp; Return</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">§ 64VB Insurance Act, 1938 · § 84 Marine Insurance Act, 1963</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>5.1 Definition of Premium</h3>
+  <p>Premium is the <strong>price or consideration</strong> paid by the insured to the insurer for undertaking the risk covered by the insurance policy. It is the insured's side of the contractual bargain.</p>
+  <div class="exam-alert">
+    <div class="label">Section 64VB — No Risk Without Advance Premium</div>
+    <p><strong>§ 64VB(1):</strong> No insurer shall assume any risk in India unless the premium payable is received in advance (or guaranteed to be paid in prescribed manner).<br>
+    <strong>§ 64VB(2) Explanation:</strong> Where premium is tendered by postal money order or cheque sent by post, the <mark>risk may be assumed on the date on which the money order is booked or the cheque is posted</mark>.</p>
+  </div>
+
+  <h3>5.2 Modes / Methods of Payment of Premium</h3>
+  <table class="data-table">
+    <tr><th>Mode</th><th>Description</th></tr>
+    <tr><td class="td-key">Single Premium</td><td>Entire premium for full policy term paid in one lump sum at inception. Common in certain endowments, annuities, short-term policies.</td></tr>
+    <tr><td class="td-key">Level Premium</td><td>Regular periodic installments — annually, semi-annually, quarterly, or monthly — throughout policy term. Amount constant. Most common method.</td></tr>
+    <tr><td class="td-key">Limited Premium</td><td>Premiums paid for a shorter period than the policy term (e.g., 20-year policy, premiums paid only 10 years).</td></tr>
+    <tr><td class="td-key">Natural Premium</td><td>Theoretically increases each year as risk increases with age. Used in certain term insurance structures.</td></tr>
+  </table>
+
+  <p><strong>§ 64VB(3):</strong> Premium refunds shall be paid <strong>directly to the insured</strong> by crossed cheque or postal money order — NOT credited to agent's account.<br>
+  <strong>§ 64VB(4):</strong> Agent who collects premium must deposit/dispatch to insurer in <mark>full within 24 hours</mark> (excluding bank and postal holidays) — cannot deduct commission first.</p>
+
+  <h3>5.3 Days of Grace</h3>
+  <p>Days of grace are a concession allowing a specified period beyond the due date during which the policy remains in force and the premium may be paid without affecting validity.</p>
+  <div class="info-grid">
+    <div class="info-cell"><div class="k">Annual / Quarterly / Semi-Annual</div><div class="v">Typically 30 days</div></div>
+    <div class="info-cell"><div class="k">Monthly premium policies</div><div class="v">Typically 15 days</div></div>
+    <div class="info-cell"><div class="k">Death during days of grace?</div><div class="v gold">Insurer IS liable — but unpaid premium deducted from claim</div></div>
+  </div>
+
+  <h3>5.4 Forfeiture of Premium</h3>
+  <p>Premium once paid is <strong>non-refundable</strong> in certain circumstances:</p>
+  <ul class="num-list">
+    <li><strong>Fraud by the insured</strong> — if contract avoided due to insured's fraud, premium is forfeited. The fraudster cannot benefit.</li>
+    <li><strong>Where risk has attached</strong> — if risk has once attached and policy then avoided for other reason, premium generally not returnable.</li>
+    <li><strong>Wagering contracts</strong> — premiums paid under void wagering contracts are not recoverable.</li>
+  </ul>
+
+  <h3>5.5 Return of Premium — When Returnable</h3>
+
+  <div class="doctrine-card open" id="return-prem">
+    <div class="doctrine-header" onclick="toggleD('return-prem')">
+      <div class="doctrine-icon gold">↩</div>
+      <div class="doctrine-title-text">Grounds for Return of Premium</div>
+      <div class="doctrine-sub">§ 84 Marine Insurance Act, 1963 · § 45 Insurance Act, 1938</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <table class="data-table">
+        <tr><th>Ground</th><th>Rule</th></tr>
+        <tr><td class="td-key">Rejection of proposal</td><td>Insurer rejects proposal → must refund premium received.</td></tr>
+        <tr><td class="td-key">Void policy</td><td>Premium paid on void policy must be refunded (e.g., absence of insurable interest).</td></tr>
+        <tr><td class="td-key">Innocent misrepresentation</td><td>Insurer avoids on innocent misrepresentation → must return premium. (For fraud = NOT returnable.)</td></tr>
+        <tr><td class="td-key">Risk never attaching (§ 84(3)(b) MIA)</td><td>Subject matter never imperilled → premium returnable. Exception: "lost or not lost" + already arrived safely.</td></tr>
+        <tr><td class="td-key">No insurable interest throughout (§ 84(3)(c) MIA)</td><td>Premium returnable. Rule does not apply to wagering policies.</td></tr>
+        <tr><td class="td-key">Over-insurance (§ 84(3)(e)&(f) MIA)</td><td>Assured over-insured under unvalued policy → proportionate part of premium returnable.</td></tr>
+        <tr><td class="td-key">Policy cancellation (§ 64VB(3))</td><td>Refund paid directly to insured by crossed cheque/money order.</td></tr>
+        <tr><td class="td-key">Misstatement (not fraud) under § 45</td><td>If life policy repudiated on misstatement within 3 years — premiums collected must be returned within <mark>90 days of repudiation</mark>.</td></tr>
+      </table>
+      <p><strong>§ 84(1) MIA 1963:</strong> <em>"Where the consideration for the payment of the premium totally fails, and there has been no fraud or illegality on the part of the assured or his agents, the premium is thereupon returnable to the assured."</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ CH 6 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch6">
+  <div class="chapter-num">06</div>
+  <div>
+    <div class="chapter-title">The Risk &amp; Doctrine of <em>Causa Proxima</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">"Causa proxima non remota spectatur" · § 55 MIA 1963</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>6.1 Meaning of Risk</h3>
+  <p>Risk in insurance law is a <strong>"measurable uncertainty"</strong> — a combination of uncertainty (not knowing if/when the harmful event will occur) and potential financial loss (if it does occur). Importantly:</p>
+  <div class="info-grid">
+    <div class="info-cell"><div class="k">Peril</div><div class="v">Source of loss (fire, flood, death) — the event insured against</div></div>
+    <div class="info-cell"><div class="k">Hazard</div><div class="v">Condition increasing probability of a peril (explosives near building, unhealthy lifestyle)</div></div>
+    <div class="info-cell"><div class="k">Risk</div><div class="v">Chance or probability of loss resulting from the peril</div></div>
+  </div>
+
+  <h3>6.2 Essentials / Characteristics of Insurable Risks</h3>
+  <ul class="num-list">
+    <li><strong>Measurable in money</strong> — pure sentimental loss cannot be insured.</li>
+    <li><strong>Uncertain</strong> — either uncertain whether it will happen (fire, flood) or uncertain when it will happen (death).</li>
+    <li><strong>Fortuitous / Accidental</strong> — outside the control of the insured. Deliberate or intentional losses are not insurable.</li>
+    <li><strong>Insurable (not speculative)</strong> — stock market speculation, business risks from management decisions are generally not insurable.</li>
+    <li><strong>Sufficient magnitude</strong> — very small risks may not be worth insuring; catastrophic risks (nuclear war) may be excluded.</li>
+    <li><strong>Large enough in number</strong> — actuarially sound — sufficiently large number of similar risks for accurate prediction.</li>
+    <li><strong>Risk Must Attach</strong> — risk must actually run. "If the intended voyage is abandoned for fear of capture, there is no risk by capture."</li>
+  </ul>
+
+  <h3>6.3 Scope of Risk</h3>
+  <p>Scope is determined entirely by the policy. The policy specifies: (1) covered perils; (2) excluded perils (war, nuclear, deliberate acts, inherent vice, wear and tear); (3) subject matter; (4) sum insured; (5) duration.</p>
+  <div class="exam-alert">
+    <div class="label">"All Risks" Policies</div>
+    <p>Under an all-risks policy, the insurer covers every <strong>fortuitous loss not expressly excluded</strong>. The burden shifts — the insured does not need to prove the specific cause; the insurer must prove the cause is excluded. Institute Cargo Clauses (ICC) in marine insurance: Clause A = widest cover; Clause C = most restricted.<br>
+    <strong>Gaunt's Case:</strong> Wool damaged during transit. Held: Insurer liable under all-risks clause.<br>
+    <strong>Chester's Case:</strong> Sponges damaged by dirt and water in transit. Held: Insurer liable under all-risks policy.<br>
+    <strong>Exception:</strong> Even in all-risks — natural wear and tear, inherent vices of subject matter are <mark>always excluded</mark>.</p>
+  </div>
+
+  <h3>6.4 Alteration of Risk</h3>
+  <table class="data-table">
+    <tr><th>Insurance Type</th><th>Effect of Alteration</th><th>Case</th></tr>
+    <tr><td class="td-key">Fire Insurance</td><td>Material alteration without insurer's knowledge and consent may give insurer right to avoid the policy.</td><td><em>Halves v. RFA</em> — Shop insured for groceries; fire crackers brought for sale without disclosure; fire broke out. Held: Insurer not liable — material change in nature of goods not disclosed.</td></tr>
+    <tr><td class="td-key">Marine Insurance</td><td>Deviation and change of voyage — if ship deviates from agreed voyage, insurer discharged from liability from date of deviation (§ 46(1) MIA 1963).</td><td><em>Elliot v. Wilson</em> — ship touched port not on specified course. Held: Deviation, insurer not liable.</td></tr>
+    <tr><td class="td-key">Life Insurance</td><td>Once issued, cannot be avoided by insurer on grounds of worsened health/circumstances (unless relevant warranty). Policy terms fix obligation for life of policy.</td><td>—</td></tr>
+  </table>
+
+  <h3>6.5 The Doctrine of Causa Proxima</h3>
+
+  <div class="def-card">
+    <div class="who">The Latin Maxim</div>
+    <p>"<strong>Causa proxima non remota spectatur</strong>" — "It is the proximate cause, not the remote cause, that should be considered." [causa = cause; proxima = nearest/closest; non = not; remota = remote; spectatur = should be looked at]</p>
+  </div>
+
+  <p>A <strong>proximate cause</strong> is the direct, dominant, operative, and efficient cause of the loss — the cause that sets in motion an unbroken chain of events leading to the loss, without the intervention of any independent cause. It is NOT necessarily the closest in time or the first event in the chain.</p>
+
+  <h4>Rules of Proximate Cause</h4>
+
+  <div class="doctrine-card open" id="proxcause">
+    <div class="doctrine-header" onclick="toggleD('proxcause')">
+      <div class="doctrine-icon burg">⚡</div>
+      <div class="doctrine-title-text">All Rules &amp; Cases — Causa Proxima</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <table class="data-table">
+        <tr><th>Rule</th><th>Case &amp; Holding</th></tr>
+        <tr>
+          <td class="td-key">Rule 1: Risk must actually operate</td>
+          <td>In fire insurance: actual ignition must occur. If voyage not taken due to fear of capture — no "capture" — risk does not attach.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Rule 2: Once risk operates, preventive damage is also covered</td>
+          <td><em>Symington v. Union Insurance</em> — Cork insured against fire; fire broke out nearby; cork thrown into sea to prevent spreading. Held: Insurer liable for BOTH damage from putting out fire AND property thrown into sea — both proximately caused by fire peril.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Rule 3: Novus Actus Interveniens — intervention of new cause breaks chain</td>
+          <td><em>Marsden v. City Insurance</em> — Fire in building; mob plundered; plate-glass broken. Held: Proximate cause of window breakage = lawlessness of mob (independent cause), NOT the fire. Insurer NOT liable for window. [If goods insured against fire and stolen after fire — proximate cause of theft = theft, not fire. Insurer under fire policy NOT liable.]</td>
+        </tr>
+        <tr>
+          <td class="td-key">Rule 4: Burden of proof</td>
+          <td>Insured must prove proximate cause = covered peril. If insurer relies on an exception — insurer bears the burden of proving the exception applies. <em>Thompson's Case</em> — Fire policy excepted liability if gasoline stored; druggist using gasoline stove for routine cooking; fire broke out. Held: Insurer WAS liable — using stove not "storing" gasoline.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Rule 5: Accident cases — wider interpretation</td>
+          <td>Motor Accident: A injured, moved in dazed condition, fell into water, died of shock. Held: Proximate cause = accident.<br>
+          Railway Accident: Person injured, got pneumonia from cold exposure. Held: Proximate cause = accident.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Multiple Causes — Lord Dynedin's Rule</td>
+          <td>When multiple causes, one must be selected as proximate using "common sense standard." <em>Tootal v. London Fire Co.</em> — Earthquake caused fire (excluded peril), fire spread by wind and burnt T's building (500 yds away). T had insured against fire. Held: Proximate cause = earthquake (NOT fire). Insurer NOT liable. [Earthquake was the dominant, originating cause.]</td>
+        </tr>
+      </table>
+
+      <h4>§ 55 Marine Insurance Act, 1963 — Proximate Cause in Marine</h4>
+      <p><strong>§ 55(1):</strong> <em>"The insurer is liable for any loss proximately caused by a peril insured against... he is not liable for any loss which is not proximately caused by a peril insured against."</em></p>
+      <p><strong>§ 55(2) exclusions:</strong> Wilful misconduct of assured; loss caused by delay (even if delay caused by covered peril); ordinary wear and tear; inherent vice; rats/vermin; machinery injury not from maritime perils.</p>
+
+      <div class="case-box">
+        <div class="case-name">⚖ Montoya v. London Assurance Co. — Storm = Proximate Cause of Tobacco Loss</div>
+        <p>Hides and tobacco shipped and insured. Storm made hides wet; foul smell from wet hides made tobacco unfit. Held: Proximate cause = storm (covered peril). Insurer liable for both hides and tobacco loss.</p>
+      </div>
+      <div class="case-box">
+        <div class="case-name">⚖ Samuel v. Dumas — Wilful Scuttling = Insurer Not Liable</div>
+        <p>Ship scuttled (deliberately sunk) with owner's connivance; water then flooded in. Held: Dominant reason = scuttling (wilful misconduct). Insurer NOT liable.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ CH 7 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch7">
+  <div class="chapter-num">07</div>
+  <div>
+    <div class="chapter-title">Assignment of Insurance Policy — <em>Nature &amp; Manner</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">§ 38 Insurance Act, 1938 · §§ 52–53 MIA 1963 · Rule in Dearle v. Hall</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>7.1 Nature of Assignment</h3>
+  <table class="data-table">
+    <tr><th>Insurance Type</th><th>Assignable?</th><th>Key Rule</th></tr>
+    <tr><td class="td-key">Life Insurance</td><td>Yes — with specific formalities (§ 38 Insurance Act, 1938)</td><td>In writing; signed by assignor; attested by at least one witness; notice to insurer required to operate against insurer.</td></tr>
+    <tr><td class="td-key">Marine Insurance</td><td>Yes — specifically designed to be assignable (§ 52 MIA 1963)</td><td>"A marine policy may be transferred by assignment unless it contains terms expressly prohibiting assignment. It may be assigned either before or after loss."</td></tr>
+    <tr><td class="td-key">Fire Insurance</td><td>No — NOT automatically transferred when property is sold</td><td>Fire policy is a personal contract. On sale of building, buyer must take fresh policy. Original policy terminates.</td></tr>
+  </table>
+
+  <h3>7.2 Assignment of Life Insurance — Section 38 (Substituted by Act 5/2015)</h3>
+
+  <div class="doctrine-card open" id="assign-life">
+    <div class="doctrine-header" onclick="toggleD('assign-life')">
+      <div class="doctrine-icon gold">📋</div>
+      <div class="doctrine-title-text">Section 38 — Complete Framework</div>
+      <div class="doctrine-sub">Insurance Act, 1938 · Substituted by Insurance Laws (Amendment) Act, 2015</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <h4>§ 38(1) — How Assignment is Made</h4>
+      <p>Assignment may be made <strong>only by:</strong> (a) an endorsement upon the policy itself, OR (b) a separate instrument; signed by the assignor (or duly authorised agent) and attested by at least one witness; specifically setting forth the fact of assignment, the reasons, the antecedents of the assignee, and the terms.</p>
+
+      <h4>§ 38(2) — Insurer's Right to Decline [NEW by 2015 Act]</h4>
+      <p>Insurer may decline to act upon the assignment if it has sufficient reason to believe the transfer is not <em>bona fide</em>, not in the interest of the policyholder, against public interest, or for the purpose of <strong>trading of insurance policy</strong> (buying and selling policies as financial instruments).</p>
+
+      <h4>§ 38(3) — Recording Refusal</h4>
+      <p>If insurer refuses — must record reasons in writing and communicate to policyholder within <mark>30 days</mark> from date of notice of assignment.</p>
+
+      <h4>§ 38(4) — Appeal Against Refusal</h4>
+      <p>Person aggrieved may prefer a claim to the Authority (IRDAI) within <mark>30 days</mark> of receipt of communication of refusal.</p>
+
+      <h4>§ 38(5) — When Assignment is Complete</h4>
+      <p>Assignment is complete upon execution of endorsement/instrument duly attested. BUT it is NOT operative as against an insurer, and does NOT confer right to sue, until:</p>
+      <ul style="padding-left:20px;margin:10px 0;">
+        <li>A notice in writing of the assignment, AND</li>
+        <li>The endorsement/instrument or a certified copy,</li>
+      </ul>
+      <p>have been delivered to the insurer (at the place where the policy is being serviced).</p>
+
+      <h4>§ 38(6) — Priority: The Rule in Dearle v. Hall</h4>
+      <p>Priority of claims among competing assignees is determined by the <strong>date of notice to the insurer</strong> — NOT the date of assignment itself.</p>
+      <div class="case-box">
+        <div class="case-name">⚖ Dearle v. Hall — Rule of Priority</div>
+        <p>"By giving notice to the insurer a bona fide assignee for value gains priority over earlier assignees who have not done so." For this rule to protect the later assignee: (1) they must have given value; (2) they must have acted in good faith without notice of the earlier assignment (good faith requires actual investigation — passive ignorance is not protected).</p>
+      </div>
+
+      <h4>§ 38(8) Explanation — Absolute vs. Conditional Assignment</h4>
+      <p><strong>Default:</strong> Every assignment is deemed to be an absolute assignment unless the endorsement expressly indicates it is conditional.<br>
+      <strong>§ 38(10) — Conditional Assignment:</strong> Valid where proceeds payable to policyholder/nominee if assignee predeceases insured, OR insured survives term. Proviso: a conditional assignee shall NOT obtain a loan on the policy or surrender it.</p>
+
+      <h4>Assignment and Nomination</h4>
+      <p>A transfer or assignment under § 38 <strong>automatically cancels</strong> a nomination made under § 39. Exception: assignment to the insurer as security for a loan within surrender value — does NOT cancel nomination, but merely affects nominee's rights to the extent of the insurer's interest.</p>
+    </div>
+  </div>
+
+  <h3>7.3 Assignment of Marine Policies — §§ 52–53 MIA 1963</h3>
+  <table class="data-table">
+    <tr><th>Section</th><th>Rule</th></tr>
+    <tr><td class="td-key">§ 52(1)</td><td>Marine policy may be transferred by assignment unless expressly prohibited. May be assigned <strong>before or after loss</strong>.</td></tr>
+    <tr><td class="td-key">§ 52(2)</td><td>Where marine policy assigned so as to pass beneficial interest — assignee may sue in his own name; defendant may make any defence arising out of the contract.</td></tr>
+    <tr><td class="td-key">§ 52(3)</td><td>Assignment by endorsement on the policy or in other customary manner.</td></tr>
+    <tr><td class="td-key">§ 53</td><td>Where assured has parted with or lost interest in the subject matter, and has not expressly/impliedly agreed to assign — subsequent assignment is inoperative. Proviso: Nothing affects assignment after loss (once loss has occurred and right to claim accrued, may be assigned even without current interest).</td></tr>
+  </table>
+</div>
+
+<!-- ══════════════════════════════ CH 8 ══════════════════════════════ -->
+<div class="chapter-banner" id="ch8">
+  <div class="chapter-num">08</div>
+  <div>
+    <div class="chapter-title">Warranty — Meaning, Characteristics, Kinds, <em>Effect of Breach &amp; vs. Representation</em></div>
+    <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;font-family:'JetBrains Mono',monospace;">§§ 35–43 Marine Insurance Act, 1963</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>8.1 Meaning — The Critical Distinction</h3>
+
+  <div class="exam-alert">
+    <div class="label">Most Important Distinction in Insurance Law</div>
+    <p>The term "warranty" in insurance law has a meaning <strong>completely different</strong> from general contract law:</p>
+    <p><strong>General Contract Law:</strong> A warranty is a minor term — its breach gives rise to a claim for damages only, NOT the right to terminate.</p>
+    <p><strong>Insurance Law:</strong> A warranty is a condition of the <mark>utmost strictness</mark>. Its breach <strong>automatically discharges the insurer from liability from the date of breach</strong>, regardless of whether the breach caused or was related to the loss.</p>
+  </div>
+
+  <div class="def-card">
+    <div class="who">§ 35(1) Marine Insurance Act, 1963 — Statutory Definition</div>
+    <p>"A warranty, in the following sections relating to warranties, means a promissory warranty, that is to say a warranty by which the assured undertakes that some particular thing shall or shall not be done, or that some condition shall be fulfilled, or whereby he affirms or negatives the existence of a particular state of facts."</p>
+    <p style="margin-top:10px;"><strong>§ 35(3):</strong> "A warranty, as above defined, is a condition which must be <mark>exactly complied with</mark>, whether it be material to the risk or not. If it be not so complied with, then, subject to any express provision in the policy, the insurer is discharged from liability as from the date of the breach of warranty, but without prejudice to any liability incurred by him before that date."</p>
+  </div>
+
+  <h3>8.2 Characteristics of a Warranty</h3>
+  <ul class="num-list">
+    <li><strong>Promissory in Nature</strong> — a promise/undertaking for the future, or affirmation of a past/present fact; not merely an opinion.</li>
+    <li><strong>Exact Compliance Required</strong> — must be exactly complied with. No room for substantial compliance. "Whether it be material to the risk or not."</li>
+    <li><strong>Materiality Irrelevant</strong> — breach discharges the insurer even if the breach was trivial and had no connection with the loss. (E.g., ship warranted crew of 20, carries 19 — insurer discharged even if loss was from a storm.)</li>
+    <li><strong>Discharge from Date of Breach</strong> — NOT from date of policy or date of loss. Any liability incurred BEFORE the breach remains.</li>
+    <li><strong>Irremedial</strong> — § 36(2): "Where a warranty is broken, the assured cannot avail himself of the defence that the breach has been remedied, and the warranty complied with, before loss." Even full cure before any loss = insurer remains discharged.</li>
+    <li><strong>Express or Implied</strong> — warranties may be expressly written into the policy or implied by law.</li>
+    <li><strong>Waiver by Insurer</strong> — § 36(3): "A breach of warranty may be waived by the insurer." Accepting premiums after knowing of breach, or continuing to treat policy as in force = waiver.</li>
+  </ul>
+
+  <h3>8.3 Kinds of Warranties</h3>
+
+  <div class="doctrine-card open" id="express-warr">
+    <div class="doctrine-header" onclick="toggleD('express-warr')">
+      <div class="doctrine-icon gold">✍</div>
+      <div class="doctrine-title-text">A. Express Warranties (§ 37 MIA 1963)</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <p><strong>§ 37(1):</strong> "An express warranty may be in any form of words from which the intention to warrant is to be inferred."<br>
+      <strong>§ 37(2):</strong> Must be included in, or written upon, the policy, or contained in some document incorporated by reference.<br>
+      <strong>§ 37(3):</strong> Express warranty does not exclude implied warranty, unless inconsistent.</p>
+      <h4>Examples in Marine Insurance</h4>
+      <div class="info-grid">
+        <div class="info-cell"><div class="k">Warranty as to Sailing</div><div class="v">"Warranted to sail on or before [date]"</div></div>
+        <div class="info-cell"><div class="k">Warranty as to Crew</div><div class="v">"Warranted to carry a crew of not less than [n]"</div></div>
+        <div class="info-cell"><div class="k">Warranty as to Convoy</div><div class="v">"Warranted to sail under convoy"</div></div>
+        <div class="info-cell"><div class="k">Warranty of Neutrality (§ 38)</div><div class="v">Neutral character at commencement; proper documentation; papers not falsified</div></div>
+      </div>
+      <p><strong>In Life Insurance:</strong> Where the policy contains a <em>"basis of the contract"</em> clause — all answers in the proposal form are declared the basis of the contract and thereby acquire the status of WARRANTIES. Any inaccuracy — even innocent — constitutes breach. Courts have criticized this practice. The 2015 Amendment to § 45 provides some protection by limiting the challenge period to 3 years.</p>
+    </div>
+  </div>
+
+  <div class="doctrine-card open" id="implied-warr">
+    <div class="doctrine-header" onclick="toggleD('implied-warr')">
+      <div class="doctrine-icon navy">⚓</div>
+      <div class="doctrine-title-text">B. Implied Warranties — Recognized by MIA 1963</div>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="doctrine-body">
+      <table class="data-table">
+        <tr><th>Warranty</th><th>Section</th><th>Content &amp; Cases</th></tr>
+        <tr>
+          <td class="td-key">Seaworthiness of Ship</td>
+          <td><span class="sec-pill">§ 41</span></td>
+          <td>Voyage policy: ship must be seaworthy at commencement of voyage (reasonable fit to encounter ordinary perils). Time policy: NO implied warranty of seaworthiness — BUT if ship sent to sea in unseaworthy state WITH PRIVITY of assured, insurer not liable for loss attributable to unseaworthiness (§ 41(5)).<br>
+          <em>The Vortigern Case</em>: Insufficient coal = not seaworthy.<br>
+          <em>Thomas v. Tyne &amp; Wear</em>: Time policy, total loss, no connivance proved — insurer LIABLE.<br>
+          <em>Blackett v. North British Assurance</em>: Cotton insured, ship seaworthy for carrying cotton — insurer liable.</td>
+        </tr>
+        <tr>
+          <td class="td-key">No Implied Warranty Goods Are Seaworthy</td>
+          <td><span class="sec-pill">§ 42(1)</span></td>
+          <td>No implied warranty that GOODS are seaworthy. BUT: §42(2) in voyage policy on goods — implied warranty that the SHIP is not only seaworthy as a ship but also reasonably fit to CARRY those specific goods (cargo-worthy).<br>
+          <em>Quebec Marine Insurance v. Bank of Canada</em>: Vessel worthy for inland waters but not salt water — NOT seaworthy — insurer NOT liable.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Warranty of Legality</td>
+          <td><span class="sec-pill">§ 43</span></td>
+          <td>"There is an implied warranty that the adventure insured is a lawful one, and that, so far as the assured can control the matter, the adventure shall be carried out in a lawful manner." Insurance on illegal adventures (smuggling, piracy, trading with enemy) is void.<br>
+          <em>Cory v. Burr</em>: Ship seized because master committed smuggling. Held: Insurer NOT liable — smuggling is not piracy AND violates warranty of legality.</td>
+        </tr>
+        <tr>
+          <td class="td-key">Warranty of Good Safety</td>
+          <td><span class="sec-pill">§ 40</span></td>
+          <td>"Where the subject-matter insured is warranted 'well' or 'in good safety' on a particular day, it is sufficient if it be safe at any time during that day."</td>
+        </tr>
+        <tr>
+          <td class="td-key">No Implied Warranty of Nationality</td>
+          <td><span class="sec-pill">§ 39</span></td>
+          <td>No implied warranty as to the nationality of a ship, or that her nationality shall not change during the risk.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>8.4 Effect of Breach of Warranty</h3>
+  <div class="exam-alert">
+    <div class="label">Five Key Consequences — Must Know</div>
+    <ul>
+      <li><strong>Automatic Discharge:</strong> Insurer automatically discharged from liability upon breach — no election, no notice required. The discharge is instantaneous.</li>
+      <li><strong>From Date of Breach:</strong> Not from date of policy or date of loss. Any claims BEFORE the breach date remain payable.</li>
+      <li><strong>Irremedial:</strong> Even if breach remedied before loss — insurer remains discharged (§ 36(2)).</li>
+      <li><strong>Materiality Irrelevant:</strong> Discharged even if breach had NO causal connection with the loss. This is the most severe and criticized aspect of warranty law.</li>
+      <li><strong>Waiver:</strong> Insurer may waive breach (§ 36(3)) — by accepting premiums after knowing of breach, or continuing to treat policy as in force.</li>
+    </ul>
+  </div>
+
+  <h3>8.5 When Breach of Warranty is Excused — § 36(1) MIA 1963</h3>
+  <table class="data-table">
+    <tr><th>Ground for Excuse</th><th>Example</th></tr>
+    <tr><td class="td-key">(a) Change of circumstances — warranty ceases to be applicable</td><td>Ship warranted to sail under convoy. Convoy withdrawn because war ends before departure. Warranty of convoy ceases to apply — its purpose (war risk protection) no longer exists.</td></tr>
+    <tr><td class="td-key">(b) Compliance with warranty rendered unlawful by subsequent law</td><td>Ship warranted to sail to a particular port. After policy issued, new law prohibits sailing there. Compliance rendered unlawful — breach is excused.</td></tr>
+  </table>
+
+  <h3>8.6 Warranty vs. Representation — Critical Distinction</h3>
+  <table class="compare-table">
+    <tr><th>Basis</th><th>Warranty</th><th>Representation</th></tr>
+    <tr><td>Definition</td><td>Promissory condition in the contract itself</td><td>Statement made during pre-contract negotiations</td></tr>
+    <tr><td>Location</td><td>Must be in the policy or incorporated by reference</td><td>Made orally or in writing during negotiations; NOT in the policy</td></tr>
+    <tr><td>Standard of Compliance</td><td><strong>Exact &amp; strict compliance required</strong></td><td>Need only be <strong>substantially correct</strong> (§ 22(4) MIA: "A representation as to a matter of fact is true, if it be substantially correct")</td></tr>
+    <tr><td>Effect of Breach</td><td>Insurer automatically discharged from liability from date of breach</td><td>Insurer may avoid the contract (treat as voidable)</td></tr>
+    <tr><td>Materiality</td><td>Materiality is irrelevant — breach discharges insurer regardless</td><td>Only material representations can give right to avoid</td></tr>
+    <tr><td>Remedy</td><td>Discharge from liability (not avoidance of whole contract)</td><td>Avoidance of the contract ab initio</td></tr>
+    <tr><td>After-Remediation</td><td>Remediation does NOT revive insurer's liability</td><td>If representation corrected before contract concluded — no breach</td></tr>
+  </table>
+
+  <div class="exam-alert">
+    <div class="label">Section 22 — Representations Pending Negotiation (MIA 1963)</div>
+    <p><strong>§ 22(1):</strong> Every material representation made by the assured during negotiations must be true — if untrue, insurer may avoid.<br>
+    <strong>§ 22(2):</strong> Material = would influence judgment of a prudent insurer in fixing premium or deciding to take risk.<br>
+    <strong>§ 22(3):</strong> Representation may be as to a matter of <em>fact</em> OR <em>expectation or belief</em>.<br>
+    <strong>§ 22(4):</strong> As to fact = substantially correct; as to belief = made in good faith.<br>
+    <strong>§ 22(6):</strong> A representation may be <strong>withdrawn or corrected before the contract is concluded</strong>.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ EXAM SUMMARY ══════════════════════════════ -->
+<div class="divider"><span>Exam Summary</span></div>
+
+<div class="section" id="exam">
+  <div class="fact-panel">
+    <h3>Master Case Table — Topic 2</h3>
+    <div class="case-grid">
+      <div class="case-item"><div class="cn">Carter v. Boehm (1766)</div><div class="cp">Foundation of uberrima fides; prudent insurer test; duty of disclosure</div></div>
+      <div class="case-item"><div class="cn">LIC v. Shakuntala Devi</div><div class="cp">Trivial ailments (indigestion) need not be disclosed; LIC liable</div></div>
+      <div class="case-item"><div class="cn">Godfrey v. Brittanic Assurance</div><div class="cp">Serious health conditions (lung infection, kidney) are material; company not liable</div></div>
+      <div class="case-item"><div class="cn">Lambert's Case</div><div class="cp">Criminal record of connected person is material; moral hazard</div></div>
+      <div class="case-item"><div class="cn">Dalby v. India &amp; London (1854)</div><div class="cp">Life insurance NOT a contract of indemnity; insurable interest at inception only</div></div>
+      <div class="case-item"><div class="cn">Macaura v. Northern Assurance (1925)</div><div class="cp">Sole shareholder has no insurable interest in company's assets</div></div>
+      <div class="case-item"><div class="cn">Castellain v. Preston (1883)</div><div class="cp">Principle of indemnity + leading case on subrogation</div></div>
+      <div class="case-item"><div class="cn">Griffith v. Fleming</div><div class="cp">Insurable interest of spouses in each other's lives is presumed</div></div>
+      <div class="case-item"><div class="cn">Yorkshire v. N.S. Co.</div><div class="cp">Subrogation limited to amount paid by insurer</div></div>
+      <div class="case-item"><div class="cn">Dearle v. Hall</div><div class="cp">Priority of assignees determined by date of notice to insurer</div></div>
+      <div class="case-item"><div class="cn">Symington v. Union Insurance</div><div class="cp">Once risk operates, damage in preventing further loss is also covered</div></div>
+      <div class="case-item"><div class="cn">Marsden v. City Insurance</div><div class="cp">Mob lawlessness = independent intervening cause; NOT fire-caused loss</div></div>
+      <div class="case-item"><div class="cn">Tootal v. London Fire Co.</div><div class="cp">Earthquake was proximate cause of resulting fire; insurer not liable under fire policy</div></div>
+      <div class="case-item"><div class="cn">Anderson v. Morice</div><div class="cp">No insurable interest when goods not yet loaded as per policy terms</div></div>
+      <div class="case-item"><div class="cn">Cleaver v. Mutual Reserve</div><div class="cp">No recovery where nominee caused insured's death; executors can recover</div></div>
+      <div class="case-item"><div class="cn">Sarbati Devi v. Usha Devi (SC)</div><div class="cp">Nominee = only "hand to receive," not beneficial owner (pre-2015 position; now modified by § 39(7)&(8))</div></div>
+      <div class="case-item"><div class="cn">Cory v. Burr</div><div class="cp">Smuggling violates warranty of legality; barratry separately defined peril</div></div>
+      <div class="case-item"><div class="cn">Vortigern Case</div><div class="cp">Insufficient coal = ship not seaworthy</div></div>
+      <div class="case-item"><div class="cn">Thomas v. Tyne &amp; Wear</div><div class="cp">Time policy — unseaworthiness without owner's privity = insurer liable</div></div>
+      <div class="case-item"><div class="cn">Bawden v. London Assurance</div><div class="cp">Knowledge of agent is imputed to the principal insurer</div></div>
+    </div>
+  </div>
+
+  <h3>Critical Section Numbers — Topic 2</h3>
+  <table class="data-table">
+    <tr><th>Section</th><th>Subject</th><th>Act</th></tr>
+    <tr><td class="td-key">§ 2(11)</td><td>Definition of life insurance business</td><td>Insurance Act, 1938</td></tr>
+    <tr><td class="td-key">§ 2(16B)</td><td>Definition of re-insurance</td><td>Insurance Act, 1938</td></tr>
+    <tr><td class="td-key">§ 38</td><td>Assignment of life insurance policies (amended 2015)</td><td>Insurance Act, 1938</td></tr>
+    <tr><td class="td-key">§ 39</td><td>Nomination by policyholder (amended 2015)</td><td>Insurance Act, 1938</td></tr>
+    <tr><td class="td-key">§ 45</td><td>Incontestability — 3 years (changed from 2 by Act 5/2015)</td><td>Insurance Act, 1938</td></tr>
+    <tr><td class="td-key">§ 64VB</td><td>No risk without advance premium; agent must pay within 24 hrs</td><td>Insurance Act, 1938</td></tr>
+    <tr><td class="td-key">§ 7</td><td>Insurable interest defined (marine)</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 8</td><td>When interest must attach — at time of loss (marine)</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 19</td><td>Insurance is uberrimae fidei</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 20</td><td>Disclosure by assured; prudent insurer test</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 21</td><td>Disclosure by agent effecting insurance</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 22</td><td>Representations pending negotiation</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 29</td><td>Valued policy — agreed value conclusive</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 34</td><td>Double insurance</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 35</td><td>Nature of warranty — exact compliance required</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 36</td><td>When breach of warranty excused; irremedial nature; waiver</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 37</td><td>Express warranties</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 38</td><td>Warranty of neutrality</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 41</td><td>Seaworthiness warranty (implied)</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 42</td><td>No implied warranty that goods are seaworthy; cargo-worthiness of ship</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 43</td><td>Warranty of legality (implied)</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 46</td><td>Deviation</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 52</td><td>Assignment of marine policy</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 53</td><td>Assured who has no interest cannot assign</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 55</td><td>Proximate cause in marine insurance</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 79</td><td>Right of subrogation</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 80</td><td>Right of contribution</td><td>MIA 1963</td></tr>
+    <tr><td class="td-key">§ 84</td><td>Return of premium for failure of consideration</td><td>MIA 1963</td></tr>
+  </table>
+</div>
+
+</main>
+
+<footer class="footer">
+  Insurance Law Study Notes · <span>Part 2 of 5</span> · Topic 2: General Principles &amp; Fundamental Doctrines · 8 Chapters Covered
+</footer>
+
+<script>
+  function toggleD(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

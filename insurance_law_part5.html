@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Law — Part V: Double Insurance, Reinsurance &amp; Grand Synthesis</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1209;--parchment:#faf6ee;--gold:#b8922a;--gold-light:#d4a843;--gold-pale:#f0dfa8;
+    --burgundy:#6b1e2e;--burgundy-light:#9b2c3f;--navy:#1c2b4a;--navy-mid:#2d4270;
+    --teal:#1a5276;--sage:#2e5942;--sage-light:#4a7c5c;--warm-gray:#8c8070;
+    --border:#d4c4a0;--shadow:rgba(26,18,9,0.15);
+    --di:#4a2e00;--di-light:#8b5a00;--di-pale:#fff8ee;
+    --ri:#0a2e1a;--ri-light:#1a5c34;--ri-pale:#e8f5ee;
+    --arch:#1a0a2e;--arch-light:#4a1a7a;--arch-pale:#f5eeff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.82;color:var(--ink);background:var(--parchment);}
+
+  /* COVER */
+  .cover{background:linear-gradient(135deg,#0a0a1a 0%,#1a0a2e 25%,#0a2e1a 55%,#4a1a00 80%,#1a1209 100%);color:#fff;padding:60px 48px 52px;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(180,140,40,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 20%,rgba(26,92,52,.1) 0%,transparent 50%);}
+  .cover-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold-light);text-transform:uppercase;margin-bottom:18px;position:relative;}
+  .cover h1{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1.18;margin-bottom:10px;position:relative;}
+  .cover h1 .di{color:#ffb84d;} .cover h1 .ri{color:#7df4b0;} .cover h1 .sy{color:#c4a8ff;}
+  .cover-sub{font-size:15px;color:rgba(255,255,255,.68);font-style:italic;margin-bottom:28px;font-weight:300;position:relative;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:12px;position:relative;}
+  .cover-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:5px 12px;font-size:12px;color:rgba(255,255,255,.82);font-family:'JetBrains Mono',monospace;}
+  .cover-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold-light);}
+
+  /* NAV */
+  .toc-bar{background:var(--navy);padding:0 36px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px var(--shadow);}
+  .toc-bar-inner{display:flex;overflow-x:auto;gap:0;scrollbar-width:none;}
+  .toc-bar-inner::-webkit-scrollbar{display:none;}
+  .toc-link{color:rgba(255,255,255,.62);text-decoration:none;font-size:11px;font-family:'JetBrains Mono',monospace;padding:12px 13px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
+  .toc-link:hover{color:var(--gold-light);border-bottom-color:var(--gold-light);}
+
+  .main{max-width:960px;margin:0 auto;padding:44px 30px 80px;}
+
+  /* TOPIC BANNERS */
+  .tbanner{border-radius:8px;padding:20px 28px;margin:44px 0 22px;display:flex;align-items:center;gap:20px;}
+  .tbanner.di{background:linear-gradient(135deg,#2a1400,#4a2e00);}
+  .tbanner.ri{background:linear-gradient(135deg,#051a0d,#0a2e1a);}
+  .tbanner.sy{background:linear-gradient(135deg,#0a0818,#1a0a2e);}
+  .t-icon{font-size:34px;line-height:1;}
+  .t-meta .t-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+  .tbanner.di .t-label{color:#ffb84d;} .tbanner.ri .t-label{color:#7df4b0;} .tbanner.sy .t-label{color:#c4a8ff;}
+  .t-meta .t-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#fff;line-height:1.2;}
+
+  /* PART HEADER */
+  .ph{display:flex;align-items:center;gap:12px;margin:30px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--border);}
+  .ph-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;line-height:1;min-width:38px;}
+  .ph-num.di{color:var(--di-light);} .ph-num.ri{color:var(--ri-light);} .ph-num.sy{color:var(--arch-light);}
+  .ph-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);}
+  .ph-title em{color:var(--burgundy);font-style:italic;}
+
+  h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--burgundy);margin:24px 0 10px;padding-left:11px;border-left:3px solid var(--burgundy-light);}
+  h4{font-size:12.5px;font-weight:600;color:var(--navy-mid);margin:15px 0 7px;text-transform:uppercase;letter-spacing:.6px;}
+  p{margin-bottom:12px;}
+
+  /* CARDS */
+  .def-card{background:linear-gradient(135deg,#fff8ee,#fef9f3);border:1px solid var(--gold-pale);border-left:4px solid var(--gold);border-radius:5px;padding:14px 18px;margin:14px 0;}
+  .def-card .who{font-size:10.5px;font-family:'JetBrains Mono',monospace;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+  .def-card p{margin-bottom:0;font-style:italic;}
+
+  .case-box{border-radius:5px;padding:13px 17px;margin:12px 0;}
+  .case-box.di-c{background:var(--di-pale);border:1px solid #e8c880;border-left:4px solid var(--di-light);}
+  .case-box.ri-c{background:var(--ri-pale);border:1px solid #80c8a0;border-left:4px solid var(--ri-light);}
+  .case-box.std{background:#f0f4fa;border:1px solid #c8d4e8;border-left:4px solid var(--navy-mid);}
+  .cn{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;margin-bottom:5px;}
+  .case-box.di-c .cn{color:var(--di-light);} .case-box.ri-c .cn{color:var(--ri-light);} .case-box.std .cn{color:var(--navy);}
+  .case-box p{margin-bottom:0;font-size:14.5px;}
+
+  .exam-alert{background:linear-gradient(135deg,#fdf3f5,#fdf8f9);border:1px solid #e8b4bc;border-left:5px solid var(--burgundy);border-radius:5px;padding:14px 18px;margin:16px 0;}
+  .exam-alert .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--burgundy);text-transform:uppercase;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:7px;}
+  .exam-alert .lbl::before{content:'★';font-size:12px;}
+  .exam-alert ul{padding-left:18px;} .exam-alert li{margin-bottom:6px;font-size:14.5px;}
+  .exam-alert p{font-size:14.5px;margin-bottom:7px;} .exam-alert p:last-child{margin-bottom:0;}
+
+  /* TABLES */
+  .dt{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+  .dt th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;padding:8px 12px;text-align:left;font-weight:600;}
+  .dt.di th{background:var(--di);color:#ffb84d;}
+  .dt.ri th{background:var(--ri);color:#7df4b0;}
+  .dt.std th{background:var(--navy);color:var(--gold-light);}
+  .dt td{padding:8px 12px;border-bottom:1px solid #eae4d8;vertical-align:top;line-height:1.6;}
+  .dt tr:nth-child(even) td{background:#faf6ee;}
+  .dt tr:hover td{background:rgba(240,223,168,.18);}
+  .td-key{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;white-space:nowrap;}
+  .dt.di .td-key{color:var(--di-light);} .dt.ri .td-key{color:var(--ri-light);} .dt.std .td-key{color:var(--navy);}
+
+  /* COMPARE TABLE */
+  .ct{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+  .ct th{padding:8px 12px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.7px;text-transform:uppercase;}
+  .ct th:nth-child(1){background:var(--warm-gray);color:#fff;}
+  .ct th:nth-child(2){background:var(--di);color:#ffb84d;}
+  .ct th:nth-child(3){background:var(--ri);color:#7df4b0;}
+  .ct td{padding:8px 12px;border-bottom:1px solid #eae4d8;vertical-align:top;}
+  .ct td:nth-child(1){background:#f5f0ea;font-weight:600;font-size:12.5px;}
+  .ct td:nth-child(2){background:var(--di-pale);}
+  .ct td:nth-child(3){background:var(--ri-pale);}
+
+  /* CALC BOX */
+  .calc-box{background:var(--navy);color:#fff;border-radius:7px;padding:16px 20px;margin:14px 0;font-family:'JetBrains Mono',monospace;}
+  .cl{font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:9px;}
+  .formula{font-size:13px;color:#fff;margin-bottom:8px;padding:9px 12px;background:rgba(255,255,255,.07);border-radius:4px;line-height:1.8;}
+  .cresult{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.8;}
+
+  /* DOCTRINE CARD */
+  .dc{border:1px solid var(--border);border-radius:7px;overflow:hidden;margin:14px 0;}
+  .dc-h{display:flex;align-items:center;gap:12px;padding:12px 18px;cursor:pointer;user-select:none;transition:background .2s;}
+  .dc-h:hover{background:rgba(184,146,42,.05);}
+  .dc-icon{width:34px;height:34px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+  .i-di{background:var(--di-pale);} .i-ri{background:var(--ri-pale);} .i-gold{background:var(--gold-pale);} .i-arch{background:var(--arch-pale);}
+  .dc-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);flex:1;}
+  .dc-sub{font-size:11.5px;font-family:'JetBrains Mono',monospace;color:var(--warm-gray);white-space:nowrap;}
+  .toggle{color:var(--gold);font-size:17px;transition:transform .3s;min-width:18px;text-align:center;}
+  .dc.open .toggle{transform:rotate(180deg);}
+  .dc-body{display:none;padding:4px 18px 18px;border-top:1px solid var(--border);background:#fff;}
+  .dc.open .dc-body{display:block;}
+
+  /* PILLAR GRID */
+  .pillar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:16px 0;}
+  .pillar-card{border:1px solid var(--border);border-radius:7px;overflow:hidden;}
+  .pc-header{padding:12px 16px;display:flex;align-items:center;gap:10px;}
+  .pc-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;opacity:.9;}
+  .pc-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;line-height:1.2;}
+  .pc-body{padding:12px 16px;font-size:14px;background:#fff;line-height:1.7;}
+
+  /* ARCHITECTURE DIAGRAM */
+  .arch-box{background:var(--navy);border-radius:10px;padding:28px;margin:24px 0;font-family:'JetBrains Mono',monospace;}
+  .arch-box .arch-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;}
+  .arch-box pre{color:#fff;font-size:12.5px;line-height:1.9;overflow-x:auto;white-space:pre;}
+
+  /* TYPE CARDS */
+  .type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:14px 0;}
+  .type-card{border:1px solid var(--border);border-radius:7px;padding:14px 16px;background:#fff;}
+  .type-card.di-t{border-top:3px solid var(--di-light);}
+  .type-card.ri-t{border-top:3px solid var(--ri-light);}
+  .tc-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+  .type-card.di-t .tc-label{color:var(--di-light);}
+  .type-card.ri-t .tc-label{color:var(--ri-light);}
+  .tc-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--navy);margin-bottom:7px;}
+  .tc-body{font-size:14px;color:#3a3025;line-height:1.7;}
+
+  /* MASTER EXAM TABLE */
+  .master-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+  .master-table thead th{background:#0a0a1a;color:var(--gold-light);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.8px;text-transform:uppercase;padding:8px 12px;text-align:left;}
+  .master-table td{padding:7px 12px;border-bottom:1px solid #eae4d8;vertical-align:top;}
+  .master-table tr:hover td{background:rgba(240,223,168,.15);}
+  .ms-sec{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--navy);white-space:nowrap;}
+  .ms-act{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--warm-gray);}
+  .ms-what{font-size:13.5px;}
+
+  /* FACT PANEL */
+  .fact-panel{background:var(--navy);border-radius:10px;padding:26px 30px;margin:28px 0;color:rgba(255,255,255,.9);}
+  .fact-panel h3{color:var(--gold-light);border-left-color:var(--gold-light);margin-top:0;}
+  .case-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:14px;}
+  .ci{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:11px 14px;}
+  .ci .cn2{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold-light);margin-bottom:4px;font-weight:600;}
+  .ci .cp{font-size:13.5px;color:rgba(255,255,255,.82);}
+
+  /* PHILOSOPHY BOX */
+  .phil-box{background:linear-gradient(135deg,#0a0818 0%,#1a0a2e 100%);border-radius:10px;padding:30px 34px;margin:32px 0;color:#fff;position:relative;overflow:hidden;}
+  .phil-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(196,168,255,.1) 0%,transparent 70%);}
+  .phil-box h3{color:#c4a8ff;border-left-color:#c4a8ff;font-family:'Playfair Display',serif;position:relative;}
+  .phil-box p{color:rgba(255,255,255,.82);font-size:15.5px;position:relative;}
+  .phil-list{list-style:none;padding:0;margin:14px 0;position:relative;}
+  .phil-list li{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:15px;color:rgba(255,255,255,.82);}
+  .phil-list li:last-child{border-bottom:none;}
+  .phil-list li .bullet{color:#c4a8ff;font-size:14px;min-width:20px;margin-top:2px;}
+
+  /* INFO GRID */
+  .ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:11px;margin:14px 0;}
+  .ic{background:#fff;border:1px solid var(--border);border-radius:5px;padding:11px 14px;}
+  .ic .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--warm-gray);text-transform:uppercase;margin-bottom:4px;}
+  .ic .v{font-size:14.5px;font-weight:600;color:var(--navy);}
+  .ic .v.di{color:var(--di-light);} .ic .v.ri{color:var(--ri-light);}
+
+  /* DIVIDER */
+  .divider{display:flex;align-items:center;gap:14px;margin:40px 0;color:var(--border);}
+  .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+  .divider span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--warm-gray);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
+
+  blockquote{border-left:3px solid var(--sage-light);margin:12px 0;padding:10px 16px;color:#3a3025;font-style:italic;background:rgba(46,89,66,.04);border-radius:0 4px 4px 0;font-size:15px;}
+  blockquote cite{display:block;margin-top:6px;font-size:11.5px;font-family:'JetBrains Mono',monospace;color:var(--sage-light);font-style:normal;}
+
+  mark{background:var(--gold-pale);color:var(--ink);padding:1px 3px;border-radius:2px;}
+  strong{color:var(--navy);font-weight:600;}
+  .sp{display:inline-block;background:rgba(44,66,112,.1);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:11px;padding:2px 8px;border-radius:3px;margin:2px;border:1px solid rgba(44,66,112,.25);font-weight:600;}
+  .nl{list-style:none;padding:0;margin:10px 0;counter-reset:nl;}
+  .nl li{display:flex;gap:11px;padding:8px 11px;border-bottom:1px solid #eee;align-items:flex-start;counter-increment:nl;font-size:15px;}
+  .nl li:last-child{border-bottom:none;}
+  .nl li::before{content:counter(nl);font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold);min-width:20px;margin-top:4px;font-weight:600;}
+
+  .footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:24px 24px 32px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.5px;line-height:2;}
+  .footer span{color:var(--gold-light);}
+  .footer .final{font-family:'Playfair Display',serif;font-size:18px;color:#fff;display:block;margin-bottom:10px;font-style:italic;}
+
+  @media(max-width:640px){.cover{padding:36px 22px 32px;}.main{padding:28px 18px 60px;}.toc-bar{padding:0 14px;}.tbanner{padding:16px 18px;}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Insurance Law · Study Notes · Part 5 of 5 — The Final Chapter</div>
+  <h1>Topic 7: <span class="di">Double Insurance</span> &amp; <span class="ri">Reinsurance</span><br>+ <span class="sy">The Grand Synthesis</span></h1>
+  <div class="cover-sub">§§ 34, 80 MIA 1963 · §§ 101A–101C Insurance Act 1938 · Treaty vs. Facultative · Proportional vs. Non-Proportional · Complete Syllabus Architecture</div>
+  <div class="cover-meta">
+    <span class="cover-badge"><span class="dot"></span> Topic 7 of 7 — Syllabus Complete</span>
+    <span class="cover-badge"><span class="dot"></span> Double Insurance · Reinsurance · Holistic Synthesis</span>
+    <span class="cover-badge"><span class="dot"></span> All 7 Topics Interconnected</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-bar-inner">
+    <a class="toc-link" href="#di-def">§ DI: Definition</a>
+    <a class="toc-link" href="#di-elem">§ DI: Five Elements</a>
+    <a class="toc-link" href="#di-cons">§ DI: Legal Consequences</a>
+    <a class="toc-link" href="#di-contrib">§ DI: Contribution</a>
+    <a class="toc-link" href="#di-life">§ DI: Life Insurance Exception</a>
+    <a class="toc-link" href="#ri-def">§ RI: Definition</a>
+    <a class="toc-link" href="#ri-stat">§ RI: §§ 101A–101C</a>
+    <a class="toc-link" href="#ri-types">§ RI: Types</a>
+    <a class="toc-link" href="#synthesis">§ Grand Synthesis</a>
+    <a class="toc-link" href="#master">§ Master Exam Reference</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════ DOUBLE INSURANCE ══════════════════════════ -->
+<div class="tbanner di" id="di-def">
+  <div class="t-icon">⚖</div>
+  <div class="t-meta">
+    <div class="t-label">Topic 7 · Part I</div>
+    <div class="t-title">Double Insurance — Comprehensive Lecture</div>
+  </div>
+</div>
+
+<div class="ph" id="di-def2">
+  <div class="ph-num di">§ 34</div>
+  <div class="ph-title">Definition — <em>Section 34, Marine Insurance Act, 1963</em></div>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 34(1) — Marine Insurance Act, 1963 — Statutory Definition</div>
+  <p>"Where two or more policies are effected by or on behalf of the assured on the same adventure and interest or any part thereof, and the sums insured exceed the indemnity allowed by this Act, the assured is said to be over-insured by double insurance."</p>
+</div>
+
+<p>Though this definition appears in the Marine Insurance Act, the principle is <strong>equally applicable to Fire Insurance, Burglary Insurance, and all other general (non-life) indemnity contracts.</strong> It has been adopted as a general principle of insurance law in India.</p>
+
+<div class="def-card">
+  <div class="who">Hardy Ivamy — Doctrinal Definition</div>
+  <p>"Double insurance exists where the same person insures the same interest in the same subject matter against the same risks with two or more different insurers."</p>
+</div>
+
+<!-- FIVE ELEMENTS -->
+<div class="ph" id="di-elem">
+  <div class="ph-num di">I</div>
+  <div class="ph-title">The Five Essential Elements of Double Insurance</div>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">Critical Examination Point</div>
+  <p>ALL FIVE elements must coincide simultaneously for double insurance to exist. If even one element is absent — the rules of double insurance do not apply. The fifth element (aggregate exceeds value) is what triggers the practical consequences.</p>
+</div>
+
+<table class="dt di">
+  <tr><th>#</th><th>Element</th><th>Explanation &amp; Trap</th></tr>
+  <tr>
+    <td class="td-key">1</td>
+    <td class="td-key">Same Assured</td>
+    <td>Policies must be taken by or on behalf of the same person. If A insures his house AND B (the mortgagee) separately insures the same house — different assured persons, different interests — this is NOT double insurance in the strict sense.</td>
+  </tr>
+  <tr>
+    <td class="td-key">2</td>
+    <td class="td-key">Same Subject Matter</td>
+    <td>Subject matter insured must be identical. If one policy covers a warehouse and another covers goods inside the warehouse — different subject matters — NO double insurance.</td>
+  </tr>
+  <tr>
+    <td class="td-key">3</td>
+    <td class="td-key">Same Risk / Same Peril</td>
+    <td>Both policies must cover the same peril. If one policy covers fire and another covers burglary on the same property — different perils covered — NO double insurance.</td>
+  </tr>
+  <tr>
+    <td class="td-key">4</td>
+    <td class="td-key">Same Interest</td>
+    <td>Both policies must cover the same insurable interest. If A (owner) and B (mortgagee) both insure the same house against fire — they have different insurable interests — A has owner's interest, B has mortgagee's interest. NOT double insurance.</td>
+  </tr>
+  <tr>
+    <td class="td-key">5 ★</td>
+    <td class="td-key">Aggregate Sum Exceeds Value</td>
+    <td>The combined sums insured under all policies must exceed the actual value or actual loss. This is what triggers the practical consequences of double insurance rules. If all five elements are present but aggregate does NOT exceed actual value — insured can recover fully from one or proportionately from each insurer without the complications of double insurance.</td>
+  </tr>
+</table>
+
+<!-- LEGAL CONSEQUENCES -->
+<div class="ph" id="di-cons">
+  <div class="ph-num di">II</div>
+  <div class="ph-title">Legal Consequences of Double Insurance — <em>Section 34(2), MIA 1963</em></div>
+</div>
+
+<div class="dc open" id="s34-detail">
+  <div class="dc-h" onclick="toggleD('s34-detail')">
+    <div class="dc-icon i-di">⚖</div>
+    <div class="dc-title">Section 34(2) — Complete Framework</div>
+    <div class="dc-sub">Marine Insurance Act, 1963</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <table class="dt di">
+      <tr><th>Sub-clause</th><th>Rule</th></tr>
+      <tr>
+        <td class="td-key">§ 34(2)(a) — Order of Claims</td>
+        <td>"The assured, unless the policy otherwise provides, may claim payment from the insurers in such order as he may think fit, provided that he is not entitled to receive any sum in excess of the indemnity allowed by this Act." — Insured chooses which insurer to approach first. Total recovery cannot exceed actual loss.</td>
+      </tr>
+      <tr>
+        <td class="td-key">§ 34(2)(b) — Valued Policy Credit Rule</td>
+        <td>"Where the policy under which the assured claims is a valued policy, the assured must give credit as against the valuation, for any sum received by him under any other policy, without regard to the actual value of the subject-matter insured." — If agreed value = ₹10 lakh and assured collects ₹6 lakh from Insurer A → can claim only ₹4 lakh from Insurer B.</td>
+      </tr>
+      <tr>
+        <td class="td-key">§ 34(2)(c) — Unvalued Policy Credit Rule</td>
+        <td>"Where the policy under which the assured claims is an unvalued policy, he must give credit, as against the full insurable value, for any sum received by him under any other policy." — Credit given against full insurable value.</td>
+      </tr>
+      <tr>
+        <td class="td-key">§ 34(2)(d) ★ — Excess Held in Trust</td>
+        <td>"Where the assured receives any sum in excess of the indemnity allowed by this Act, he is deemed to hold such sum in trust for the insurers, according to their right of contribution among themselves." — The insured holds excess NOT as his own property but as trustee for the insurers. This prevents unjust enrichment with legal precision.</td>
+      </tr>
+    </table>
+
+    <h4>§ 84(2)(f) MIA 1963 — Return of Premium in Double Insurance</h4>
+    <p>"Where the assured has over-insured by double insurance, a proportionate part of the several premiums is returnable: Provided that if the policies are effected at different times, and any earlier policy has at any time borne the entire risk, or if a claim has been paid on the policy in respect of the full sum insured thereby, no premium is returnable in respect of that policy."</p>
+    <p>So if double insurance detected before any claim — excess premium on the later policy may be refunded proportionately. But once a claim has been paid on a policy for the full sum — no refund is possible on that policy.</p>
+  </div>
+</div>
+
+<!-- CONTRIBUTION -->
+<div class="ph" id="di-contrib">
+  <div class="ph-num di">III</div>
+  <div class="ph-title">The Right of Contribution — <em>Section 80, MIA 1963</em></div>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 80(1) — Marine Insurance Act, 1963</div>
+  <p>"Where the assured is over-insured by double insurance, each insurer is bound, as between himself and the other insurers, to contribute rateably to the loss in proportion to the amount for which he is liable under his contract."</p>
+</div>
+<div class="def-card">
+  <div class="who">Section 80(2)</div>
+  <p>"If any insurer pays more than his proportion of the loss, he is entitled to maintain a suit for contribution against the other insurers, and is entitled to the like remedies as a surety who has paid more than his proportion of the debt."</p>
+</div>
+
+<div class="calc-box">
+  <div class="cl">Contribution Formula</div>
+  <div class="formula">Each Insurer's Liability = (That Insurer's Sum Insured ÷ Total Sum Insured Across All Policies) × Total Loss</div>
+  <div class="cresult">
+    Illustration 1: Property worth ₹10,00,000 · Policy with Insurer A = ₹6,00,000 · Policy with Insurer B = ₹4,00,000 · Total cover = ₹10,00,000 · Loss = ₹5,00,000<br>
+    A's share = (6/10) × 5,00,000 = <strong>₹3,00,000</strong> · B's share = (4/10) × 5,00,000 = <strong>₹2,00,000</strong><br>
+    If insured claims ₹5,00,000 entirely from A → A recovers ₹2,00,000 from B by contribution.<br><br>
+    Illustration 2 (M.S. Rama Rao): Smt. Rani's property insured with A for ₹30,000 and B for ₹20,000. Actual value = ₹80,000. Loss = ₹25,000.<br>
+    A's liability = (30,000/80,000) × 25,000 = <strong>₹9,375</strong> · B's liability = (20,000/80,000) × 25,000 = <strong>₹6,250</strong><br>
+    Balance ₹9,375 borne by Smt. Rani as her own insurer (under-insured by ₹30,000).
+  </div>
+</div>
+
+<h3>Conditions for the Right of Contribution</h3>
+<ul class="nl">
+  <li>Both policies must cover the <strong>same subject matter.</strong></li>
+  <li>Both policies must cover the <strong>same interest</strong> of the same assured.</li>
+  <li>Both policies must cover the <strong>same peril</strong> which caused the loss.</li>
+  <li>Both policies must be <strong>legally valid and enforceable</strong> at the time of loss. A void or voidable policy cannot contribute.</li>
+  <li>Both policies must be <strong>in force</strong> at the time of loss.</li>
+</ul>
+
+<div class="case-box di-c">
+  <div class="cn">⚖ North British and Mercantile Insurance Co. v. London, Liverpool and Globe Insurance Co. (1877) 5 Ch D 569 — LEADING AUTHORITY</div>
+  <p>Two fire insurance companies both insured the same warehouse. Fire occurred. <strong>Held:</strong> Both companies liable to contribute proportionately. Neither could avoid contribution by arguing the other policy was "primary." Established: Contribution operates on the principle of equality — each insurer bears the loss proportionate to the sum for which it is liable. The pro-rata contribution method is established.</p>
+</div>
+
+<div class="case-box di-c">
+  <div class="cn">⚖ Albion Fire and Life Insurance Co. v. Mills (1828) — FOUNDATIONAL CASE</div>
+  <p>One of the foundational English cases establishing that contribution exists as an <strong>equitable right</strong> between co-insurers. The right exists NOT because of any contractual arrangement between the insurers — but because it would be unconscionable for one insurer to bear more than its fair share.</p>
+</div>
+
+<!-- DOUBLE INSURANCE vs OVER-INSURANCE -->
+<h3>Double Insurance vs. Over-Insurance — A Critical Distinction</h3>
+<table class="ct">
+  <tr><th>Feature</th><th>Double Insurance</th><th>Over-Insurance</th></tr>
+  <tr><td>Meaning</td><td>Same subject matter insured with two or more different insurers</td><td>Subject matter insured with one insurer for a value exceeding its actual worth</td></tr>
+  <tr><td>Number of Policies</td><td>Two or more</td><td>One</td></tr>
+  <tr><td>Number of Insurers</td><td>Two or more</td><td>One</td></tr>
+  <tr><td>Contribution Rights</td><td>Arises between co-insurers</td><td>Not applicable</td></tr>
+  <tr><td>Result</td><td>Pro-rata recovery + right of contribution</td><td>Recovery limited to actual loss — no profit</td></tr>
+  <tr><td>Common Rule</td><td colspan="2" style="background:#f5f0ea;text-align:center;font-style:italic;">In BOTH cases — the insured cannot recover more than the actual loss. The indemnity principle works as a constant safeguard.</td></tr>
+</table>
+
+<!-- DOUBLE INSURANCE IN LIFE INSURANCE -->
+<div class="ph" id="di-life">
+  <div class="ph-num di">IV</div>
+  <div class="ph-title">Life Insurance — <em>The Critical Exception</em></div>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">Most Commonly Examined Distinction — Life Insurance &amp; Double Insurance</div>
+  <p><strong>Life Insurance is NOT subject to double insurance rules in the same way as general insurance.</strong></p>
+  <p>Because life insurance is NOT a contract of indemnity (established in <em>Dalby v. India and London Assurance Co. (1854)</em> — House of Lords) — the insured can take multiple life policies and claim the full amount under EACH upon death or maturity. There is NO "over-insurance" concept in life insurance.</p>
+  <p><strong>Example:</strong> If A takes five life policies of ₹10 lakh each — upon his death, his nominees can claim <mark>₹10 lakh from EACH</mark> — totaling ₹50 lakh — regardless of any "actual value" of life (which is legally incapable of precise valuation).</p>
+</div>
+
+<h3>"Other Insurance" Clauses in Policies</h3>
+<p>In practice, insurers protect themselves against consequences of double insurance by including <strong>"Other Insurance" clauses</strong> (also called Rateable Proportion Clauses) in their policies.</p>
+<div class="def-card">
+  <div class="who">Typical Other Insurance Clause</div>
+  <p>"If at the time of any loss or damage happening to any property hereby insured, there shall be any other subsisting insurance or insurances covering the same property, the Company shall not be liable to pay or contribute more than its rateable proportion of such loss or damage."</p>
+</div>
+<p>Such clauses are <strong>legally valid and enforceable</strong> — confirmed in numerous Indian and English cases. They prevent the insured from claiming the full loss from one insurer and force proportionate recovery from each.</p>
+
+<div class="divider"><span>Double Insurance → Reinsurance</span></div>
+
+<!-- ══════════════════════════ REINSURANCE ══════════════════════════ -->
+<div class="tbanner ri" id="ri-def">
+  <div class="t-icon">🔄</div>
+  <div class="t-meta">
+    <div class="t-label">Topic 7 · Part II</div>
+    <div class="t-title">Reinsurance — Comprehensive Lecture</div>
+  </div>
+</div>
+
+<div class="ph">
+  <div class="ph-num ri">§ 2(16B)</div>
+  <div class="ph-title">Definition — <em>Section 2(16B), Insurance Act, 1938 (inserted by Act 5 of 2015)</em></div>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 2(16B) — Insurance Act, 1938 — Statutory Definition (MEMORIZE VERBATIM)</div>
+  <p>"Re-insurance means the insurance of part of one insurer's risk by another insurer who accepts the risk for a mutually acceptable premium."</p>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 11(1) — Marine Insurance Act, 1963 — Insurable Interest of Cedant</div>
+  <p>"The insurer under a contract of marine insurance has an insurable interest in his risk, and may re-insure in respect of it."</p>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 11(2) — Marine Insurance Act, 1963 — CRITICAL PROVISION</div>
+  <p>"Unless the policy otherwise provides, the original assured has no right or interest in respect of such reinsurance."</p>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">Section 11(2) — What It Means</div>
+  <p>The original insured has <strong>absolutely NO rights against the reinsurer.</strong> The relationship is exclusively between the ceding insurer and the reinsurer. If the reinsurer becomes insolvent — the original insured's claims against the cedant are completely unaffected. The cedant must still pay the original insured from its own resources.</p>
+</div>
+
+<h3>The Conceptual Logic of Reinsurance — Why Does an Insurer Need Insurance?</h3>
+<p>Consider: An insurer issues a policy covering a large oil refinery for ₹500 crore. If the refinery burns down, the insurer must pay ₹500 crore. No single insurance company may have the financial capacity to absorb such a catastrophic loss.</p>
+<p><strong>Solution:</strong> The insurer passes part of the risk to a reinsurer — say, retains ₹50 crore and passes ₹450 crore to reinsurers.</p>
+
+<table class="dt ri" style="margin-top:12px;">
+  <tr><th>What Reinsurance Achieves</th><th>Explanation</th></tr>
+  <tr><td class="td-key">Financial Solvency Protection</td><td>Individual insurers protect themselves against catastrophic losses that could bankrupt them.</td></tr>
+  <tr><td class="td-key">Risk Distribution</td><td>Large risks are distributed across the global insurance and reinsurance market.</td></tr>
+  <tr><td class="td-key">Capacity Creation</td><td>Insurers can accept larger risks than their capital alone would permit.</td></tr>
+  <tr><td class="td-key">Price Stability</td><td>Achieves stability in the insurance market — catastrophic losses do not destabilize insurers.</td></tr>
+</table>
+
+<h3>Parties to Reinsurance</h3>
+<table class="dt ri">
+  <tr><th>Party</th><th>Role</th></tr>
+  <tr><td class="td-key">Original Insured</td><td>Person who takes the original insurance policy. Has NO rights against the reinsurer (§ 11(2) MIA 1963).</td></tr>
+  <tr><td class="td-key">Cedant / Ceding Company</td><td>The original insurer who accepts the risk from the original insured and then passes part of it to the reinsurer. Also called "direct insurer."</td></tr>
+  <tr><td class="td-key">Reinsurer</td><td>The insurer who accepts the transferred risk from the cedant in exchange for reinsurance premium.</td></tr>
+  <tr><td class="td-key">Retrocessionaire</td><td>A reinsurer who further reinsures its own accepted risk with yet another reinsurer. This creates a global chain of risk distribution.</td></tr>
+</table>
+
+<!-- STAT LAW -->
+<div class="ph" id="ri-stat">
+  <div class="ph-num ri">§§ 101A–101C</div>
+  <div class="ph-title">Reinsurance in Indian Statutory Law — <em>Part IVA, Insurance Act, 1938</em></div>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">The Dedicated Legislative Framework for Reinsurance in India</div>
+  <p>Part IVA of the Insurance Act, 1938 — Sections 101A, 101B, 101C — inserted by the Insurance Act Amendment of 1961 — is the dedicated legislative framework for reinsurance in India. These sections carry significant examination weight.</p>
+</div>
+
+<div class="dc open" id="s101a">
+  <div class="dc-h" onclick="toggleD('s101a')">
+    <div class="dc-icon i-ri">§</div>
+    <div class="dc-title">Section 101A — Re-insurance with Indian Re-insurers</div>
+    <div class="dc-sub">The Mandatory Cession Provision</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <div class="def-card">
+      <div class="who">Section 101A(1)</div>
+      <p>"Every insurer shall re-insure with Indian re-insurers such percentage of the sum assured on each policy as may be specified by the Authority with the previous approval of the Central Government under sub-section (2)."</p>
+    </div>
+    <p><strong>What this means:</strong> Every insurer operating in India is <mark>obligatorily required</mark> to reinsure a portion of its risk with Indian reinsurers. This is MANDATORY — not optional. The purpose is to retain reinsurance premiums within India rather than allowing them to flow out to foreign reinsurers.</p>
+    <table class="dt ri">
+      <tr><th>Sub-section</th><th>Content</th></tr>
+      <tr><td class="td-key">§ 101A(2)(i)</td><td>IRDAI may specify the percentage of sum assured to be reinsured. Different percentages may be specified for different classes of insurance. <strong>Proviso: Maximum cap = <mark>30%</mark> of the sum assured on any policy.</strong> This cap prevents excessive mandatory reinsurance that would hamper the original insurer's capacity.</td></tr>
+      <tr><td class="td-key">§ 101A(2)(ii)</td><td>IRDAI may specify the proportions in which the mandatory percentage shall be allocated among Indian re-insurers.</td></tr>
+      <tr><td class="td-key">§ 101A(3)</td><td>Special provision for fire insurance: Insurer may reinsure with Indian reinsurers such amount out of the first surplus in respect of that business — provided aggregate reinsurance premiums in any year are not less than the specified percentage of premium income.</td></tr>
+      <tr><td class="td-key">§ 101A(4)</td><td>Notification under sub-section (2) may also specify terms and conditions of reinsurance business — binding on both Indian reinsurers and other insurers.</td></tr>
+      <tr><td class="td-key">§ 101A(5)</td><td>No notification under sub-section (2) shall be issued except after consultation with the Advisory Committee constituted under Section 101B.</td></tr>
+      <tr><td class="td-key">§ 101A(6)</td><td>Every notification shall be laid before each House of Parliament — parliamentary oversight mechanism.</td></tr>
+      <tr><td class="td-key">§ 101A(7)</td><td>Clarificatory: Nothing in sub-section (1) prevents an insurer from additionally reinsuring the entire sum assured or any portion thereof with any Indian reinsurer. Mandatory reinsurance sets a floor — voluntary additional reinsurance is always permitted.</td></tr>
+      <tr><td class="td-key">§ 101A(8)(i)</td><td>"Policy" = policy issued or renewed on or after 1st April 1961, in respect of general insurance business transacted in India. Does NOT include a reinsurance policy.</td></tr>
+      <tr><td class="td-key">§ 101A(8)(ii)</td><td>"Indian Re-insurer" = an Indian insurance company granted a certificate of registration under sub-section (2A) of Section 3 by the Authority to carry on EXCLUSIVELY the reinsurance business in India. [Substituted by Insurance (Amendment) Act, 2002, s.15 — w.e.f. 23-9-2002.]</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="dc open" id="s101b">
+  <div class="dc-h" onclick="toggleD('s101b')">
+    <div class="dc-icon i-ri">§</div>
+    <div class="dc-title">Section 101B — Advisory Committee for Reinsurance</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <div class="def-card">
+      <div class="who">Section 101B(1)</div>
+      <p>"The Authority, with the previous approval of the Central Government, shall constitute an Advisory Committee for the purposes of Section 101A."</p>
+    </div>
+    <div class="ig">
+      <div class="ic"><div class="k">Composition</div><div class="v ri">Not more than 5 members</div></div>
+      <div class="ic"><div class="k">Qualification</div><div class="v">Special knowledge and experience of insurance</div></div>
+      <div class="ic"><div class="k">Terms &amp; Procedure</div><div class="v">Determined by regulations made by IRDAI</div></div>
+    </div>
+    <p><strong>Purpose:</strong> Advisory Committee provides expert input to IRDAI before it issues any notification specifying mandatory reinsurance percentages — ensuring informed, commercially sound decision-making.</p>
+  </div>
+</div>
+
+<div class="dc open" id="s101c">
+  <div class="dc-h" onclick="toggleD('s101c')">
+    <div class="dc-icon i-ri">§</div>
+    <div class="dc-title">Section 101C — Examination of Reinsurance Treaties</div>
+    <div class="dc-sub">IRDAI Regulatory Oversight</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <p>The Authority may at any time:</p>
+    <ul class="nl">
+      <li>Call upon an insurer to submit for examination at its principal place of business in India — all <strong>reinsurance treaties and other reinsurance contracts</strong> entered into by the insurer.</li>
+      <li>Examine any <strong>officer of the insurer on oath</strong> in relation to any such document.</li>
+      <li>By notice in writing, require any insurer to supply <strong>copies of any such documents</strong>, certified by a principal officer.</li>
+    </ul>
+    <p><strong>Purpose:</strong> Regulatory oversight — IRDAI ensures that reinsurance arrangements are commercially sound, not designed to siphon premiums abroad in violation of Indian law, and are not prejudicial to policyholders' interests.</p>
+    <h4>Connection to Section 34F of Insurance Act</h4>
+    <p>Section 34F gives the Authority power to issue directions regarding reinsurance treaties if it finds the terms or conditions are NOT favorable to the insurer or detrimental to public interest. The Authority can direct modifications or even non-renewal of such treaties.</p>
+  </div>
+</div>
+
+<!-- NATURE OF REINSURANCE -->
+<div class="ph">
+  <div class="ph-num ri">—</div>
+  <div class="ph-title">Nature of Reinsurance Contract</div>
+</div>
+
+<table class="dt ri">
+  <tr><th>Characteristic</th><th>Content</th></tr>
+  <tr><td class="td-key">1. Insurance of Insurance</td><td>Literally the "insurance of insurance" — governed by the same fundamental principles as any insurance contract (utmost good faith, insurable interest, indemnity).</td></tr>
+  <tr><td class="td-key">2. Insurable Interest (§ 11(1))</td><td>The cedant (original insurer) has an insurable interest in the risk it has underwritten. The financial loss the cedant would suffer if the original claim materializes = its insurable interest.</td></tr>
+  <tr><td class="td-key">3. Uberrima Fides</td><td>Reinsurance contracts are governed by utmost good faith — arguably even more stringently than direct insurance, because: (a) reinsurer has no direct relationship with original insured; (b) reinsurer cannot independently verify the risk; (c) reinsurer relies entirely on the cedant's information. Cedant must disclose ALL material facts about the original risk.</td></tr>
+  <tr><td class="td-key">4. Indemnity Principle</td><td>Reinsurance is a contract of indemnity — the reinsurer indemnifies the cedant against the loss the cedant suffers when it pays the original insured's claim. Reinsurer's liability triggered only when cedant actually pays or becomes legally obligated to pay.</td></tr>
+  <tr><td class="td-key">5. "Follow the Fortunes" Doctrine</td><td>The reinsurer generally agrees to "follow the fortunes" of the cedant — if the cedant settles a claim in good faith, the reinsurer is bound to follow that settlement even if it might have contested the claim differently. Reflects the interdependence of cedant and reinsurer.</td></tr>
+  <tr><td class="td-key">6. Separate and Independent Contract</td><td>Reinsurance contract entirely separate from the original insurance policy. Original insured has NO privity with reinsurer. Confirmed by § 11(2) MIA 1963. If reinsurer becomes insolvent — original insured's claims against cedant are unaffected.</td></tr>
+</table>
+
+<!-- TYPES OF REINSURANCE -->
+<div class="ph" id="ri-types">
+  <div class="ph-num ri">—</div>
+  <div class="ph-title">Types of Reinsurance — <em>Complete Classification</em></div>
+</div>
+
+<h3>Classification A — Based on Method of Arrangement</h3>
+<div class="type-grid">
+  <div class="type-card ri-t">
+    <div class="tc-label">Arrangement-Based · Automatic</div>
+    <div class="tc-name">1. Treaty Reinsurance</div>
+    <div class="tc-body">
+      <strong>Definition:</strong> Standing arrangement — reinsurer agrees in advance to accept a specified class or category of risks automatically, without case-by-case negotiation.<br><br>
+      <strong>Nature:</strong> Long-term, automatic, obligatory.<br><br>
+      <strong>Types:</strong><br>
+      • <em>Obligatory Treaty:</em> Both parties bound — cedant must cede, reinsurer must accept.<br>
+      • <em>Facultative-Obligatory (Fac-Ob):</em> Cedant may choose to cede or not, but if it cedes, reinsurer must accept.<br><br>
+      <strong>Advantages:</strong> Automatic cover without delay · Economical (saves admin costs) · Provides continuous, predictable protection.<br><br>
+      <strong>Disadvantages:</strong> Reinsurer exposed to adverse selection (bears whatever cedant underwrites) · Less flexibility in pricing individual risks.
+    </div>
+  </div>
+  <div class="type-card ri-t">
+    <div class="tc-label">Arrangement-Based · Individual</div>
+    <div class="tc-name">2. Facultative Reinsurance</div>
+    <div class="tc-body">
+      <strong>Definition:</strong> Case-by-case arrangement — cedant offers specific risks; reinsurer has option to accept or decline each individual risk on its own merits.<br><br>
+      <strong>Nature:</strong> Individual, discretionary, negotiated.<br><br>
+      <strong>When used:</strong> Exceptional, large, or unusual risks outside treaty coverage. Each risk separately underwritten and priced.<br><br>
+      <strong>Example:</strong> Policy for a nuclear power plant worth ₹1,000 crore — no treaty covers this automatically. Insurer must approach reinsurers facultatively, one by one, to build up required capacity.<br><br>
+      <strong>Advantages:</strong> Reinsurer can select good risks · Flexibility in pricing · Suitable for unique, high-value risks.<br><br>
+      <strong>Disadvantages:</strong> Time-consuming — delay in confirmation of cover · Expensive — high admin cost per transaction · No guarantee of capacity availability.
+    </div>
+  </div>
+</div>
+
+<h3>Classification B — Based on Structure of Risk Sharing</h3>
+
+<div class="dc open" id="proportional">
+  <div class="dc-h" onclick="toggleD('proportional')">
+    <div class="dc-icon i-ri">📊</div>
+    <div class="dc-title">1. Proportional Reinsurance</div>
+    <div class="dc-sub">Premium AND losses shared in same agreed proportion</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <p><strong>Cardinal Principle:</strong> Whatever ratio is agreed for sharing premium — the SAME ratio applies to sharing losses.</p>
+    <div class="type-grid">
+      <div class="type-card ri-t">
+        <div class="tc-label">Proportional Type 1</div>
+        <div class="tc-name">(a) Quota Share Treaty</div>
+        <div class="tc-body">Cedant and reinsurer agree to share ALL risks in a fixed, pre-determined percentage — regardless of the size of the risk.<br><br>
+        <em>Illustration:</em> Quota Share: 60% cedant, 40% reinsurer. Policy premium = ₹1,00,000 · Loss = ₹80,000 → Cedant retains ₹60,000 premium and pays ₹48,000 of loss. Reinsurer receives ₹40,000 premium and pays ₹32,000 of loss.<br><br>
+        <strong>Advantage:</strong> Simple, automatic, immediate protection.<br>
+        <strong>Disadvantage:</strong> Cedant gives away share of profit on small, safe risks unnecessarily.</div>
+      </div>
+      <div class="type-card ri-t">
+        <div class="tc-label">Proportional Type 2</div>
+        <div class="tc-name">(b) Surplus Treaty ("Excess of Line")</div>
+        <div class="tc-body">Cedant first retains a defined maximum amount (called the "line" or "retention") on each risk. Only the surplus over the retention is ceded — in proportion to the total sum insured.<br><br>
+        <em>M.S. Rama Rao Illustration:</em> Oriental company issues policy for ₹30 lakhs. Retains ₹20 lakhs, transfers risk for ₹10 lakhs to New India Assurance. Premium proportionately shared. Insured is NOT a party to this arrangement.<br><br>
+        <strong>Advantage:</strong> Cedant retains profitable smaller risks fully. More rational distribution. Cedant exercises underwriting judgment.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dc open" id="nonproportional">
+  <div class="dc-h" onclick="toggleD('nonproportional')">
+    <div class="dc-icon i-ri">📈</div>
+    <div class="dc-title">2. Non-Proportional Reinsurance</div>
+    <div class="dc-sub">Premium and losses NOT shared in same ratio — reinsurer pays only excess above retention</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <p><strong>Principle:</strong> The cedant bears all losses up to its retention (priority). The reinsurer kicks in ONLY above that level up to an agreed limit.</p>
+    <div class="type-grid">
+      <div class="type-card ri-t">
+        <div class="tc-label">Non-Proportional Type 1 · Most Common</div>
+        <div class="tc-name">(a) Excess of Loss (XL) Reinsurance</div>
+        <div class="tc-body">Reinsurer pays losses that exceed the cedant's retention up to an agreed limit — per individual risk or occurrence.<br><br>
+        <em>Illustration:</em> Cedant's retention = ₹50 lakh. Reinsurer's limit = ₹2 crore xs ₹50 lakh.<br>
+        Loss of ₹1.5 crore → Cedant pays ₹50 lakh · Reinsurer pays ₹1 crore.<br>
+        Loss of ₹3 crore → Cedant pays ₹50 lakh · Reinsurer pays ₹2 crore (max) · Balance ₹50 lakh = uninsured.<br><br>
+        <strong>Types:</strong> Per Risk XL (each individual loss) · Per Occurrence XL (cumulative losses from single event — earthquake, flood).<br>
+        <strong>Advantage:</strong> Most efficient protection against large individual losses.</div>
+      </div>
+      <div class="type-card ri-t">
+        <div class="tc-label">Non-Proportional Type 2</div>
+        <div class="tc-name">(b) Stop Loss (Aggregate Excess of Loss)</div>
+        <div class="tc-body">Reinsurer pays when the AGGREGATE losses for the entire year exceed a specified percentage of the cedant's premium income.<br><br>
+        <em>Illustration:</em> Stop Loss trigger = 80% of annual premium income. Annual premium = ₹100 crore. Trigger point = ₹80 crore in losses. If total losses = ₹95 crore → Cedant bears ₹80 crore · Reinsurer pays ₹15 crore.<br><br>
+        <strong>Use:</strong> Protects against catastrophic years — widespread floods, pandemics, etc. Portfolio-wide protection.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Master Comparison — All Reinsurance Types</h3>
+<table class="dt ri">
+  <tr><th>Type</th><th>Basis</th><th>Premium Sharing</th><th>Loss Sharing</th><th>Best Used For</th></tr>
+  <tr><td class="td-key">Quota Share</td><td>Proportional</td><td>Fixed % — all risks</td><td>Same fixed %</td><td>Small companies, new entrants, simplicity</td></tr>
+  <tr><td class="td-key">Surplus Treaty</td><td>Proportional</td><td>Proportionate to sum ceded</td><td>Same as premium share</td><td>Mid-size risks, varied portfolio</td></tr>
+  <tr><td class="td-key">XL Per Risk</td><td>Non-proportional</td><td>Flat premium per risk</td><td>Only above retention per risk</td><td>Large individual risks</td></tr>
+  <tr><td class="td-key">XL Per Occurrence</td><td>Non-proportional</td><td>Flat premium per occurrence</td><td>Catastrophe above aggregate retention</td><td>Natural disasters — earthquakes, floods</td></tr>
+  <tr><td class="td-key">Stop Loss</td><td>Non-proportional</td><td>Flat or percentage of income</td><td>Only when annual loss exceeds % of premium</td><td>Portfolio-wide protection</td></tr>
+  <tr><td class="td-key">Facultative</td><td>Individual negotiation</td><td>Negotiated per risk</td><td>Agreed proportion or excess</td><td>Unique, exceptional, high-value risks</td></tr>
+  <tr><td class="td-key">Treaty</td><td>Automatic arrangement</td><td>Per treaty terms</td><td>Per treaty terms</td><td>Routine business classes, high volume</td></tr>
+</table>
+
+<h3>Additional Key Concepts</h3>
+<table class="dt ri">
+  <tr><th>Concept</th><th>Explanation</th></tr>
+  <tr><td class="td-key">Retrocession</td><td>A reinsurer itself reinsures part of the risk it accepted from the cedant — with yet another reinsurer called the Retrocessionaire. Chain: Original Insured → Insurer (Cedant) → Reinsurer → Retrocessionaire. Allows global distribution of catastrophic risk. § 101A prevents all risk from being transferred outside India through retrocession chains.</td></tr>
+  <tr><td class="td-key">Ceding Commission</td><td>When insurer cedes risk to reinsurer under proportional treaties, the reinsurer pays back a Ceding Commission to the cedant — a percentage of the reinsurance premium — to cover cedant's acquisition costs and admin expenses. Flows FROM reinsurer TO cedant (distinct from insurance agent commission which flows from insurer to agent).</td></tr>
+  <tr><td class="td-key">GIC Re</td><td>General Insurance Corporation of India — India's national reinsurer. Established under GIBNA 1972. Converted from holding company of four public sector insurers into dedicated reinsurer in 2000. First recipient of mandatory cessions from Indian insurers.</td></tr>
+  <tr><td class="td-key">Foreign Reinsurance Branches (FRBs)</td><td>Since 2016, foreign reinsurers permitted to establish branches in India. Leading global reinsurers (Munich Re, Swiss Re, Lloyd's, Hannover Re, SCOR) have established Indian branches, deepening the domestic reinsurance market.</td></tr>
+</table>
+
+<!-- DOUBLE INSURANCE vs REINSURANCE -->
+<h3>Double Insurance vs. Reinsurance — The Most Examined Comparison</h3>
+<table class="ct">
+  <tr><th>Feature</th><th>Double Insurance</th><th>Reinsurance</th></tr>
+  <tr><td>Who Insures?</td><td>Original insured takes multiple policies</td><td>The insurer insures its own accepted risk</td></tr>
+  <tr><td>Purpose</td><td>(Often) over-protection / inadvertent duplication</td><td>Professional risk management by the insurer</td></tr>
+  <tr><td>Parties</td><td>Same insured + multiple insurers</td><td>Ceding insurer + reinsurer</td></tr>
+  <tr><td>Original Insured's Rights</td><td>Rights exist against all co-insurers</td><td>NO rights whatsoever against the reinsurer (§ 11(2) MIA)</td></tr>
+  <tr><td>Principle Applicable</td><td>Indemnity + Contribution</td><td>Insurer's insurable interest (§ 11(1) MIA)</td></tr>
+  <tr><td>Legal Foundation</td><td>§ 34 Marine Insurance Act, 1963</td><td>§ 11 MIA / § 2(16B) Insurance Act / §§ 101A–101C</td></tr>
+  <tr><td>Profit Motive</td><td>Must NOT result in profit to insured</td><td>Legitimate commercial arrangement</td></tr>
+  <tr><td>Regulatory Framework</td><td>General insurance principles</td><td>Part IVA Insurance Act (§§ 101A–101C)</td></tr>
+</table>
+
+<div class="divider"><span>The Grand Synthesis</span></div>
+
+<!-- ══════════════════════════ GRAND SYNTHESIS ══════════════════════════ -->
+<div class="tbanner sy" id="synthesis">
+  <div class="t-icon">🏛</div>
+  <div class="t-meta">
+    <div class="t-label">Holistic Overview — Connecting All Seven Topics</div>
+    <div class="t-title">The Grand Architecture of Insurance Law</div>
+  </div>
+</div>
+
+<p style="font-size:15.5px;font-style:italic;color:#3a3025;margin-bottom:20px;">Think of Insurance Law as a magnificent building. The history is its <strong>foundation</strong>, the general principles are its <strong>load-bearing pillars</strong>, and the specific types of insurance are its <strong>different rooms</strong> — each unique, yet all connected by the same structural logic.</p>
+
+<div class="arch-box">
+  <div class="arch-title">The Complete Architecture — All Seven Topics Connected</div>
+  <pre>INSURANCE LAW
+│
+├── 🏛 HISTORY (Topic 1) — THE FOUNDATION
+│   ├── Ancient India: Arthashastra, Manusmriti, Dharmashastra
+│   ├── Medieval: Genoa 1347 → Lloyd's Coffee House 1688
+│   ├── India 5 Stages: Mushroom Growth → Struggle → Stability → Nationalization → Privatization
+│   └── Key Acts: Insurance Act 1938 · LIC Act 1956 · GIBNA 1972 · IRDA Act 1999
+│
+├── 🔑 GENERAL PRINCIPLES (Topic 2) — THE PILLARS
+│   ├── Uberrima Fides → applies to ALL types (§ 19 MIA 1963, § 45 Insurance Act)
+│   ├── Insurable Interest → required everywhere (timing VARIES by type)
+│   ├── Indemnity → Life (✗), Fire (✓), Marine (✓), Miscellaneous (✓)
+│   ├── Subrogation → follows from Indemnity (therefore NOT in Life)
+│   ├── Contribution → follows from Indemnity + Double Insurance
+│   ├── Proximate Cause → determines liability in ALL types
+│   ├── Premium → present in ALL types (§ 64VB)
+│   ├── Warranty → present in ALL types (strictest in Marine §§ 35–43)
+│   └── Assignment → § 38 Insurance Act (life) · § 52 MIA (marine)
+│
+├── 🫀 LIFE INSURANCE (Topic 3)
+│   ├── NOT contract of indemnity (Dalby 1854)
+│   ├── Insurable interest at COMMENCEMENT only
+│   ├── No subrogation · No contribution between life policies
+│   ├── Suicide: Indian courts allow claim after exclusion period
+│   ├── LIC Act 1956: § 4 (composition) · § 5 (capital ₹5 crore) · § 6 (functions)
+│   └── § 39 Nomination · § 38 Assignment · § 45 Incontestability (3 years)
+│
+├── 🔥 FIRE INSURANCE (Topic 4)
+│   ├── Contract of indemnity (Castellain v. Preston 1883)
+│   ├── Insurable interest at policy AND at time of loss
+│   ├── Hostile vs. Friendly Fire (Harris v. Poland)
+│   ├── Average Clause (Condition 10) · Reinstatement (Clause 7)
+│   ├── Subrogation + Contribution apply
+│   └── No dedicated statute — common law + Standard Fire Policy
+│
+├── ⚓ MARINE INSURANCE (Topic 5) — ONLY DEDICATED STATUTE
+│   ├── Marine Insurance Act 1963 (91 sections + Schedule)
+│   ├── Contract of indemnity (§ 3)
+│   ├── Insurable interest at time of LOSS (§ 8(1))
+│   ├── Full warranty framework §§ 35–43 (seaworthiness, legality)
+│   ├── Deviation (§ 48) · Loss taxonomy (ATL/CTL/Particular/General Average)
+│   └── Subrogation (§ 79) · Contribution (§ 80)
+│
+├── 🛡 MISCELLANEOUS INSURANCE (Topic 6) — § 2(13B) Residuary Category
+│   ├── Burglary: Burglary ≠ Theft distinction · No dedicated statute
+│   ├── Public Liability: PL Insurance Act 1991 · No-fault § 3 · Collector forum
+│   └── Motor Vehicle: MV Act 1988 · No-fault § 140 · Compulsory § 146 · MACT § 165
+│
+└── 🔄 DOUBLE INSURANCE + REINSURANCE (Topic 7) — THE CONNECTIVE CORRIDORS
+    ├── Double Insurance: § 34 MIA · § 80 contribution · Indemnity prevents profit
+    └── Reinsurance: § 2(16B) Insurance Act · §§ 101A–101C · GIC Re · Treaty/Facultative</pre>
+</div>
+
+<h3>The Nine Pillars — Connecting Everything</h3>
+<div class="pillar-grid">
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#1a2a4a,#2d4270);">
+      <div class="pc-num">1</div>
+      <div class="pc-name">Uberrima Fides</div>
+    </div>
+    <div class="pc-body"><strong>Universal.</strong> Applies to ALL insurance. <em>Carter v. Boehm (1766)</em> — Lord Mansfield: "The insurer knows nothing; the assured knows everything." § 19 MIA codifies it. § 45 Insurance Act limits challenges after 3 years for life insurance.</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#2a1a00,#5c3a00);">
+      <div class="pc-num">2</div>
+      <div class="pc-name">Insurable Interest</div>
+    </div>
+    <div class="pc-body"><strong>Universal — timing varies.</strong> Fire = at policy AND loss. Marine = at loss (§ 8(1)). Life = at commencement only (Dalby). <em>Macaura v. Northern Assurance</em> — sole shareholder has no interest in company assets.</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#1a3a1a,#2e6040);">
+      <div class="pc-num">3</div>
+      <div class="pc-name">Indemnity</div>
+    </div>
+    <div class="pc-body"><strong>Fire, Marine, Misc = YES. Life = NO.</strong> Restore insured to pre-loss position. <em>Castellain v. Preston (1883)</em>. Exceptions: valued policies in marine; life insurance; personal accident.</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#2e1a2e,#5a3060);">
+      <div class="pc-num">4</div>
+      <div class="pc-name">Proximate Cause</div>
+    </div>
+    <div class="pc-body"><strong>Universal.</strong> Causa proxima non remota spectatur. Dominant, direct, operative cause. <em>Symington</em> (preventive damage covered) · <em>Marsden</em> (mob = independent cause) · <em>Tootal</em> (earthquake = proximate, not fire).</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#1a3a3a,#1a6060);">
+      <div class="pc-num">5</div>
+      <div class="pc-name">Subrogation</div>
+    </div>
+    <div class="pc-body"><strong>Fire, Marine, Misc = YES. Life = NO.</strong> Insurer steps into insured's shoes after paying. § 79 MIA. <em>Yorkshire v. N.S. Co.</em> — limited to amount paid. "The assured cannot take from both hands."</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#3a1a1a,#702a2a);">
+      <div class="pc-num">6</div>
+      <div class="pc-name">Contribution</div>
+    </div>
+    <div class="pc-body"><strong>General insurance = YES. Life = NO.</strong> Multiple policies on same risk — each contributes pro-rata. § 80 MIA. Formula: (Insurer's sum ÷ total sums) × loss. <em>North British v. Liverpool &amp; Globe</em>.</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#1a1a3a,#1a1a6a);">
+      <div class="pc-num">7</div>
+      <div class="pc-name">Premium</div>
+    </div>
+    <div class="pc-body"><strong>Universal.</strong> Consideration for risk. § 64VB — no risk without advance premium. Days of grace (30 days typically). § 113 — policy does not lapse once surrender value acquired (non-linked). Return on fraud = NO; innocent misrepresentation = YES.</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#3a2a1a,#6a4a20);">
+      <div class="pc-num">8</div>
+      <div class="pc-name">Warranty</div>
+    </div>
+    <div class="pc-body"><strong>Universal — strictest in Marine.</strong> § 35(3) MIA: "must be exactly complied with — whether material to risk or not." Breach = automatic discharge from date of breach. Irremedial (§ 36(2)). Waiver possible (§ 36(3)).</div>
+  </div>
+  <div class="pillar-card">
+    <div class="pc-header" style="background:linear-gradient(135deg,#1a3a2a,#2a6040);">
+      <div class="pc-num">9</div>
+      <div class="pc-name">Assignment</div>
+    </div>
+    <div class="pc-body"><strong>Life: § 38 (Insurance Act).</strong> Marine: § 52 MIA — assignable before OR after loss. Fire: NOT automatically transferred with property. Rule in <em>Dearle v. Hall</em> — priority determined by date of notice to insurer.</div>
+  </div>
+</div>
+
+<!-- THE BEAUTIFUL THREAD -->
+<div class="phil-box">
+  <h3>The Beautiful Logical Thread — Seeing Everything as One System</h3>
+  <p>Insurance Law is not a collection of disconnected topics — it is one coherent, logical system. Here is the thread that runs through everything:</p>
+  <ul class="phil-list">
+    <li><span class="bullet">→</span>Start with an ordinary contract → add <strong>utmost good faith</strong> (because one party knows more than the other) → add <strong>insurable interest</strong> (to prevent wagering) → the result is a contract of insurance.</li>
+    <li><span class="bullet">→</span>If the insurance is for property → add <strong>indemnity</strong> (you can't profit from loss) → add <strong>subrogation</strong> (insurer steps into your shoes after paying) → add <strong>contribution</strong> (multiple policies share loss proportionately).</li>
+    <li><span class="bullet">→</span>If multiple policies exist for same property → you have <strong>double insurance.</strong></li>
+    <li><span class="bullet">→</span>If the risk is too large for one insurer → they share it with another insurer → you have <strong>reinsurance.</strong></li>
+    <li><span class="bullet">→</span>And governing all of this — watching over the entire ecosystem → <strong>IRDAI</strong> (established under IRDA Act 1999 · Section 14 functions · Registration · Policyholder protection · Investment regulation · Social sector obligations).</li>
+  </ul>
+  <blockquote style="background:rgba(255,255,255,.05);border-left-color:#c4a8ff;color:rgba(255,255,255,.85);margin-top:20px;position:relative;">
+    "Every principle, every section number, every case judgment in Insurance Law ultimately serves one master purpose: To create a mechanism where the financial burden of individual misfortune is distributed across many shoulders, while preventing that mechanism from being abused for profit or gaming."
+    <cite style="color:#c4a8ff;">— The Unifying Philosophy of Insurance Law</cite>
+  </blockquote>
+</div>
+
+<div class="divider" id="master"><span>Master Exam Reference</span></div>
+
+<!-- MASTER CASES TABLE -->
+<div class="fact-panel">
+  <h3>All Leading Cases — Complete Master Reference</h3>
+  <div class="case-grid">
+    <div class="ci"><div class="cn2">Carter v. Boehm (1766)</div><div class="cp">Foundation of uberrima fides — "insurer knows nothing; assured knows everything" — Lord Mansfield</div></div>
+    <div class="ci"><div class="cn2">Dalby v. India &amp; London (1854)</div><div class="cp">Life insurance is NOT a contract of indemnity — House of Lords — insurable interest at commencement only</div></div>
+    <div class="ci"><div class="cn2">Macaura v. Northern Assurance (1925)</div><div class="cp">Sole shareholder has NO insurable interest in company's property</div></div>
+    <div class="ci"><div class="cn2">Castellain v. Preston (1883)</div><div class="cp">Indemnity principle; leading case on subrogation — insured cannot take from both hands</div></div>
+    <div class="ci"><div class="cn2">LIC v. Shakuntala Devi</div><div class="cp">Trivial ailments (indigestion) not material facts — LIC held liable</div></div>
+    <div class="ci"><div class="cn2">Godfrey v. Brittanic Assurance</div><div class="cp">Serious health conditions (lung infection, kidney, pharyngitis) are material — company not liable</div></div>
+    <div class="ci"><div class="cn2">Griffith v. Fleming</div><div class="cp">Insurable interest between spouses is presumed by law</div></div>
+    <div class="ci"><div class="cn2">Cleaver v. Mutual Reserve</div><div class="cp">Beneficiary who caused insured's death cannot recover; executors can</div></div>
+    <div class="ci"><div class="cn2">Sarbati Devi v. Usha Devi (SC)</div><div class="cp">Nominee = "hand to receive" only — modified by § 39(7)&(8) for close family</div></div>
+    <div class="ci"><div class="cn2">Beresford v. Royal Insurance (1938)</div><div class="cp">English law on suicide — felo de se; Lord Atkin: claim rejected. Indian position differs.</div></div>
+    <div class="ci"><div class="cn2">Kankayalal's Case</div><div class="cp">Suicide after 1-year policy exclusion period — claim upheld. Indian law.</div></div>
+    <div class="ci"><div class="cn2">Harris v. Poland</div><div class="cp">Friendly fire causing accidental loss to unintended items = COVERED</div></div>
+    <div class="ci"><div class="cn2">Thompson's Case</div><div class="cp">Exclusion clauses construed strictly (contra proferentem) against insurer</div></div>
+    <div class="ci"><div class="cn2">Tootal v. London Fire Ins.</div><div class="cp">Earthquake = proximate cause of fire; fire insurer NOT liable</div></div>
+    <div class="ci"><div class="cn2">Marsden v. City Insurance</div><div class="cp">Mob lawlessness = independent intervening cause; fire insurer not liable for glass</div></div>
+    <div class="ci"><div class="cn2">Symington v. Union Insurance</div><div class="cp">Acts to prevent fire spreading — covered as proximate fire loss</div></div>
+    <div class="ci"><div class="cn2">Yorkshire Ins. v. Nisbet Shipping</div><div class="cp">Subrogation limited to amount paid by insurer — not entitled to excess</div></div>
+    <div class="ci"><div class="cn2">North British v. Liverpool &amp; Globe (1877)</div><div class="cp">Contribution — pro-rata method — each insurer bears proportionate share</div></div>
+    <div class="ci"><div class="cn2">Dearle v. Hall</div><div class="cp">Priority of assignees determined by date of notice to insurer — not date of assignment</div></div>
+    <div class="ci"><div class="cn2">Anderson v. Morice</div><div class="cp">Marine insurable interest at time of loss — loading not complete = no interest</div></div>
+    <div class="ci"><div class="cn2">Asfar v. Blundell</div><div class="cp">Subject matter ceasing to be "thing of kind insured" = actual total loss</div></div>
+    <div class="ci"><div class="cn2">Vacuum Oil v. Union Insurance</div><div class="cp">Constructive total loss — prohibitive cost of forwarding damaged cargo</div></div>
+    <div class="ci"><div class="cn2">Rickards v. Forestal</div><div class="cp">Government-ordered scuttling = constructive total loss — insurer liable</div></div>
+    <div class="ci"><div class="cn2">Hall v. Hayman</div><div class="cp">Wreck value NOT taken into account in CTL calculation</div></div>
+    <div class="ci"><div class="cn2">Samuel v. Dumas</div><div class="cp">Scuttling with owner's connivance — not covered; dominant cause test</div></div>
+    <div class="ci"><div class="cn2">Thomas v. Hamilton (Inchmaree)</div><div class="cp">Valve failure due to negligence — not covered by standard perils; led to Inchmaree Clause</div></div>
+    <div class="ci"><div class="cn2">Baxendale v. Fane</div><div class="cp">Negligent docking = covered under Inchmaree clause</div></div>
+    <div class="ci"><div class="cn2">Gaunt's Case</div><div class="cp">All risks — insured proves fortuitous loss; need not identify specific cause</div></div>
+    <div class="ci"><div class="cn2">Elliot v. Wilson</div><div class="cp">Deviation at unauthorized port = insurer discharged</div></div>
+    <div class="ci"><div class="cn2">National Insurance v. J. Nadar</div><div class="cp">Jettison to save human life = excused deviation — insurer liable</div></div>
+    <div class="ci"><div class="cn2">Swaran Singh (2004) 3 SCC 297</div><div class="cp">Fundamental vs. technical breach — motor insurance; structured framework for § 149</div></div>
+    <div class="ci"><div class="cn2">MC Mehta v. Union of India (1987)</div><div class="cp">Absolute liability for hazardous enterprises — beyond Rylands v. Fletcher</div></div>
+    <div class="ci"><div class="cn2">Rikhi Ram v. Sukhrania (2003)</div><div class="cp">Motor policy automatically transferred to vehicle transferee — § 157 MV Act</div></div>
+    <div class="ci"><div class="cn2">Forsikringsaktieselskapet Vesta v. Butcher (1989)</div><div class="cp">Reinsurance back-to-back with direct insurance — reinsurer's liability mirrors cedant's</div></div>
+  </div>
+</div>
+
+<!-- MASTER SECTION TABLE -->
+<h3>Critical Section Numbers — Complete Master Reference</h3>
+<table class="master-table">
+  <thead>
+    <tr><th>Section</th><th>Act</th><th>What It Covers</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="ms-sec">§ 2(6A)</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Definition of fire insurance business</td></tr>
+    <tr><td class="ms-sec">§ 2(6B)</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Definition of general insurance business (fire, marine, miscellaneous)</td></tr>
+    <tr><td class="ms-sec">§ 2(9)</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Definition of "insurer" — 4 categories (subs. by Act 5/2015)</td></tr>
+    <tr><td class="ms-sec">§ 2(11)</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Definition of life insurance business (includes ULIPs — 2010 Amendment)</td></tr>
+    <tr><td class="ms-sec">§ 2(13A)</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Definition of marine insurance business</td></tr>
+    <tr><td class="ms-sec">§ 2(13B)</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Definition of miscellaneous insurance business (residuary)</td></tr>
+    <tr><td class="ms-sec">§ 2(16B)</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Definition of re-insurance (inserted by Act 5/2015)</td></tr>
+    <tr><td class="ms-sec">§ 3</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Registration of insurers — certificate of registration from IRDAI</td></tr>
+    <tr><td class="ms-sec">§ 6</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Capital requirements: Life/General = ₹100 crore; Reinsurance = ₹200 crore</td></tr>
+    <tr><td class="ms-sec">§ 10</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Separation of accounts; life insurance fund kept separate</td></tr>
+    <tr><td class="ms-sec">§ 32B</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Rural and social sector obligations</td></tr>
+    <tr><td class="ms-sec">§ 34F</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">IRDAI can direct modification/non-renewal of unfavourable reinsurance treaties</td></tr>
+    <tr><td class="ms-sec">§ 38</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Assignment and transfer of life insurance policies (substituted by Act 5/2015)</td></tr>
+    <tr><td class="ms-sec">§ 39</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Nomination; § 39(7)&(8) = beneficial nomination for close family</td></tr>
+    <tr><td class="ms-sec">§ 45</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Incontestability — 3 years (changed from 2 by Act 5/2015); within 3 years challengeable on fraud</td></tr>
+    <tr><td class="ms-sec">§ 47</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Payment of money into Court — conflicting claims; cannot apply until 6 months after death/maturity</td></tr>
+    <tr><td class="ms-sec">§ 64VA</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Solvency margin — excess of assets over liabilities ≥ 50% of minimum capital</td></tr>
+    <tr><td class="ms-sec">§ 64VB</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">No risk assumed unless premium received in advance; agent must remit within 24 hours</td></tr>
+    <tr><td class="ms-sec">§ 64UM</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Surveyors and loss assessors in general insurance claims</td></tr>
+    <tr><td class="ms-sec">§ 101A</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Mandatory reinsurance with Indian reinsurers — max 30% cap</td></tr>
+    <tr><td class="ms-sec">§ 101B</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Advisory Committee for reinsurance — max 5 members</td></tr>
+    <tr><td class="ms-sec">§ 101C</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">IRDAI power to examine reinsurance treaties</td></tr>
+    <tr><td class="ms-sec">§ 113</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">Surrender value; non-linked policy does not lapse once surrender value acquired</td></tr>
+    <tr><td class="ms-sec">§ 114A</td><td class="ms-act">Insurance Act 1938</td><td class="ms-what">IRDAI power to make regulations</td></tr>
+    <tr><td class="ms-sec">§ 3</td><td class="ms-act">MIA 1963</td><td class="ms-what">Definition of marine insurance</td></tr>
+    <tr><td class="ms-sec">§ 4</td><td class="ms-act">MIA 1963</td><td class="ms-what">Mixed sea and land risks; "adventure analogous to marine adventure"</td></tr>
+    <tr><td class="ms-sec">§ 6</td><td class="ms-act">MIA 1963</td><td class="ms-what">Wagering contracts void</td></tr>
+    <tr><td class="ms-sec">§ 7</td><td class="ms-act">MIA 1963</td><td class="ms-what">Insurable interest defined</td></tr>
+    <tr><td class="ms-sec">§ 8</td><td class="ms-act">MIA 1963</td><td class="ms-what">Insurable interest must exist at time of loss (marine)</td></tr>
+    <tr><td class="ms-sec">§ 11</td><td class="ms-act">MIA 1963</td><td class="ms-what">Reinsurance: § 11(1) cedant has insurable interest; § 11(2) original insured has NO rights against reinsurer</td></tr>
+    <tr><td class="ms-sec">§ 18</td><td class="ms-act">MIA 1963</td><td class="ms-what">Insurable value — measure for ship, freight, goods, other</td></tr>
+    <tr><td class="ms-sec">§ 19</td><td class="ms-act">MIA 1963</td><td class="ms-what">Insurance is uberrimae fidei</td></tr>
+    <tr><td class="ms-sec">§ 20</td><td class="ms-act">MIA 1963</td><td class="ms-what">Disclosure by assured; prudent insurer test</td></tr>
+    <tr><td class="ms-sec">§ 22</td><td class="ms-act">MIA 1963</td><td class="ms-what">Representations pending negotiation — must be substantially correct</td></tr>
+    <tr><td class="ms-sec">§ 23</td><td class="ms-act">MIA 1963</td><td class="ms-what">When contract deemed concluded; slip admissible as evidence</td></tr>
+    <tr><td class="ms-sec">§ 24</td><td class="ms-act">MIA 1963</td><td class="ms-what">Marine contract must be embodied in marine policy</td></tr>
+    <tr><td class="ms-sec">§ 27(1)</td><td class="ms-act">MIA 1963</td><td class="ms-what">Voyage and time policies; mixed policy permitted</td></tr>
+    <tr><td class="ms-sec">§ 27(2) ★</td><td class="ms-act">MIA 1963</td><td class="ms-what"><mark>Time policy exceeding 12 months is INVALID</mark></td></tr>
+    <tr><td class="ms-sec">§ 29</td><td class="ms-act">MIA 1963</td><td class="ms-what">Valued policy — agreed value conclusive absent fraud</td></tr>
+    <tr><td class="ms-sec">§ 34</td><td class="ms-act">MIA 1963</td><td class="ms-what">Double insurance — § 34(2)(a)–(d) complete framework</td></tr>
+    <tr><td class="ms-sec">§ 35</td><td class="ms-act">MIA 1963</td><td class="ms-what">Nature of warranty — exact compliance; discharge from date of breach</td></tr>
+    <tr><td class="ms-sec">§ 36</td><td class="ms-act">MIA 1963</td><td class="ms-what">When breach excused; irremedial nature; waiver possible</td></tr>
+    <tr><td class="ms-sec">§ 41</td><td class="ms-act">MIA 1963</td><td class="ms-what">Warranty of seaworthiness — voyage (absolute) vs. time (no implied warranty)</td></tr>
+    <tr><td class="ms-sec">§ 43</td><td class="ms-act">MIA 1963</td><td class="ms-what">Warranty of legality (implied)</td></tr>
+    <tr><td class="ms-sec">§ 48</td><td class="ms-act">MIA 1963</td><td class="ms-what">Deviation — intention irrelevant; fact of deviation discharges insurer</td></tr>
+    <tr><td class="ms-sec">§ 51</td><td class="ms-act">MIA 1963</td><td class="ms-what">Excused deviation — seven grounds including saving human life</td></tr>
+    <tr><td class="ms-sec">§ 55</td><td class="ms-act">MIA 1963</td><td class="ms-what">Proximate cause — included and excluded losses</td></tr>
+    <tr><td class="ms-sec">§ 57</td><td class="ms-act">MIA 1963</td><td class="ms-what">Actual total loss — three heads; no notice of abandonment required</td></tr>
+    <tr><td class="ms-sec">§ 60</td><td class="ms-act">MIA 1963</td><td class="ms-what">Constructive total loss — reasonable abandonment</td></tr>
+    <tr><td class="ms-sec">§ 62</td><td class="ms-act">MIA 1963</td><td class="ms-what">Notice of abandonment — requirements and effects</td></tr>
+    <tr><td class="ms-sec">§ 64</td><td class="ms-act">MIA 1963</td><td class="ms-what">Particular average loss</td></tr>
+    <tr><td class="ms-sec">§ 66</td><td class="ms-act">MIA 1963</td><td class="ms-what">General average loss — three essentials</td></tr>
+    <tr><td class="ms-sec">§ 77</td><td class="ms-act">MIA 1963</td><td class="ms-what">Suing and labouring clause; duty to mitigate</td></tr>
+    <tr><td class="ms-sec">§ 79</td><td class="ms-act">MIA 1963</td><td class="ms-what">Right of subrogation</td></tr>
+    <tr><td class="ms-sec">§ 80</td><td class="ms-act">MIA 1963</td><td class="ms-what">Right of contribution — pro-rata</td></tr>
+    <tr><td class="ms-sec">§ 84</td><td class="ms-act">MIA 1963</td><td class="ms-what">Return of premium for failure of consideration</td></tr>
+    <tr><td class="ms-sec">§ 4 LIC Act</td><td class="ms-act">LIC Act 1956</td><td class="ms-what">Composition of LIC — not exceeding 16 members + Chairman</td></tr>
+    <tr><td class="ms-sec">§ 5 LIC Act</td><td class="ms-act">LIC Act 1956</td><td class="ms-what">Capital of LIC — ₹5 crores provided by Central Government</td></tr>
+    <tr><td class="ms-sec">§ 6 LIC Act</td><td class="ms-act">LIC Act 1956</td><td class="ms-what">Functions of LIC — general duty; specific powers; business principles</td></tr>
+    <tr><td class="ms-sec">§ 3 MIA</td><td class="ms-act">MIA 1963</td><td class="ms-what">Definition of marine insurance</td></tr>
+    <tr><td class="ms-sec">§ 3 PL Act</td><td class="ms-act">PL Insurance Act 1991</td><td class="ms-what">Liability on no-fault principle — Rylands v. Fletcher codified</td></tr>
+    <tr><td class="ms-sec">§ 4 PL Act</td><td class="ms-act">PL Insurance Act 1991</td><td class="ms-what">Mandatory insurance for hazardous substance handlers</td></tr>
+    <tr><td class="ms-sec">§ 7A PL Act</td><td class="ms-act">PL Insurance Act 1991</td><td class="ms-what">Environmental Relief Fund</td></tr>
+    <tr><td class="ms-sec">§ 140 MV Act</td><td class="ms-act">MV Act 1988</td><td class="ms-what">No-fault liability — death ₹50,000 · Permanent disablement ₹25,000</td></tr>
+    <tr><td class="ms-sec">§ 146 MV Act</td><td class="ms-act">MV Act 1988</td><td class="ms-what">Compulsory third-party insurance — mandatory use in public place</td></tr>
+    <tr><td class="ms-sec">§ 147 MV Act</td><td class="ms-act">MV Act 1988</td><td class="ms-what">Requirements of policies — unlimited liability for persons; ₹7.5 lakh cap for property</td></tr>
+    <tr><td class="ms-sec">§ 149 MV Act</td><td class="ms-act">MV Act 1988</td><td class="ms-what">Insurer must pay third-party decree then recover from insured ("pay and recover")</td></tr>
+    <tr><td class="ms-sec">§ 161 MV Act</td><td class="ms-act">MV Act 1988</td><td class="ms-what">Solatium for hit-and-run — death ₹2 lakh · Grievous injury ₹50,000 (post-2019 Amendment)</td></tr>
+    <tr><td class="ms-sec">§ 165 MV Act</td><td class="ms-act">MV Act 1988</td><td class="ms-what">Constitution of MACT — Motor Accidents Claims Tribunals</td></tr>
+    <tr><td class="ms-sec">§ 173 MV Act</td><td class="ms-act">MV Act 1988</td><td class="ms-what">Appeal from MACT to High Court</td></tr>
+  </tbody>
+</table>
+
+<div class="exam-alert" style="margin-top:30px;">
+  <div class="lbl">High-Probability Exam Questions — Topic 7</div>
+  <ul>
+    <li>Define Double Insurance. What are its legal consequences? (Definition + § 34 analysis + 5 elements + § 34(2) sub-clauses)</li>
+    <li>Explain the right of contribution between co-insurers. How is it calculated? (Contribution + § 80 + formula + illustration)</li>
+    <li>Define Reinsurance. What are its types? (§ 2(16B) definition + Treaty/Facultative + Proportional/Non-proportional)</li>
+    <li>Distinguish between Double Insurance and Reinsurance. (Comparison table — all major points)</li>
+    <li>Explain the statutory provisions governing reinsurance under the Insurance Act, 1938. (§§ 101A, 101B, 101C in detail)</li>
+    <li>What is the nature of reinsurance? Discuss its fundamental principles. (Insurable interest + Uberrima fides + Indemnity + Separate contract + Follow the fortunes)</li>
+    <li>Can an insured take multiple life insurance policies? How does double insurance apply to life insurance differently? (Life insurance not indemnity — Dalby — all policies pay in full)</li>
+    <li>What is Quota Share Treaty? How does it differ from Surplus Treaty?</li>
+    <li>Discuss the powers of IRDAI regarding reinsurance treaties under Section 101C.</li>
+    <li>Write a note on: (a) Retrocession (b) Ceding Commission (c) GIC Re.</li>
+  </ul>
+</div>
+
+</main>
+
+<footer class="footer">
+  <span class="final">Insurance Law — Complete Syllabus Notes · All Seven Topics · Parts 1 to 5</span>
+  <span>Part 5 of 5 · Topic 7: Double Insurance &amp; Reinsurance · Complete Grand Synthesis · All Sections, Cases &amp; Principles</span><br>
+  <span style="color:var(--gold-light);font-size:14px;font-style:italic;font-family:'Playfair Display',serif;margin-top:10px;display:block;">"Master the WHY behind each principle, and the WHAT — sections, cases, definitions — will follow naturally."</span>
+</footer>
+
+<script>
+  function toggleD(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

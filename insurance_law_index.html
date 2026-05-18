@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Law — Complete Study Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1209; --parchment:#faf6ee; --gold:#b8922a; --gold-light:#d4a843;
+    --gold-pale:#f0dfa8; --burgundy:#6b1e2e; --navy:#1c2b4a; --navy-mid:#2d4270;
+    --warm-gray:#8c8070; --border:#d4c4a0; --shadow:rgba(26,18,9,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Source Serif 4',Georgia,serif;color:var(--ink);background:var(--parchment);overflow-x:hidden;}
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #080e1a 0%, #0f1d35 30%, #1c2b4a 55%, #2d1a0a 80%, #0a0a0a 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 60px 24px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(184,146,42,.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(107,30,46,.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 10%, rgba(44,66,112,.15) 0%, transparent 60%);
+  }
+  .hero-label {
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:4px;
+    color:var(--gold-light); text-transform:uppercase; margin-bottom:24px;
+    opacity:.85; position:relative;
+    display:flex; align-items:center; gap:12px;
+  }
+  .hero-label::before, .hero-label::after {
+    content:''; width:40px; height:1px; background:var(--gold-light); opacity:.5;
+  }
+  .hero h1 {
+    font-family:'Playfair Display',serif; font-size:clamp(36px,6vw,72px);
+    font-weight:900; color:#fff; line-height:1.08; margin-bottom:16px;
+    position:relative; max-width:900px;
+  }
+  .hero h1 .accent { color:var(--gold-light); }
+  .hero-sub {
+    font-size:clamp(15px,2vw,18px); color:rgba(255,255,255,.62); font-style:italic;
+    font-weight:300; max-width:680px; line-height:1.7; margin-bottom:40px; position:relative;
+  }
+  .hero-stats {
+    display:flex; flex-wrap:wrap; gap:16px; justify-content:center;
+    margin-bottom:52px; position:relative;
+  }
+  .stat-pill {
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+    border-radius:100px; padding:8px 20px;
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,.78);
+    display:flex; align-items:center; gap:8px;
+  }
+  .stat-pill .dot { width:6px; height:6px; border-radius:50%; }
+  .dot-gold { background:var(--gold-light); }
+  .dot-red  { background:#e07070; }
+  .dot-blue { background:#70b0e0; }
+  .dot-green{ background:#70e0a0; }
+  .hero-cta {
+    display:flex; gap:14px; flex-wrap:wrap; justify-content:center; position:relative;
+  }
+  .btn-primary {
+    background:linear-gradient(135deg,var(--gold),var(--gold-light));
+    color:var(--ink); font-family:'JetBrains Mono',monospace; font-size:13px;
+    font-weight:600; letter-spacing:.5px; padding:14px 32px; border-radius:6px;
+    text-decoration:none; border:none; cursor:pointer; transition:all .25s;
+    box-shadow:0 4px 20px rgba(184,146,42,.35);
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 28px rgba(184,146,42,.5); }
+  .btn-secondary {
+    background:transparent; color:rgba(255,255,255,.75);
+    font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:.5px;
+    padding:14px 28px; border-radius:6px; text-decoration:none;
+    border:1px solid rgba(255,255,255,.22); cursor:pointer; transition:all .25s;
+  }
+  .btn-secondary:hover { background:rgba(255,255,255,.07); color:#fff; border-color:rgba(255,255,255,.4); }
+
+  /* scroll arrow */
+  .scroll-hint {
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    color:rgba(255,255,255,.35); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px;
+    animation:bounce 2s ease infinite;
+  }
+  .scroll-hint svg { width:20px; opacity:.5; }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+  /* ─── NOTICE BAR ─── */
+  .notice-bar {
+    background:var(--navy); padding:12px 24px; text-align:center;
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(255,255,255,.7);
+    border-bottom:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap;
+  }
+  .notice-bar .badge {
+    background:var(--burgundy); color:#fff; font-size:10px; padding:2px 8px; border-radius:3px; letter-spacing:1px;
+  }
+
+  /* ─── MAIN ─── */
+  main { max-width:1100px; margin:0 auto; padding:72px 24px 100px; }
+
+  /* SECTION HEADING */
+  .sec-head {
+    text-align:center; margin-bottom:48px;
+  }
+  .sec-head .overline {
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:3px;
+    color:var(--gold); text-transform:uppercase; margin-bottom:12px; display:block;
+  }
+  .sec-head h2 {
+    font-family:'Playfair Display',serif; font-size:clamp(26px,4vw,40px);
+    font-weight:900; color:var(--navy); line-height:1.2;
+  }
+  .sec-head h2 em { font-style:italic; color:var(--burgundy); }
+  .sec-head p {
+    font-size:16px; color:var(--warm-gray); max-width:560px; margin:12px auto 0; line-height:1.8;
+  }
+
+  /* ─── PARTS GRID ─── */
+  .parts-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:24px;
+    margin-bottom:80px;
+  }
+
+  .part-card {
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    transition:transform .25s, box-shadow .25s;
+    display:flex; flex-direction:column;
+  }
+  .part-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 12px 40px var(--shadow);
+  }
+  .part-card.featured {
+    grid-column: span 2;
+  }
+  @media(max-width:700px){ .part-card.featured{ grid-column:span 1; } }
+
+  .pc-banner {
+    padding:24px 26px 20px;
+    position:relative; overflow:hidden;
+  }
+  .pc-banner::after {
+    content:''; position:absolute; right:-20px; top:-20px;
+    width:100px; height:100px; border-radius:50%;
+    background:rgba(255,255,255,.06);
+  }
+  .pc-part-label {
+    font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2.5px;
+    text-transform:uppercase; opacity:.75; margin-bottom:8px; color:#fff;
+  }
+  .pc-title {
+    font-family:'Playfair Display',serif; font-size:20px; font-weight:900;
+    color:#fff; line-height:1.25; position:relative;
+  }
+  .pc-icon {
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-size:42px; opacity:.25;
+  }
+
+  /* PART COLOURS */
+  .p1{ background:linear-gradient(135deg,#0f1d35,#1c2b4a); }
+  .p2{ background:linear-gradient(135deg,#1a0a1a,#3a1a3a); }
+  .p3{ background:linear-gradient(135deg,#0a1f10,#1a4a20); }
+  .p4{ background:linear-gradient(135deg,#1a0a00,#3a2000); }
+  .p5{ background:linear-gradient(135deg,#0a0a1a,#2a0a3a); }
+
+  .pc-body {
+    padding:20px 26px; flex:1; display:flex; flex-direction:column;
+  }
+  .pc-topics {
+    list-style:none; padding:0; margin-bottom:20px; flex:1;
+  }
+  .pc-topics li {
+    display:flex; align-items:flex-start; gap:10px;
+    padding:7px 0; border-bottom:1px solid #f0ede6;
+    font-size:14px; line-height:1.55; color:#3a3025;
+  }
+  .pc-topics li:last-child { border-bottom:none; }
+  .pc-topics li .tick {
+    font-size:12px; margin-top:2px; flex-shrink:0;
+  }
+  .pc-meta {
+    display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;
+  }
+  .pc-tag {
+    background:var(--gold-pale); border:1px solid var(--border);
+    font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--ink);
+    padding:3px 9px; border-radius:100px; letter-spacing:.3px;
+  }
+  .pc-btn {
+    display:block; text-align:center; text-decoration:none;
+    padding:12px 20px; border-radius:7px; font-family:'JetBrains Mono',monospace;
+    font-size:12.5px; font-weight:600; letter-spacing:.5px; transition:all .22s;
+  }
+  .pc-btn:hover { transform:translateY(-1px); }
+  .btn-p1{ background:var(--navy); color:#fff; }
+  .btn-p1:hover{ background:var(--navy-mid); }
+  .btn-p2{ background:#3a1a3a; color:#d4a8f0; }
+  .btn-p2:hover{ background:#4a2a4a; }
+  .btn-p3{ background:#1a4a20; color:#7df4b0; }
+  .btn-p3:hover{ background:#224a28; }
+  .btn-p4{ background:#3a2000; color:#ffb84d; }
+  .btn-p4:hover{ background:#4a2800; }
+  .btn-p5{ background:#1a0a2e; color:#c4a8ff; }
+  .btn-p5:hover{ background:#2a1a3e; }
+
+  /* ─── KEY PRINCIPLES ─── */
+  .principles-section { margin-bottom:80px; }
+  .principles-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+    gap:14px;
+  }
+  .principle-card {
+    background:#fff; border:1px solid var(--border); border-radius:8px;
+    padding:16px 18px; transition:box-shadow .2s;
+  }
+  .principle-card:hover { box-shadow:0 4px 20px var(--shadow); }
+  .principle-card .p-num {
+    font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--gold);
+    font-weight:600; letter-spacing:1px; margin-bottom:6px;
+  }
+  .principle-card .p-name {
+    font-family:'Playfair Display',serif; font-size:16px; font-weight:700;
+    color:var(--navy); margin-bottom:6px;
+  }
+  .principle-card .p-latin {
+    font-size:11.5px; font-style:italic; color:var(--warm-gray); margin-bottom:8px;
+  }
+  .principle-card .p-desc {
+    font-size:13px; color:#4a3a2a; line-height:1.65;
+  }
+
+  /* ─── STATUTES TABLE ─── */
+  .statutes-section { margin-bottom:80px; }
+  .statutes-grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px;
+  }
+  .statute-card {
+    background:#fff; border:1px solid var(--border); border-radius:8px;
+    overflow:hidden;
+  }
+  .statute-header {
+    padding:12px 16px;
+    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.8px;
+    color:#fff; text-transform:uppercase;
+  }
+  .sh-1{ background:var(--navy); }
+  .sh-2{ background:#0e4d6b; }
+  .sh-3{ background:#4a1942; }
+  .sh-4{ background:#2e5942; }
+  .sh-5{ background:#6b1e2e; }
+  .statute-body { padding:12px 16px; font-size:13.5px; color:#3a3025; line-height:1.7; }
+  .statute-body strong { color:var(--navy); }
+
+  /* ─── CASES QUICK REF ─── */
+  .cases-section { margin-bottom:80px; }
+  .cases-list {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px;
+  }
+  .case-item {
+    background:#fff; border:1px solid var(--border); border-left:4px solid var(--navy-mid);
+    border-radius:5px; padding:12px 16px;
+  }
+  .ci-name {
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600;
+    color:var(--navy); margin-bottom:4px;
+  }
+  .ci-rule { font-size:13.5px; color:#4a3a2a; }
+
+  /* ─── EXAM TIPS ─── */
+  .tips-section { margin-bottom:80px; }
+  .tips-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; }
+  .tip-card {
+    background:#fff; border:1px solid var(--border); border-radius:8px; padding:20px 22px;
+  }
+  .tip-card .tip-icon { font-size:28px; margin-bottom:10px; }
+  .tip-card .tip-title {
+    font-family:'Playfair Display',serif; font-size:17px; font-weight:700;
+    color:var(--navy); margin-bottom:8px;
+  }
+  .tip-card .tip-text { font-size:14px; color:#4a3a2a; line-height:1.72; }
+  .tip-card ul { padding-left:18px; margin-top:8px; }
+  .tip-card ul li { margin-bottom:5px; font-size:14px; color:#4a3a2a; }
+
+  /* ─── SYLLABUS MAP ─── */
+  .syllabus-section { margin-bottom:80px; }
+  .syllabus-flow {
+    background:var(--navy); border-radius:12px; padding:32px 36px; overflow-x:auto;
+  }
+  .syllabus-flow .sf-title {
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:2px;
+    text-transform:uppercase; color:var(--gold-light); margin-bottom:24px;
+  }
+  .sf-row {
+    display:flex; align-items:stretch; gap:0; flex-wrap:wrap;
+  }
+  .sf-item {
+    flex:1; min-width:140px; text-align:center; position:relative; padding:0 8px;
+  }
+  .sf-item:not(:last-child)::after {
+    content:'→'; position:absolute; right:-10px; top:50%; transform:translateY(-50%);
+    color:var(--gold-light); font-size:20px; font-family:monospace;
+  }
+  .sf-box {
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+    border-radius:8px; padding:14px 10px; height:100%;
+  }
+  .sf-num {
+    font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--gold-light);
+    letter-spacing:1px; margin-bottom:6px;
+  }
+  .sf-name {
+    font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:#fff; margin-bottom:6px;
+  }
+  .sf-desc { font-size:11px; color:rgba(255,255,255,.55); line-height:1.6; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background:var(--navy); color:rgba(255,255,255,.5); padding:40px 24px;
+    text-align:center;
+  }
+  .footer-inner { max-width:700px; margin:0 auto; }
+  .footer-logo {
+    font-family:'Playfair Display',serif; font-size:22px; font-weight:900;
+    color:#fff; margin-bottom:8px;
+  }
+  .footer-logo span { color:var(--gold-light); }
+  .footer-sub {
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1px;
+    color:rgba(255,255,255,.4); margin-bottom:24px;
+  }
+  .footer-links {
+    display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:24px;
+  }
+  .footer-links a {
+    color:rgba(255,255,255,.5); text-decoration:none; font-family:'JetBrains Mono',monospace;
+    font-size:11px; padding:5px 12px; border:1px solid rgba(255,255,255,.12);
+    border-radius:4px; transition:all .2s;
+  }
+  .footer-links a:hover { color:var(--gold-light); border-color:var(--gold-light); }
+  .footer-copy {
+    font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(255,255,255,.28);
+  }
+
+  /* DIVIDER */
+  .divider { display:flex; align-items:center; gap:16px; margin:64px 0 48px; }
+  .divider::before,.divider::after { content:''; flex:1; height:1px; background:var(--border); }
+  .divider span {
+    font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--warm-gray);
+    letter-spacing:2px; text-transform:uppercase; white-space:nowrap;
+  }
+
+  /* RESPONSIVE */
+  @media(max-width:600px){
+    .parts-grid{ grid-template-columns:1fr; }
+    .sf-row{ flex-direction:column; gap:12px; }
+    .sf-item::after{ display:none; }
+    .hero h1{ font-size:34px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NOTICE BAR -->
+<div class="notice-bar">
+  <span class="badge">STUDY NOTES</span>
+  Comprehensive Insurance Law · 7 Topics · 5 Parts · Exam-Ready Format
+  <span class="badge">CSJMU Syllabus</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Insurance Law · Complete Study Notes</div>
+  <h1>Master Every Corner of<br><span class="accent">Insurance Law</span></h1>
+  <p class="hero-sub">Deeply researched, professor-grade lecture notes covering the entire syllabus — every section number, every landmark case, every doctrine — interconnected and exam-ready.</p>
+
+  <div class="hero-stats">
+    <div class="stat-pill"><span class="dot dot-gold"></span>7 Topics Covered</div>
+    <div class="stat-pill"><span class="dot dot-blue"></span>5 Note Files</div>
+    <div class="stat-pill"><span class="dot dot-red"></span>70+ Leading Cases</div>
+    <div class="stat-pill"><span class="dot dot-green"></span>Insurance Act 1938 · MIA 1963 · MV Act 1988</div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="#parts" class="btn-primary">Browse All Parts ↓</a>
+    <a href="#syllabus-map" class="btn-secondary">View Syllabus Map</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main>
+
+  <!-- PARTS SECTION -->
+  <div id="parts"></div>
+  <div class="sec-head" style="margin-top:0;padding-top:20px;">
+    <span class="overline">All Five Parts</span>
+    <h2>Your Complete <em>Study Note Collection</em></h2>
+    <p>Each part covers one or two syllabus topics with full doctrinal analysis, statutory sections, case law, and exam-oriented summaries.</p>
+  </div>
+
+  <div class="parts-grid">
+
+    <!-- PART 1 -->
+    <div class="part-card">
+      <div class="pc-banner p1">
+        <div class="pc-part-label">Part 1 of 5 · Topic 1</div>
+        <div class="pc-title">Origin &amp; History of Insurance Law</div>
+        <div class="pc-icon">🏛</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-meta">
+          <span class="pc-tag">Ancient Origins</span>
+          <span class="pc-tag">5 Stages India</span>
+          <span class="pc-tag">Insurance Act 1938</span>
+          <span class="pc-tag">IRDAI</span>
+        </div>
+        <ul class="pc-topics">
+          <li><span class="tick">✦</span>Ancient roots — Arthashastra, Genoa 1347, Lloyd's Coffee House 1688</li>
+          <li><span class="tick">✦</span>Five stages of Indian insurance history (1900–present)</li>
+          <li><span class="tick">✦</span>LIC Nationalization (1956) · GIC Nationalization (1972)</li>
+          <li><span class="tick">✦</span>IRDA Act 1999 · Insurance Laws (Amendment) Act 2015</li>
+          <li><span class="tick">✦</span>Insurance Act 1938 — all critical sections with annotations</li>
+          <li><span class="tick">✦</span>IRDAI — composition (§ 4 IRDA Act) · 17 functions (§ 14)</li>
+        </ul>
+        <a href="insurance_law_part1.html" class="pc-btn btn-p1">Open Part 1 →</a>
+      </div>
+    </div>
+
+    <!-- PART 2 -->
+    <div class="part-card">
+      <div class="pc-banner p2">
+        <div class="pc-part-label">Part 2 of 5 · Topic 2</div>
+        <div class="pc-title">General Principles &amp; Fundamental Doctrines</div>
+        <div class="pc-icon">⚖</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-meta">
+          <span class="pc-tag">Uberrima Fides</span>
+          <span class="pc-tag">Indemnity</span>
+          <span class="pc-tag">Insurable Interest</span>
+          <span class="pc-tag">Warranty</span>
+        </div>
+        <ul class="pc-topics">
+          <li><span class="tick">✦</span>Definition, essentials &amp; nature of insurance contracts</li>
+          <li><span class="tick">✦</span>Doctrine of Utmost Good Faith — §§ 19–22 MIA 1963 · Carter v. Boehm</li>
+          <li><span class="tick">✦</span>Doctrine of Indemnity — Subrogation (§ 79) · Contribution (§ 80) · Reinstatement</li>
+          <li><span class="tick">✦</span>Insurable Interest — Macaura · Dalby · Griffith v. Fleming</li>
+          <li><span class="tick">✦</span>Premium — § 64VB · days of grace · forfeiture · return</li>
+          <li><span class="tick">✦</span>Risk &amp; Causa Proxima · Assignment (§ 38) · Warranty (§§ 35–43)</li>
+        </ul>
+        <a href="insurance_law_part2.html" class="pc-btn btn-p2">Open Part 2 →</a>
+      </div>
+    </div>
+
+    <!-- PART 3 -->
+    <div class="part-card">
+      <div class="pc-banner p3">
+        <div class="pc-part-label">Part 3 of 5 · Topics 3 &amp; 4</div>
+        <div class="pc-title">Life Insurance &amp; Fire Insurance</div>
+        <div class="pc-icon">🔥</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-meta">
+          <span class="pc-tag">Dalby Rule</span>
+          <span class="pc-tag">Suicide Law</span>
+          <span class="pc-tag">Average Clause</span>
+          <span class="pc-tag">Reinstatement</span>
+        </div>
+        <ul class="pc-topics">
+          <li><span class="tick">✦</span>Life Insurance — definition · § 2(11) · non-indemnity nature (Dalby 1854)</li>
+          <li><span class="tick">✦</span>Events insured against — suicide (Indian vs. English law) · Beresford · Kankayalal</li>
+          <li><span class="tick">✦</span>Nomination (§ 39) · Assignment (§ 38) · § 45 incontestability</li>
+          <li><span class="tick">✦</span>7 categories of life insurance policies · LIC Act 1956 framework</li>
+          <li><span class="tick">✦</span>Fire Insurance — Hostile vs. Friendly Fire · Harris v. Poland</li>
+          <li><span class="tick">✦</span>Average Clause (Condition 10) · Subrogation · Contribution · All 9 policy types</li>
+        </ul>
+        <a href="insurance_law_part3.html" class="pc-btn btn-p3">Open Part 3 →</a>
+      </div>
+    </div>
+
+    <!-- PART 4 -->
+    <div class="part-card">
+      <div class="pc-banner p4">
+        <div class="pc-part-label">Part 4 of 5 · Topics 5 &amp; 6</div>
+        <div class="pc-title">Marine &amp; Miscellaneous Insurance</div>
+        <div class="pc-icon">⚓</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-meta">
+          <span class="pc-tag">MIA 1963 All 91 §§</span>
+          <span class="pc-tag">CTL / ATL</span>
+          <span class="pc-tag">MACT</span>
+          <span class="pc-tag">PL Act 1991</span>
+        </div>
+        <ul class="pc-topics">
+          <li><span class="tick">✦</span>Marine Insurance Act 1963 — complete framework (§ 3 to § 91)</li>
+          <li><span class="tick">✦</span>Warranties · Deviation · Insured Perils · Inchmaree Clause</li>
+          <li><span class="tick">✦</span>Full loss taxonomy — ATL · CTL · Particular Average · General Average</li>
+          <li><span class="tick">✦</span>Burglary Insurance — burglary vs. theft distinction</li>
+          <li><span class="tick">✦</span>Public Liability Insurance Act 1991 — §§ 3–7A · no-fault · Schedule amounts</li>
+          <li><span class="tick">✦</span>Motor Vehicles Act 1988 — §§ 140–176 · MACT · Solatium Scheme</li>
+        </ul>
+        <a href="insurance_law_part4.html" class="pc-btn btn-p4">Open Part 4 →</a>
+      </div>
+    </div>
+
+    <!-- PART 5 — FEATURED -->
+    <div class="part-card featured">
+      <div class="pc-banner p5">
+        <div class="pc-part-label">Part 5 of 5 · Topic 7 + Grand Synthesis</div>
+        <div class="pc-title">Double Insurance &amp; Reinsurance · Complete Syllabus Architecture</div>
+        <div class="pc-icon">🔄</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-meta">
+          <span class="pc-tag">§ 34 MIA</span>
+          <span class="pc-tag">§§ 101A–101C</span>
+          <span class="pc-tag">Treaty / Facultative</span>
+          <span class="pc-tag">Proportional / Non-Proportional</span>
+          <span class="pc-tag">Grand Synthesis</span>
+          <span class="pc-tag">Master Reference</span>
+        </div>
+        <ul class="pc-topics">
+          <li><span class="tick">✦</span>Double Insurance — 5 essential elements · § 34(2) legal consequences (sub-clauses a–d)</li>
+          <li><span class="tick">✦</span>Right of Contribution (§ 80) — formula · North British v. Liverpool &amp; Globe</li>
+          <li><span class="tick">✦</span>Reinsurance — § 2(16B) definition · § 11(1)&amp;(2) MIA · no rights of original insured against reinsurer</li>
+          <li><span class="tick">✦</span>§§ 101A–101C Insurance Act — mandatory cession · 30% cap · Advisory Committee · treaty examination</li>
+          <li><span class="tick">✦</span>All types: Treaty vs. Facultative · Quota Share · Surplus · XL · Stop Loss · Retrocession · GIC Re</li>
+          <li><span class="tick">✦</span>Grand Architecture — all 7 topics connected · 9 foundational pillars · Master case table · Complete section reference</li>
+        </ul>
+        <a href="insurance_law_part5.html" class="pc-btn btn-p5">Open Part 5 →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SYLLABUS MAP -->
+  <div id="syllabus-map"></div>
+  <div class="divider"><span>Syllabus Map</span></div>
+  <div class="sec-head">
+    <span class="overline">At a Glance</span>
+    <h2>Complete <em>Syllabus Coverage</em></h2>
+    <p>All seven topics of your syllabus — mapped in order, showing how each feeds into the next.</p>
+  </div>
+  <div class="syllabus-section">
+    <div class="syllabus-flow">
+      <div class="sf-title">Topic Flow — Insurance Law Syllabus (7 Topics)</div>
+      <div class="sf-row">
+        <div class="sf-item">
+          <div class="sf-box">
+            <div class="sf-num">TOPIC 1 · PART 1</div>
+            <div class="sf-name">Origin &amp; History</div>
+            <div class="sf-desc">Foundation: Ancient roots → 5 Indian stages → Insurance Act 1938 → IRDAI</div>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-box">
+            <div class="sf-num">TOPIC 2 · PART 2</div>
+            <div class="sf-name">General Principles</div>
+            <div class="sf-desc">Pillars: Uberrima Fides · Indemnity · Insurable Interest · Proximate Cause · Warranty</div>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-box">
+            <div class="sf-num">TOPIC 3 · PART 3</div>
+            <div class="sf-name">Life Insurance</div>
+            <div class="sf-desc">Non-indemnity · Suicide · Nomination § 39 · § 45 · LIC Act 1956</div>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-box">
+            <div class="sf-num">TOPIC 4 · PART 3</div>
+            <div class="sf-name">Fire Insurance</div>
+            <div class="sf-desc">Indemnity · Average Clause · Reinstatement · Subrogation · Contribution</div>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-box">
+            <div class="sf-num">TOPIC 5 · PART 4</div>
+            <div class="sf-name">Marine Insurance</div>
+            <div class="sf-desc">MIA 1963 · Warranties · Deviation · ATL/CTL · General Average</div>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-box">
+            <div class="sf-num">TOPIC 6 · PART 4</div>
+            <div class="sf-name">Miscellaneous</div>
+            <div class="sf-desc">Burglary · PL Act 1991 · MV Act §§ 140–176 · MACT</div>
+          </div>
+        </div>
+        <div class="sf-item">
+          <div class="sf-box">
+            <div class="sf-num">TOPIC 7 · PART 5</div>
+            <div class="sf-name">DI &amp; Reinsurance</div>
+            <div class="sf-desc">§ 34 MIA · §§ 101A–101C · Treaty/Facultative · Grand Synthesis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NINE PILLARS -->
+  <div class="divider"><span>Core Principles</span></div>
+  <div class="sec-head">
+    <span class="overline">The Nine Pillars</span>
+    <h2>General Principles That <em>Govern All Insurance</em></h2>
+    <p>These principles apply universally — mastering them unlocks every specific type of insurance.</p>
+  </div>
+  <div class="principles-section">
+    <div class="principles-grid">
+      <div class="principle-card">
+        <div class="p-num">PILLAR 01</div>
+        <div class="p-name">Uberrima Fides</div>
+        <div class="p-latin">Utmost Good Faith</div>
+        <div class="p-desc">The insurer knows nothing — the assured knows everything. Mutual duty of disclosure. <em>Carter v. Boehm (1766)</em>.</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 02</div>
+        <div class="p-name">Insurable Interest</div>
+        <div class="p-latin">Lucena v. Craufurd (1806)</div>
+        <div class="p-desc">Financial stake in the subject matter. Distinguishes insurance from wagering. Timing varies: Fire = policy &amp; loss · Marine = loss only · Life = commencement only.</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 03</div>
+        <div class="p-name">Indemnity</div>
+        <div class="p-latin">Castellain v. Preston (1883)</div>
+        <div class="p-desc">No profit from insurance. Restore insured to pre-loss position. Applies to Fire, Marine, Misc. Does NOT apply to Life (Dalby).</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 04</div>
+        <div class="p-name">Causa Proxima</div>
+        <div class="p-latin">"Non remota spectatur"</div>
+        <div class="p-desc">Direct, dominant, operative cause. Not the remote cause. Applies universally. § 55 MIA 1963 codifies it for marine insurance.</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 05</div>
+        <div class="p-name">Subrogation</div>
+        <div class="p-latin">§ 79 MIA 1963</div>
+        <div class="p-desc">Insurer steps into insured's shoes after payment. NOT applicable to Life. Limited to amount paid (Yorkshire v. N.S. Co.).</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 06</div>
+        <div class="p-name">Contribution</div>
+        <div class="p-latin">§ 80 MIA 1963</div>
+        <div class="p-desc">Multiple insurers share loss proportionately. Insured cannot profit from double insurance. Formula: (Insurer's sum ÷ total) × loss.</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 07</div>
+        <div class="p-name">Premium</div>
+        <div class="p-latin">§ 64VB Insurance Act</div>
+        <div class="p-desc">Consideration for risk. No risk assumed without advance premium. Days of grace typically 30 days. Forfeited on fraud.</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 08</div>
+        <div class="p-name">Warranty</div>
+        <div class="p-latin">§ 35 MIA 1963</div>
+        <div class="p-desc">Must be exactly complied with — whether material or not. Breach = automatic discharge from date of breach. Irremedial (§ 36(2)).</div>
+      </div>
+      <div class="principle-card">
+        <div class="p-num">PILLAR 09</div>
+        <div class="p-name">Assignment</div>
+        <div class="p-latin">§ 38 Insurance Act</div>
+        <div class="p-desc">Life = assignable by endorsement. Marine = assignable before or after loss (§ 52 MIA). Fire = NOT automatically transferred. Rule in Dearle v. Hall — notice determines priority.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY STATUTES -->
+  <div class="divider"><span>Key Statutes</span></div>
+  <div class="sec-head">
+    <span class="overline">Legislation</span>
+    <h2>Governing <em>Statutes &amp; Their Scope</em></h2>
+    <p>Know which statute governs which type — this alone can earn you marks in exams.</p>
+  </div>
+  <div class="statutes-section">
+    <div class="statutes-grid">
+      <div class="statute-card">
+        <div class="statute-header sh-1">Insurance Act, 1938 (Act No. 4 of 1938)</div>
+        <div class="statute-body">The <strong>mother statute</strong> of Indian insurance law — enacted 26 Feb 1938, in force 1 Jul 1939. Governs registration of insurers, conduct of insurance business, investment, solvency, reinsurance (§§ 101A–101C). Still in force with multiple amendments.</div>
+      </div>
+      <div class="statute-card">
+        <div class="statute-header sh-2">Marine Insurance Act, 1963 (Act No. 11 of 1963)</div>
+        <div class="statute-body"><strong>Only dedicated statute</strong> for a specific type of insurance. 91 sections + Schedule. Codifies centuries of marine insurance common law. Based on English MIA 1906. Principles extended by analogy to fire and other general insurance.</div>
+      </div>
+      <div class="statute-card">
+        <div class="statute-header sh-3">IRDA Act, 1999 (Act No. 41 of 1999)</div>
+        <div class="statute-body">Constituted the <strong>IRDAI</strong> (Insurance Regulatory and Development Authority of India). Incorporated April 2000. Composition: 10 members (§ 4). Functions: § 14 — 17 functions including registration, policyholder protection, investment regulation.</div>
+      </div>
+      <div class="statute-card">
+        <div class="statute-header sh-4">LIC Act, 1956 (Act No. 31 of 1956)</div>
+        <div class="statute-body">Established the <strong>Life Insurance Corporation of India</strong> following nationalization ordinance of 19 Jan 1956. Key sections: § 4 (composition — max 16 members + Chairman) · § 5 (capital ₹5 crores) · § 6 (functions including best advantage of community).</div>
+      </div>
+      <div class="statute-card">
+        <div class="statute-header sh-5">Motor Vehicles Act, 1988</div>
+        <div class="statute-body">Sections 140–176 govern insurance and compensation. § 140: No-fault liability. § 146: Compulsory third-party insurance. § 149: Insurer must satisfy judgment. §§ 165–176: MACT. § 161: Solatium scheme for hit-and-run. Comprehensively amended in 2019.</div>
+      </div>
+      <div class="statute-card">
+        <div class="statute-header sh-1">Public Liability Insurance Act, 1991</div>
+        <div class="statute-body">Mandatory for owners handling hazardous substances. § 3: Strict no-fault liability — claimant need not prove negligence. Adjudicated by Collector. Schedule: Immediate relief amounts. § 7A: Environmental Relief Fund. Modelled on Rylands v. Fletcher + MC Mehta.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEADING CASES QUICK REF -->
+  <div class="divider"><span>Leading Cases</span></div>
+  <div class="sec-head">
+    <span class="overline">Case Law Quick Reference</span>
+    <h2>Must-Know <em>Leading Cases</em></h2>
+    <p>The cases every examiner expects you to know with facts, holding, and principle.</p>
+  </div>
+  <div class="cases-section">
+    <div class="cases-list">
+      <div class="case-item"><div class="ci-name">Carter v. Boehm (1766) — Lord Mansfield</div><div class="ci-rule">Foundation of uberrima fides. Prudent insurer test established. Duty of disclosure is mutual.</div></div>
+      <div class="case-item"><div class="ci-name">Dalby v. India &amp; London Assurance (1854)</div><div class="ci-rule">Life insurance is NOT a contract of indemnity. Insurable interest required only at commencement.</div></div>
+      <div class="case-item"><div class="ci-name">Macaura v. Northern Assurance (1925)</div><div class="ci-rule">Sole shareholder has no insurable interest in company's assets. Corporate identity is separate.</div></div>
+      <div class="case-item"><div class="ci-name">Castellain v. Preston (1883)</div><div class="ci-rule">Indemnity principle in its purest form. Leading case on subrogation — insured cannot take from both hands.</div></div>
+      <div class="case-item"><div class="ci-name">LIC v. Shakuntala Devi</div><div class="ci-rule">Trivial ailments (indigestion, headache) are not material facts. LIC held liable.</div></div>
+      <div class="case-item"><div class="ci-name">Harris v. Poland</div><div class="ci-rule">Friendly fire causing loss to items not intended to be burnt = COVERED. Accidental = insured.</div></div>
+      <div class="case-item"><div class="ci-name">Symington v. Union Insurance</div><div class="ci-rule">Acts to prevent fire spreading (cork thrown into sea) = covered as proximate fire loss.</div></div>
+      <div class="case-item"><div class="ci-name">Tootal v. London Fire Insurance</div><div class="ci-rule">Earthquake = proximate cause of resulting fire. Fire insurer NOT liable.</div></div>
+      <div class="case-item"><div class="ci-name">Marsden v. City &amp; Counties Insurance</div><div class="ci-rule">Mob's lawlessness = independent novus actus interveniens. Fire insurer not liable for glass.</div></div>
+      <div class="case-item"><div class="ci-name">Asfar v. Blundell</div><div class="ci-rule">Dates ceasing to be fit for human consumption = cease to be "thing of kind insured" = ATL.</div></div>
+      <div class="case-item"><div class="ci-name">Vacuum Oil v. Union Insurance</div><div class="ci-rule">Prohibitive cost of forwarding damaged petroleum tins = Constructive Total Loss.</div></div>
+      <div class="case-item"><div class="ci-name">Thomas v. Hamilton (Inchmaree, 1891)</div><div class="ci-rule">Valve damage not covered by standard marine perils → led to creation of the Inchmaree Clause.</div></div>
+      <div class="case-item"><div class="ci-name">Sarbati Devi v. Usha Devi (SC)</div><div class="ci-rule">Nominee is "hand to receive" only — legal heirs retain rights. Modified by § 39(7)&(8) for close family.</div></div>
+      <div class="case-item"><div class="ci-name">Yorkshire Insurance v. Nisbet Shipping</div><div class="ci-rule">Subrogation right is limited to the exact amount the insurer has paid — cannot recover more.</div></div>
+      <div class="case-item"><div class="ci-name">Dearle v. Hall</div><div class="ci-rule">Priority among assignees of a life policy is determined by date of notice to the insurer, NOT date of assignment.</div></div>
+      <div class="case-item"><div class="ci-name">MC Mehta v. Union of India (1987)</div><div class="ci-rule">Absolute liability for hazardous enterprises — beyond Rylands v. Fletcher, no exceptions. Article 21.</div></div>
+      <div class="case-item"><div class="ci-name">Swaran Singh (2004) 3 SCC 297</div><div class="ci-rule">Fundamental vs. technical breach of motor policy. Framework for insurer's duty under § 149 MV Act.</div></div>
+      <div class="case-item"><div class="ci-name">Griffith v. Fleming</div><div class="ci-rule">Insurable interest between spouses is presumed by law. Husband can claim on wife's life policy.</div></div>
+      <div class="case-item"><div class="ci-name">Beresford v. Royal Insurance (1938)</div><div class="ci-rule">English law on suicide as felo de se. Lord Atkin — claim rejected. Indian law takes different position.</div></div>
+      <div class="case-item"><div class="ci-name">North British v. London &amp; Liverpool (1877)</div><div class="ci-rule">Leading case on contribution — pro-rata method established for double insurance.</div></div>
+    </div>
+  </div>
+
+  <!-- EXAM TIPS -->
+  <div class="divider"><span>Exam Strategy</span></div>
+  <div class="sec-head">
+    <span class="overline">How to Prepare</span>
+    <h2>Examination <em>Strategy &amp; Tips</em></h2>
+    <p>How to use these notes most effectively for your law examination.</p>
+  </div>
+  <div class="tips-section">
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">📌</div>
+        <div class="tip-title">Section Numbers First</div>
+        <div class="tip-text">Every answer in a law examination should cite the relevant section number. Examiners award additional marks for precise statutory references. Know these by heart:
+          <ul>
+            <li>§ 2(11), § 38, § 39, § 45 — Insurance Act 1938</li>
+            <li>§§ 19, 20, 34, 35, 57, 60, 79, 80 — MIA 1963</li>
+            <li>§§ 140, 146, 149, 165 — MV Act 1988</li>
+            <li>§§ 3, 4, 101A, 101B, 101C — Insurance Act</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">⚖</div>
+        <div class="tip-title">Case Law Format</div>
+        <div class="tip-text">When citing cases, follow this format: <strong>Case Name + Year + Key Principle.</strong> For leading cases, briefly state the facts, then the holding, then the principle. You don't need to cite all facts — the holding and principle are what matter most. For landmark cases like Dalby, Carter v. Boehm, Castellain v. Preston — know them perfectly.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🔍</div>
+        <div class="tip-title">The Critical Distinctions</div>
+        <div class="tip-text">Examiners love testing these contrasts:
+          <ul>
+            <li>Life vs. other insurance — indemnity / insurable interest timing</li>
+            <li>Warranty vs. Representation</li>
+            <li>Double Insurance vs. Reinsurance</li>
+            <li>ATL vs. CTL in marine</li>
+            <li>No-fault vs. Absolute Liability</li>
+            <li>Treaty vs. Facultative Reinsurance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📊</div>
+        <div class="tip-title">Use Formulas &amp; Tables</div>
+        <div class="tip-text">For numerical topics, write the formula before the calculation. The Average Clause formula, Contribution formula, and CTL repair-cost test all follow a precise mathematical logic. Showing the formula earns marks even if you make an arithmetic error. Comparison tables also impress examiners in distinction-based questions.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🧵</div>
+        <div class="tip-title">Connect the Dots</div>
+        <div class="tip-text">Insurance law is one interconnected system. Subrogation flows from indemnity. Indemnity does not apply to life → therefore subrogation doesn't apply to life. Double insurance rules don't apply to life for the same reason. Reinsurance requires the cedant to have an insurable interest (§ 11(1) MIA). Weaving these connections into your answers shows mastery.</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎯</div>
+        <div class="tip-title">High-Priority Topics</div>
+        <div class="tip-text">Based on examination patterns, prioritize:
+          <ul>
+            <li>Uberrima Fides + Carter v. Boehm</li>
+            <li>Insurable Interest — all three types</li>
+            <li>Dalby — life insurance nature</li>
+            <li>Subrogation — Castellain v. Preston</li>
+            <li>CTL — § 60 MIA 1963</li>
+            <li>Double Insurance vs. Reinsurance</li>
+            <li>§§ 101A–101C reinsurance framework</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK NAVIGATION -->
+  <div class="divider"><span>Quick Access</span></div>
+  <div class="sec-head">
+    <span class="overline">Direct Access</span>
+    <h2>Jump to <em>Any Part</em></h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:40px;">
+    <a href="insurance_law_part1.html" style="text-decoration:none;">
+      <div style="background:var(--navy);border-radius:8px;padding:20px;text-align:center;transition:transform .2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+        <div style="font-size:28px;margin-bottom:8px;">🏛</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold-light);letter-spacing:2px;margin-bottom:4px;">PART 1</div>
+        <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;">Origin &amp; History</div>
+      </div>
+    </a>
+    <a href="insurance_law_part2.html" style="text-decoration:none;">
+      <div style="background:#3a1a3a;border-radius:8px;padding:20px;text-align:center;transition:transform .2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+        <div style="font-size:28px;margin-bottom:8px;">⚖</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#d4a8f0;letter-spacing:2px;margin-bottom:4px;">PART 2</div>
+        <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;">General Principles</div>
+      </div>
+    </a>
+    <a href="insurance_law_part3.html" style="text-decoration:none;">
+      <div style="background:#1a4a20;border-radius:8px;padding:20px;text-align:center;transition:transform .2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+        <div style="font-size:28px;margin-bottom:8px;">🔥</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#7df4b0;letter-spacing:2px;margin-bottom:4px;">PART 3</div>
+        <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;">Life &amp; Fire</div>
+      </div>
+    </a>
+    <a href="insurance_law_part4.html" style="text-decoration:none;">
+      <div style="background:#3a2000;border-radius:8px;padding:20px;text-align:center;transition:transform .2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+        <div style="font-size:28px;margin-bottom:8px;">⚓</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#ffb84d;letter-spacing:2px;margin-bottom:4px;">PART 4</div>
+        <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;">Marine &amp; Misc.</div>
+      </div>
+    </a>
+    <a href="insurance_law_part5.html" style="text-decoration:none;">
+      <div style="background:#1a0a2e;border-radius:8px;padding:20px;text-align:center;transition:transform .2s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
+        <div style="font-size:28px;margin-bottom:8px;">🔄</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#c4a8ff;letter-spacing:2px;margin-bottom:4px;">PART 5</div>
+        <div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#fff;">DI, RI &amp; Synthesis</div>
+      </div>
+    </a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Insurance <span>Law</span></div>
+    <div class="footer-sub">COMPLETE STUDY NOTES · CSJMU SYLLABUS · 7 TOPICS · 5 PARTS</div>
+    <div class="footer-links">
+      <a href="insurance_law_part1.html">Part 1 — History</a>
+      <a href="insurance_law_part2.html">Part 2 — Principles</a>
+      <a href="insurance_law_part3.html">Part 3 — Life &amp; Fire</a>
+      <a href="insurance_law_part4.html">Part 4 — Marine &amp; Misc.</a>
+      <a href="insurance_law_part5.html">Part 5 — DI, RI &amp; Synthesis</a>
+    </div>
+    <div class="footer-copy">
+      Prepared from comprehensive lecture sessions · All statutory references verified against Insurance Act 1938, MIA 1963, MV Act 1988, PL Insurance Act 1991, LIC Act 1956, IRDA Act 1999
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

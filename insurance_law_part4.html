@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Law — Part IV: Marine &amp; Miscellaneous Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1209; --parchment:#faf6ee; --gold:#b8922a; --gold-light:#d4a843; --gold-pale:#f0dfa8;
+    --burgundy:#6b1e2e; --burgundy-light:#9b2c3f; --navy:#1c2b4a; --navy-mid:#2d4270;
+    --teal:#1a5276; --sage:#2e5942; --sage-light:#4a7c5c; --warm-gray:#8c8070;
+    --border:#d4c4a0; --shadow:rgba(26,18,9,0.15);
+    --marine:#0e4d6b; --marine-light:#1a7fa6; --marine-pale:#e8f4f9;
+    --misc:#4a1942; --misc-light:#7b2f8e; --misc-pale:#f5eef8;
+    --motor:#1a4a1a; --motor-light:#2e7d32; --motor-pale:#e8f5e9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.82;color:var(--ink);background:var(--parchment);}
+
+  /* COVER */
+  .cover{background:linear-gradient(135deg,#0a1f30 0%,#0e4d6b 40%,#1a1209 70%,#4a1942 100%);color:#fff;padding:60px 48px 52px;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E");}
+  .cover-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold-light);text-transform:uppercase;margin-bottom:18px;}
+  .cover h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,46px);font-weight:900;line-height:1.15;margin-bottom:10px;}
+  .cover h1 .marine{color:#7ecef4;} .cover h1 .misc{color:#d4a8f0;}
+  .cover-sub{font-size:15.5px;color:rgba(255,255,255,.7);font-style:italic;margin-bottom:28px;font-weight:300;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:12px;}
+  .cover-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:5px 12px;font-size:12.5px;color:rgba(255,255,255,.82);font-family:'JetBrains Mono',monospace;}
+  .cover-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold-light);}
+
+  /* NAV */
+  .toc-bar{background:var(--marine);padding:0 36px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px var(--shadow);}
+  .toc-bar-inner{display:flex;overflow-x:auto;gap:0;scrollbar-width:none;}
+  .toc-bar-inner::-webkit-scrollbar{display:none;}
+  .toc-link{color:rgba(255,255,255,.62);text-decoration:none;font-size:11px;font-family:'JetBrains Mono',monospace;padding:12px 13px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
+  .toc-link:hover{color:var(--gold-light);border-bottom-color:var(--gold-light);}
+
+  .main{max-width:960px;margin:0 auto;padding:44px 30px 80px;}
+
+  /* TOPIC BANNER */
+  .topic-banner{border-radius:8px;padding:20px 28px;margin:44px 0 24px;display:flex;align-items:center;gap:20px;}
+  .topic-banner.marine{background:linear-gradient(135deg,#0a1f30,#0e4d6b);}
+  .topic-banner.misc{background:linear-gradient(135deg,#2a0a2a,#4a1942);}
+  .t-icon{font-size:36px;line-height:1;}
+  .t-meta .t-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px;}
+  .marine .t-label{color:#7ecef4;} .misc .t-label{color:#d4a8f0;}
+  .t-meta .t-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#fff;line-height:1.2;}
+
+  /* PART HEADER */
+  .ph{display:flex;align-items:center;gap:12px;margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);}
+  .ph-num{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;line-height:1;min-width:40px;}
+  .ph-num.mc{color:var(--marine-light);}
+  .ph-num.ms{color:var(--misc-light);}
+  .ph-num.mt{color:var(--motor-light);}
+  .ph-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);}
+  .ph-title em{color:var(--burgundy);font-style:italic;}
+
+  h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--burgundy);margin:24px 0 10px;padding-left:11px;border-left:3px solid var(--burgundy-light);}
+  h4{font-size:12.5px;font-weight:600;color:var(--navy-mid);margin:16px 0 7px;text-transform:uppercase;letter-spacing:.6px;}
+  p{margin-bottom:13px;}
+
+  /* CARDS */
+  .def-card{background:linear-gradient(135deg,#fff8ee,#fef9f3);border:1px solid var(--gold-pale);border-left:4px solid var(--gold);border-radius:5px;padding:14px 18px;margin:14px 0;}
+  .def-card .who{font-size:10.5px;font-family:'JetBrains Mono',monospace;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+  .def-card p{margin-bottom:0;font-style:italic;}
+
+  .case-box{border-radius:5px;padding:13px 17px;margin:12px 0;}
+  .case-box.marine{background:var(--marine-pale);border:1px solid #b8d8e8;border-left:4px solid var(--marine-light);}
+  .case-box.misc{background:var(--misc-pale);border:1px solid #d4b8e8;border-left:4px solid var(--misc-light);}
+  .case-box.motor{background:var(--motor-pale);border:1px solid #b8d8b8;border-left:4px solid var(--motor-light);}
+  .case-box.std{background:#f0f4fa;border:1px solid #c8d4e8;border-left:4px solid var(--navy-mid);}
+  .cn{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;margin-bottom:5px;letter-spacing:.3px;}
+  .case-box.marine .cn{color:var(--marine);}
+  .case-box.misc .cn{color:var(--misc-light);}
+  .case-box.motor .cn{color:var(--motor-light);}
+  .case-box.std .cn{color:var(--navy);}
+  .case-box p{margin-bottom:0;font-size:14.5px;}
+
+  .exam-alert{background:linear-gradient(135deg,#fdf3f5,#fdf8f9);border:1px solid #e8b4bc;border-left:5px solid var(--burgundy);border-radius:5px;padding:14px 18px;margin:18px 0;}
+  .exam-alert .lbl{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--burgundy);text-transform:uppercase;font-weight:600;margin-bottom:9px;display:flex;align-items:center;gap:7px;}
+  .exam-alert .lbl::before{content:'★';font-size:12px;}
+  .exam-alert ul{padding-left:18px;}
+  .exam-alert li{margin-bottom:6px;font-size:14.5px;}
+  .exam-alert p{font-size:14.5px;margin-bottom:7px;}
+  .exam-alert p:last-child{margin-bottom:0;}
+
+  /* TABLES */
+  .dt{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+  .dt th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;padding:8px 12px;text-align:left;font-weight:600;}
+  .dt.marine th{background:var(--marine);color:#a8dff4;}
+  .dt.misc th{background:var(--misc);color:#d4a8f0;}
+  .dt.motor th{background:var(--motor);color:#a8d8a8;}
+  .dt.std th{background:var(--navy);color:var(--gold-light);}
+  .dt td{padding:8px 12px;border-bottom:1px solid #eae4d8;vertical-align:top;line-height:1.6;}
+  .dt tr:nth-child(even) td{background:#faf6ee;}
+  .dt tr:hover td{background:rgba(240,223,168,.18);}
+  .td-key{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;white-space:nowrap;}
+  .dt.marine .td-key{color:var(--marine);}
+  .dt.misc .td-key{color:var(--misc-light);}
+  .dt.motor .td-key{color:var(--motor-light);}
+  .dt.std .td-key{color:var(--navy);}
+
+  /* LOSS TREE */
+  .loss-tree{background:var(--navy);border-radius:8px;padding:20px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;}
+  .loss-tree .lt-title{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:12px;}
+  .loss-tree pre{color:#fff;font-size:13px;line-height:1.8;overflow-x:auto;}
+
+  /* DOCTRINE CARD */
+  .dc{border:1px solid var(--border);border-radius:7px;overflow:hidden;margin:16px 0;}
+  .dc-h{display:flex;align-items:center;gap:12px;padding:12px 18px;cursor:pointer;user-select:none;transition:background .2s;}
+  .dc-h:hover{background:rgba(184,146,42,.05);}
+  .dc-icon{width:34px;height:34px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+  .i-gold{background:var(--gold-pale);} .i-marine{background:var(--marine-pale);} .i-misc{background:var(--misc-pale);} .i-motor{background:var(--motor-pale);}
+  .dc-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);flex:1;}
+  .dc-sub{font-size:11.5px;font-family:'JetBrains Mono',monospace;color:var(--warm-gray);white-space:nowrap;}
+  .toggle{color:var(--gold);font-size:17px;transition:transform .3s;min-width:18px;text-align:center;}
+  .dc.open .toggle{transform:rotate(180deg);}
+  .dc-body{display:none;padding:4px 18px 18px;border-top:1px solid var(--border);background:#fff;}
+  .dc.open .dc-body{display:block;}
+
+  /* INFO GRID */
+  .ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:11px;margin:14px 0;}
+  .ic{background:#fff;border:1px solid var(--border);border-radius:5px;padding:11px 14px;}
+  .ic .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--warm-gray);text-transform:uppercase;margin-bottom:4px;}
+  .ic .v{font-size:14.5px;font-weight:600;color:var(--navy);}
+  .ic .v.gold{color:var(--gold);} .ic .v.mc{color:var(--marine-light);} .ic .v.ms{color:var(--misc-light);}
+
+  /* PERILS GRID */
+  .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:9px;margin:12px 0;}
+  .pi{background:#fff;border:1px solid var(--border);border-left:3px solid var(--marine-light);border-radius:4px;padding:9px 12px;font-size:14px;}
+  .pnum{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--marine-light);font-weight:600;margin-bottom:2px;}
+
+  /* CALC BOX */
+  .calc-box{background:var(--navy);color:#fff;border-radius:7px;padding:16px 20px;margin:14px 0;font-family:'JetBrains Mono',monospace;}
+  .cl{font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:9px;}
+  .formula{font-size:13.5px;color:#fff;margin-bottom:8px;padding:9px 12px;background:rgba(255,255,255,.07);border-radius:4px;line-height:1.8;}
+  .cresult{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.8;}
+
+  /* SECTION PILLS */
+  .sp{display:inline-block;background:rgba(14,77,107,.1);color:var(--marine);font-family:'JetBrains Mono',monospace;font-size:11px;padding:2px 8px;border-radius:3px;margin:2px;border:1px solid rgba(14,77,107,.25);font-weight:600;}
+  .sp.misc{background:rgba(74,25,66,.1);color:var(--misc-light);border-color:rgba(74,25,66,.25);}
+  .sp.motor{background:rgba(26,74,26,.1);color:var(--motor-light);border-color:rgba(26,74,26,.25);}
+  .sp.std{background:rgba(44,66,112,.1);color:var(--navy);border-color:rgba(44,66,112,.25);}
+
+  /* NUM LIST */
+  .nl{list-style:none;padding:0;margin:10px 0;counter-reset:nl;}
+  .nl li{display:flex;gap:11px;padding:8px 11px;border-bottom:1px solid #eee;align-items:flex-start;counter-increment:nl;font-size:15px;}
+  .nl li:last-child{border-bottom:none;}
+  .nl li::before{content:counter(nl);font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--gold);min-width:20px;margin-top:4px;font-weight:600;}
+
+  /* COMPARE TABLE */
+  .ct{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px;}
+  .ct th{padding:8px 12px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.8px;text-transform:uppercase;}
+  .ct th:nth-child(1){background:var(--warm-gray);color:#fff;}
+  .ct th:nth-child(2){background:var(--marine);color:#a8dff4;}
+  .ct th:nth-child(3){background:var(--misc);color:#d4a8f0;}
+  .ct th:nth-child(4){background:var(--motor);color:#a8d8a8;}
+  .ct td{padding:8px 12px;border-bottom:1px solid #eae4d8;vertical-align:top;}
+  .ct td:nth-child(1){background:#f5f0ea;font-weight:600;font-size:12.5px;}
+  .ct td:nth-child(2){background:var(--marine-pale);}
+  .ct td:nth-child(3){background:var(--misc-pale);}
+  .ct td:nth-child(4){background:var(--motor-pale);}
+
+  /* SCHEDULE TABLE */
+  .sched-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+  .sched-table th{background:var(--misc);color:#d4a8f0;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;padding:8px 12px;text-align:left;}
+  .sched-table td{padding:8px 12px;border-bottom:1px solid #eae4d8;vertical-align:top;}
+  .sched-table tr:nth-child(even) td{background:#faf0ff;}
+  .sched-table .amt{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--misc-light);}
+
+  blockquote{border-left:3px solid var(--sage-light);margin:12px 0;padding:10px 16px;color:#3a3025;font-style:italic;background:rgba(46,89,66,.04);border-radius:0 4px 4px 0;font-size:15px;}
+  blockquote cite{display:block;margin-top:6px;font-size:11.5px;font-family:'JetBrains Mono',monospace;color:var(--sage-light);font-style:normal;}
+
+  .divider{display:flex;align-items:center;gap:14px;margin:40px 0;color:var(--border);}
+  .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+  .divider span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--warm-gray);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
+
+  mark{background:var(--gold-pale);color:var(--ink);padding:1px 3px;border-radius:2px;}
+  strong{color:var(--navy);font-weight:600;}
+
+  .footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:22px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.5px;}
+  .footer span{color:var(--gold-light);}
+
+  @media(max-width:640px){.cover{padding:36px 22px 32px;}.main{padding:28px 18px 60px;}.toc-bar{padding:0 14px;}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Insurance Law · Study Notes · Part 4 of 5</div>
+  <h1>Topic 5: <span class="marine">Marine Insurance</span><br>Topic 6: <span class="misc">Miscellaneous Insurance</span></h1>
+  <div class="cover-sub">Marine Insurance Act 1963 (All 91 Sections) · Burglary · Public Liability Act 1991 · Motor Vehicles Act 1988 (§§ 140–176)</div>
+  <div class="cover-meta">
+    <span class="cover-badge"><span class="dot"></span> Topics 5 &amp; 6 of 7</span>
+    <span class="cover-badge"><span class="dot"></span> Syllabus Units V &amp; VI</span>
+    <span class="cover-badge"><span class="dot"></span> MIA 1963 · PL Act 1991 · MV Act 1988</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-bar-inner">
+    <a class="toc-link" href="#m-def">§ Marine: Definition</a>
+    <a class="toc-link" href="#m-int">§ Marine: Insurable Interest</a>
+    <a class="toc-link" href="#m-pol">§ Marine: Policy Types</a>
+    <a class="toc-link" href="#m-warr">§ Marine: Warranties</a>
+    <a class="toc-link" href="#m-voyage">§ Marine: Voyage &amp; Deviation</a>
+    <a class="toc-link" href="#m-perils">§ Marine: Perils &amp; Inchmaree</a>
+    <a class="toc-link" href="#m-loss">§ Marine: Loss &amp; Abandonment</a>
+    <a class="toc-link" href="#m-ga">§ General Average</a>
+    <a class="toc-link" href="#misc-def">§ Miscellaneous</a>
+    <a class="toc-link" href="#burglary">§ Burglary</a>
+    <a class="toc-link" href="#pl">§ Public Liability</a>
+    <a class="toc-link" href="#motor">§ Motor Vehicle</a>
+    <a class="toc-link" href="#exam">§ Master Table</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════ MARINE INSURANCE ══════════════════════════ -->
+<div class="topic-banner marine" id="m-def">
+  <div class="t-icon">⚓</div>
+  <div class="t-meta">
+    <div class="t-label">Topic 5 · Syllabus Unit V</div>
+    <div class="t-title">Marine Insurance — Comprehensive Lecture (Marine Insurance Act, 1963)</div>
+  </div>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">The Most Important Distinction in Indian Insurance Law</div>
+  <p>Marine insurance has the <strong>special distinction of being the ONLY branch of insurance in India governed by a comprehensive dedicated statute</strong> — the Marine Insurance Act, 1963 (Act No. 11 of 1963 · 91 Sections + Schedule). All other principles of insurance law — utmost good faith, insurable interest, indemnity, subrogation, contribution, proximate cause, warranties — were first articulated and refined in marine insurance and then extended to other branches.</p>
+  <p>Modelled on the Marine Insurance Act, 1906 (England) — drafted by Sir Mackenzie Chalmers and described by Hardy Ivamy as "an extremely thorough and concise piece of work."</p>
+</div>
+
+<!-- DEFINITION -->
+<div class="ph" id="m-def2">
+  <div class="ph-num mc">§ 3</div>
+  <div class="ph-title">Definition — <em>Section 3, Marine Insurance Act, 1963</em></div>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 3 — Marine Insurance Defined</div>
+  <p>"A contract of marine insurance is an agreement whereby the insurer undertakes to indemnify the assured, in the manner and to the extent thereby agreed, against marine losses, that is to say, the losses incidental to marine adventure."</p>
+</div>
+
+<h3>Key Definitions — Section 2</h3>
+<table class="dt marine">
+  <tr><th>Section</th><th>Term</th><th>Definition</th></tr>
+  <tr><td class="td-key">§ 2(a)</td><td>Contract of marine insurance</td><td>As defined in Section 3.</td></tr>
+  <tr><td class="td-key">§ 2(b)</td><td>Freight</td><td>Includes profit derivable by ship-owner from employing his ship to carry his own goods, as well as freight payable by a third party. Does NOT include passage money.</td></tr>
+  <tr><td class="td-key">§ 2(c)</td><td>Insurable property</td><td>Any ship, goods or other movables exposed to maritime perils.</td></tr>
+  <tr><td class="td-key">§ 2(d)</td><td>Marine adventure</td><td>Includes any adventure where: (i) insurable property exposed to maritime perils; (ii) earnings/acquisition of freight, profit, commission, etc. endangered by maritime perils; (iii) any liability to a third party may be incurred by owner/person interested in insurable property by reason of maritime perils.</td></tr>
+  <tr><td class="td-key">§ 2(e)</td><td>Maritime perils</td><td>Perils consequent on or incidental to navigation of the sea — perils of the seas, fire, war perils, pirates, rovers, thieves, captures, seizures, restraints and detainments of princes and peoples, jettisons, barratry and any other perils of like kind or designated by the policy.</td></tr>
+  <tr><td class="td-key">§ 2(f)</td><td>Movables</td><td>Any movable tangible property other than the ship — includes money, valuable securities and other documents.</td></tr>
+  <tr><td class="td-key">§ 2(h)</td><td>Ship</td><td>Includes every description of vessel used in navigation.</td></tr>
+</table>
+
+<h3>Nature of Marine Insurance — Six Key Characteristics</h3>
+<table class="dt marine">
+  <tr><th>Characteristic</th><th>Content</th></tr>
+  <tr><td class="td-key">1. Contract of Indemnity</td><td>Section 3 itself uses the word "indemnify." Exception: In valued policies (§ 29), agreed value is conclusive between parties (absent fraud) — modifies strict indemnity by prior agreement.</td></tr>
+  <tr><td class="td-key">2. Uberrima Fides</td><td>§ 19: "A contract of marine insurance is a contract based upon the utmost good faith, and if the utmost good faith be not observed by either party, the contract may be avoided by the other party."</td></tr>
+  <tr><td class="td-key">3. Aleatory Contract</td><td>Insurer's obligation depends on uncertain future event (maritime peril occurring).</td></tr>
+  <tr><td class="td-key">4. Insurable Interest Required</td><td>§ 6 — wagering contracts (no insurable interest) are void. § 43 — warranty of legality.</td></tr>
+  <tr><td class="td-key">5. Personal Contract</td><td>Relates to the assured's specific insurable interest. § 17 — assignment of interest does not automatically transfer rights under the policy.</td></tr>
+  <tr><td class="td-key">6. Mixed Sea and Land Risks</td><td>§ 4(1): Marine policy may be extended (by express terms or usage of trade) to protect against losses on inland waters or any land risk incidental to a sea voyage. § 4 Explanation: "An adventure analogous to a marine adventure includes an adventure where any ship, goods or other movables are exposed to perils incidental to local or inland transit."</td></tr>
+</table>
+
+<!-- INSURABLE INTEREST -->
+<div class="ph" id="m-int">
+  <div class="ph-num mc">§§ 6–17</div>
+  <div class="ph-title">Insurable Interest in Marine Insurance</div>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 7(2) — Insurable Interest Defined</div>
+  <p>"A person is interested in a marine adventure where he stands in any legal or equitable relation to the adventure or to any insurable property at risk therein, in consequence of which he may benefit by the safety or due arrival of insurable property, or may be prejudiced by its loss, or by damage thereto, or by the detention thereof, or may incur liability in respect thereof."</p>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">Section 8 — When Insurable Interest Must Exist — Critical Rule</div>
+  <p><strong>§ 8(1):</strong> The assured must be interested in the subject matter insured <mark>at the time of the loss</mark>, though he need not be interested when the insurance is effected.<br>
+  <strong>Critical Exception (Proviso):</strong> Where subject matter is insured <em>"lost or not lost"</em> — assured may recover although interest not acquired until after the loss, UNLESS at time of effecting the contract, the assured was aware of the loss and the insurer was not.<br>
+  <strong>§ 8(2):</strong> Where the assured has no interest at time of loss, he cannot acquire interest by any act or election after he is aware of the loss.<br><br>
+  <strong>Contrast with life insurance:</strong> Life = insurable interest at commencement only (Dalby). Marine = must exist at time of loss (§ 8) — aligned with nature as contract of indemnity.</p>
+</div>
+
+<div class="case-box marine">
+  <div class="cn">⚖ Anderson v. Morice — INSURABLE INTEREST TIMING</div>
+  <p>A insured a shipload of rice from Rangoon. Policy stated "interest as may appear by ship Sunbeam." Peril occurred while loading was still in progress. <strong>Held:</strong> A had NO insurable interest at time of loss — his risk was to commence only after the ship was fully loaded (per policy terms). Loading was incomplete — risk had not yet attached.</p>
+</div>
+
+<h3>Persons Having Insurable Interest — Key Provisions</h3>
+<table class="dt marine">
+  <tr><th>Section</th><th>Person</th><th>Insurable Interest</th></tr>
+  <tr><td class="td-key">§ 11</td><td>Lender on Bottomry/Respondentia</td><td>In respect of the loan. <em>Bottomry:</em> master raises loan pledging the ship as security in emergency. <em>Respondentia:</em> loan on cargo only.</td></tr>
+  <tr><td class="td-key">§ 12</td><td>Master &amp; Crew</td><td>In respect of their wages.</td></tr>
+  <tr><td class="td-key">§ 13</td><td>Person advancing freight</td><td>In so far as such freight is not repayable in case of loss.</td></tr>
+  <tr><td class="td-key">§ 14</td><td>Assured generally</td><td>In the charges of any insurance he effects (i.e., the premium paid).</td></tr>
+  <tr><td class="td-key">§ 16(1)(a)</td><td>Mortgagor</td><td>For the full value of the mortgaged property.</td></tr>
+  <tr><td class="td-key">§ 16(1)(b)</td><td>Mortgagee</td><td>For the amount of the mortgage debt.</td></tr>
+  <tr><td class="td-key">§ 16(3)</td><td>Owner of insurable property</td><td>For full value — even if a third party has agreed to indemnify them in case of loss.</td></tr>
+  <tr><td class="td-key">§ 10</td><td>Any person</td><td>"A partial interest of any nature is insurable."</td></tr>
+</table>
+
+<!-- INSURABLE VALUE -->
+<div class="ph" id="m-val">
+  <div class="ph-num mc">§ 18</div>
+  <div class="ph-title">Insurable Value — Measure</div>
+</div>
+
+<table class="dt marine">
+  <tr><th>Category</th><th>Insurable Value Formula</th></tr>
+  <tr><td class="td-key">Ship — § 18(a)</td><td>Value of ship at commencement of risk + outfit, provisions, stores for officers/crew + money advanced for seamen's wages + other disbursements to make ship fit + charges of insurance. Also includes: for steamships — machinery, boilers, coals, engine stores (if owned by assured); for non-steam — machinery and fuels (if owned); for special trade — ordinary fittings requisite for that trade.</td></tr>
+  <tr><td class="td-key">Freight — § 18(b)</td><td>Gross amount of freight at risk of assured + charges of insurance.</td></tr>
+  <tr><td class="td-key">Goods / Merchandise — § 18(c)</td><td><mark>Prime cost</mark> of property insured (original cost at place of shipment — NOT market value at destination) + expenses of and incidental to shipping + charges of insurance upon the whole.</td></tr>
+  <tr><td class="td-key">Any Other Subject — § 18(d)</td><td>Amount at risk of the assured when the policy attaches + charges of insurance.</td></tr>
+</table>
+
+<!-- UTMOST GOOD FAITH PROVISIONS -->
+<div class="ph">
+  <div class="ph-num mc">§§ 19–23</div>
+  <div class="ph-title">Utmost Good Faith — Disclosure &amp; Representations</div>
+</div>
+
+<table class="dt marine">
+  <tr><th>Section</th><th>Rule</th></tr>
+  <tr><td class="td-key">§ 19</td><td>"A contract of marine insurance is a contract based upon the utmost good faith, and if the utmost good faith be not observed by either party, the contract may be avoided by the other party."</td></tr>
+  <tr><td class="td-key">§ 20(1)</td><td>Assured must disclose to insurer, before contract is concluded, every material circumstance known to him. Assured deemed to know every circumstance which, in ordinary course of business, ought to be known to him. Failure = insurer may avoid.</td></tr>
+  <tr><td class="td-key">§ 20(2)</td><td>Materiality test: "Every circumstance is material which would influence the judgment of a prudent insurer in fixing the premium, or determining whether he will take the risk."</td></tr>
+  <tr><td class="td-key">§ 20(3)</td><td>Need NOT be disclosed in absence of inquiry: (a) any circumstance which diminishes the risk; (b) any circumstance known or presumed to be known to insurer; (c) any circumstance as to which information is waived; (d) any circumstance superfluous due to express/implied warranty.</td></tr>
+  <tr><td class="td-key">§ 20(5)</td><td>"Circumstance" includes any communication made to, or information received by, the assured.</td></tr>
+  <tr><td class="td-key">§ 21</td><td>Agent effecting insurance must disclose: (a) every material circumstance known to himself (agent deemed to know what ought to be known in ordinary course); (b) every material circumstance the assured is bound to disclose.</td></tr>
+  <tr><td class="td-key">§ 22(1)&(2)</td><td>Every material representation during negotiations before contract concluded must be true — if untrue, insurer may avoid. Materiality = would influence judgment of prudent insurer.</td></tr>
+  <tr><td class="td-key">§ 22(4)</td><td>Representation as to fact = true if <em>substantially correct</em>. Representation as to expectation/belief = true if made in good faith.</td></tr>
+  <tr><td class="td-key">§ 22(6)</td><td>A representation may be <strong>withdrawn or corrected before the contract is concluded.</strong></td></tr>
+  <tr><td class="td-key">§ 23</td><td>Contract deemed concluded when proposal of assured is accepted by insurer, whether policy issued or not. Reference may be made to the slip, covering note or customary memorandum — even if unstamped.</td></tr>
+</table>
+
+<!-- MARINE POLICY -->
+<div class="ph" id="m-pol">
+  <div class="ph-num mc">§§ 24–33</div>
+  <div class="ph-title">The Marine Policy — Types &amp; Contents</div>
+</div>
+
+<table class="dt marine">
+  <tr><th>Section</th><th>Rule</th></tr>
+  <tr><td class="td-key">§ 24</td><td>"A contract of marine insurance shall not be admitted in evidence unless it is embodied in a marine policy in accordance with this Act." Slip creates the contract; formal policy required for litigation.</td></tr>
+  <tr><td class="td-key">§ 25</td><td>Policy must specify: (1) Name of assured or person effecting insurance on their behalf; (2) Subject matter insured and risk insured against; (3) Voyage or period of time covered; (4) Sum or sums insured; (5) Name/names of insurer/insurers.</td></tr>
+  <tr><td class="td-key">§ 26(2)</td><td>Where policy subscribed by two or more insurers — each subscription (unless contrary expressed) constitutes a <strong>distinct contract</strong> with the assured. Liability is several (not joint) — if one defaults, others NOT responsible for his share.</td></tr>
+  <tr><td class="td-key">§ 27(1)</td><td><strong>Voyage policy</strong> = insures subject matter from one place to another. <strong>Time policy</strong> = insures for a definite period of time. A contract for both may be in the same policy.</td></tr>
+  <tr><td class="td-key">§ 27(2) ★</td><td><mark>"A time policy which is made for any time exceeding twelve months is invalid."</mark> — Critical statutory limitation.</td></tr>
+  <tr><td class="td-key">§ 29</td><td><strong>Valued policy</strong> — specifies the agreed value. § 29(3): Value fixed by policy is, as between insurer and assured, <strong>conclusive</strong> of the insurable value — whether loss be total or partial — in absence of fraud. § 29(4): The value fixed is NOT conclusive for determining whether there has been a constructive total loss.</td></tr>
+  <tr><td class="td-key">§ 30</td><td><strong>Unvalued policy</strong> — does not specify value; only maximum sum insured. Insurable value to be ascertained per § 18.</td></tr>
+  <tr><td class="td-key">§ 31</td><td><strong>Floating policy</strong> — describes insurance in general terms; leaves name of ship and other particulars to be defined by subsequent declaration. Declarations must be in order of dispatch/shipment. Must include all consignments within policy terms. Erroneous declaration may be rectified even after loss — if made in good faith.</td></tr>
+</table>
+
+<!-- CATEGORIES OF MARINE POLICIES -->
+<div class="ph">
+  <div class="ph-num mc">—</div>
+  <div class="ph-title">Categories of Marine Insurance Policies</div>
+</div>
+
+<h3>By Subject Matter</h3>
+<table class="dt marine">
+  <tr><th>Category</th><th>Coverage</th><th>Key Notes</th></tr>
+  <tr><td class="td-key">Hull Insurance (H&amp;M)</td><td>The ship itself — hull, machinery, tackle, apparel, stores, provisions, equipment.</td><td>Most hull policies are on time basis (12 months). <em>Total Loss Only (TLO)</em> = restricted form covering only total loss — generally used as reinsurance.</td></tr>
+  <tr><td class="td-key">Cargo Insurance</td><td>Goods and merchandise on board the vessel.</td><td>Underwritten on Institute Cargo Clauses (ICC): <strong>ICC(A)</strong> = All Risks (widest); <strong>ICC(B)</strong> = Named perils (broader); <strong>ICC(C)</strong> = Named perils (narrower). Valuable cargo (specie) = specific Institute Clauses.</td></tr>
+  <tr><td class="td-key">Freight Insurance</td><td>Shipping charges at risk — ship-owner's income from carrying cargo.</td><td>If cargo is lost, freight may also be lost.</td></tr>
+  <tr><td class="td-key">Liability Insurance — P&amp;I Clubs</td><td>Ship-owners' liability to third parties.</td><td>Mutual underwriting clubs (Protection &amp; Indemnity Clubs). Standard hull policy covers only ¾ of collision liability — P&amp;I clubs cover the remaining ¼ plus: wreck removal, cargo damage, crew injury/death, oil pollution, fines.</td></tr>
+</table>
+
+<h3>By Voyage — Time and Place</h3>
+<table class="dt marine">
+  <tr><th>Policy Type</th><th>Description</th><th>Statutory Rule</th></tr>
+  <tr><td class="td-key">Voyage Policy</td><td>Covers subject matter from one place to another — specific voyage. Risk attaches at port of departure; ends 24 hours after safe anchoring at destination.</td><td>§ 27(1). <em>Rules for Construction:</em> "From" = risk attaches when ship starts voyage; "At and from" = if ship already at that place when contract concluded, risk attaches immediately.</td></tr>
+  <tr><td class="td-key">Time Policy</td><td>Covers subject matter for a definite period — usually 12 months. Most hull insurance is on time basis.</td><td><mark>§ 27(2) — Time policy exceeding 12 months is INVALID.</mark></td></tr>
+  <tr><td class="td-key">Mixed Policy</td><td>Both voyage and time in same policy.</td><td>§ 27(1) — expressly permitted.</td></tr>
+  <tr><td class="td-key">Floating Policy</td><td>General terms; name of ship and details defined by subsequent declarations. Ideal for regular traders making frequent shipments.</td><td>§ 31 — full framework.</td></tr>
+  <tr><td class="td-key">Open Cover Policy</td><td>Ongoing framework agreement — insurer agrees to insure all shipments within agreed terms for 12 months. Each declaration = separate contract; insurer issues individual policies/certificates.</td><td>Not in Act — commercial practice. Differs from floating policy (floating = single policy with reducing sum insured; open cover = framework agreement).</td></tr>
+</table>
+
+<!-- WARRANTIES -->
+<div class="ph" id="m-warr">
+  <div class="ph-num mc">§§ 35–43</div>
+  <div class="ph-title">Warranties in Marine Insurance — <em>The Strictest Doctrine</em></div>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">The Critical Distinction — Insurance Law vs. Contract Law</div>
+  <p><strong>General Contract Law:</strong> A warranty is a minor term — breach gives rise to damages only, NOT right to terminate.</p>
+  <p><strong>Marine Insurance Law:</strong> A warranty is a condition of the UTMOST STRICTNESS. <strong>§ 35(3):</strong> "A warranty is a condition which must be <mark>exactly complied with</mark>, whether it be material to the risk or not. If it be not so complied with, then, subject to any express provision in the policy, the insurer is discharged from liability as from the date of the breach of warranty, but without prejudice to any liability incurred by him before that date."</p>
+</div>
+
+<div class="dc open" id="warr-detail">
+  <div class="dc-h" onclick="toggleD('warr-detail')">
+    <div class="dc-icon i-marine">⚓</div>
+    <div class="dc-title">Complete Warranty Framework — §§ 35–43</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <table class="dt marine">
+      <tr><th>Section</th><th>Provision</th></tr>
+      <tr><td class="td-key">§ 35(1)</td><td>Warranty = promissory warranty — undertaking that some particular thing shall/shall not be done, or some condition shall be fulfilled, or affirmation/negation of a state of facts.</td></tr>
+      <tr><td class="td-key">§ 35(2)</td><td>A warranty may be express or implied.</td></tr>
+      <tr><td class="td-key">§ 36(1)</td><td>Non-compliance excused when: (a) by reason of change of circumstances, the warranty ceases to be applicable to the contract; OR (b) compliance rendered unlawful by any subsequent law.</td></tr>
+      <tr><td class="td-key">§ 36(2)</td><td>"Where a warranty is broken, the assured cannot avail himself of the defence that the breach has been remedied, and the warranty complied with, before loss." — IRREMEDIAL NATURE.</td></tr>
+      <tr><td class="td-key">§ 36(3)</td><td>A breach of warranty MAY BE WAIVED by the insurer.</td></tr>
+      <tr><td class="td-key">§ 37(1)</td><td>Express warranty may be in any form of words from which the intention to warrant is to be inferred.</td></tr>
+      <tr><td class="td-key">§ 37(2)</td><td>Express warranty must be included in or written upon the policy, or contained in some document incorporated by reference.</td></tr>
+      <tr><td class="td-key">§ 38</td><td><strong>Warranty of Neutrality:</strong> (1) Where property warranted neutral — implied condition that it shall have neutral character at commencement of risk, and neutral character preserved during risk. (2) Where ship warranted neutral — also implied condition that she shall be properly documented and not falsify papers.</td></tr>
+      <tr><td class="td-key">§ 39</td><td><strong>No implied warranty of nationality</strong> — no implied warranty as to nationality of ship or that nationality shall not change.</td></tr>
+      <tr><td class="td-key">§ 40</td><td><strong>Warranty of Good Safety:</strong> Where subject matter warranted "well" or "in good safety" on a particular day — sufficient if safe at any time during that day.</td></tr>
+    </table>
+
+    <h4>Implied Warranties — Critical Provisions</h4>
+    <div class="dc" id="seaworthiness" style="margin-top:12px;">
+      <div class="dc-h" onclick="toggleD('seaworthiness')">
+        <div class="dc-icon i-marine">⚓</div>
+        <div class="dc-title">§ 41 — Warranty of Seaworthiness of Ship</div>
+        <i class="toggle">▾</i>
+      </div>
+      <div class="dc-body">
+        <table class="dt marine">
+          <tr><th>Policy Type</th><th>Implied Warranty</th><th>Case</th></tr>
+          <tr>
+            <td class="td-key">Voyage Policy</td>
+            <td><strong>Absolute warranty:</strong> At commencement of the voyage, ship shall be seaworthy for the particular adventure insured. § 41(4): "A ship is deemed seaworthy when she is reasonably fit in all respects to encounter the ordinary perils of the seas of the adventure insured." (Sound hull, tackle; competent master; sufficient crew; adequate stores, fuel, provisions; proper documentation.)</td>
+            <td><em>Vortigern:</em> Inadequate coal stock = not seaworthy. <em>Quebec Marine v. Bank of Canada:</em> Vessel fit for inland waters but not salt water = not seaworthy.</td>
+          </tr>
+          <tr>
+            <td class="td-key">Time Policy</td>
+            <td><strong>No implied warranty of seaworthiness at any stage.</strong> BUT — § 41(5): Where with the <em>privity</em> (knowledge) of the assured, the ship is sent to sea in unseaworthy state — insurer NOT liable for loss attributable to unseaworthiness.</td>
+            <td><em>Thomas v. Tyne &amp; Wear Steamship Freight Insurance:</em> Time policy; total loss; no connivance of assured proved. <strong>Held: Insurer LIABLE.</strong></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="dc" id="goods-seaworthy" style="margin-top:8px;">
+      <div class="dc-h" onclick="toggleD('goods-seaworthy')">
+        <div class="dc-icon i-marine">📦</div>
+        <div class="dc-title">§ 42 — No Implied Warranty that Goods are Seaworthy</div>
+        <i class="toggle">▾</i>
+      </div>
+      <div class="dc-body">
+        <p><strong>§ 42(1):</strong> In a policy on goods — there is NO implied warranty that goods are seaworthy.<br>
+        <strong>§ 42(2):</strong> In a voyage policy on goods — there IS an implied warranty that at commencement of the voyage the SHIP is: (a) seaworthy as a ship; AND (b) reasonably fit to carry the goods to the destination (cargo-worthy).</p>
+        <div class="case-box marine">
+          <div class="cn">⚖ Blackett v. National Benefit Assurance Co. — CARGO-WORTHINESS</div>
+          <p>Cotton was insured. Some quantity lost due to maritime peril. Insurer contended the vessel faced turbulent conditions because cotton stacked in the hold was too light. Court rejected this — insurer held liable. There is no implied warranty on the goods; only the ship needs to be seaworthy and cargo-worthy.</p>
+        </div>
+      </div>
+    </div>
+
+    <h4>§ 43 — Warranty of Legality (Implied)</h4>
+    <p>"There is an implied warranty that the adventure insured is a lawful one, and that, so far as the assured can control the matter, the adventure shall be carried out in a lawful manner." Policy on smuggling voyage, piratical adventure, or trade with enemy = void.</p>
+    <div class="case-box marine">
+      <div class="cn">⚖ Cory v. Burr — BARRATRY + WARRANTY OF LEGALITY</div>
+      <p>Ship seized by Spanish authorities because master committed smuggling. Insurer not liable. Established: (1) Barratry by smuggling is a valid legal principle. (2) Smuggling violates the implied warranty of legality. (3) Barratry requires wrongful act by master/crew AGAINST the interest of the owner — if owner orders it, not barratry.</p>
+    </div>
+  </div>
+</div>
+
+<!-- VOYAGE + DEVIATION -->
+<div class="ph" id="m-voyage">
+  <div class="ph-num mc">§§ 44–51</div>
+  <div class="ph-title">The Voyage — Commencement, Deviation &amp; Delay</div>
+</div>
+
+<table class="dt marine">
+  <tr><th>Section</th><th>Rule</th></tr>
+  <tr><td class="td-key">§ 44</td><td><strong>Commencement of Risk:</strong> Implied condition that adventure commenced within reasonable time. If not — insurer may avoid. Condition negatived if delay known to insurer before contract, or waived.</td></tr>
+  <tr><td class="td-key">§ 45</td><td><strong>Alteration of Port of Departure:</strong> If ship sails from a different place from that specified — risk does NOT attach.</td></tr>
+  <tr><td class="td-key">§ 46</td><td><strong>Sailing for Different Destination:</strong> If ship sails to a different destination from that specified — risk does NOT attach.</td></tr>
+  <tr><td class="td-key">§ 47</td><td><strong>Change of Voyage:</strong> Where after commencement of risk, destination is voluntarily changed — insurer discharged from time of change (when determination to change is manifested) — even if ship has not yet left original course.</td></tr>
+  <tr><td class="td-key">§ 48(1)</td><td><strong>Deviation:</strong> Where ship, without lawful excuse, deviates from voyage contemplated — insurer discharged from liability from time of deviation — even if ship regained her route before loss.</td></tr>
+  <tr><td class="td-key">§ 48(3) ★</td><td><mark>"The intention to deviate is immaterial — there must be a deviation in fact to discharge the insurer."</mark> Principle: "To revisit is to deviate" — even if ship returns to original route, deviation has already occurred.</td></tr>
+  <tr><td class="td-key">§ 50</td><td><strong>Delay:</strong> Adventure must be prosecuted with reasonable dispatch. Unreasonable delay (without lawful excuse) discharges insurer from time delay became unreasonable.</td></tr>
+  <tr><td class="td-key">§ 51</td><td><strong>Excused Deviation or Delay:</strong> (a) Authorised by special term in policy; (b) Caused by circumstances beyond control of master and employer; (c) Reasonably necessary to comply with express/implied warranty; (d) Reasonably necessary for safety of ship or subject matter; (e) Saving human life or aiding ship in distress where human life in danger; (f) Obtaining medical/surgical aid for person on board; (g) Caused by barratrous conduct of master/crew (if barratry is a covered peril). § 51(2): When excuse ceases, ship must resume course and prosecute voyage with reasonable dispatch.</td></tr>
+</table>
+
+<h3>Leading Cases on Deviation</h3>
+<table class="dt marine">
+  <tr><th>Case</th><th>Facts &amp; Holding</th></tr>
+  <tr><td class="td-key">Elliot v. Wilson</td><td>Goods insured on vessel with specified route. Ship touched a port not in policy route (though usual for ships). Goods lost. Held: Deviation — insurer not liable even though deviation was to a customary port.</td></tr>
+  <tr><td class="td-key">Solly v. Whitmore</td><td>Ship touched places totally unconnected with the voyage. Held: Deviation — insurer not liable.</td></tr>
+  <tr><td class="td-key">Marten v. Vestey Brothers</td><td>Ship insured from River Plate to France/UK. After discharging at two authorized ports, ship left for Barry (additional unauthorized port) and was lost. Held: Deviation — insurer not liable.</td></tr>
+  <tr><td class="td-key">African Merchants v. B&amp;F Marine</td><td>Vessel after discharging went to assist wrecked vessel — delay. Lost on return journey. Held: Delay was unreasonable — insurer not liable from time of decision to assist the wreck.</td></tr>
+  <tr><td class="td-key">National Insurance Co. v. J. Nadar</td><td>1,200 baskets of onion jettisoned to save human life and ship during rough sea. Insurer contended return journey was deviation. Court rejected — jettison to save life = excused deviation under § 51. Insurer HELD LIABLE.</td></tr>
+  <tr><td class="td-key">Bragg v. Anderson</td><td>Policy provided for "any port or places" in West Indian Islands. Ship visited additional ports. Held: No deviation — liberty clause authorized additional ports.</td></tr>
+</table>
+
+<!-- INSURED PERILS -->
+<div class="ph" id="m-perils">
+  <div class="ph-num mc">§ 32 Schedule</div>
+  <div class="ph-title">Insured Perils — Standard Marine Policy &amp; Inchmaree Clause</div>
+</div>
+
+<h3>Standard Marine Perils — Rules for Construction of Policy (Schedule)</h3>
+<div class="pg">
+  <div class="pi"><div class="pnum">PERIL 1</div><strong>Perils of the Seas:</strong> "Fortuitous accidents or casualties of the seas." Does NOT include ordinary action of winds and waves. Only unexpected, accidental sea casualties.<br><em>The Xantho:</em> Ship struck known rock — held covered (fortuitous act even if rock known to exist).</div>
+  <div class="pi"><div class="pnum">PERIL 2</div><strong>Fire:</strong> Whether on board or from external source. Fire causing explosion also covered.</div>
+  <div class="pi"><div class="pnum">PERIL 3</div><strong>War Perils:</strong> Covered in standard policy but subject to war exclusion clauses — requiring separate war risks insurance.</div>
+  <div class="pi"><div class="pnum">PERIL 4</div><strong>Pirates:</strong> "Includes passengers who mutiny and rioters who attack the ship from the shore." Broader than ordinary meaning — includes sea pirates, mutinous passengers, shore-based rioters attacking the vessel.</div>
+  <div class="pi"><div class="pnum">PERIL 5</div><strong>Thieves:</strong> "Does NOT cover clandestine theft or theft committed by any one of the ship's company (crew or passengers)." Only external violent theft by outsiders. For crew theft / pilferage — specific clause (Institute TPND Clause) required.</div>
+  <div class="pi"><div class="pnum">PERIL 6</div><strong>Jettison:</strong> Deliberate throwing overboard of cargo or equipment to lighten vessel in emergency. Classic general average act.</div>
+  <div class="pi"><div class="pnum">PERIL 7</div><strong>Barratry:</strong> "Every wrongful act willfully committed by the master or crew to the prejudice of the owner, or as the case may be, the charterer." Examples: smuggling by master, scuttling, deviation for personal gain, theft of cargo by crew, fraudulent sale of ship by master. NOT applicable if owner orders the act.</div>
+  <div class="pi"><div class="pnum">PERIL 8</div><strong>Captures &amp; Seizures:</strong> "Arrests, etc., of kings, princes, and peoples" = political or executive acts. Does NOT include loss from riot or ordinary judicial process.</div>
+  <div class="pi"><div class="pnum">PERIL 9</div><strong>"All other perils":</strong> <em>Ejusdem generis rule</em> — includes only perils similar in kind to those specifically mentioned in the policy.</div>
+</div>
+
+<div class="dc open" id="inchmaree">
+  <div class="dc-h" onclick="toggleD('inchmaree')">
+    <div class="dc-icon i-marine">⚙</div>
+    <div class="dc-title">The Inchmaree Clause — In Detail</div>
+    <div class="dc-sub">Institute Time Clauses — Hulls, Clause 6</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <div class="case-box marine">
+      <div class="cn">⚖ Thomas v. Hamilton (House of Lords, 1891) — THE ORIGIN</div>
+      <p>The steamship <em>Inchmaree</em> suffered damage when a donkey pump check-valve became chocked with salt, preventing water from being pumped out. Damage was due to negligence of the ship's engineer. <strong>Held:</strong> Insurer NOT liable — this was not within any standard peril listed in the policy. This created a significant gap in hull coverage, leading to the Inchmaree Clause being added to Institute Time Clauses.</p>
+    </div>
+    <h4>What the Inchmaree Clause Covers</h4>
+    <ul class="nl">
+      <li>Accidents in loading, discharging, or shifting cargo or fuel.</li>
+      <li>Explosions on board or elsewhere.</li>
+      <li>Breakdown of or accident to nuclear installations or reactors.</li>
+      <li>Contact with aircraft, helicopters, or similar objects falling therefrom.</li>
+      <li><strong>Negligence of master, officers, crew, or pilots</strong> — provided the loss or damage has NOT resulted from want of due diligence by the assured, owners, or managers.</li>
+    </ul>
+    <div class="case-box marine">
+      <div class="cn">⚖ Baxendale v. Fane ("The Brilliant")</div>
+      <p>Manager negligently docked vessel for bottom cleaning, causing damage. Under the Inchmaree clause — <strong>insurer LIABLE.</strong></p>
+    </div>
+    <div class="case-box marine">
+      <div class="cn">⚖ "The Pacific Queen" — LIMITATION OF INCHMAREE CLAUSE</div>
+      <p>Vessel lost due to explosion and fire. Held: Explosion was due to want of due diligence by owners/managers — <strong>NOT covered.</strong> The exclusion within the Inchmaree clause itself applied — it does not cover negligence attributable to want of due diligence by the assured/owners/managers.</p>
+    </div>
+  </div>
+</div>
+
+<h3>All Risks Policies — ICC (A) Clause</h3>
+<div class="exam-alert">
+  <div class="lbl">All Risks — Key Principle</div>
+  <p>Under an all risks policy, the insured must show only that a <strong>fortuitous loss</strong> has occurred during transit — need NOT identify the specific cause. The insurer must prove the loss falls within an exclusion.<br><br>
+  <em>Gaunt's Case (British and Foreign Marine Insurance v. Gaunt):</em> Wool found damaged during transit. Held: Insurer liable under all risks clause — Lord Sumner: "The insured must show only a fortuitous loss during transit."<br>
+  <em>Chester's Case:</em> Sponges damaged by dirt and water in transit. Held: Insurer liable under all risks policy.<br><br>
+  <strong>Even under all risks, the following are ALWAYS EXCLUDED:</strong> Inherent vice of subject matter · Natural wear and tear · Wilful misconduct of assured · Delay.</p>
+</div>
+
+<!-- LOSS AND ABANDONMENT -->
+<div class="ph" id="m-loss">
+  <div class="ph-num mc">§§ 55–63</div>
+  <div class="ph-title">Loss &amp; Abandonment — Complete Taxonomy</div>
+</div>
+
+<div class="loss-tree">
+  <div class="lt-title">Marine Losses — Complete Classification Tree</div>
+  <pre>
+MARINE LOSSES
+├── TOTAL LOSSES
+│   ├── Actual Total Loss (§ 57)
+│   │   ├── Subject matter destroyed
+│   │   ├── So damaged as to cease to be thing of kind insured
+│   │   └── Assured irretrievably deprived thereof
+│   └── Constructive Total Loss (§ 60)
+│       ├── Reasonably abandoned — actual loss unavoidable
+│       ├── Cost of recovery &gt; value when recovered
+│       ├── Cost of repairing ship &gt; value when repaired
+│       └── Cost of repairing &amp; forwarding goods &gt; arrival value
+└── PARTIAL LOSSES
+    ├── Particular Average (§ 64) — accidental partial loss
+    ├── General Average (§ 66) — voluntary sacrifice / expenditure
+    └── CHARGES
+        ├── Salvage Charges (§ 65) — recoverable under maritime law
+        └── Particular Charges (§ 64(2)) — other preservation expenses</pre>
+</div>
+
+<h3>Actual Total Loss — Section 57</h3>
+<table class="dt marine">
+  <tr><th>Section</th><th>Rule</th></tr>
+  <tr><td class="td-key">§ 57(1)</td><td>Actual total loss where: subject matter destroyed OR so damaged as to cease to be thing of kind insured OR assured irretrievably deprived thereof.</td></tr>
+  <tr><td class="td-key">§ 57(2)</td><td>In case of actual total loss — <strong>no notice of abandonment need be given.</strong></td></tr>
+  <tr><td class="td-key">§ 58</td><td><strong>Missing Ship:</strong> Where ship missing and after lapse of reasonable time no news received — actual total loss MAY BE PRESUMED. "Reasonable time" is a question of fact.</td></tr>
+</table>
+
+<table class="dt marine" style="margin-top:12px;">
+  <tr><th>Case</th><th>Principle</th></tr>
+  <tr><td class="td-key">Asfar v. Blundell</td><td>Dates shipped; vessel sank and raised; dates absorbed salt water and sewage — commercially unfit for human consumption. Though physically existing — <strong>ceased to be "thing of kind insured."</strong> ACTUAL TOTAL LOSS.</td></tr>
+  <tr><td class="td-key">George Cohen v. Standard Marine Ins.</td><td>Old battleship insured; went aground in Dutch port. Assured could retrieve ship to some extent. Held: NO total loss — vessel had NOT ceased to be a ship.</td></tr>
+  <tr><td class="td-key">Koster v. Reed</td><td>Vessel missing; not traced for a reasonable time (one year). Held: Presumed total loss under § 58.</td></tr>
+</table>
+
+<h3>Constructive Total Loss — Section 60</h3>
+
+<div class="dc open" id="ctl">
+  <div class="dc-h" onclick="toggleD('ctl')">
+    <div class="dc-icon i-marine">⚓</div>
+    <div class="dc-title">Constructive Total Loss — Complete Framework</div>
+    <div class="dc-sub">§§ 60–63 Marine Insurance Act, 1963</div>
+    <i class="toggle">▾</i>
+  </div>
+  <div class="dc-body">
+    <p><strong>§ 60(1):</strong> Constructive total loss where subject matter reasonably abandoned because: (a) actual total loss appears unavoidable, OR (b) could not be preserved from actual total loss without expenditure exceeding its value when expenditure had been incurred.</p>
+    <p><strong>§ 60(2)(b):</strong> For ship — cost of repairing &gt; value of ship when repaired. <strong>§ 60(2)(c):</strong> For goods — cost of repairing + forwarding &gt; their value on arrival.</p>
+    <p><strong>The Test:</strong> "Is it commercially reasonable to abandon?" — objective standard of the "reasonable assured."</p>
+
+    <h4>Key Cases</h4>
+    <div class="case-box marine">
+      <div class="cn">⚖ Vacuum Oil Co. v. Union Insurance — PROHIBITIVE COST OF FORWARDING</div>
+      <p>10,000 tins of petroleum insured from Alexandria to Cyprus. Vessel stranded; 6,000 tins salvaged but damaged/leaking. <strong>Held: Constructive total loss</strong> — no ship would carry damaged leaking petroleum tins; cost of transportation to destination would exceed their value on arrival. § 60(2)(c) satisfied.</p>
+    </div>
+    <div class="case-box marine">
+      <div class="cn">⚖ Rickards v. Forestal Land — GOVERNMENT-ORDERED SCUTTLING</div>
+      <p>Cargo in German vessel insured from South America to Hong Kong. War broke out; German Government ordered vessels to neutral ports, Germany, or scuttle. Vessel scuttled. <strong>Held: Constructive total loss</strong> — scuttling pursuant to governmental mandate = maritime peril. Insurer held liable.</p>
+    </div>
+    <div class="case-box marine">
+      <div class="cn">⚖ Hall v. Hayman — WRECK VALUE NOT TO BE TAKEN INTO ACCOUNT</div>
+      <p>Cost of repairing vessel = £30,500; vessel value = £34,000. Assured added value of wreck and claimed total loss. <strong>Held:</strong> Wreck value should NOT be taken into account in estimating repair cost. Formula: cost of repairs vs. value of ship WHEN REPAIRED — not after deducting wreck value.</p>
+    </div>
+    <div class="case-box marine">
+      <div class="cn">⚖ Panama Oriental Steamship Co. v. Wright — SEIZURE + UNLIKELY RECOVERY</div>
+      <p>Vessel under time policy seized by Vietnamese revenue authorities for un-manifested goods. Recovery unlikely. <strong>Held: Constructive total loss</strong> — assured deprived of possession and recovery unlikely. § 60(2)(a)(i) satisfied.</p>
+    </div>
+
+    <h4>§§ 61–63 — Effect and Notice of Abandonment</h4>
+    <table class="dt marine">
+      <tr><th>Section</th><th>Rule</th></tr>
+      <tr><td class="td-key">§ 61</td><td>Where constructive total loss — assured MAY either: (a) treat as partial loss (without abandoning), OR (b) abandon subject matter to insurer and treat loss as if actual total loss.</td></tr>
+      <tr><td class="td-key">§ 62(1)</td><td>Where assured elects to abandon — <strong>must give notice of abandonment.</strong> If fails — loss can only be treated as partial loss.</td></tr>
+      <tr><td class="td-key">§ 62(4)</td><td>Where notice properly given — rights of assured not prejudiced by insurer's refusal to accept.</td></tr>
+      <tr><td class="td-key">§ 62(5)</td><td>Acceptance may be express or implied. <strong>Mere silence after notice is NOT acceptance.</strong></td></tr>
+      <tr><td class="td-key">§ 62(6)</td><td>Where notice accepted — abandonment is IRREVOCABLE. Acceptance conclusively admits liability.</td></tr>
+      <tr><td class="td-key">§ 62(7)</td><td>Notice unnecessary where at time of information of loss there would be no possibility of benefit to insurer from notice.</td></tr>
+      <tr><td class="td-key">§ 63(1)</td><td>On valid abandonment — insurer entitled to take over interest of assured in whatever remains of subject matter and all proprietary rights incidental thereto.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- GENERAL AVERAGE -->
+<div class="ph" id="m-ga">
+  <div class="ph-num mc">§§ 64–66</div>
+  <div class="ph-title">Partial Losses — Particular Average, Salvage &amp; General Average</div>
+</div>
+
+<h3>Section 64 — Particular Average Loss</h3>
+<div class="def-card">
+  <div class="who">§ 64(1) — Particular Average Defined</div>
+  <p>"A particular average loss is a partial loss of the subject matter insured, caused by a peril insured against, and which is not a general average loss." Accidental and fortuitous — only the insured property is damaged — no voluntary sacrifice.</p>
+</div>
+<p><strong>§ 64(2) — Particular Charges:</strong> Expenses incurred for safety or preservation of subject matter — other than general average and salvage charges — are called particular charges. Particular charges are NOT included in particular average.</p>
+
+<h3>Section 65 — Salvage Charges</h3>
+<p>"Salvage charges means charges recoverable under maritime law by a salvor independently of contract." NOT included: expenses of services rendered by the assured or his agents or persons employed for hire (those are particular charges).</p>
+<p><strong>Lloyd's Open Form (LOF):</strong> When ship in distress, master signs LOF with potential salvors. Headed <em>"No cure — no pay"</em> — if salvage attempt fails, no award (though SCOPIC modifies this).</p>
+
+<h3>Section 66 — General Average Loss</h3>
+<div class="def-card">
+  <div class="who">§ 66(2) — General Average Act Defined</div>
+  <p>"There is a general average act where any extraordinary sacrifice or expenditure is voluntarily and reasonably made or incurred in time of peril for the purpose of preserving the property imperilled in the common adventure."</p>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">Three Essentials of a General Average Act</div>
+  <ul>
+    <li><strong>There must be a peril</strong> threatening the common adventure.</li>
+    <li>The sacrifice or expenditure must be <strong>voluntary and reasonable.</strong></li>
+    <li><strong>There must be something saved</strong> as a result (if everything is lost, there is nothing to contribute).</li>
+  </ul>
+</div>
+
+<h4>Examples of General Average Acts</h4>
+<table class="dt marine">
+  <tr><th>Act</th><th>Category</th><th>Explanation</th></tr>
+  <tr><td class="td-key">Jettison of cargo</td><td>General Average Sacrifice</td><td>During violent storm, 50 tonnes of cargo thrown overboard to lighten ship. Cargo owner can claim contribution from all parties (ship, remaining cargo, freight).</td></tr>
+  <tr><td class="td-key">Emergency port entry</td><td>General Average Expenditure</td><td>Ship diverted to port of refuge for emergency repairs. Expenses of entering port, repair costs, cost of re-shipping cargo = general average expenditure.</td></tr>
+  <tr><td class="td-key">Flooding the hold</td><td>General Average Sacrifice</td><td>Fire breaks out; master floods hold with seawater to extinguish. Water damages cargo in hold. Intentional damage = general average sacrifice.</td></tr>
+</table>
+
+<p><strong>York-Antwerp Rules:</strong> International rules (last revised 2016) incorporated by reference in most bills of lading and charter parties. Provide standardised method for calculating and apportioning general average contributions. Applied by the <em>Average Adjuster</em> — a specialist appointed by ship-owner (paid by insurer) who issues the General Average Statement.</p>
+
+<h3>Rights of Insurer on Payment — §§ 79–81</h3>
+<table class="dt marine">
+  <tr><th>Section</th><th>Right</th></tr>
+  <tr><td class="td-key">§ 79(1)</td><td><strong>Subrogation (total loss):</strong> Where insurer pays for total loss — he thereupon becomes entitled to take over interest of assured in whatever remains of subject matter AND is subrogated to all rights and remedies of assured from time of the casualty. <em>Glen Line Case:</em> Insurer who paid total loss of sunk ship entitled to sale proceeds when ship later recovered — subrogation.</td></tr>
+  <tr><td class="td-key">§ 79(2)</td><td><strong>Subrogation (partial loss):</strong> Where insurer pays for partial loss — he acquires no title to subject matter but is subrogated to rights and remedies of assured from time of casualty — insofar as insured has been indemnified.</td></tr>
+  <tr><td class="td-key">§ 80(1)</td><td><strong>Contribution:</strong> Where assured over-insured by double insurance — each insurer bound to contribute rateably to loss in proportion to amount for which he is liable. <em>Yorkshire Insurance v. Nisbet:</em> Insurer's recovery limited to amount paid — not entitled to excess.</td></tr>
+  <tr><td class="td-key">§ 81</td><td><strong>Effect of Under-Insurance:</strong> Where assured insured for less than insurable value — he is deemed to be his own insurer in respect of the uninsured balance.</td></tr>
+</table>
+
+<h3>Section 77 — Suing and Labouring Clause</h3>
+<p><strong>§ 77(4):</strong> "It is the duty of the assured and his agents, in all cases, to take such measures as may be reasonable for the purpose of averting or minimising a loss." — Codification of the duty to mitigate in marine insurance.</p>
+<p>§ 77(1): Where policy contains a suing and labouring clause — expenses properly incurred to avert or minimise loss recoverable from insurer, even though insurer has paid for total loss or subject matter warranted FPA.</p>
+
+<h3>Barratry — Detailed Study</h3>
+<div class="def-card">
+  <div class="who">From Schedule — Barratry Defined</div>
+  <p>"Barratry includes every wrongful act willfully committed by the master or crew to the prejudice of the owner, or as the case may be, the charterer."</p>
+</div>
+
+<div class="case-box marine">
+  <div class="cn">⚖ Samuel v. Dumas — SCUTTLING WITH OWNER'S CONNIVANCE</div>
+  <p>A ship was scuttled with the owner's connivance. Water inflowed causing the ship to sink. <strong>Held:</strong> (1) Dominant proximate cause = scuttling (deliberate act), NOT perils of the sea (water inflow). (2) Since scuttling was done with owner's connivance — insurer NOT liable. Owner cannot claim for losses caused by his own connivance. <strong>Key Principle:</strong> Barratry = wrongful act by master/crew AGAINST the owner's interest. If owner orders it = not barratry against insurer.</p>
+</div>
+
+<!-- TRANSHIPMENT -->
+<h3>Section 59 — Transhipment in Marine Insurance</h3>
+<p>Where, by a peril insured against, the voyage is interrupted at an intermediate port, and the master re-ships the goods on another vessel to continue the voyage — the liability of the insurer continues notwithstanding the landing or transhipment.</p>
+<p><strong>Transhipment vs. Deviation:</strong> If transhipment necessitated by maritime peril = NOT deviation. If master tranships without necessity or for personal convenience = may constitute deviation.</p>
+<p><em>Oliverson v. Brightman:</em> Transhipment covered by policy; insurer's liability continues through transhipment to destination.</p>
+
+<div class="divider"><span>Topic 5 → Topic 6</span></div>
+
+<!-- ══════════════════════════ MISCELLANEOUS INSURANCE ══════════════════════════ -->
+<div class="topic-banner misc" id="misc-def">
+  <div class="t-icon">🛡</div>
+  <div class="t-meta">
+    <div class="t-label">Topic 6 · Syllabus Unit VI</div>
+    <div class="t-title">Miscellaneous Insurance — Burglary, Liability &amp; Motor Vehicle</div>
+  </div>
+</div>
+
+<div class="def-card">
+  <div class="who">Section 2(13B) — Statutory Definition of Miscellaneous Insurance Business</div>
+  <p>"Miscellaneous insurance business means the business of effecting contracts of insurance which is not principally or wholly of any kind or kinds included in clauses (6A), (11) and (13A)"</p>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">What This Means</div>
+  <p>Anything that is NOT Fire Insurance (§ 6A), NOT Life Insurance (§ 11), and NOT Marine Insurance (§ 13A) falls into miscellaneous insurance. This is a <strong>residuary / catch-all category.</strong> The three sub-types we examine: (1) Burglary Insurance · (2) Liability Insurance · (3) Motor Vehicle Insurance.</p>
+</div>
+
+<!-- BURGLARY -->
+<div class="ph" id="burglary">
+  <div class="ph-num ms">I</div>
+  <div class="ph-title">Burglary Insurance — <em>Definition, Nature &amp; Scope</em></div>
+</div>
+
+<h3>1.1 Critical Distinctions — Burglary vs. Allied Terms</h3>
+<table class="dt misc">
+  <tr><th>Term</th><th>Meaning</th><th>Statutory Reference</th></tr>
+  <tr><td class="td-key">Burglary</td><td>Breaking into premises BY NIGHT with intent to commit a felony. Entry must be forcible and between certain hours (typically sunset to sunrise — common law definition).</td><td>Common law + IPC</td></tr>
+  <tr><td class="td-key">Housebreaking</td><td>Breaking into premises BY DAY with intent to commit a felony.</td><td>§ 445 IPC (§ 331 BNS 2023)</td></tr>
+  <tr><td class="td-key">Theft</td><td>Dishonest removal of movable property without consent of owner.</td><td>§ 378 IPC (§ 303 BNS)</td></tr>
+  <tr><td class="td-key">Robbery</td><td>Theft with violence or threat of violence.</td><td>§ 390 IPC</td></tr>
+  <tr><td class="td-key">Dacoity</td><td>Robbery by five or more persons.</td><td>§ 391 IPC</td></tr>
+  <tr><td class="td-key">Larceny</td><td>English common law term equivalent to theft — not independently used in Indian law.</td><td>English common law</td></tr>
+</table>
+
+<div class="exam-alert">
+  <div class="lbl">Why the Distinction Matters in Insurance Law</div>
+  <p>A policy covering "burglary" may NOT cover "theft" committed by an employee, because there is no breaking and entering. Classic example: if a watchman steals goods = theft, NOT burglary. If policy only covers burglary → claim FAILS.</p>
+  <p><em>Crippen v. Hartford Fire Insurance:</em> Burglary requires actual breaking and entry — merely finding the door open and walking in does NOT constitute burglary for insurance purposes.</p>
+</div>
+
+<h3>1.2 Nature of Burglary Insurance</h3>
+<table class="dt misc">
+  <tr><th>Characteristic</th><th>Content</th></tr>
+  <tr><td class="td-key">Contract of Indemnity</td><td>Like all general insurance — pure indemnity. Insured recovers only actual loss. No profit.</td></tr>
+  <tr><td class="td-key">Uberrima Fides</td><td>Must disclose: previous burglaries, security arrangements, nature of goods stored, whether premises left unattended at night. Non-disclosure vitiates the policy.</td></tr>
+  <tr><td class="td-key">Insurable Interest</td><td>Must have insurable interest at time of loss. Owners, mortgagees, bailees, warehouse keepers — all have insurable interest.</td></tr>
+  <tr><td class="td-key">Proximate Cause</td><td>Causa proxima applies. If goods lost due to fire during a burglary — proximate cause determination becomes critical for which policy responds.</td></tr>
+  <tr><td class="td-key">Personal Contract</td><td>Like fire insurance — if property sold/transferred, policy does NOT automatically pass to new owner.</td></tr>
+  <tr><td class="td-key">Connivance of Insured</td><td>If insured connives in or stages the burglary — policy is void. Principle: <em>ex turpi causa non oritur actio</em> — no man shall benefit from his own wrong.</td></tr>
+</table>
+
+<h3>1.3 Scope — Covered &amp; Excluded</h3>
+<div class="ig">
+  <div class="ic"><div class="k">Covered</div><div class="v" style="font-size:13.5px;font-weight:400;">Loss of / damage to insured property caused by burglary or housebreaking · Damage to premises during forcible entry or exit · Loss by robbery (if specifically included) · Personal accident to insured during attempted robbery (some policies)</div></div>
+  <div class="ic"><div class="k">Standard Exclusions</div><div class="v" style="font-size:13.5px;font-weight:400;">Theft without breaking (e.g., employee theft without forced entry) · Fire during burglary (covered under fire policy) · Mysterious disappearance (no evidence of criminal act) · War and civil commotion · Acts of insured · Domestic servant theft (unless specifically included) · Goods not on premises at time of loss</div></div>
+</div>
+
+<h3>Types of Burglary Policies</h3>
+<table class="dt misc">
+  <tr><th>Policy</th><th>Coverage</th></tr>
+  <tr><td class="td-key">Jewellers' Block Policy</td><td>Jewellery, precious stones, watches — against burglary, theft, robbery — both at premises and in transit.</td></tr>
+  <tr><td class="td-key">Banker's Blanket Bond</td><td>Banks — against burglary, robbery, and employee dishonesty.</td></tr>
+  <tr><td class="td-key">Householders' Comprehensive Policy</td><td>Household contents against burglary along with other perils.</td></tr>
+  <tr><td class="td-key">All-Risk Policy</td><td>Broadest coverage — includes theft in transit as well.</td></tr>
+</table>
+
+<!-- PUBLIC LIABILITY -->
+<div class="ph" id="pl">
+  <div class="ph-num ms">II-A</div>
+  <div class="ph-title">Public Liability Insurance — <em>Public Liability Insurance Act, 1991</em></div>
+</div>
+
+<div class="ig">
+  <div class="ic"><div class="k">Act</div><div class="v ms">Public Liability Insurance Act, 1991 (Act No. 6 of 1991)</div></div>
+  <div class="ic"><div class="k">Principle</div><div class="v ms">No-Fault / Strict Liability — Section 3</div></div>
+  <div class="ic"><div class="k">Adjudicating Forum</div><div class="v">The Collector (NOT a court)</div></div>
+  <div class="ic"><div class="k">Fund</div><div class="v">Environmental Relief Fund — Section 7A</div></div>
+</div>
+
+<h3>Key Definitions</h3>
+<table class="dt misc">
+  <tr><th>Section</th><th>Definition</th></tr>
+  <tr><td class="td-key">§ 2(a)</td><td><strong>Accident:</strong> Fortuitous or sudden or unintended occurrence while handling any hazardous substance — resulting in continuous/intermittent/repeated exposure to death of, or injury to, any person or damage to property. Does NOT include accident by reason only of war or radioactivity.</td></tr>
+  <tr><td class="td-key">§ 2(b)</td><td><strong>Collector:</strong> The Collector having jurisdiction over the area in which the accident occurs.</td></tr>
+  <tr><td class="td-key">§ 2(d)</td><td><strong>Hazardous Substance:</strong> Any substance or preparation defined as hazardous under the Environment (Protection) Act, 1986, exceeding quantities specified by notification by the Central Government.</td></tr>
+  <tr><td class="td-key">§ 2(g)</td><td><strong>Owner:</strong> A person who owns, or has control over handling of any hazardous substance. In case of firm = any partner; in case of association = any member; in case of company = any director, manager, secretary directly in charge.</td></tr>
+</table>
+
+<h3>Section 3 — No-Fault Liability — The Most Important Provision</h3>
+<div class="def-card">
+  <div class="who">Section 3(1) — Public Liability Insurance Act, 1991</div>
+  <p>"Where death or injury to any person (other than a workman) or damage to any property has resulted from an accident, the owner shall be liable to give such relief as is specified in the Schedule."</p>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">Section 3(2) — No Proof of Negligence Required</div>
+  <p>"The claimant shall NOT be required to plead and establish that the death, injury or damage in respect of which the claim has been made was due to any wrongful act, neglect or default of any person."</p>
+  <p>This is a statutory departure from the common law principle that liability requires proof of fault. It is <strong>strict liability</strong> — modelled on the principle from <em>Rylands v. Fletcher (1868)</em> LR 3 HL 330: "A person who brings onto his land something likely to do mischief if it escapes must keep it at his peril. If he fails to do so, he is prima facie answerable for all the damage which is the natural consequence of its escape."</p>
+</div>
+
+<h3>Section 4 — Mandatory Insurance</h3>
+<p>"Every owner shall take out, before he starts handling any hazardous substance, one or more insurance policies..." Failure is a penal offence under Section 14 (imprisonment not less than 1 year 6 months but may extend to 6 years, or fine not less than ₹1 lakh, or both).</p>
+
+<h3>Section 7 — Award of Relief &amp; Schedule — Quantum</h3>
+<table class="sched-table">
+  <tr><th>Head of Relief</th><th>Amount Payable</th></tr>
+  <tr><td>Reimbursement of medical expenses</td><td class="amt">Up to ₹12,500 per case</td></tr>
+  <tr><td>Fatal accidents</td><td class="amt">₹25,000 per person + medical expenses up to ₹12,500</td></tr>
+  <tr><td>Permanent total/permanent partial disability</td><td class="amt">₹25,000 + medical expenses up to ₹12,500. Cash relief proportionate to percentage of disablement.</td></tr>
+  <tr><td>Temporary partial disability (hospitalized &gt;3 days, age &gt;16)</td><td class="amt">Fixed monthly relief not exceeding ₹1,000 per month up to 3 months</td></tr>
+  <tr><td>Damage to private property</td><td class="amt">Up to ₹6,000</td></tr>
+</table>
+
+<div class="exam-alert">
+  <div class="lbl">Critical Note — Schedule Amounts are MINIMUM Immediate Relief</div>
+  <p>These are <strong>immediate relief amounts — NOT full compensation.</strong> The victim retains the right under <strong>§ 8(1)</strong> to pursue higher compensation under any other law (tort law, CPC, etc.). Under <strong>§ 8(2)</strong>, the relief already paid under this Act is deducted from any such higher compensation.</p>
+</div>
+
+<h3>Section 7A — Environmental Relief Fund</h3>
+<p>Central Government may, by notification, establish an Environmental Relief Fund for paying relief under awards. Ensures victims are not left remediless even if the insurer is insolvent.</p>
+
+<h3>Other Categories of Liability Insurance</h3>
+<table class="dt misc">
+  <tr><th>Category</th><th>Coverage</th><th>Key Law</th></tr>
+  <tr><td class="td-key">Professional Liability (E&amp;O)</td><td>Professionals (doctors, lawyers, architects, CAs) against claims by clients for negligent advice or professional error.</td><td>Consumer Protection Act, 2019. <em>IMA v. V.P. Shantha, AIR 1996 SC 550:</em> Medical services fall under CPA; doctors liable for deficiency of service.</td></tr>
+  <tr><td class="td-key">Employers' Liability / Workmen's Compensation</td><td>Employer's statutory liability to pay compensation to workmen for personal injury by accident arising out of and in course of employment.</td><td>Employees' Compensation Act, 1923 (formerly Workmen's Compensation Act) — Section 3.</td></tr>
+  <tr><td class="td-key">Product Liability Insurance</td><td>Manufacturer against claims from defects in products supplied.</td><td>Consumer Protection Act, 2019 — Sections 82–87 (Chapter VI). § 83: Strict product liability — manufacturer liable without proof of negligence if product is defective.</td></tr>
+  <tr><td class="td-key">Directors &amp; Officers (D&amp;O) Liability</td><td>Directors and officers of companies against personal liability from managerial decisions.</td><td>Companies Act, 2013 — corporate governance obligations.</td></tr>
+</table>
+
+<!-- MOTOR VEHICLE -->
+<div class="ph" id="motor">
+  <div class="ph-num mt">III</div>
+  <div class="ph-title">Motor Vehicle Insurance — <em>Motor Vehicles Act, 1988 (§§ 140–176)</em></div>
+</div>
+
+<div class="exam-alert">
+  <div class="lbl">Most Important Preliminary Note</div>
+  <p>Motor vehicle insurance is the most practically significant form of miscellaneous insurance in India — both by premium volume and by litigation volume. The Motor Vehicles Act, 1988 (replaced the MV Act, 1939) was comprehensively amended by the Motor Vehicles (Amendment) Act, 2019 — which significantly increased compensation amounts and introduced new reforms.</p>
+</div>
+
+<h3>Section 140 — No-Fault Liability (Absolute Liability)</h3>
+<div class="def-card">
+  <div class="who">Section 140(1) — Motor Vehicles Act, 1988</div>
+  <p>"Where death or permanent disablement of any person has resulted from an accident arising out of the use of a motor vehicle or motor vehicles, the owner of the vehicle shall, or, as the case may be, the owners of the vehicles shall, jointly and severally, be liable to pay compensation in respect of such death or disablement."</p>
+</div>
+
+<table class="dt motor">
+  <tr><th>Sub-section</th><th>Content</th></tr>
+  <tr><td class="td-key">§ 140(2)</td><td>Fixed compensation: <mark>Death = ₹50,000 · Permanent Disablement = ₹25,000.</mark> [Pre-2019 Amendment statutory amounts. Post-2019 Amendment, MACT awards much higher amounts under § 166 based on structured formula.]</td></tr>
+  <tr><td class="td-key">§ 140(3) ★</td><td>"The claimant shall NOT be required to plead and establish that the death or permanent disablement was due to any wrongful act, neglect or default." Essence of <strong>No-Fault Liability</strong> — absolute liability without proof of negligence.</td></tr>
+  <tr><td class="td-key">§ 140(4)</td><td>A claim under § 140 shall NOT be defeated by reason of any <strong>contributory negligence</strong> of the deceased/disabled person.</td></tr>
+  <tr><td class="td-key">§ 140(5)</td><td>No-fault compensation is in addition to any other compensation payable under any other provision.</td></tr>
+</table>
+
+<div class="case-box motor">
+  <div class="cn">⚖ MC Mehta v. Union of India, AIR 1987 SC 1086 (Oleum Gas Leak Case)</div>
+  <p>Justice P.N. Bhagwati held that enterprises engaged in hazardous or inherently dangerous activities are liable absolutely for any harm resulting therefrom — they cannot escape liability even by proving they were not negligent. This goes BEYOND Rylands v. Fletcher (which had exceptions for Act of God and consent of plaintiff). This is the Indian constitutional basis of absolute liability, operating alongside § 140 of MV Act.</p>
+</div>
+
+<h3>Section 146 — Compulsory Third-Party Insurance — The Foundation</h3>
+<div class="def-card">
+  <div class="who">Section 146(1) — Motor Vehicles Act, 1988</div>
+  <p>"No person shall use, except as a passenger, or cause or allow any other person to use, a motor vehicle in a public place unless there is in force in relation to the use of the vehicle by that person or that other person, as the case may be, a policy of insurance complying with the requirements of this Chapter."</p>
+</div>
+
+<div class="ig">
+  <div class="ic"><div class="k">Nature</div><div class="v mt">Compulsory — not optional</div></div>
+  <div class="ic"><div class="k">Coverage Area</div><div class="v">"In a public place"</div></div>
+  <div class="ic"><div class="k">Both owner AND permitted persons must be covered</div><div class="v" style="font-size:13px;font-weight:400;">Policy must comply with Chapter XI requirements</div></div>
+  <div class="ic"><div class="k">Punishment for Violation (§ 196)</div><div class="v mt">Imprisonment up to 3 months, or fine up to ₹2,000, or both (2019 Amendment: fine = ₹2,000)</div></div>
+</div>
+
+<h3>Section 147 — Requirements of Policies &amp; Limits of Liability</h3>
+<table class="dt motor">
+  <tr><th>Section</th><th>Content</th></tr>
+  <tr><td class="td-key">§ 147(1)</td><td>A policy complies with Chapter XI requirements only if: (a) issued by authorized insurer (authorized under Insurance Act, 1938); (b) insures the person against any liability which may be incurred in respect of — death of or bodily injury to any person (including owner of goods or authorized representative being carried) + damage to property of a third party.</td></tr>
+  <tr><td class="td-key">§ 147(2)</td><td>Policy may exclude liability: (a) while vehicle used outside specified geographical area; (b) when driven by unlicensed driver; (c) when driven by person disqualified from holding licence.</td></tr>
+  <tr><td class="td-key">§ 147(5)</td><td>Policy covering death/bodily injury need NOT fix any limit on amount of liability — <mark>UNLIMITED in respect of persons.</mark></td></tr>
+  <tr><td class="td-key">§ 147(6)</td><td>In respect of damage to third-party property — liability limited to <mark>₹7,50,000</mark> (subject to amendment).</td></tr>
+</table>
+
+<h3>Section 149 — Duty of Insurers to Satisfy Judgments — "Pay and Recover" Principle</h3>
+<div class="def-card">
+  <div class="who">Section 149(1) — Motor Vehicles Act, 1988</div>
+  <p>"If, after a certificate of insurance has been issued, any liability is incurred which is covered by the policy, then the insurer shall, notwithstanding that the insurer may be entitled to avoid or cancel the policy, pay to the person entitled to the benefit of a decree, any sum not exceeding the sum insured in respect of that liability."</p>
+</div>
+
+<p><strong>What this means:</strong> Even if the insurer could legitimately avoid the policy (insured violated a condition) — the insurer must FIRST pay the third party and THEN recover from the insured. The third party's rights are NOT defeated by the insured's misconduct.</p>
+<p><strong>§ 149(2) — Limited Defences:</strong> Insurer can avoid liability to third party only on: (a) breach of condition relating to age, disqualification, or competency of driver; (b) use of vehicle for purposes not permitted by policy.</p>
+
+<div class="case-box motor">
+  <div class="cn">⚖ National Insurance Co. v. Swaran Singh, (2004) 3 SCC 297 — LANDMARK CASE</div>
+  <p>Supreme Court distinguished between: (1) <strong>Fundamental breach</strong> (e.g., vehicle used as taxi under private policy) — insurer CAN avoid; (2) <strong>Technical breach</strong> (e.g., minor licence irregularity) — insurer MUST pay third party and recover from insured. This framework governs § 149 disputes.</p>
+</div>
+
+<div class="case-box motor">
+  <div class="cn">⚖ Oriental Insurance Co. Ltd. v. Nanjappan, (2004) 13 SCC 224</div>
+  <p>Supreme Court confirmed that the insurer must satisfy a third-party decree even when there is a breach of policy condition (e.g., unlicensed driver) — and then recover from the insured.</p>
+</div>
+
+<h3>Section 157 — Transfer of Certificate of Insurance</h3>
+<p>When a vehicle is transferred, the certificate of insurance and the policy shall be deemed to have been transferred in favour of the transferee. This automatically protects the new owner and third parties.</p>
+<div class="case-box motor">
+  <div class="cn">⚖ Rikhi Ram v. Sukhrania, AIR 2003 SC 2930</div>
+  <p>Supreme Court held that upon transfer of vehicle, the insurance policy is automatically transferred and the insurer continues to be liable for third-party claims even after transfer.</p>
+</div>
+
+<h3>Sections 163A &amp; 163B — Structured Formula for Compensation</h3>
+<p>Section 163A: Provides for structured formula for compensation on account of death or permanent disablement — based on table in the Second Schedule. Considers: annual income of victim, age of victim, nature and extent of disability. Introduced to ensure uniformity and reduce litigation over quantum.</p>
+
+<h3>Sections 165–176 — Motor Accidents Claims Tribunals (MACT)</h3>
+<table class="dt motor">
+  <tr><th>Section</th><th>Content</th></tr>
+  <tr><td class="td-key">§ 165</td><td><strong>Constitution of MACT:</strong> Every State Government shall constitute one or more Motor Accidents Claims Tribunals for adjudicating compensation claims.</td></tr>
+  <tr><td class="td-key">§ 175</td><td><strong>Exclusive jurisdiction:</strong> No civil court has jurisdiction to entertain claims that fall within MACT's purview.</td></tr>
+  <tr><td class="td-key">§ 166</td><td><strong>Application for Compensation:</strong> Any person claiming compensation may apply to the Claims Tribunal. Time limit: within 6 months of the accident (tribunal can condone delay for sufficient cause).</td></tr>
+  <tr><td class="td-key">§ 168</td><td><strong>Award:</strong> Tribunal makes an award specifying amount of compensation payable and person by whom payable.</td></tr>
+  <tr><td class="td-key">§ 169</td><td><strong>Tribunal Powers:</strong> Claims Tribunal has all powers of a civil court under CPC.</td></tr>
+  <tr><td class="td-key">§ 173</td><td><strong>Appeals:</strong> Appeal from MACT award lies to the High Court. No appeal from award for amount less than ₹10,000.</td></tr>
+</table>
+
+<h3>Hit-and-Run — Solatium Scheme (Section 161)</h3>
+<p>For victims of hit-and-run accidents where the offending vehicle cannot be traced. Post-2019 Amendment amounts: <mark>Death = ₹2,00,000 (increased from ₹25,000) · Grievous Injury = ₹50,000 (increased from ₹12,500).</mark> The Solatium Fund is maintained by the General Insurance Council.</p>
+
+<h3>No-Fault Liability vs. Absolute Liability — Critical Distinction</h3>
+<table class="dt motor">
+  <tr><th>Feature</th><th>No-Fault Liability (§ 140 MV Act)</th><th>Absolute Liability (MC Mehta)</th></tr>
+  <tr><td class="td-key">Source</td><td>Statutory — Motor Vehicles Act, 1988</td><td>Judicial — Constitutional Court (Supreme Court)</td></tr>
+  <tr><td class="td-key">Defences</td><td>Limited defences available</td><td>No defences whatsoever</td></tr>
+  <tr><td class="td-key">Application</td><td>Motor vehicle accidents</td><td>Hazardous enterprises (Rylands v. Fletcher + beyond)</td></tr>
+  <tr><td class="td-key">Compensation</td><td>Fixed statutory sum</td><td>Commensurate with magnitude of harm</td></tr>
+  <tr><td class="td-key">Basis</td><td>Act of Parliament</td><td>Article 21 of Constitution of India</td></tr>
+</table>
+
+<!-- MASTER COMPARISON TABLE -->
+<div class="divider" id="exam"><span>Master Exam Tables</span></div>
+
+<h3>Miscellaneous Insurance — Three Types Compared</h3>
+<table class="ct">
+  <tr><th>Feature</th><th>Burglary Insurance</th><th>Liability Insurance</th><th>Motor Vehicle Insurance</th></tr>
+  <tr><td>Mandatory?</td><td>No</td><td>Partly (PL Act 1991)</td><td>Yes — Third Party (§ 146 MV Act)</td></tr>
+  <tr><td>Governing Law</td><td>General Insurance Law</td><td>PL Insurance Act 1991 + MV Act</td><td>Motor Vehicles Act, 1988</td></tr>
+  <tr><td>Indemnity Principle</td><td>Yes</td><td>Yes</td><td>Yes (modified for TP)</td></tr>
+  <tr><td>Third Party Rights</td><td>No</td><td>Yes (direct under PL Act)</td><td>Yes (under § 149 MV Act)</td></tr>
+  <tr><td>Proof of Fault</td><td>Yes (generally)</td><td>No (under PL Act § 3)</td><td>No (under § 140 MV Act)</td></tr>
+  <tr><td>Adjudicating Forum</td><td>Civil Court</td><td>Collector (PL Act)</td><td>MACT (§ 165 MV Act)</td></tr>
+</table>
+
+<h3>Marine Insurance — All Key Section Numbers (MIA 1963)</h3>
+<table class="dt marine">
+  <tr><th>Section</th><th>Subject</th></tr>
+  <tr><td class="td-key">§ 3</td><td>Definition of marine insurance</td></tr>
+  <tr><td class="td-key">§ 4</td><td>Mixed sea and land risks; "adventure analogous to marine adventure"</td></tr>
+  <tr><td class="td-key">§ 5</td><td>Lawful marine adventure</td></tr>
+  <tr><td class="td-key">§ 6</td><td>Wagering contracts are void</td></tr>
+  <tr><td class="td-key">§ 7</td><td>Insurable interest defined</td></tr>
+  <tr><td class="td-key">§ 8</td><td>When insurable interest must exist — at time of loss</td></tr>
+  <tr><td class="td-key">§ 10</td><td>Partial interest — insurable</td></tr>
+  <tr><td class="td-key">§ 11</td><td>Bottomry — insurable interest of lender</td></tr>
+  <tr><td class="td-key">§ 18</td><td>Insurable value — measure for ship, freight, goods</td></tr>
+  <tr><td class="td-key">§ 19</td><td>Insurance is uberrimae fidei</td></tr>
+  <tr><td class="td-key">§ 20</td><td>Disclosure by assured; prudent insurer test</td></tr>
+  <tr><td class="td-key">§ 21</td><td>Disclosure by agent effecting insurance</td></tr>
+  <tr><td class="td-key">§ 22</td><td>Representations pending negotiation</td></tr>
+  <tr><td class="td-key">§ 23</td><td>When contract is deemed concluded; slip as evidence</td></tr>
+  <tr><td class="td-key">§ 24</td><td>Contract must be embodied in marine policy</td></tr>
+  <tr><td class="td-key">§ 25</td><td>What policy must specify</td></tr>
+  <tr><td class="td-key">§ 26(2)</td><td>Several underwriters — several (not joint) liability</td></tr>
+  <tr><td class="td-key">§ 27(1)</td><td>Voyage and time policies</td></tr>
+  <tr><td class="td-key">§ 27(2) ★</td><td>Time policy exceeding 12 months = INVALID</td></tr>
+  <tr><td class="td-key">§ 29</td><td>Valued policy — agreed value conclusive (absent fraud)</td></tr>
+  <tr><td class="td-key">§ 30</td><td>Unvalued policy</td></tr>
+  <tr><td class="td-key">§ 31</td><td>Floating policy</td></tr>
+  <tr><td class="td-key">§ 34</td><td>Double insurance; excess held in trust</td></tr>
+  <tr><td class="td-key">§ 35</td><td>Nature of warranty — exact compliance required</td></tr>
+  <tr><td class="td-key">§ 36</td><td>When breach of warranty excused; irremedial nature; waiver</td></tr>
+  <tr><td class="td-key">§ 37</td><td>Express warranties</td></tr>
+  <tr><td class="td-key">§ 38</td><td>Warranty of neutrality</td></tr>
+  <tr><td class="td-key">§ 41</td><td>Warranty of seaworthiness of ship (voyage vs. time policies)</td></tr>
+  <tr><td class="td-key">§ 42</td><td>No implied warranty that goods are seaworthy; cargo-worthiness of ship</td></tr>
+  <tr><td class="td-key">§ 43</td><td>Warranty of legality (implied)</td></tr>
+  <tr><td class="td-key">§ 47</td><td>Change of voyage</td></tr>
+  <tr><td class="td-key">§ 48</td><td>Deviation; intention irrelevant</td></tr>
+  <tr><td class="td-key">§ 51</td><td>Excused deviation or delay — seven grounds</td></tr>
+  <tr><td class="td-key">§ 55</td><td>Proximate cause — included and excluded losses</td></tr>
+  <tr><td class="td-key">§ 56</td><td>Classification of marine losses</td></tr>
+  <tr><td class="td-key">§ 57</td><td>Actual total loss; no notice of abandonment required</td></tr>
+  <tr><td class="td-key">§ 58</td><td>Missing ship — presumed total loss</td></tr>
+  <tr><td class="td-key">§ 59</td><td>Transhipment — insurer's liability continues</td></tr>
+  <tr><td class="td-key">§ 60</td><td>Constructive total loss</td></tr>
+  <tr><td class="td-key">§ 61</td><td>Effect of constructive total loss — partial or total</td></tr>
+  <tr><td class="td-key">§ 62</td><td>Notice of abandonment — requirements</td></tr>
+  <tr><td class="td-key">§ 63</td><td>Effect of abandonment — insurer takes over interest</td></tr>
+  <tr><td class="td-key">§ 64</td><td>Particular average loss</td></tr>
+  <tr><td class="td-key">§ 65</td><td>Salvage charges</td></tr>
+  <tr><td class="td-key">§ 66</td><td>General average loss — three essentials</td></tr>
+  <tr><td class="td-key">§ 67</td><td>Extent of insurer's liability — measure of indemnity</td></tr>
+  <tr><td class="td-key">§ 68</td><td>Total loss — measure</td></tr>
+  <tr><td class="td-key">§ 69</td><td>Partial loss of ship</td></tr>
+  <tr><td class="td-key">§ 70</td><td>Partial loss of freight</td></tr>
+  <tr><td class="td-key">§ 71</td><td>Partial loss of goods</td></tr>
+  <tr><td class="td-key">§ 76</td><td>Successive losses</td></tr>
+  <tr><td class="td-key">§ 77</td><td>Suing and labouring clause; duty to mitigate</td></tr>
+  <tr><td class="td-key">§ 79</td><td>Right of subrogation</td></tr>
+  <tr><td class="td-key">§ 80</td><td>Right of contribution</td></tr>
+  <tr><td class="td-key">§ 81</td><td>Effect of under-insurance — deemed own insurer</td></tr>
+  <tr><td class="td-key">§ 84</td><td>Return of premium for failure of consideration</td></tr>
+</table>
+
+</main>
+
+<footer class="footer">
+  Insurance Law Study Notes · <span>Part 4 of 5</span> · Topics 5 &amp; 6: Marine Insurance (All §§ of MIA 1963) &amp; Miscellaneous Insurance (Burglary · Public Liability Act · Motor Vehicles Act §§ 140–176)
+</footer>
+
+<script>
+  function toggleD(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

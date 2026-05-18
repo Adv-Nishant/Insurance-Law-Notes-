@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Law — Part III: Life &amp; Fire Insurance</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1209; --parchment:#faf6ee; --gold:#b8922a; --gold-light:#d4a843; --gold-pale:#f0dfa8;
+    --burgundy:#6b1e2e; --burgundy-light:#9b2c3f; --navy:#1c2b4a; --navy-mid:#2d4270;
+    --teal:#1a5276; --sage:#2e5942; --sage-light:#4a7c5c; --warm-gray:#8c8070;
+    --border:#d4c4a0; --shadow:rgba(26,18,9,0.15);
+    --fire:#c0392b; --fire-light:#e74c3c; --fire-pale:#fdf2f2;
+    --life:#1a5276; --life-light:#2980b9; --life-pale:#eaf4fb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Source Serif 4',Georgia,serif;font-size:16.5px;line-height:1.85;color:var(--ink);background:var(--parchment);background-image:radial-gradient(ellipse at 20% 0%,rgba(184,146,42,.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(28,43,74,.04) 0%,transparent 60%);}
+
+  /* COVER */
+  .cover{background:linear-gradient(135deg,#0d1b2a 0%,#1c2b4a 35%,#6b1e2e 70%,#8b2500 100%);color:#fff;padding:64px 48px 56px;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");}
+  .cover-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--gold-light);text-transform:uppercase;margin-bottom:20px;opacity:.9;}
+  .cover h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;line-height:1.15;margin-bottom:12px;}
+  .cover h1 .life{color:#7ecef4;}
+  .cover h1 .fire{color:#ff8c69;}
+  .cover-sub{font-size:16px;color:rgba(255,255,255,.72);font-style:italic;margin-bottom:32px;font-weight:300;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:16px;}
+  .cover-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:6px 14px;font-size:13px;color:rgba(255,255,255,.85);font-family:'JetBrains Mono',monospace;}
+  .cover-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-light);}
+
+  /* NAV */
+  .toc-bar{background:var(--navy);padding:0 40px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px var(--shadow);}
+  .toc-bar-inner{display:flex;overflow-x:auto;gap:0;scrollbar-width:none;}
+  .toc-bar-inner::-webkit-scrollbar{display:none;}
+  .toc-link{color:rgba(255,255,255,.65);text-decoration:none;font-size:11.5px;font-family:'JetBrains Mono',monospace;letter-spacing:.3px;padding:13px 15px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;}
+  .toc-link:hover{color:var(--gold-light);border-bottom-color:var(--gold-light);}
+
+  /* MAIN */
+  .main{max-width:960px;margin:0 auto;padding:48px 32px 80px;}
+
+  /* TOPIC BANNER */
+  .topic-banner{border-radius:10px;padding:22px 32px;margin:48px 0 28px;display:flex;align-items:center;gap:22px;position:relative;overflow:hidden;}
+  .topic-banner.life-banner{background:linear-gradient(135deg,#0d1b2a 0%,#1c2b4a 100%);}
+  .topic-banner.fire-banner{background:linear-gradient(135deg,#5c0a0a 0%,#8b1a1a 100%);}
+  .topic-icon{font-size:40px;line-height:1;}
+  .topic-meta{flex:1;}
+  .topic-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .topic-banner.life-banner .topic-label{color:#7ecef4;}
+  .topic-banner.fire-banner .topic-label{color:#ff8c69;}
+  .topic-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:#fff;line-height:1.2;}
+
+  /* PART HEADER */
+  .part-header{display:flex;align-items:center;gap:14px;margin:36px 0 18px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+  .part-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;line-height:1;min-width:44px;}
+  .part-num.life-col{color:var(--life-light);}
+  .part-num.fire-col{color:var(--fire);}
+  .part-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);line-height:1.2;}
+  .part-title em{font-style:italic;color:var(--burgundy);}
+
+  h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--burgundy);margin:26px 0 11px;padding-left:12px;border-left:3px solid var(--burgundy-light);}
+  h4{font-size:13px;font-weight:600;color:var(--navy-mid);margin:18px 0 8px;font-family:'Source Serif 4',serif;text-transform:uppercase;letter-spacing:.6px;}
+  p{margin-bottom:14px;}
+
+  /* CARDS */
+  .def-card{background:linear-gradient(135deg,#fff8ee,#fef9f3);border:1px solid var(--gold-pale);border-left:4px solid var(--gold);border-radius:6px;padding:16px 20px;margin:16px 0;}
+  .def-card .who{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+  .def-card p{margin-bottom:0;font-style:italic;}
+
+  .case-box{background:#f0f4fa;border:1px solid #c8d4e8;border-left:4px solid var(--navy-mid);border-radius:6px;padding:14px 18px;margin:14px 0;}
+  .case-box.fire-case{background:var(--fire-pale);border-color:#f5c6c6;border-left-color:var(--fire);}
+  .case-name{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--navy);font-weight:600;margin-bottom:6px;letter-spacing:.3px;}
+  .case-box.fire-case .case-name{color:var(--fire);}
+  .case-box p{margin-bottom:0;font-size:15px;}
+
+  .exam-alert{background:linear-gradient(135deg,#fdf3f5,#fdf8f9);border:1px solid #e8b4bc;border-left:5px solid var(--burgundy);border-radius:6px;padding:16px 20px;margin:20px 0;}
+  .exam-alert .label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:2px;color:var(--burgundy);text-transform:uppercase;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .exam-alert .label::before{content:'★';font-size:13px;}
+  .exam-alert ul{padding-left:20px;}
+  .exam-alert li{margin-bottom:7px;font-size:15px;}
+  .exam-alert p{font-size:15px;margin-bottom:8px;}
+  .exam-alert p:last-child{margin-bottom:0;}
+
+  /* TABLES */
+  .data-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px;}
+  .data-table th{background:var(--navy);color:var(--gold-light);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.8px;text-transform:uppercase;padding:9px 13px;text-align:left;font-weight:600;}
+  .data-table td{padding:9px 13px;border-bottom:1px solid #eae4d8;vertical-align:top;line-height:1.65;}
+  .data-table tr:nth-child(even) td{background:#faf6ee;}
+  .data-table tr:hover td{background:rgba(240,223,168,.2);}
+  .td-key{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--navy);font-weight:600;white-space:nowrap;}
+  .data-table.fire-table th{background:var(--fire);}
+  .data-table.life-table th{background:var(--life);}
+
+  /* POLICY GRID */
+  .policy-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:16px 0;}
+  .policy-card{border:1px solid var(--border);border-radius:8px;padding:16px 18px;background:#fff;transition:box-shadow .2s;}
+  .policy-card:hover{box-shadow:0 4px 16px var(--shadow);}
+  .policy-card.life-card{border-top:3px solid var(--life-light);}
+  .policy-card.fire-card{border-top:3px solid var(--fire);}
+  .policy-type{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+  .policy-card.life-card .policy-type{color:var(--life-light);}
+  .policy-card.fire-card .policy-type{color:var(--fire);}
+  .policy-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;}
+  .policy-body{font-size:14px;color:#3a3025;line-height:1.7;}
+
+  /* DOCTRINE CARD */
+  .doctrine-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:18px 0;}
+  .doctrine-header{display:flex;align-items:center;gap:14px;padding:14px 20px;cursor:pointer;user-select:none;transition:background .2s;}
+  .doctrine-header:hover{background:rgba(184,146,42,.05);}
+  .doctrine-icon{width:36px;height:36px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .d-gold{background:var(--gold-pale);}
+  .d-navy{background:rgba(44,66,112,.12);}
+  .d-fire{background:rgba(192,57,43,.1);}
+  .d-life{background:rgba(26,82,118,.1);}
+  .doctrine-title-text{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);flex:1;}
+  .doctrine-sub{font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--warm-gray);white-space:nowrap;}
+  .toggle-icon{color:var(--gold);font-size:18px;transition:transform .3s;min-width:20px;text-align:center;}
+  .doctrine-card.open .toggle-icon{transform:rotate(180deg);}
+  .doctrine-body{display:none;padding:4px 20px 20px;border-top:1px solid var(--border);background:#fff;}
+  .doctrine-card.open .doctrine-body{display:block;}
+
+  /* CALC BOX */
+  .calc-box{background:var(--navy);color:#fff;border-radius:8px;padding:18px 22px;margin:16px 0;font-family:'JetBrains Mono',monospace;}
+  .calc-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px;}
+  .formula{font-size:14.5px;color:#fff;margin-bottom:10px;padding:10px 14px;background:rgba(255,255,255,.07);border-radius:4px;line-height:1.8;}
+  .calc-result{font-size:13px;color:rgba(255,255,255,.75);line-height:1.8;}
+
+  /* INFO GRID */
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:16px 0;}
+  .info-cell{background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px 15px;}
+  .info-cell .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--warm-gray);text-transform:uppercase;margin-bottom:4px;}
+  .info-cell .v{font-size:15px;font-weight:600;color:var(--navy);}
+  .info-cell .v.gold{color:var(--gold);}
+  .info-cell .v.fire{color:var(--fire);}
+  .info-cell .v.life{color:var(--life-light);}
+
+  /* FACT PANEL */
+  .fact-panel{background:var(--navy);border-radius:10px;padding:26px 30px;margin:30px 0;color:rgba(255,255,255,.9);}
+  .fact-panel h3{color:var(--gold-light);border-left-color:var(--gold-light);margin-top:0;}
+  .fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
+  .fact-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:11px 14px;}
+  .fact-item .fk{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--gold-light);text-transform:uppercase;margin-bottom:4px;}
+  .fact-item .fv{font-size:14.5px;font-weight:600;color:#fff;}
+
+  /* COMPARE TABLE */
+  .compare-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;}
+  .compare-table th{padding:9px 13px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;}
+  .compare-table th:nth-child(1){background:var(--warm-gray);color:#fff;}
+  .compare-table th:nth-child(2){background:var(--life);color:#fff;}
+  .compare-table th:nth-child(3){background:var(--fire);color:#fff;}
+  .compare-table th:nth-child(4){background:var(--teal);color:#fff;}
+  .compare-table td{padding:9px 13px;border-bottom:1px solid #eae4d8;vertical-align:top;font-size:14px;}
+  .compare-table td:nth-child(1){background:#f5f0ea;font-weight:600;font-size:13px;}
+  .compare-table td:nth-child(2){background:var(--life-pale);}
+  .compare-table td:nth-child(3){background:var(--fire-pale);}
+  .compare-table td:nth-child(4){background:#f0faf5;}
+
+  /* NUM LIST */
+  .num-list{list-style:none;padding:0;margin:12px 0;counter-reset:nl;}
+  .num-list li{display:flex;gap:12px;padding:9px 12px;border-bottom:1px solid #eee;align-items:flex-start;counter-increment:nl;}
+  .num-list li:last-child{border-bottom:none;}
+  .num-list li::before{content:counter(nl);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);min-width:22px;margin-top:4px;font-weight:600;}
+
+  /* PERIL LIST */
+  .peril-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin:14px 0;}
+  .peril-item{background:#fff;border:1px solid var(--border);border-left:3px solid var(--sage-light);border-radius:4px;padding:10px 14px;font-size:14px;}
+  .peril-item.excluded{border-left-color:var(--fire);}
+  .peril-item .pnum{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--sage-light);font-weight:600;margin-bottom:3px;}
+  .peril-item.excluded .pnum{color:var(--fire);}
+
+  blockquote{border-left:3px solid var(--sage-light);margin:14px 0;padding:10px 18px;color:#3a3025;font-style:italic;background:rgba(46,89,66,.04);border-radius:0 4px 4px 0;font-size:15px;}
+  blockquote cite{display:block;margin-top:7px;font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--sage-light);font-style:normal;letter-spacing:.3px;}
+
+  .divider{display:flex;align-items:center;gap:16px;margin:44px 0;color:var(--border);}
+  .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+  .divider span{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--warm-gray);letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
+
+  mark{background:var(--gold-pale);color:var(--ink);padding:1px 3px;border-radius:2px;}
+  strong{color:var(--navy);font-weight:600;}
+  .sec-pill{display:inline-block;background:rgba(44,66,112,.1);color:var(--navy);font-family:'JetBrains Mono',monospace;font-size:11px;padding:2px 8px;border-radius:3px;margin:2px 3px 2px 0;border:1px solid rgba(44,66,112,.25);font-weight:600;}
+  .sec-pill.fire{background:rgba(192,57,43,.08);color:var(--fire);border-color:rgba(192,57,43,.25);}
+
+  .footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;padding:24px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.5px;}
+  .footer span{color:var(--gold-light);}
+
+  @media(max-width:640px){.cover{padding:40px 24px 36px;}.main{padding:32px 20px 60px;}.toc-bar{padding:0 16px;}.topic-banner{padding:18px 20px;}.policy-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Insurance Law · Study Notes · Part 3 of 5</div>
+  <h1>Topic 3: <span class="life">Life Insurance</span><br>Topic 4: <span class="fire">Fire Insurance</span></h1>
+  <div class="cover-sub">Definition · Nature · Scope · Suicide · Categories · Reinstatement · Subrogation · Contribution · Causa Proxima</div>
+  <div class="cover-meta">
+    <span class="cover-badge"><span class="dot"></span> Topics 3 &amp; 4 of 7</span>
+    <span class="cover-badge"><span class="dot"></span> Syllabus Units III &amp; IV</span>
+    <span class="cover-badge"><span class="dot"></span> Dalby · Beresford · Castellain · Macaura · Harris v. Poland</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-bar-inner">
+    <a class="toc-link" href="#life-def">§ Life: Definition</a>
+    <a class="toc-link" href="#life-nature">§ Life: Nature</a>
+    <a class="toc-link" href="#life-event">§ Life: Event &amp; Suicide</a>
+    <a class="toc-link" href="#life-risk">§ Life: Risk Factors</a>
+    <a class="toc-link" href="#life-cats">§ Life: Policies</a>
+    <a class="toc-link" href="#life-lic">§ LIC Framework</a>
+    <a class="toc-link" href="#fire-def">§ Fire: Definition</a>
+    <a class="toc-link" href="#fire-meaning">§ Fire: Meaning of Fire</a>
+    <a class="toc-link" href="#fire-cats">§ Fire: Policy Types</a>
+    <a class="toc-link" href="#fire-doc">§ Fire: Doctrines</a>
+    <a class="toc-link" href="#exam">§ Master Table</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- ══════════════════════════ LIFE INSURANCE ══════════════════════════ -->
+<div class="topic-banner life-banner" id="life-def">
+  <div class="topic-icon">🫀</div>
+  <div class="topic-meta">
+    <div class="topic-label">Topic 3 · Syllabus Unit III</div>
+    <div class="topic-title">Life Insurance — A Comprehensive Lecture</div>
+  </div>
+</div>
+
+<!-- PART I: DEFINITION -->
+<div class="part-header">
+  <div class="part-num life-col">I</div>
+  <div class="part-title">Definition of Life Insurance</div>
+</div>
+
+<div class="exam-alert">
+  <div class="label">Foundational Principle</div>
+  <p>Life insurance occupies a <strong>unique position</strong> in the entire law of insurance. Unlike fire or marine insurance where the subject matter is tangible property capable of monetary valuation, here the subject matter is <strong>human life — incapable of precise pecuniary estimation</strong>. This single distinction cascades into almost every principle of the topic.</p>
+</div>
+
+<div class="def-card">
+  <div class="who">Statutory Definition — Section 2(11), Insurance Act, 1938</div>
+  <p>"The business of effecting contracts of insurance upon human life, including any contract whereby the payment of money is assured on death (except death by accident only) or the happening of any contingency dependent on human life, and any contract which is subject to payment of premiums for a term dependent on human life."</p>
+</div>
+
+<h3>Section 2(11) — Deemed to Include</h3>
+<table class="data-table life-table">
+  <tr><th>#</th><th>Category</th><th>Detail</th></tr>
+  <tr><td>1</td><td>Disability &amp; Accident Benefits</td><td>Granting of disability and double or triple indemnity accident benefits, if so provided in the contract.</td></tr>
+  <tr><td>2</td><td>Annuities</td><td>Granting of annuities upon human life.</td></tr>
+  <tr><td>3</td><td>Superannuation</td><td>Granting of superannuation allowances and benefits payable out of any fund for persons in a particular profession, trade, or employment, or their dependants.</td></tr>
+  <tr><td>4</td><td>ULIPs <span class="sec-pill">2010 Amendment</span></td><td>Explanation inserted by Act 26 of 2010: "life insurance business shall include any unit linked insurance policy (ULIP) or scrips or any such instrument which provides a component of investment and a component of insurance."</td></tr>
+</table>
+
+<div class="def-card">
+  <div class="who">Hardy Ivamy — Doctrinal Definition</div>
+  <p>"A contract whereby one person called the 'insurer' undertakes in return for the agreed consideration called the 'premium' to pay to another person called the 'insured' a sum of money or its equivalent on the happening of a specified event."</p>
+</div>
+
+<h3>The Landmark Case — Dalby v. India &amp; London Life Assurance Co. (1854)</h3>
+<div class="case-box">
+  <div class="case-name">⚖ Dalby v. India &amp; London Life Assurance Co. (1854) — HOUSE OF LORDS — MUST KNOW</div>
+  <p><strong>Facts:</strong> John Wright took out four policies of £3,000 each on the life of the Duke of Cambridge with "A" Insurance Co. (subsidiary of G). He later took re-insurance for £1,000 with the principal company G. The original four policies were surrendered. When the Duke died, G contended: no insurable interest at time of loss since original policies surrendered.<br><br>
+  <strong>Held:</strong> House of Lords rejected G's contention and laid down the <mark>fundamental rule: "Life insurance is NOT a contract of indemnity."</mark><br><br>
+  <strong>Rule:</strong> Insurable interest need exist only at the time of entering the contract, NOT at the time of the loss. This is the cardinal distinction from fire and marine insurance.</p>
+</div>
+
+<!-- PART II: ESSENTIALS -->
+<div class="part-header">
+  <div class="part-num life-col">II</div>
+  <div class="part-title">Essentials of Life Insurance</div>
+</div>
+
+<h3>General Essentials (Indian Contract Act, 1872)</h3>
+<ul class="num-list">
+  <li><strong>Offer &amp; Acceptance:</strong> Proposal form = offer; insurer's acceptance after medical report + first premium + agent's report = acceptance. Policy document = evidence of contract.</li>
+  <li><strong>Free Consent:</strong> Free from coercion (§ 15), undue influence (§ 16), fraud (§ 17), misrepresentation (§ 18), mistake (§ 20–22).</li>
+  <li><strong>Lawful Consideration:</strong> Premium = insured's consideration; insurer's promise to pay = insurer's consideration.</li>
+  <li><strong>Capacity of Parties:</strong> Both must satisfy § 11 Contract Act — majority (18 yrs), sound mind, not disqualified. A minor cannot directly enter, but guardian can take a policy for minor's benefit.</li>
+  <li><strong>Lawful Object:</strong> Purpose must be legal. Policy with fraudulent intent is void.</li>
+</ul>
+
+<h3>Specific Essentials of Life Insurance</h3>
+<table class="data-table life-table">
+  <tr><th>Essential</th><th>Rule / Key Point</th></tr>
+  <tr><td class="td-key">Insurable Interest</td><td>Without it = void, indistinguishable from wagering (§ 30 Contract Act). Must exist at time of effecting policy only (Dalby). No requirement at time of claim.</td></tr>
+  <tr><td class="td-key">Uberrima Fides</td><td>Highest standard of good faith. LIC v. Shakuntala Devi — trivial ailments need not be disclosed. Godfrey v. Brittanic — serious conditions must be disclosed.</td></tr>
+  <tr><td class="td-key">Insurable Risk</td><td>The event (death / survival) must be a genuine risk. Death is certain; its time is uncertain — satisfying the uncertainty requirement.</td></tr>
+  <tr><td class="td-key">Premium</td><td>§ 64VB: No risk assumed unless premium received in advance. Days of grace typically 30 days; if death occurs during grace period — claim paid, unpaid premium deducted.</td></tr>
+  <tr><td class="td-key">Policy Document</td><td>Evidence of the contract. Contains all terms, sum assured, premium schedule, exclusions.</td></tr>
+</table>
+
+<!-- PART III: NATURE -->
+<div class="part-header" id="life-nature">
+  <div class="part-num life-col">III</div>
+  <div class="part-title">Nature of Life Insurance — <em>Six Defining Characteristics</em></div>
+</div>
+
+<table class="data-table life-table">
+  <tr><th>Characteristic</th><th>Explanation</th></tr>
+  <tr>
+    <td class="td-key">1. NOT a Contract of Indemnity</td>
+    <td>Definitively established in <em>Dalby</em>. Life is incapable of monetary valuation. Insured (or beneficiary) receives full sum assured regardless of actual loss. <strong>Consequences:</strong> No concept of over-insurance in life insurance — all multiple policies pay; subrogation does NOT apply; contribution does NOT apply between life insurers.</td>
+  </tr>
+  <tr>
+    <td class="td-key">2. Aleatory Contract</td>
+    <td>Speculative / contingent — insurer's obligation depends on a future uncertain event (death or survival to a specified date). Unlike a wager, backed by insurable interest and spirit of protection.</td>
+  </tr>
+  <tr>
+    <td class="td-key">3. Contract of Assurance</td>
+    <td>Death is certain — only the time is uncertain. The insurer is not "insuring" against a possible event but "assuring" payment on the certainty of that event. Hence called "assurance," not "insurance."</td>
+  </tr>
+  <tr>
+    <td class="td-key">4. Unilateral After Formation</td>
+    <td>Once formed, insurer's obligations are primary and absolute (subject to conditions). Insured need not continue paying premiums — can let policy lapse — but insurer cannot cancel arbitrarily.</td>
+  </tr>
+  <tr>
+    <td class="td-key">5. Investment + Protection</td>
+    <td>Unique dual character: Protection (against premature death) + Investment/Savings (premiums accumulate, policy acquires surrender value, bonuses declared). Contrasts with fire/marine which are purely protective.</td>
+  </tr>
+  <tr>
+    <td class="td-key">6. Long-Term Contract</td>
+    <td>Spans entire decades or whole life. Contrast: fire/marine — typically annual contracts.</td>
+  </tr>
+</table>
+
+<!-- PART V: EVENTS -->
+<div class="part-header" id="life-event">
+  <div class="part-num life-col">V</div>
+  <div class="part-title">Events Insured Against — <em>Including Suicide</em></div>
+</div>
+
+<h3>A. Primary Events Triggering Liability</h3>
+<table class="data-table life-table">
+  <tr><th>Event</th><th>Coverage Rule</th></tr>
+  <tr><td class="td-key">Death of Insured</td><td>Primary event. Covers: natural death, accidental death, death by third-party act (murder), death during surgery. Standard rule: ALL causes of death covered unless specifically excluded.</td></tr>
+  <tr><td class="td-key">Survival to Specified Date</td><td>In endowment policies — sum assured payable at end of term if insured is alive.</td></tr>
+  <tr><td class="td-key">Attaining Specified Age</td><td>Pension/retirement trigger — policy stipulates a particular age upon reaching which sum assured becomes payable.</td></tr>
+</table>
+
+<h3>B. Events NOT Covered — Important Exceptions</h3>
+
+<div class="case-box">
+  <div class="case-name">⚖ Cleaver v. Mutual Reserve — MURDER BY BENEFICIARY</div>
+  <p>M insured his life in favour of wife W. W poisoned M and was convicted. <strong>Held:</strong> W could NOT recover — <em>"no person shall profit from their own wrong" (ex turpi causa non oritur actio).</em> However, executors of M's estate could recover and hold for M's creditors and heirs. Principle: <strong>implied term theory</strong> — prevents unjust enrichment from wrongful acts.</p>
+</div>
+
+<div class="case-box">
+  <div class="case-name">⚖ Liberty National Life Insurance Co. v. Weldon</div>
+  <p>Nurse took life policy on her 2-year-old niece. She administered arsenic, child died. Court imposed damages on the insurance company for issuing policy without verifying insurable interest. Nurse could not claim.</p>
+</div>
+
+<h3>C. Suicide — The Most Debated Event in Life Insurance Law</h3>
+
+<div class="doctrine-card open" id="suicide">
+  <div class="doctrine-header" onclick="toggleD('suicide')">
+    <div class="doctrine-icon d-navy">⚖</div>
+    <div class="doctrine-title-text">English Law vs. Indian Law on Suicide</div>
+    <i class="toggle-icon">▾</i>
+  </div>
+  <div class="doctrine-body">
+    <table class="data-table">
+      <tr><th>Dimension</th><th>English Law</th><th>Indian Law</th></tr>
+      <tr>
+        <td class="td-key">Status of Suicide</td>
+        <td>Historically a crime (<em>felo de se</em> — felon of himself). Decriminalized by Suicide Act, 1961.</td>
+        <td>Not a criminal offence. Attempt to commit suicide was criminalized under § 309 IPC but largely decriminalized by Mental Healthcare Act, 2017.</td>
+      </tr>
+      <tr>
+        <td class="td-key">Leading Case</td>
+        <td><em>Beresford v. Royal Insurance Co. (1938)</em> — Major R shot himself (9 years after policy, past the 1-year exclusion). Lord Atkin: suicide was a crime; contractual obligation from crime cannot be enforced. <strong>Held: Claim REJECTED.</strong></td>
+        <td><em>Kankaya Lal's Case</em> — Policy stated void if suicide within one year. K, after 13 months, took poison suspecting wife's fidelity. Held: Suicide AFTER one-year exclusion period — <strong>claim UPHELD.</strong></td>
+      </tr>
+      <tr>
+        <td class="td-key">General Position</td>
+        <td>English rule from Beresford does NOT apply in India in same manner (suicide not a crime here).</td>
+        <td>Life insurance claim for death by suicide is generally <mark>ALLOWED</mark> in India, subject to specific exclusion clauses in the policy.</td>
+      </tr>
+    </table>
+    <h4>The Standard Suicide Exclusion Clause (LIC Policies)</h4>
+    <p>"If the life assured commits suicide within <mark>one year</mark> from the date of commencement of the policy (or from the date of revival), the policy shall be void and the insurer shall not be liable to pay the claim."</p>
+    <h4>Sane vs. Insane Suicide</h4>
+    <div class="case-box">
+      <div class="case-name">⚖ Borradaile v. Hunter</div>
+      <p>Policy stated: "If the assured should die by his or her own hand, or by the hands of justice, or in consequence of a duel, the policy shall be void." A man threw himself into a river and drowned. <strong>Held:</strong> Act of self-destruction — policy void under the clause. Courts generally do not distinguish between sane and insane suicide under a general "death by own hand" clause.</p>
+    </div>
+    <p><strong>Rule:</strong> If exclusion is "death by own hand" → applies whether sane or insane. If exclusion is "intentional self-destruction" → insanity at time of suicide may be a defence (no intention if insane).</p>
+    <div class="exam-alert">
+      <div class="label">Section 45 &amp; Suicide — Critical Link</div>
+      <p>§ 45 three-year protection applies equally to suicide claims. If life assured commits suicide <strong>after three years</strong> of the policy being in force, the insurer cannot use any misstatement in the proposal as a ground to avoid the claim.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PART VII: RISK FACTORS -->
+<div class="part-header" id="life-risk">
+  <div class="part-num life-col">VII</div>
+  <div class="part-title">Circumstances Affecting the Risk in Life Insurance</div>
+</div>
+
+<div class="info-grid">
+  <div class="info-cell">
+    <div class="k">1. Age</div>
+    <div class="v">Single most important factor. Premium rates directly correlated with age. Misstatement of age → sum assured adjusted (not void), unlike misstatement of health.</div>
+  </div>
+  <div class="info-cell">
+    <div class="k">2. Health &amp; Physical Condition</div>
+    <div class="v">Most closely scrutinised. Chronic diseases, past illnesses, hospitalisations, disabilities must be disclosed. LIC v. Shakuntala Devi — trivial ailments (indigestion, headache) need not be disclosed.</div>
+  </div>
+  <div class="info-cell">
+    <div class="k">3. Occupation</div>
+    <div class="v">Low-risk (desk jobs, teachers) → standard rates. High-risk (miners, pilots, explosives workers) → "occupational loading" (extra premium). Change to more hazardous occupation must be informed.</div>
+  </div>
+  <div class="info-cell">
+    <div class="k">4. Habits of Life (Moral Hazard)</div>
+    <div class="v">Smoking → typically 20–25% extra premium. Alcoholism, drug use, dangerous hobbies (skydiving, mountaineering) → material facts. Criminal background → higher moral hazard.</div>
+  </div>
+  <div class="info-cell">
+    <div class="k">5. Family History</div>
+    <div class="v">Hereditary diseases (heart disease, cancer, diabetes, mental illness). Longevity of parents and siblings. Extra premium or proposal decline if bad hereditary history.</div>
+  </div>
+  <div class="info-cell">
+    <div class="k">6. Geographical Position / Residence</div>
+    <div class="v">Endemic zones (malaria, dengue), high-altitude areas, conflict zones. Extra premium or exclusion clause for persons residing in / travelling to conflict zones.</div>
+  </div>
+  <div class="info-cell">
+    <div class="k">7. Financial Position</div>
+    <div class="v">Capacity to pay premiums sustainably. Insurer ensures sum assured is not disproportionate to income (moral hazard check — temptation to cause death for financial gain).</div>
+  </div>
+  <div class="info-cell">
+    <div class="k">8. Existing Insurance</div>
+    <div class="v">Number and value of existing policies must be disclosed. No legal bar on multiple policies, but insurer needs to know total insurance in force to assess moral hazard.</div>
+  </div>
+</div>
+
+<!-- PART VIII: CATEGORIES -->
+<div class="part-header" id="life-cats">
+  <div class="part-num life-col">VIII</div>
+  <div class="part-title">Categories / Kinds of Life Insurance Policies</div>
+</div>
+
+<h3>Classification I — By Duration / Term</h3>
+<div class="policy-grid">
+  <div class="policy-card life-card">
+    <div class="policy-type">Duration-Based</div>
+    <div class="policy-name">1. Whole Life Policy</div>
+    <div class="policy-body">Sum assured payable ONLY on death — whenever it occurs. Runs for the entire lifetime. No maturity benefit, only death benefit. Policy accumulates cash value over time. Premium may be paid throughout life (ordinary) or for a limited period (limited payment whole life).</div>
+  </div>
+  <div class="policy-card life-card">
+    <div class="policy-type">Duration-Based</div>
+    <div class="policy-name">2. Term Insurance Policy</div>
+    <div class="policy-body">Purest form — protection only, no investment. If insured dies during term → sum assured paid. If insured survives term → NOTHING paid, policy lapses. Lowest premium. No maturity benefit, no surrender value. Ideal for young breadwinners with dependants.<br><em>Convertible Term</em> — option to convert to endowment/whole life without fresh medical exam.</div>
+  </div>
+  <div class="policy-card life-card">
+    <div class="policy-type">Duration-Based · Most Popular in India</div>
+    <div class="policy-name">3. Endowment Policy</div>
+    <div class="policy-body">Combines insurance + savings. Sum assured payable on EITHER death during term OR survival to end of term (maturity). Dual benefit. Policy acquires surrender value after 3 years. Bonuses added (participating policies).<br><em>Double Endowment</em> — pays double sum assured on maturity; single on death.</div>
+  </div>
+  <div class="policy-card life-card">
+    <div class="policy-type">Duration-Based · Endowment Variant</div>
+    <div class="policy-name">4. Money Back Policy</div>
+    <div class="policy-body">Periodic survival benefits paid during policy term (e.g., 20% of sum assured every 5 years). If death occurs at any time → FULL sum assured paid (periodic payments already made are NOT deducted). Provides liquidity during the policy term.</div>
+  </div>
+</div>
+
+<h3>Classification II — By Premium Payment</h3>
+<table class="data-table life-table">
+  <tr><th>Mode</th><th>Description</th></tr>
+  <tr><td class="td-key">Single Premium</td><td>Entire premium paid as lump sum at commencement. Policy cannot lapse. No further payment required.</td></tr>
+  <tr><td class="td-key">Regular / Level Premium</td><td>Paid at regular intervals (monthly, quarterly, half-yearly, annually) throughout the premium paying term.</td></tr>
+  <tr><td class="td-key">Limited Premium</td><td>Premium paid for a limited number of years (less than policy term). Coverage continues for full term. E.g., whole life policy with premium paid for only 20 years.</td></tr>
+</table>
+
+<h3>Classification III — By Participation in Profits</h3>
+<table class="data-table life-table">
+  <tr><th>Category</th><th>Feature</th><th>Bonus Types</th></tr>
+  <tr><td class="td-key">With-Profit (Participating)</td><td>Insured participates in insurer's profits. Bonuses declared periodically based on actuarial valuation. Higher premium than without-profit.</td><td><em>Reversionary Bonus</em> (added to sum assured; paid on death/maturity) · <em>Terminal Bonus</em> (only on maturity) · <em>Cash Bonus</em> (paid periodically in cash)</td></tr>
+  <tr><td class="td-key">Without-Profit (Non-Participating)</td><td>No share in profits. Sum assured fixed; does not increase. Lower premium. Pure risk coverage.</td><td>—</td></tr>
+</table>
+
+<h3>Classification IV — By Number of Lives</h3>
+<table class="data-table life-table">
+  <tr><th>Policy</th><th>Coverage</th></tr>
+  <tr><td class="td-key">Individual Policy</td><td>Covers a single life. Most common type.</td></tr>
+  <tr><td class="td-key">Joint Life Policy</td><td>Covers two lives (typically spouses) under single policy. Sum assured paid on death of FIRST to die. Policy terminates thereafter.</td></tr>
+  <tr><td class="td-key">Last Survivor Policy</td><td>Sum assured payable on death of the LAST survivor among the insured lives.</td></tr>
+  <tr><td class="td-key">Group Insurance Policy</td><td>Single master policy covering a group (employees, association members, bank borrowers). No individual medical examination up to free cover limit. Low premium due to group economies. Coverage ceases when member leaves the group.</td></tr>
+</table>
+
+<h3>Classification V — By Investment Component</h3>
+<div class="policy-grid">
+  <div class="policy-card life-card">
+    <div class="policy-type">Investment-Based</div>
+    <div class="policy-name">ULIPs — Unit Linked Insurance Plans</div>
+    <div class="policy-body"><strong>Post § 2(11) 2010 Amendment</strong> — explicitly within scope of life insurance.<br><br>
+    Part of premium → life cover (mortality charges).<br>
+    Remaining premium → market-linked funds (equity/debt/balanced).<br>
+    Policyholder bears investment risk — returns NOT guaranteed.<br>
+    NAV (Net Asset Value) based. Lock-in period: <mark>5 years</mark>.<br>
+    <strong>Death benefit:</strong> Higher of sum assured OR fund value at time of death.</div>
+  </div>
+  <div class="policy-card life-card">
+    <div class="policy-type">Retirement-Focused</div>
+    <div class="policy-name">Pension / Annuity Policies</div>
+    <div class="policy-body">Annuity = fixed sum paid periodically to the <em>annuitant</em> during lifetime.<br><br>
+    "Life insurance is protection against living too short; annuity is protection against living too long." — M.S. Rama Rao<br><br>
+    <strong>Types:</strong> Immediate Annuity · Deferred Annuity · Life Annuity · Annuity Certain · Joint Life Last Survivor Annuity.<br>
+    <strong>LIC authority:</strong> § 6 LIC Act, 1956 empowers LIC to carry on annuity certain business.</div>
+  </div>
+</div>
+
+<!-- PART IX: LIC -->
+<div class="part-header" id="life-lic">
+  <div class="part-num life-col">IX</div>
+  <div class="part-title">LIC of India — Constitutional Framework (LIC Act, 1956)</div>
+</div>
+
+<div class="info-grid">
+  <div class="info-cell"><div class="k">Nationalization Ordinance</div><div class="v life">19 January 1956</div></div>
+  <div class="info-cell"><div class="k">Act Established</div><div class="v">Life Insurance Corporation Act, 1956</div></div>
+  <div class="info-cell"><div class="k">Absorbed</div><div class="v">245 companies (154 Indian + 16 Non-Indian + 75 Provident Societies)</div></div>
+  <div class="info-cell"><div class="k">Original Capital (§ 5)</div><div class="v gold">₹5 crores — Central Government</div></div>
+  <div class="info-cell"><div class="k">Composition (§ 4)</div><div class="v">Not exceeding 16 persons + 1 Chairman — appointed by Central Government</div></div>
+  <div class="info-cell"><div class="k">Motto</div><div class="v">"Yogakshemam Vahamyaham" — Your welfare is our responsibility</div></div>
+</div>
+
+<h3>Section 6 — Functions of LIC</h3>
+<table class="data-table life-table">
+  <tr><th>Sub-section</th><th>Function</th></tr>
+  <tr><td class="td-key">§ 6(1) — General Duty</td><td>Carry on life insurance business in and outside India, and develop life insurance to the <em>best advantage of the community.</em></td></tr>
+  <tr><td class="td-key">§ 6(2) — Specific Powers</td><td>Carry on capital redemption business, annuity certain business, re-insurance business (insofar as it relates to life insurance); invest the funds in such manner as it thinks fit; acquire, hold and dispose of property; transfer whole or any part of life insurance business outside India; advance/lend money; borrow/raise money; carry on any other incidental/conducive business.</td></tr>
+  <tr><td class="td-key">§ 6(3) — Business Principles</td><td>In the discharge of its functions, the Corporation shall act, so far as may be, <strong>on business principles.</strong></td></tr>
+</table>
+
+<div class="exam-alert">
+  <div class="label">Section 4(3) — Conflict of Interest Rule</div>
+  <p>A member who is directly or indirectly interested in any contract made by the Corporation must <strong>disclose the nature of their interest</strong> as soon as it comes to their knowledge and shall <strong>not take part in any deliberation or discussion</strong> regarding that contract.</p>
+</div>
+
+<!-- PART X: PERSONS ENTITLED -->
+<div class="part-header">
+  <div class="part-num life-col">X</div>
+  <div class="part-title">Persons Entitled to Payment</div>
+</div>
+
+<table class="data-table life-table">
+  <tr><th>Person</th><th>Basis</th><th>Key Rule</th></tr>
+  <tr><td class="td-key">Life Assured Himself</td><td>On maturity (survival)</td><td>Insured receives the maturity amount if he survives the policy term.</td></tr>
+  <tr><td class="td-key">Nominee</td><td>§ 39 Insurance Act, 1938</td><td>Nominee receives the money on insured's death. Insurer DISCHARGED upon payment to nominee. <em>Sarbati Devi v. Usha Devi (SC):</em> Nominee = "hand to receive," not absolute owner (pre-2015 position). <strong>2015 Amendment § 39(7)&amp;(8):</strong> Where policyholder nominates parents, spouse, children — such nominees are <mark>beneficially entitled</mark> (overrules Sarbati Devi for close family).</td></tr>
+  <tr><td class="td-key">Assignees</td><td>§ 38 Insurance Act, 1938</td><td>Assignee who has given proper notice to insurer steps into shoes of policyholder. <em>Rule in Dearle v. Hall</em>: Priority determined by date of notice to insurer.</td></tr>
+  <tr><td class="td-key">Executors / Administrators</td><td>Law of succession</td><td>If no valid nomination or assignment — policy amount forms part of deceased's estate; payable to executors (if will) or administrators (if intestate).</td></tr>
+  <tr><td class="td-key">Legal Heirs</td><td>Applicable succession law</td><td>Hindu Succession Act / Muslim Personal Law / Indian Succession Act — heirs can claim if amount forms part of estate.</td></tr>
+</table>
+
+<div class="exam-alert">
+  <div class="label">Section 47 — Payment of Money into Court</div>
+  <p>Where there are conflicting claims or insurer cannot obtain satisfactory discharge — insurer may apply to Court to pay amount into Court. <strong>Conditions:</strong> Application cannot be filed until <mark>6 months</mark> after death of insured or maturity of policy. Court invests the amount in Government securities pending disposal and gives notice to all ascertained claimants.</p>
+</div>
+
+<!-- EXCEPTION: MARRIED WOMEN'S PROPERTY ACT -->
+<div class="exam-alert">
+  <div class="label">Exception to Nomination — Married Women's Property Act, 1874 (§ 6)</div>
+  <p>If a husband insures his life for the benefit of his wife and children under § 6 MWPA, 1874 — the policy shall be deemed to be a <strong>trust</strong> for their benefit. Not subject to control of husband or his creditors. § 39(12) Insurance Act: § 39 (nomination) shall NOT apply to policies to which § 6 MWPA applies.</p>
+</div>
+
+<div class="divider"><span>Topic 3 → Topic 4</span></div>
+
+<!-- ══════════════════════════ FIRE INSURANCE ══════════════════════════ -->
+<div class="topic-banner fire-banner" id="fire-def">
+  <div class="topic-icon">🔥</div>
+  <div class="topic-meta">
+    <div class="topic-label">Topic 4 · Syllabus Unit IV</div>
+    <div class="topic-title">Fire Insurance — A Comprehensive Lecture</div>
+  </div>
+</div>
+
+<div class="exam-alert">
+  <div class="label">Critical Preliminary Note</div>
+  <p>Fire insurance is classified under "general insurance business" (§ 2(6B), Insurance Act, 1938). Unlike life insurance (governed by LIC Act) or marine insurance (governed by MIA 1963), <strong>fire insurance in India has NO dedicated statutory code</strong>. It is governed by common law principles, judicial decisions, the Standard Fire Policy approved by the Tariff Advisory Committee, and IRDAI guidelines. This makes <mark>case law exceptionally important</mark> in fire insurance.</p>
+</div>
+
+<!-- PART I: DEFINITION -->
+<div class="part-header">
+  <div class="part-num fire-col">I</div>
+  <div class="part-title">Definition of Fire Insurance</div>
+</div>
+
+<div class="def-card">
+  <div class="who">Statutory Definition — Section 2(6A), Insurance Act, 1938</div>
+  <p>"The business of effecting, otherwise than incidentally to some other class of insurance business, contracts of insurance against loss by or incidental to fire or other occurrence customarily included among the risks insured against in fire insurance policies."</p>
+</div>
+
+<div class="info-grid">
+  <div class="info-cell"><div class="k">Element 1</div><div class="v">Must be the PRIMARY business, not incidental to another class</div></div>
+  <div class="info-cell"><div class="k">Element 2</div><div class="v">Coverage is against loss BY or INCIDENTAL to fire</div></div>
+  <div class="info-cell"><div class="k">Element 3</div><div class="v">Extends to other occurrences CUSTOMARILY included in fire policies</div></div>
+</div>
+
+<div class="def-card">
+  <div class="who">Cotton LJ in Castellain v. Preston (1883) — Most Quoted Judicial Definition</div>
+  <p>"A contract whereby one person undertakes in return for agreed consideration to indemnify another person against loss or damage occasioned by fire up to the agreed amount."</p>
+</div>
+
+<!-- PART II: NATURE -->
+<div class="part-header">
+  <div class="part-num fire-col">II</div>
+  <div class="part-title">Nature of Fire Insurance</div>
+</div>
+
+<table class="data-table fire-table">
+  <tr><th>Characteristic</th><th>Key Content</th></tr>
+  <tr>
+    <td class="td-key">1. Contract of Indemnity</td>
+    <td><strong>Fundamental characteristic.</strong> Insured placed in same financial position after loss — no better, no worse. No profit from insurance. <em>Castellain v. Preston</em>: "The contract of insurance is a contract of indemnity, and of indemnity only." [Also leading case on subrogation.]</td>
+  </tr>
+  <tr>
+    <td class="td-key">2. Personal Contract</td>
+    <td>Policy attached to the <em>person</em>, not the property. If insured sells property — policy does NOT automatically transfer. New owner must take fresh policy. Exception: With insurer's written consent, policy may be assigned/transferred with the property. <em>Rayner v. Preston</em>: policy personal to seller; buyer could not claim without assignment.</td>
+  </tr>
+  <tr>
+    <td class="td-key">3. Uberrima Fides</td>
+    <td>Material facts: nature and use of property, construction type, location, previous fire claims, existence of other insurance, moral hazard. <em>Halves v. RFA</em>: fire crackers brought to shop — not disclosed — insurer not liable. <em>Dawson's Case</em>: misrepresented building construction — insurer not liable.</td>
+  </tr>
+  <tr>
+    <td class="td-key">4. Indivisible Contract</td>
+    <td>Generally covers the entire insured property (building, contents, stock, machinery) as one indivisible whole. Individual items may be separately scheduled within a single policy.</td>
+  </tr>
+  <tr>
+    <td class="td-key">5. Short-Term Contract</td>
+    <td>Typically an annual contract (one year). Renewed each year. Standard clause: <em>"The policy expires at 4 P.M. on the last day noted in the policy."</em></td>
+  </tr>
+  <tr>
+    <td class="td-key">6. Strict Compliance with Conditions</td>
+    <td>Policies contain conditions precedent to liability — prompt notice, preservation of damaged property, submission of claim within stipulated time, cooperation with surveyor. Non-compliance may defeat a claim entirely.</td>
+  </tr>
+</table>
+
+<!-- PART III: SCOPE -->
+<div class="part-header">
+  <div class="part-num fire-col">III</div>
+  <div class="part-title">Scope — Perils Covered Under the Standard Fire Policy</div>
+</div>
+
+<h3>Perils Covered (Standard Fire and Special Perils Policy)</h3>
+<div class="peril-list">
+  <div class="peril-item"><div class="pnum">01 COVERED</div><strong>Fire</strong> — primary peril; damage caused by ignition, burning, and all consequences thereof.</div>
+  <div class="peril-item"><div class="pnum">02 COVERED</div><strong>Lightning</strong> — damage caused directly by a lightning strike, even if no fire results.</div>
+  <div class="peril-item"><div class="pnum">03 COVERED</div><strong>Explosion / Implosion</strong> — of boilers, gas pipelines, etc. Exception: explosion of production unit pressure vessels requires separate coverage.</div>
+  <div class="peril-item"><div class="pnum">04 COVERED</div><strong>Aircraft Damage</strong> — damage caused by aircraft, aerial devices, or articles dropped therefrom.</div>
+  <div class="peril-item"><div class="pnum">05 COVERED</div><strong>RSMD</strong> — Riot, Strike, Malicious Damage.</div>
+  <div class="peril-item"><div class="pnum">06 COVERED</div><strong>STFI</strong> — Storm, Cyclone, Typhoon, Tempest, Hurricane, Tornado, Flood, Inundation.</div>
+  <div class="peril-item"><div class="pnum">07 COVERED</div><strong>Impact Damage</strong> — by road/rail vehicles, animals, aerial craft.</div>
+  <div class="peril-item"><div class="pnum">08 COVERED</div><strong>Subsidence &amp; Landslide</strong> — ground movement damaging insured property.</div>
+  <div class="peril-item"><div class="pnum">09 COVERED</div><strong>Bursting / Overflowing</strong> — water tanks, apparatus and pipes.</div>
+  <div class="peril-item"><div class="pnum">10 COVERED</div><strong>Missile Testing Operations</strong> — damage from government defence activities.</div>
+  <div class="peril-item"><div class="pnum">11 COVERED</div><strong>Sprinkler Leakage</strong> — accidental discharge from automatic sprinkler installations.</div>
+  <div class="peril-item"><div class="pnum">12 COVERED</div><strong>Bush Fire</strong> — fire in shrubs/bushes spreading to insured property.</div>
+  <div class="peril-item"><div class="pnum">13 ADD-ON</div><strong>Earthquake (Fire &amp; Shock)</strong> — not in standard policy by default; available as add-on.</div>
+</div>
+
+<h3>Perils NOT Covered — Key Exclusions</h3>
+<div class="peril-list">
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>War, invasion, civil war, rebellion, revolution, insurrection</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Nuclear perils — radioactive contamination</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Underground fire — spontaneous combustion in mines</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Wilful misconduct of the insured — arson by the insured</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Loss by theft occurring during or after the fire</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Consequential losses — loss of profits, business interruption (unless separately covered)</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Burning by public authority (e.g., municipal authority burning infected goods)</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Electrical breakdown — short circuit in machinery (not by external fire)</div>
+  <div class="peril-item excluded"><div class="pnum">EXCLUDED</div>Spontaneous combustion (inherent vice)</div>
+</div>
+
+<!-- PART IV: MEANING OF FIRE -->
+<div class="part-header" id="fire-meaning">
+  <div class="part-num fire-col">IV</div>
+  <div class="part-title">Meaning of "Fire" — <em>The Most Debated Topic in Fire Insurance</em></div>
+</div>
+
+<div class="exam-alert">
+  <div class="label">Critical Note</div>
+  <p>The Insurance Act, 1938 and the Standard Fire Policy do NOT define "fire." Courts have developed the meaning through case law. This is one of the most frequently examined topics — know the cases with precision.</p>
+</div>
+
+<h3>Three Essential Elements for a Valid Fire Insurance Claim</h3>
+<ul class="num-list">
+  <li><strong>Actual Ignition:</strong> Mere generation of heat without ignition does NOT constitute fire. Combustion with a flame or glow is essential.</li>
+  <li><strong>The Fire Must Be HOSTILE, Not FRIENDLY</strong> — most important judicial distinction in fire insurance law.</li>
+  <li><strong>The Fire Must Not Be Caused by Wilful Act of the Insured</strong> — arson by insured = ground for avoiding the policy entirely.</li>
+</ul>
+
+<div class="doctrine-card open" id="fire-friendly">
+  <div class="doctrine-header" onclick="toggleD('fire-friendly')">
+    <div class="doctrine-icon d-fire">🔥</div>
+    <div class="doctrine-title-text">Friendly Fire vs. Hostile Fire — Key Distinction</div>
+    <i class="toggle-icon">▾</i>
+  </div>
+  <div class="doctrine-body">
+    <table class="data-table fire-table">
+      <tr><th>Type</th><th>Definition</th><th>Coverage</th></tr>
+      <tr><td class="td-key">Friendly Fire</td><td>Fire confined to its proper place, burning for its intended purpose — fire in a furnace, cooking fire, heating grate.</td><td>Generally NOT covered (damage from intentional burning is not accidental).</td></tr>
+      <tr><td class="td-key">Hostile Fire</td><td>Fire that has escaped its proper boundaries and become uncontrolled.</td><td>COVERED.</td></tr>
+    </table>
+    <div class="case-box fire-case">
+      <div class="case-name">⚖ Harris v. Poland — FRIENDLY FIRE CAUSING ACCIDENTAL LOSS = COVERED</div>
+      <p>Mrs. Harris concealed jewellery and currency notes under the grate (fireplace), placed coal and wood over them, then went out. On returning, she forgot about the concealed items and inadvertently lit the grate. By the time she remembered, jewellery was damaged and notes were burnt.<br><br>
+      <strong>Held:</strong> The insurer WAS LIABLE. Though the fire originated as a friendly fire (in the grate for heating), it caused loss to property <em>not intended to be burnt.</em> The items were not deliberately placed there to be burned — their burning was accidental and unintended.<br><br>
+      <strong>Principle:</strong> If property NOT intended to be burnt is destroyed by fire — even a "friendly fire" — the loss IS covered under the fire policy.</p>
+    </div>
+    <div class="case-box fire-case">
+      <div class="case-name">⚖ Thompson's Case — STRICT CONSTRUCTION OF EXCLUSION CLAUSES</div>
+      <p>Fire policy excepted liability if gasoline was "stored" in the drugstore. The owner was using a gasoline stove for routine heating purposes. Fire broke out.<br><br>
+      <strong>Held:</strong> Insurer WAS LIABLE. Using a stove for routine purposes did NOT constitute "storing" gasoline. Exclusion clause read narrowly against insurer.<br><br>
+      <strong>Principle:</strong> <em>Contra proferentem</em> — ambiguities and exclusions in insurance policies are construed narrowly against the insurer.</p>
+    </div>
+  </div>
+</div>
+
+<h3>Coverage — Loss Incidental to Fire (What IS Included)</h3>
+<div class="info-grid">
+  <div class="info-cell"><div class="k">Fire Brigade Damage</div><div class="v">Water damage from hoses, damage from axes breaking open doors — all covered.</div></div>
+  <div class="info-cell"><div class="k">Smoke Damage</div><div class="v">Covered as incidental to fire.</div></div>
+  <div class="info-cell"><div class="k">Chemical Suppressants</div><div class="v">If foam/chemical suppressants damage goods — covered.</div></div>
+  <div class="info-cell"><div class="k">Necessary Demolition</div><div class="v">Building demolished to prevent fire from spreading — demolition loss covered.</div></div>
+  <div class="info-cell"><div class="k">Removal of Goods</div><div class="v">Goods damaged while being removed from burning premises to safety — may be covered.</div></div>
+</div>
+
+<div class="case-box fire-case">
+  <div class="case-name">⚖ Symington v. Union Insurance of Canton — PREVENTIVE DAMAGE COVERED</div>
+  <p>Cork stored in warehouse insured against fire. Fire broke out some distance away. To prevent fire from spreading, some quantity of cork was thrown into the sea. <strong>Held:</strong> Insurer liable for BOTH (1) damage caused while putting out fire AND (2) cork destroyed by throwing into sea. Both losses = proximate cause = fire peril.</p>
+</div>
+
+<!-- PART VII: AVERAGE CLAUSE -->
+<div class="part-header">
+  <div class="part-num fire-col">VII</div>
+  <div class="part-title">Average Clause — Under-Insurance Penalty</div>
+</div>
+
+<div class="exam-alert">
+  <div class="label">Average Clause — Condition 10, Standard Fire Policy</div>
+  <p>Operates when the insured has taken insurance for <strong>less than the actual value</strong> of the property (under-insurance). The insured is treated as a <em>co-insurer</em> for the uninsured portion and must bear the loss proportionately.</p>
+</div>
+
+<div class="calc-box">
+  <div class="calc-label">Average Clause Formula</div>
+  <div class="formula">Amount Payable = (Sum Insured ÷ Actual Value of Property) × Amount of Loss</div>
+  <div class="calc-result">
+    Illustration: Umesh insures property for ₹1,50,000 when actual value = ₹2,50,000. Fire loss = ₹90,000.<br>
+    Amount Payable = (1,50,000 ÷ 2,50,000) × 90,000 = <strong>₹54,000</strong><br>
+    Balance ₹36,000 borne by Umesh — he becomes his own insurer for the under-insured portion.<br><br>
+    <strong>Exception:</strong> If sum insured is at least <mark>85%</mark> of actual value → average clause does NOT apply.
+  </div>
+</div>
+
+<p><strong>Why does the Average Clause exist?</strong> To prevent deliberate under-insurance. Without it, insured persons would under-insure to pay lower premiums and yet recover the full (typically partial) loss. The average clause removes this incentive and penalizes under-insurance.</p>
+
+<!-- PART VIII: CATEGORIES -->
+<div class="part-header" id="fire-cats">
+  <div class="part-num fire-col">VIII</div>
+  <div class="part-title">Categories of Fire Insurance Policies</div>
+</div>
+
+<div class="policy-grid">
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type</div>
+    <div class="policy-name">1. Valued Policy</div>
+    <div class="policy-body">Parties agree on the value of subject matter at time of contract. Agreed value stated in policy. On total/partial loss — agreed value is the measure (no dispute about actual loss). Common for antiques, art, items of uncertain market value. In absence of fraud — agreed value is conclusive.</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type · Most Common</div>
+    <div class="policy-name">2. Unvalued Policy (Open Policy)</div>
+    <div class="policy-body">Actual value NOT specified — only maximum limit (sum insured). Actual loss must be proved at time of claim. Insurer pays actual loss proved (subject to sum insured). Average clause applies if under-insurance present.</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type</div>
+    <div class="policy-name">3. Specific Policy</div>
+    <div class="policy-body">Covers specific item(s) listed in policy for a specific amount. Sum insured = maximum liability. If less than actual value → average clause applies. Distinguished from valued policy: stated amount = maximum limit, not agreed indemnity.</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type · Widest Cover</div>
+    <div class="policy-name">4. Comprehensive Policy</div>
+    <div class="policy-body">Widest coverage — fire, lightning, explosion, aircraft, riots, strike, storm, flood, earthquake, burglary, and more — all under one policy. Also called "all risks" policy (though exclusions still exist). Ideal for businesses wanting broad protection.</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type · Multiple Locations</div>
+    <div class="policy-name">5. Floating Policy</div>
+    <div class="policy-body">Covers property at different locations under a single policy with a single sum insured. Each location and value of goods must be disclosed. Ideal for traders/manufacturers with goods at multiple godowns/warehouses. Total value across all locations should not exceed sum insured.</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type · Fluctuating Stock</div>
+    <div class="policy-name">6. Declaration Policy</div>
+    <div class="policy-body">Ideal for traders whose stock values fluctuate during the year. A provisional sum insured is fixed. Premium paid on this provisional sum. Each month → insured declares highest value of stock held during that month. Year-end average = actual sum insured. If actual average &lt; provisional sum → premium refund (up to 50% of difference).</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type · Combination</div>
+    <div class="policy-name">7. Floater Declaration Policy</div>
+    <div class="policy-body">Combination of floating + declaration policies. Covers fluctuating stock at multiple locations with monthly declarations of value at each location.</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type · No Depreciation</div>
+    <div class="policy-name">8. Replacement / Reinstatement Value Policy</div>
+    <div class="policy-body">Insurer pays cost of replacing/reinstating damaged property to condition "as new" — WITHOUT deduction for depreciation. Normal policy: market value = replacement cost minus depreciation. This policy: no depreciation deducted — new-for-old replacement. Usually for plant, machinery, buildings.</div>
+  </div>
+  <div class="policy-card fire-card">
+    <div class="policy-type">Fire Policy Type · Supplementary</div>
+    <div class="policy-name">9. Consequential Loss Policy</div>
+    <div class="policy-body">Covers INDIRECT losses from fire that standard fire policy would NOT cover. Covers: loss of net profit during business closure, standing charges (rent, interest, salaries continuing even when business closed), increased cost of working, auditors' fees. Must be taken ALONG WITH a standard fire policy — cannot stand alone. Indemnity period: typically 6–12 months.</div>
+  </div>
+</div>
+
+<!-- PART IX: SPECIAL DOCTRINES -->
+<div class="part-header" id="fire-doc">
+  <div class="part-num fire-col">IX</div>
+  <div class="part-title">Special Doctrines in Fire Insurance — <em>Reinstatement, Subrogation, Contribution</em></div>
+</div>
+
+<!-- DOCTRINE 1: REINSTATEMENT -->
+<div class="doctrine-card open" id="reinstatement">
+  <div class="doctrine-header" onclick="toggleD('reinstatement')">
+    <div class="doctrine-icon d-gold">🏗</div>
+    <div class="doctrine-title-text">Doctrine 1: Reinstatement</div>
+    <div class="doctrine-sub">Clause 7 — Standard Fire Policy</div>
+    <i class="toggle-icon">▾</i>
+  </div>
+  <div class="doctrine-body">
+    <p><strong>Meaning:</strong> Reinstatement is the insurer's option (or insured's entitlement under specific clauses) to <strong>restore the damaged property to its original condition</strong> as an alternative to making monetary payment.</p>
+
+    <div class="def-card">
+      <div class="who">Clause 7 — Standard Fire Policy (Tariff Advisory Committee)</div>
+      <p>"The insurer has the option to reinstate or replace the property damaged or destroyed, instead of paying the amount of loss or damage. The maximum shall not be more than the insured sum."</p>
+    </div>
+
+    <table class="data-table fire-table">
+      <tr><th>Aspect</th><th>Rule</th></tr>
+      <tr><td class="td-key">Insurer's Election</td><td>Once insurer elects to reinstate — they are BOUND to complete it. If they elect but fail to complete properly → liable for damages for the failure.</td></tr>
+      <tr><td class="td-key">Insured's Right</td><td>Without a specific "Reinstatement Value Clause" in the policy — insured CANNOT demand reinstatement. The option belongs to the insurer, not the insured.</td></tr>
+      <tr><td class="td-key">Scope</td><td>Must reinstate to condition substantially equivalent to pre-fire condition. If reinstatement impossible (e.g., unique historical structure) → insurer must pay monetary value.</td></tr>
+      <tr><td class="td-key">Limitation</td><td>Must reinstate at the SAME property at the SAME location — cannot use proceeds to build at a different site. Maximum = total sum assured.</td></tr>
+      <tr><td class="td-key">Indemnity Tension</td><td>Strict indemnity = market value (replacement cost minus depreciation). Reinstatement = new-for-old — potentially more than actual financial loss. Resolution: When reinstatement clause is in policy, principle of indemnity is modified by agreement — reinstatement value supersedes strict market value.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- DOCTRINE 2: SUBROGATION -->
+<div class="doctrine-card open" id="fire-subrog">
+  <div class="doctrine-header" onclick="toggleD('fire-subrog')">
+    <div class="doctrine-icon d-navy">→</div>
+    <div class="doctrine-title-text">Doctrine 2: Subrogation</div>
+    <div class="doctrine-sub">§§ 79–80 Marine Insurance Act, 1963 (by analogy) · Common Law Equitable Doctrine for Fire Insurance</div>
+    <i class="toggle-icon">▾</i>
+  </div>
+  <div class="doctrine-body">
+    <p><strong>Definition:</strong> Subrogation is the right of the insurer, upon payment of the claim, to <strong>step into the shoes of the insured</strong> and exercise all rights, remedies, and causes of action that the insured had against third parties responsible for the loss.</p>
+
+    <blockquote>
+      "Every day the insurer is put in the place of the insured." — Lord Mansfield in Burnand v. Rodocanachi
+      <cite>— The courts: "The assured cannot take from both hands."</cite>
+    </blockquote>
+
+    <div class="case-box fire-case">
+      <div class="case-name">⚖ Castellain v. Preston (1883) — THE LEADING SUBROGATION CASE — MUST KNOW PERFECTLY</div>
+      <p><strong>Facts:</strong> Preston contracted to sell his house to a purchaser (purchaser's obligation to pay = unconditional). Before sale was completed, fire destroyed the house. Preston claimed from fire insurer and received the full loss amount (£330). The purchase was later completed and purchaser paid the full (pre-fire) purchase price. Preston received DOUBLE recovery — insurance claim + full purchase price.<br><br>
+      <strong>Held (Brett LJ):</strong> Insurance company entitled to recover the full amount it had paid (£330) from Preston. Preston had not actually suffered a loss — the purchaser paid the full value. Insurer was subrogated to Preston's right to receive the purchase consideration.<br><br>
+      <strong>Principle:</strong> "The contract of insurance is a contract of indemnity, and of indemnity only... the insurer can only be called upon to make good that loss which the insured has actually, not fictitiously, sustained."</p>
+    </div>
+
+    <h4>Mechanics of Subrogation</h4>
+    <ul class="num-list">
+      <li>Loss occurs due to fire caused/contributed to by a third party.</li>
+      <li>Insurer pays the claim to the insured.</li>
+      <li>Insurer now subrogated — acquires insured's rights against the third party (in tort/contract/statute/gifts received).</li>
+      <li>Insurer sues the third party in the <strong>insured's name</strong> (not insurer's own name — because insured's right runs against the third party, not insurer's).</li>
+      <li>Whatever insurer recovers: up to amount of claim paid = belongs to insurer; any excess = belongs to insured.</li>
+    </ul>
+
+    <div class="case-box fire-case">
+      <div class="case-name">⚖ Yorkshire Insurance Co. v. Nisbet Shipping Co. — LIMIT OF SUBROGATION</div>
+      <p>Canadian Government vessel caused total loss to Vessel A. Insurer paid £72,000. Owners then sued Canadian Government and recovered £127,000 (due to currency fluctuations). Insurer sued owners to recover. <strong>Held:</strong> Insurer entitled to <mark>£72,000 only</mark> — exactly what they paid. Cannot profit from subrogation.</p>
+    </div>
+
+    <h4>Key Principles of Subrogation</h4>
+    <table class="data-table fire-table">
+      <tr><th>Principle</th><th>Rule</th></tr>
+      <tr><td class="td-key">Arises after full payment</td><td>Subrogation right arises only upon actual payment of the total loss. Partial payment = proportionate subrogation rights.</td></tr>
+      <tr><td class="td-key">Limited to amount paid</td><td>Insurer's claim is limited to what they paid — they cannot profit from subrogation.</td></tr>
+      <tr><td class="td-key">Insured must not compromise</td><td>Insured must not compromise or settle rights against third party without insurer's consent — if they do, they may be liable to the insurer.</td></tr>
+      <tr><td class="td-key">NOT for life insurance</td><td>Subrogation does NOT apply to life insurance — because life insurance is not a contract of indemnity.</td></tr>
+      <tr><td class="td-key">Sue in insured's name</td><td>Insurer cannot sue a third party in their own name — must sue in the insured's name.</td></tr>
+      <tr><td class="td-key">Can be excluded</td><td>Subrogation rights can be expressly excluded by the policy terms.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- DOCTRINE 3: CONTRIBUTION -->
+<div class="doctrine-card open" id="fire-contrib">
+  <div class="doctrine-header" onclick="toggleD('fire-contrib')">
+    <div class="doctrine-icon d-fire">⚖</div>
+    <div class="doctrine-title-text">Doctrine 3: Contribution</div>
+    <div class="doctrine-sub">Double Insurance · § 34 Marine Insurance Act, 1963 (by analogy)</div>
+    <i class="toggle-icon">▾</i>
+  </div>
+  <div class="doctrine-body">
+    <p><strong>Definition:</strong> Contribution is the right of one insurer who has paid a claim to compel <strong>other insurers also liable for the same loss</strong> on the same subject matter to <strong>share the payment proportionately</strong>.</p>
+
+    <h4>Conditions for Double Insurance (when contribution arises)</h4>
+    <ul class="num-list">
+      <li>Two or more policies.</li>
+      <li>Covering the same subject matter.</li>
+      <li>Against the same peril.</li>
+      <li>In favour of the same insured.</li>
+      <li>Total sum insured exceeds actual value of insured property.</li>
+    </ul>
+
+    <div class="calc-box">
+      <div class="calc-label">Contribution Formula</div>
+      <div class="formula">Contribution of Each Insurer = (Individual Policy Amount ÷ Total of All Policy Amounts) × Actual Loss</div>
+      <div class="calc-result">
+        Illustration — Smt. Rani's property (actual value ₹80,000) insured with A for ₹30,000 and B for ₹20,000. Total sum insured = ₹50,000. Fire loss = ₹25,000.<br><br>
+        A's share = (30,000 ÷ 50,000) × 25,000 = <strong>₹15,000</strong><br>
+        B's share = (20,000 ÷ 50,000) × 25,000 = <strong>₹10,000</strong><br><br>
+        Smt. Rani can (i) claim ₹15,000 from A and ₹10,000 from B directly, OR (ii) claim full ₹25,000 from A — A then recovers ₹10,000 from B by way of contribution.
+      </div>
+    </div>
+
+    <div class="case-box fire-case">
+      <div class="case-name">⚖ North British and Mercantile Insurance Co. v. Liverpool London and Globe Insurance Co.</div>
+      <p>Two fire insurance companies had each insured the same warehouse. A fire occurred. <strong>Held:</strong> Both companies liable to contribute proportionately to the loss. Neither could avoid contribution by arguing the other policy was "primary."</p>
+    </div>
+
+    <h4>Contribution vs. Subrogation — Key Distinction</h4>
+    <table class="data-table fire-table">
+      <tr><th>Feature</th><th>Subrogation</th><th>Contribution</th></tr>
+      <tr><td class="td-key">Who exercises right</td><td>Insurer (against third party)</td><td>One insurer (against other insurers)</td></tr>
+      <tr><td class="td-key">Situation</td><td>Third party caused the loss</td><td>Multiple insurers cover same risk</td></tr>
+      <tr><td class="td-key">Direction of claim</td><td>Insurer → Third party</td><td>One insurer → Other insurers</td></tr>
+      <tr><td class="td-key">Basis</td><td>Indemnity + equity</td><td>Double insurance + indemnity</td></tr>
+      <tr><td class="td-key">Life insurance</td><td>NO — life ins. ≠ indemnity</td><td>NO — all life policies pay fully</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- DOCTRINE 4: PROXIMATE CAUSE (applied to fire) -->
+<div class="doctrine-card" id="fire-prox">
+  <div class="doctrine-header" onclick="toggleD('fire-prox')">
+    <div class="doctrine-icon d-navy">⚡</div>
+    <div class="doctrine-title-text">Doctrine 4: Proximate Cause — Applied to Fire Insurance</div>
+    <div class="doctrine-sub">"Causa proxima non remota spectatur"</div>
+    <i class="toggle-icon">▾</i>
+  </div>
+  <div class="doctrine-body">
+    <h4>Rules for Applying Proximate Cause in Fire Insurance</h4>
+    <table class="data-table fire-table">
+      <tr><th>Rule</th><th>Case &amp; Holding</th></tr>
+      <tr><td class="td-key">Rule 1: Single cause — covered fire peril</td><td>Insurer liable. Single cause — excepted peril → insurer not liable.</td></tr>
+      <tr><td class="td-key">Rule 2: Multiple simultaneous causes</td><td>Court identifies dominant, proximate cause and decides liability accordingly.</td></tr>
+      <tr><td class="td-key">Rule 3: Chain of causation — excluded peril triggers fire</td><td><em>Tootal v. London Fire Insurance Co.</em>: Earthquake (excluded) caused fire; wind spread it to T's building. Held: Proximate cause = EARTHQUAKE, not fire. Insurer NOT liable.</td></tr>
+      <tr><td class="td-key">Rule 4: Novus actus interveniens</td><td><em>Marsden v. City Insurance</em>: Fire occurred → mob plundered → plate-glass broken. Held: Proximate cause of glass breakage = mob's lawlessness (independent cause), NOT fire. Insurer NOT liable for glass.</td></tr>
+      <tr><td class="td-key">Rule 5: Acts to prevent greater loss — covered</td><td><em>Symington v. Union Insurance</em>: Cork thrown into sea to prevent fire spreading. Held: COVERED — preventive damage proximately caused by fire peril.</td></tr>
+      <tr><td class="td-key">Rule 6: Burden of proof</td><td>Insured proves covered fire as cause. If insurer relies on exception — insurer bears the burden of proving exception applies. <em>Thompson's Case</em>: Insurer failed to prove "storing" gasoline applied to routine stove use.</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- PART X: RIGHTS AND DUTIES -->
+<div class="part-header">
+  <div class="part-num fire-col">X</div>
+  <div class="part-title">Rights &amp; Duties of Parties in Fire Insurance</div>
+</div>
+
+<h3>Duties of the Insured</h3>
+<table class="data-table fire-table">
+  <tr><th>Phase</th><th>Duty</th></tr>
+  <tr><td class="td-key">Before the Contract</td><td>Disclose all material facts (utmost good faith). Answer all proposal form questions truthfully. Not misrepresent nature, value, or condition of property.</td></tr>
+  <tr><td class="td-key">During Currency of Policy</td><td>Not increase the risk without informing insurer. Pay premiums on time. Inform insurer of any other insurance on same property. Maintain the property reasonably.</td></tr>
+  <tr><td class="td-key">After the Loss</td><td>Give immediate notice of fire to insurer (condition precedent). Notify fire brigade and police (suspected arson → FIR). Take steps to minimise loss (duty to mitigate). Protect salvageable property. NOT remove or alter damaged property before surveyor assesses it. Submit claim in prescribed form within stipulated time. Provide all documentation. Cooperate with surveyor.</td></tr>
+</table>
+
+<h3>Rights of the Insurer</h3>
+<ul class="num-list">
+  <li><strong>Right to Inspect Premises</strong> — both before issuing policy and after fire.</li>
+  <li><strong>Right to Take Possession After Fire</strong> — enter premises, take possession, take measures to protect damaged property.</li>
+  <li><strong>Right to Sell Salvage</strong> — arrange sale of salvaged goods; credit salvage value in claim settlement.</li>
+  <li><strong>Right of Subrogation</strong> — upon payment, step into insured's shoes to sue responsible third parties.</li>
+  <li><strong>Right of Contribution</strong> — seek proportionate contribution from other insurers who are also liable.</li>
+  <li><strong>Right to Avoid the Policy</strong> — for non-disclosure, misrepresentation, fraud, or breach of conditions.</li>
+  <li><strong>Right to Appoint Surveyor / Loss Assessor</strong> — § 64UM Insurance Act, 1938 — for claims above specified threshold, licensed surveyor must assess. Note: Surveyor's assessment is NOT binding on insurer; insurer may pay a different amount (proviso to § 64UM(4)).</li>
+</ul>
+
+<!-- MASTER COMPARISON TABLE -->
+<div class="divider" id="exam"><span>Master Comparison Table</span></div>
+
+<div class="fact-panel">
+  <h3>Life vs. Fire vs. Marine — Master Comparison</h3>
+  <table class="compare-table" style="margin-top:16px;">
+    <tr>
+      <th>Feature</th>
+      <th>Life Insurance</th>
+      <th>Fire Insurance</th>
+      <th>Marine Insurance</th>
+    </tr>
+    <tr><td>Subject Matter</td><td>Human life</td><td>Property (buildings, goods, stock)</td><td>Ship / Cargo / Freight</td></tr>
+    <tr><td>Governing Law</td><td>Insurance Act 1938 + LIC Act 1956</td><td>Insurance Act 1938 + common law (NO dedicated statute)</td><td>Marine Insurance Act, 1963</td></tr>
+    <tr><td>Contract of Indemnity</td><td><strong>NO</strong> (Dalby — not a contract of indemnity)</td><td><strong>YES</strong> (Castellain v. Preston)</td><td><strong>YES</strong> (with valued policy modification)</td></tr>
+    <tr><td>Insurable Interest — When</td><td>At COMMENCEMENT only (Dalby)</td><td>At commencement AND at time of LOSS (Collingridge)</td><td>At time of LOSS (§ 8(1) MIA 1963)</td></tr>
+    <tr><td>Subrogation</td><td>Does NOT apply</td><td>Applies (Castellain v. Preston)</td><td>Applies (§ 79 MIA 1963)</td></tr>
+    <tr><td>Contribution</td><td>Does NOT apply — all policies pay in full</td><td>Applies (North British &amp; Mercantile)</td><td>Applies (§ 80 MIA 1963)</td></tr>
+    <tr><td>Duration</td><td>Long-term / whole life</td><td>Typically one year (annual)</td><td>Voyage basis or one year (time policy)</td></tr>
+    <tr><td>Event Certainty</td><td>Death is CERTAIN (time uncertain) — "assurance"</td><td>Fire may or may not occur</td><td>Maritime peril may or may not occur</td></tr>
+    <tr><td>Over-Insurance / Multiple Policies</td><td>All policies pay fully — no cap on sum received</td><td>Contribution applies — insured cannot exceed actual loss</td><td>§ 34 MIA — double insurance rules apply</td></tr>
+    <tr><td>Key Statutory Section</td><td>§ 2(11), § 38, § 39, § 45 Insurance Act 1938; § 4, 5, 6 LIC Act 1956</td><td>§ 2(6A) Insurance Act 1938; § 64UM (surveyors)</td><td>§ 3 (definition), § 7 (insurable interest), § 35 (warranty), § 55 (proximate cause), §§ 57–67 (loss)</td></tr>
+  </table>
+</div>
+
+<h3>Section &amp; Case Quick Reference — Topics 3 &amp; 4</h3>
+<table class="data-table">
+  <tr><th>Section / Case</th><th>Subject</th><th>Topic</th></tr>
+  <tr><td class="td-key">§ 2(11) Insurance Act</td><td>Definition of life insurance business + ULIPs (2010 Amendment)</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 2(6A) Insurance Act</td><td>Definition of fire insurance business</td><td>Fire</td></tr>
+  <tr><td class="td-key">§ 4, LIC Act 1956</td><td>Composition of LIC — not exceeding 16 members + Chairman</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 5, LIC Act 1956</td><td>Capital of LIC — ₹5 crores, Central Government</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 6, LIC Act 1956</td><td>Functions of LIC — general duty, specific powers, business principles</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 38, Insurance Act</td><td>Assignment of life insurance policies (substituted by Act 5/2015)</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 39, Insurance Act</td><td>Nomination; § 39(7)&amp;(8) = beneficial nomination for close family (overrules Sarbati Devi for close family)</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 45, Insurance Act</td><td>Incontestability — 3 years (changed from 2 by Act 5/2015). Fraud = challengeable any time within 3 years.</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 47, Insurance Act</td><td>Payment of money into Court — conflicting claims</td><td>Life</td></tr>
+  <tr><td class="td-key">§ 64UM, Insurance Act</td><td>Surveyors and loss assessors in fire claims</td><td>Fire</td></tr>
+  <tr><td class="td-key">Condition 10, Standard Fire Policy</td><td>Average clause — under-insurance penalty</td><td>Fire</td></tr>
+  <tr><td class="td-key">Clause 7, Standard Fire Policy</td><td>Reinstatement — insurer's option to reinstate rather than pay cash</td><td>Fire</td></tr>
+  <tr><td class="td-key">Dalby v. India &amp; London (1854)</td><td>Life insurance NOT a contract of indemnity; insurable interest at commencement only</td><td>Life</td></tr>
+  <tr><td class="td-key">Griffith v. Fleming</td><td>Insurable interest between spouses presumed</td><td>Life</td></tr>
+  <tr><td class="td-key">Beresford v. Royal Insurance (1938)</td><td>English law on suicide — felo de se = claim rejected (not applicable in India)</td><td>Life</td></tr>
+  <tr><td class="td-key">Kankaya Lal's Case</td><td>Indian position — suicide after one-year exclusion period = claim UPHELD</td><td>Life</td></tr>
+  <tr><td class="td-key">Sarbati Devi v. Usha Devi (SC)</td><td>Nominee = "hand to receive," not beneficial owner (pre-2015; modified by § 39(7)&amp;(8))</td><td>Life</td></tr>
+  <tr><td class="td-key">Cleaver v. Mutual Reserve</td><td>Beneficiary who caused insured's death cannot recover</td><td>Life</td></tr>
+  <tr><td class="td-key">LIC v. Shakuntala Devi</td><td>Trivial ailments (indigestion) need not be disclosed</td><td>Life</td></tr>
+  <tr><td class="td-key">Castellain v. Preston (1883)</td><td>Indemnity principle + leading case on subrogation</td><td>Fire</td></tr>
+  <tr><td class="td-key">Yorkshire Insurance v. Nisbet Shipping</td><td>Subrogation limited to amount insurer paid</td><td>Fire</td></tr>
+  <tr><td class="td-key">Harris v. Poland</td><td>Friendly fire causing accidental loss to unintended items = COVERED</td><td>Fire</td></tr>
+  <tr><td class="td-key">Thompson's Case</td><td>Exclusion clauses construed strictly against insurer (contra proferentem)</td><td>Fire</td></tr>
+  <tr><td class="td-key">Tootal v. London Fire Ins. Co.</td><td>Earthquake = proximate cause of resulting fire — fire insurer NOT liable</td><td>Fire</td></tr>
+  <tr><td class="td-key">Marsden v. City Insurance</td><td>Mob lawlessness = independent cause; fire insurer not liable for glass</td><td>Fire</td></tr>
+  <tr><td class="td-key">Symington v. Union Insurance</td><td>Preventive damage (cork thrown in sea) = proximately caused by fire = COVERED</td><td>Fire</td></tr>
+  <tr><td class="td-key">Macaura v. Northern Assurance (1925)</td><td>Sole shareholder has NO insurable interest in company's property</td><td>Both</td></tr>
+  <tr><td class="td-key">Collingridge v. Royal Exchange</td><td>Insurable interest at time of loss — title still with insured at time of fire = claim UPHELD</td><td>Fire</td></tr>
+</table>
+
+</main>
+
+<footer class="footer">
+  Insurance Law Study Notes · <span>Part 3 of 5</span> · Topics 3 &amp; 4: Life Insurance &amp; Fire Insurance · All Doctrines, Cases &amp; Sections Covered
+</footer>
+
+<script>
+  function toggleD(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

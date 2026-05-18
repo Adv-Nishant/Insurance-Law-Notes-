@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insurance Law — Part I: Origin & History</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1209;
+    --parchment: #faf6ee;
+    --cream: #f5efe2;
+    --gold: #b8922a;
+    --gold-light: #d4a843;
+    --gold-pale: #f0dfa8;
+    --burgundy: #6b1e2e;
+    --burgundy-light: #9b2c3f;
+    --navy: #1c2b4a;
+    --navy-mid: #2d4270;
+    --teal: #1a5276;
+    --sage: #2e5942;
+    --sage-light: #4a7c5c;
+    --warm-gray: #8c8070;
+    --border: #d4c4a0;
+    --shadow: rgba(26,18,9,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16.5px;
+    line-height: 1.85;
+    color: var(--ink);
+    background: var(--parchment);
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(184,146,42,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(28,43,74,0.04) 0%, transparent 60%);
+  }
+
+  /* ── COVER BANNER ── */
+  .cover {
+    background: linear-gradient(135deg, var(--navy) 0%, #162038 40%, var(--burgundy) 100%);
+    color: #fff;
+    padding: 64px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+  }
+  .cover-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.9;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .cover h1 span { color: var(--gold-light); }
+  .cover-sub {
+    font-size: 18px;
+    color: rgba(255,255,255,0.72);
+    font-style: italic;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .cover-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .cover-badge .dot { width:8px;height:8px;border-radius:50%;background:var(--gold-light); }
+
+  /* ── NAVIGATION BAR ── */
+  .toc-bar {
+    background: var(--navy);
+    padding: 0 48px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px var(--shadow);
+  }
+  .toc-bar-inner {
+    display: flex;
+    overflow-x: auto;
+    gap: 0;
+    scrollbar-width: none;
+  }
+  .toc-bar-inner::-webkit-scrollbar { display:none; }
+  .toc-link {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 12.5px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+    padding: 14px 18px;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .toc-link:hover { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+
+  /* ── MAIN CONTAINER ── */
+  .main { max-width: 960px; margin: 0 auto; padding: 48px 32px 80px; }
+
+  /* ── SECTION BLOCKS ── */
+  .section {
+    margin-bottom: 56px;
+    animation: fadeUp 0.6s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(16px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 48px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .section-title em {
+    font-style: italic;
+    color: var(--burgundy);
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin: 32px 0 12px;
+    padding-left: 12px;
+    border-left: 3px solid var(--burgundy-light);
+  }
+  h4 {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--navy-mid);
+    margin: 20px 0 8px;
+    font-family: 'Source Serif 4', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 13px;
+  }
+
+  p { margin-bottom: 14px; }
+
+  /* ── DEFINITION CARD ── */
+  .def-card {
+    background: linear-gradient(135deg, #fff8ee 0%, #fef9f3 100%);
+    border: 1px solid var(--gold-pale);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 20px 0;
+  }
+  .def-card .who {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .def-card p { margin-bottom: 0; font-style: italic; }
+
+  /* ── CASE BOX ── */
+  .case-box {
+    background: #f0f4fa;
+    border: 1px solid #c8d4e8;
+    border-left: 4px solid var(--navy-mid);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .case-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--navy);
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+  .case-box p { margin-bottom: 0; font-size: 15px; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 28px; margin: 20px 0; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 8px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--navy));
+    border-radius: 2px;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 18px;
+    padding-left: 20px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -24px; top: 7px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--parchment);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .tl-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 8px;
+    letter-spacing: 0.5px;
+  }
+  .tl-item p { display: inline; font-size: 15px; }
+  .tl-item.highlight::before { background: var(--burgundy); box-shadow: 0 0 0 2px var(--burgundy); }
+  .tl-item.highlight .tl-year { color: var(--burgundy); }
+
+  /* ── STAGE CARD ── */
+  .stage-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .stage-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .stage-header:hover { background: rgba(184,146,42,0.05); }
+  .stage-num-badge {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .stage-title-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    flex: 1;
+  }
+  .stage-years {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 0.5px;
+  }
+  .toggle-icon {
+    color: var(--gold);
+    font-size: 18px;
+    transition: transform 0.3s;
+    font-style: normal;
+    min-width: 20px;
+    text-align: center;
+  }
+  .stage-card.open .toggle-icon { transform: rotate(180deg); }
+  .stage-body {
+    display: none;
+    padding: 4px 20px 20px;
+    border-top: 1px solid var(--border);
+    background: #fff;
+  }
+  .stage-card.open .stage-body { display: block; }
+
+  /* ── SECTION TABLE ── */
+  .sec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14.5px;
+  }
+  .sec-table th {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .sec-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eae4d8;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .sec-table tr:nth-child(even) td { background: #faf6ee; }
+  .sec-table tr:hover td { background: #f0dfa820; }
+  .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--navy);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ── EXAM ALERT ── */
+  .exam-alert {
+    background: linear-gradient(135deg, #fdf3f5 0%, #fdf8f9 100%);
+    border: 1px solid #e8b4bc;
+    border-left: 5px solid var(--burgundy);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin: 24px 0;
+  }
+  .exam-alert .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: var(--burgundy);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .exam-alert .label::before { content: '★'; font-size: 13px; }
+  .exam-alert ul { padding-left: 20px; }
+  .exam-alert li { margin-bottom: 7px; font-size: 15px; }
+
+  /* ── INFO GRID ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .info-cell {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .info-cell .k {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    color: var(--warm-gray);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .info-cell .v {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .info-cell .v.gold { color: var(--gold); }
+  .info-cell .v.burgundy { color: var(--burgundy); }
+
+  /* ── AMENDMENT TABLE ── */
+  .amend-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .amend-table th {
+    background: var(--burgundy);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .amend-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #eae4d8;
+    vertical-align: top;
+  }
+  .amend-table tr:nth-child(even) td { background: #fdf8f8; }
+  .amend-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--burgundy);
+    white-space: nowrap;
+  }
+
+  /* ── IRDAI FUNCTIONS ── */
+  .func-list { list-style: none; padding: 0; margin: 12px 0; }
+  .func-list li {
+    display: flex;
+    gap: 12px;
+    padding: 9px 14px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    align-items: flex-start;
+  }
+  .func-list li:last-child { border-bottom: none; }
+  .func-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    min-width: 28px;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+
+  /* ── QUICK FACTS ── */
+  .fact-panel {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 32px 0;
+    color: rgba(255,255,255,0.9);
+  }
+  .fact-panel h3 {
+    color: var(--gold-light);
+    border-left-color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+  }
+  .fact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .fact-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .fact-item .fk {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .fact-item .fv {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* ── BLOCKQUOTE ── */
+  blockquote {
+    border-left: 3px solid var(--sage-light);
+    margin: 16px 0;
+    padding: 12px 20px;
+    color: #3a3025;
+    font-style: italic;
+    background: rgba(46,89,66,0.04);
+    border-radius: 0 4px 4px 0;
+    font-size: 15px;
+  }
+  blockquote cite {
+    display: block;
+    margin-top: 8px;
+    font-size: 12.5px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--sage-light);
+    font-style: normal;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── PILL TAGS ── */
+  .tag {
+    display: inline-block;
+    background: var(--gold-pale);
+    color: var(--ink);
+    font-size: 11.5px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 9px;
+    border-radius: 3px;
+    margin: 2px 3px 2px 0;
+    border: 1px solid var(--gold);
+    letter-spacing: 0.3px;
+  }
+  .tag.navy { background: rgba(44,66,112,0.1); border-color: var(--navy-mid); color: var(--navy); }
+  .tag.red { background: rgba(107,30,46,0.08); border-color: var(--burgundy-light); color: var(--burgundy); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0;
+    color: var(--border);
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .divider span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--warm-gray);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ── HIGHLIGHT ── */
+  mark { background: var(--gold-pale); color: var(--ink); padding: 1px 3px; border-radius: 2px; }
+  strong { color: var(--navy); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .footer span { color: var(--gold-light); }
+
+  @media (max-width: 640px) {
+    .cover { padding: 40px 24px 36px; }
+    .main { padding: 32px 20px 60px; }
+    .toc-bar { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Insurance Law · Study Notes · Part 1 of 5</div>
+  <h1>Origin &amp; <span>History</span> of<br>Insurance Law</h1>
+  <div class="cover-sub">Nationalization &amp; Regulation of Insurance Business in India</div>
+  <div class="cover-meta">
+    <span class="cover-badge"><span class="dot"></span> Topic 1 of 7</span>
+    <span class="cover-badge"><span class="dot"></span> Syllabus Unit I</span>
+    <span class="cover-badge"><span class="dot"></span> Insurance Act 1938 · LIC Act 1956 · GIBNA 1972 · IRDA Act 1999</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="toc-bar">
+  <div class="toc-bar-inner">
+    <a class="toc-link" href="#s1">§ Philosophical Foundation</a>
+    <a class="toc-link" href="#s2">§ Ancient &amp; Medieval Origins</a>
+    <a class="toc-link" href="#s3">§ Five Stages (India)</a>
+    <a class="toc-link" href="#s4">§ Insurance Act 1938</a>
+    <a class="toc-link" href="#s5">§ IRDAI</a>
+    <a class="toc-link" href="#s6">§ Key Amendments</a>
+    <a class="toc-link" href="#s7">§ Exam Quick Facts</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <div class="section-num">I</div>
+    <div class="section-title">The Concept &amp; <em>Philosophical Foundation</em> of Insurance</div>
+  </div>
+
+  <p>Insurance is humanity's response to uncertainty. The Romans captured this idea in the phrase <em>"homo proponit, sed Deus disponit"</em> — man proposes, God disposes. From the earliest civilizations, human beings recognized that individual misfortune could be catastrophic, but if many shared the burden, no single person would be crushed. This is the <strong>social solidarity principle</strong> at the heart of insurance.</p>
+
+  <div class="def-card">
+    <div class="who">Riegel &amp; Miller</div>
+    <p>"It is a social device whereby uncertain risks of individuals may be combined in a group and thus made more certain; small periodic contributions by the individuals providing a fund out of which those who suffer losses may be reimbursed."</p>
+  </div>
+
+  <div class="def-card">
+    <div class="who">Maclean</div>
+    <p>"Insurance is a method of spreading over a large number of persons a possible financial loss too serious to be conveniently borne by an individual."</p>
+  </div>
+
+  <div class="def-card">
+    <div class="who">Hardy Ivamy — General Principles of Insurance Law</div>
+    <p>"A contract of insurance is a contract whereby one person called the insurer, undertakes in return for the agreed consideration called the premium, to pay to another person called the insured, a sum of money or its equivalent on the happening of a specified event."</p>
+  </div>
+
+  <div class="case-box">
+    <div class="case-name">⚖ Prudential Insurance Company v. Inland Revenue Commissioner</div>
+    <p>Channel J.: <em>"There must be either some uncertainty whether the event will ever happen or not, or if the event is one which must happen at some time or another, there must be uncertainty as to the time at which it will happen."</em></p>
+  </div>
+
+  <p>The <strong>two-fold objective</strong> of insurance: (i) <em>Immediate</em> — loss/risk/damage spread over large number of risk bearers, immediate beneficiary is the insured; (ii) <em>Far-sighted</em> — accelerates economic growth through investment by insurance companies in the development of commerce and industry.</p>
+</section>
+
+<div class="divider"><span>Ancient Origins</span></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <div class="section-num">II</div>
+    <div class="section-title">Ancient &amp; Medieval Origins — <em>The Global Story</em></div>
+  </div>
+
+  <h3>A. Ancient India — Earliest Insurance References</h3>
+
+  <div class="info-grid">
+    <div class="info-cell">
+      <div class="k">Text</div>
+      <div class="v">Manusmriti (Laws of Manu)</div>
+    </div>
+    <div class="info-cell">
+      <div class="k">Text</div>
+      <div class="v">Yajnavalkya Smriti (Dharmasastra)</div>
+    </div>
+    <div class="info-cell">
+      <div class="k">Earliest Indian Reference ★</div>
+      <div class="v burgundy">Kautilya's Arthashastra — 4th century BCE</div>
+    </div>
+  </div>
+
+  <div class="exam-alert">
+    <div class="label">Exam Critical Fact</div>
+    <p><strong>Kautilya's Arthashastra</strong> (4th century BCE) is the earliest known reference to insurance principles in India — pooling of resources for redistribution after fire, floods, epidemics, and famine. Written by Chanakya, minister to Chandragupta Maurya.</p>
+  </div>
+
+  <h3>B. Ancient Babylon, Greece &amp; Rome</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-year">~2250 BCE</span><p><strong>Code of Hammurabi</strong> (Babylon) — bottomry loans: merchant borrows for sea voyage; if ship lost, loan need not be repaid. This is risk transfer — the very foundation of marine insurance.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">Ancient Greece &amp; Rome</span><p><strong>Foenus nauticum / nauticum fenus</strong> — maritime loans with high interest representing risk premium. Direct ancestor of marine insurance.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">Ancient Rome</span><p><strong>Roman burial clubs (collegia)</strong> — regular contributions to meet funeral expenses of deceased members. Primitive form of life insurance.</p>
+    </div>
+  </div>
+
+  <h3>C. Medieval Origins — Birth of Formal Marine Insurance</h3>
+  <div class="timeline">
+    <div class="tl-item highlight">
+      <span class="tl-year">1347 CE</span><p>First written marine insurance contracts — <strong>Genoa, Italy</strong>. Earliest known contract: 23rd October 1347, covering shipment from Genoa to Majorca.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">Early 14th c.</span><p>Insurance spread to Florence, Venice, Pisa, Barcelona. Recorded in <em>Lex Mercatoria</em> (Law Merchant).</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">1435</span><p><strong>Statute of Barcelona</strong> — one of the first codified bodies of insurance law.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">1556–1584</span><p><strong>Guidon de la Mer</strong> — French maritime code with comprehensive marine insurance provisions.</p>
+    </div>
+    <div class="tl-item highlight">
+      <span class="tl-year">1688</span><p><strong>Edward Lloyd's Coffee House</strong>, Tower Street, London — gathering place for ship owners, merchants, underwriters. Modern insurance market born here.</p>
+    </div>
+  </div>
+
+  <h3>D. English Legislative Milestones</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-year">1601</span><p><strong>Assurance Act</strong> (Elizabethan Statute) — Queen Elizabeth I. First formal statutory recognition of marine insurance. Established special chamber of assurance. Marks transition from commercial custom to statutory recognition.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">1746</span><p><strong>Marine Insurance Act, 1746 (England)</strong> — prohibited wagering policies; required genuine insurable interest.</p>
+    </div>
+    <div class="tl-item highlight">
+      <span class="tl-year">1766</span><p><strong>Carter v. Boehm</strong> — Lord Mansfield established doctrine of <em>uberrima fides</em> (utmost good faith) as cornerstone of all insurance contracts.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">1774</span><p><strong>Life Assurance Act, 1774 (England)</strong> — also called the Gambling Act. Introduced insurable interest requirement in life insurance to stop gambling on lives of strangers.</p>
+    </div>
+    <div class="tl-item">
+      <span class="tl-year">1870</span><p><strong>British Insurance Act, 1870</strong> — directly influenced insurance law development in India during colonial period.</p>
+    </div>
+    <div class="tl-item highlight">
+      <span class="tl-year">1906</span><p><strong>Marine Insurance Act, 1906 (England)</strong> — drafted by Sir Mackenzie Chalmers. Codified centuries of common law on marine insurance. Template for India's Marine Insurance Act, 1963. Remains in force in England.</p>
+    </div>
+  </div>
+
+  <div class="exam-alert">
+    <div class="label">Lord Mansfield's Contribution</div>
+    <p>Lord Mansfield, Lord Chief Justice (mid-18th century) — merged <em>Lex Mercatoria</em> (Law Merchant) with common law principles in insurance cases. His judgment in <strong>Carter v. Boehm (1766)</strong> established <em>uberrima fides</em> as the cornerstone of insurance law.</p>
+  </div>
+</section>
+
+<div class="divider"><span>History in India — Five Stages</span></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <div class="section-num">III</div>
+    <div class="section-title">History of Insurance in India — <em>The Five Stages</em></div>
+  </div>
+
+  <!-- STAGE 1 -->
+  <div class="stage-card" id="stage1">
+    <div class="stage-header" onclick="toggleStage('stage1')">
+      <span class="stage-num-badge">STAGE 1</span>
+      <span class="stage-title-text">Period of Mushroom Growth</span>
+      <span class="stage-years">1900 – 1912</span>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="stage-body">
+      <p><strong>Context:</strong> Post Swadeshi Movement (after Partition of Bengal, 1905) — patriotic impulse to boycott British institutions. Led to unregulated mushroom growth of Indian insurance companies — many poorly capitalized, fraudulent.</p>
+      <div class="timeline">
+        <div class="tl-item highlight">
+          <span class="tl-year">1818</span><p><strong>Oriental Life Insurance Company</strong> — established in Calcutta. <mark>First life insurance company in India.</mark> Failed in 1834. Primarily served Europeans.</p>
+        </div>
+        <div class="tl-item"><span class="tl-year">1829</span><p>Madras Equitable — life insurance in Madras Presidency.</p></div>
+        <div class="tl-item"><span class="tl-year">1871</span><p>Bombay Mutual (Life Assurance) Society — first genuinely Indian-owned company to survive.</p></div>
+        <div class="tl-item"><span class="tl-year">1874</span><p>Oriental Insurance Company established.</p></div>
+        <div class="tl-item"><span class="tl-year">1897</span><p>Empire of India — Bombay Presidency.</p></div>
+        <div class="tl-item highlight">
+          <span class="tl-year">1912</span><p><strong>Indian Life Assurance Companies Act, 1912</strong> — <mark>FIRST STATUTE REGULATING LIFE INSURANCE IN INDIA.</mark> Required maintenance of reserves; first supervisory role for government.</p>
+        </div>
+        <div class="tl-item"><span class="tl-year">1914</span><p>Government of India began publishing insurance company returns for the first time.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 2 -->
+  <div class="stage-card" id="stage2">
+    <div class="stage-header" onclick="toggleStage('stage2')">
+      <span class="stage-num-badge">STAGE 2</span>
+      <span class="stage-title-text">Period of Struggle &amp; Steady Growth</span>
+      <span class="stage-years">1913 – 1938</span>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="stage-body">
+      <p><strong>Context:</strong> Two World Wars; Indian companies struggled against British competitors. Economic turbulence. Weak enforcement allowed malinvestment to continue.</p>
+      <div class="timeline">
+        <div class="tl-item highlight">
+          <span class="tl-year">1928</span><p><strong>Indian Insurance Companies Act, 1928</strong> — First comprehensive data collection. Extended regulation to <em>general insurance</em> for the first time.</p>
+        </div>
+        <div class="tl-item"><span class="tl-year">1934</span><p><strong>Sri S.C. Sen</strong> appointed Special Officer to investigate and report on reform of insurance law.</p></div>
+        <div class="tl-item"><span class="tl-year">1936</span><p><strong>Sircar Committee</strong> (under Sri N.N. Sircar) examined the Sen Report. Recommendations formed direct basis of Insurance Act, 1938.</p></div>
+        <div class="tl-item highlight">
+          <span class="tl-year">1938</span><p><strong>Insurance Act, 1938</strong> (Act No. 4 of 1938) — enacted 26th February 1938; came into force <mark>1st July 1939.</mark> Consolidated and amended the law relating to insurance business. Remains the principal legislation today.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 3 -->
+  <div class="stage-card" id="stage3">
+    <div class="stage-header" onclick="toggleStage('stage3')">
+      <span class="stage-num-badge">STAGE 3</span>
+      <span class="stage-title-text">Period of Stability &amp; Consolidation</span>
+      <span class="stage-years">1938 – 1950</span>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="stage-body">
+      <p><strong>Context:</strong> Post-1938, Indian companies gained stability. WWII (1939-1945), Indian Independence (1947), and Partition caused massive upheaval.</p>
+      <div class="timeline">
+        <div class="tl-item"><span class="tl-year">1945</span><p><strong>Cowasji Jehangir Committee</strong> — condemned malinvestment by insurance companies (investing policyholder funds in speculative ventures).</p></div>
+        <div class="tl-item"><span class="tl-year">1946</span><p>Insurance Act, 1938 amended — custody and inspection provisions strengthened.</p></div>
+        <div class="tl-item"><span class="tl-year">1947</span><p>Indian Independence. Partition disrupted many companies headquartered in what became Pakistan.</p></div>
+        <div class="tl-item highlight">
+          <span class="tl-year">1950</span><p><strong>Insurance Amendment Act, 1950</strong> (Act 47 of 1950) — based on <strong>Sri S.R. Ranganathan Committee</strong> review. Far-reaching changes: abolished principal agencies; stricter capital requirements; tightened investment regulations; extended Act to co-operative and provident societies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 4 -->
+  <div class="stage-card" id="stage4">
+    <div class="stage-header" onclick="toggleStage('stage4')">
+      <span class="stage-num-badge">STAGE 4</span>
+      <span class="stage-title-text">Period of Boom &amp; Nationalization</span>
+      <span class="stage-years">1950 onwards</span>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="stage-body">
+      <p><strong>Background to Life Insurance Nationalization:</strong> Planned economy philosophy; mobilize domestic savings; channel funds into government securities; extend coverage; eliminate exploitative practices. Trigger: financial scandal — companies had massively misappropriated policyholder funds.</p>
+      <div class="timeline">
+        <div class="tl-item highlight">
+          <span class="tl-year">19 Jan 1956</span><p><mark>Government of India issued Ordinance nationalizing life insurance sector.</mark> This is the date of nationalization by ordinance.</p>
+        </div>
+        <div class="tl-item highlight">
+          <span class="tl-year">1 Sep 1956</span><p><strong>Life Insurance Corporation of India (LIC)</strong> established under <strong>Life Insurance Corporation Act, 1956</strong> (Act 31 of 1956). <mark>245 companies nationalized</mark> — 154 Indian insurers + 16 non-Indian insurers + 75 Provident Societies.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1968</span><p>Insurance Act amended — investment regulation; <strong>Tariff Advisory Committee</strong> established under Part IIB.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1971</span><p><strong>General Insurance Corporation of India (GIC)</strong> incorporated under Companies Act.</p>
+        </div>
+        <div class="tl-item highlight">
+          <span class="tl-year">1 Jan 1973</span><p><strong>General Insurance Business (Nationalization) Act, 1972</strong> (Act 57 of 1972) effective. <mark>107 insurers nationalized</mark>, grouped into 4 GIC subsidiaries.</p>
+        </div>
+      </div>
+
+      <div class="exam-alert">
+        <div class="label">The Four GIC Subsidiaries — Must Know</div>
+        <ul>
+          <li><strong>National Insurance Company Limited</strong> — headquartered in Kolkata</li>
+          <li><strong>New India Assurance Company Limited</strong> — headquartered in Mumbai</li>
+          <li><strong>Oriental Insurance Company Limited</strong> — headquartered in New Delhi</li>
+          <li><strong>United India Insurance Company Limited</strong> — headquartered in Chennai</li>
+        </ul>
+      </div>
+
+      <div class="def-card">
+        <div class="who">LIC Act, 1956 — Key Provisions</div>
+        <p><strong>Section 4 (Composition):</strong> Not more than 16 persons appointed by Central Government, one as Chairman.<br>
+        <strong>Section 5 (Capital):</strong> Original capital — ₹5 crores provided by Central Government.<br>
+        <strong>Section 6 (Functions):</strong> Carry on life insurance business in and outside India; develop life insurance to best advantage of the community. Motto: <em>"Yogakshemam Vahamyaham"</em> (I bear the responsibility of your welfare).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 5 -->
+  <div class="stage-card" id="stage5">
+    <div class="stage-header" onclick="toggleStage('stage5')">
+      <span class="stage-num-badge">STAGE 5</span>
+      <span class="stage-title-text">Era of Privatization</span>
+      <span class="stage-years">1991 onwards</span>
+      <i class="toggle-icon">▾</i>
+    </div>
+    <div class="stage-body">
+      <p><strong>Context:</strong> 1991 balance of payments crisis; LPG reforms under Finance Minister Dr. Manmohan Singh and PM P.V. Narasimha Rao opened door to privatization.</p>
+      <div class="timeline">
+        <div class="tl-item highlight">
+          <span class="tl-year">1993</span><p><strong>Malhotra Committee</strong> (formally: Committee on Reforms in Insurance Sector) — chaired by <strong>R.N. Malhotra</strong>, former Governor of Reserve Bank of India.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1994</span><p>Malhotra Committee Report submitted. Key recommendations: allow private sector; foreign companies as joint ventures; FDI up to 26%; create independent regulatory authority.</p>
+        </div>
+        <div class="tl-item highlight">
+          <span class="tl-year">1999</span><p><strong>IRDA Act, 1999</strong> (Act 41 of 1999) — Insurance Regulatory and Development Authority constituted.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">Apr 2000</span><p>IRDAI incorporated and became operational.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">Aug 2000</span><p>Market opened — registration invitations; foreign companies allowed up to <mark>26% FDI.</mark></p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">Dec 2000</span><p>GIC subsidiaries restructured as independent companies; GIC converted into national re-insurer.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">Jul 2002</span><p>Parliament passed bill de-linking 4 subsidiaries from GIC — complete independence.</p>
+        </div>
+        <div class="tl-item highlight">
+          <span class="tl-year">2015</span><p><strong>Insurance Laws (Amendment) Act, 2015</strong> (Act 5 of 2015) — FDI raised to <mark>49%</mark>; Section 45 changed from 2 to 3 years; major amendments to nomination, assignment, registration.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2019</span><p>Budget 2019 — FDI limit raised to <mark>100%.</mark></p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2021</span><p>Insurance Laws (Amendment) Act, 2021 — modified FDI provisions (amended S. 2(7A)(b)).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span>The Insurance Act, 1938</span></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <div class="section-num">IV</div>
+    <div class="section-title">The Insurance Act, 1938 — <em>Constitutional Document of Indian Insurance Law</em></div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-cell"><div class="k">Full Title</div><div class="v">An Act to consolidate and amend the law relating to the business of insurance</div></div>
+    <div class="info-cell"><div class="k">Act Number</div><div class="v gold">Act No. 4 of 1938</div></div>
+    <div class="info-cell"><div class="k">Enacted</div><div class="v">26th February, 1938</div></div>
+    <div class="info-cell"><div class="k">In Force</div><div class="v burgundy">1st July, 1939</div></div>
+    <div class="info-cell"><div class="k">Extends To</div><div class="v">Whole of India</div></div>
+  </div>
+
+  <h3>Structure of the Act — Parts</h3>
+  <table class="sec-table">
+    <tr><th>Part</th><th>Coverage</th></tr>
+    <tr><td class="sec-num">Part I</td><td>Preliminary (Sections 1–2)</td></tr>
+    <tr><td class="sec-num">Part II</td><td>Provisions Applicable to Insurers (Sections 2C–65)</td></tr>
+    <tr><td class="sec-num">Part IIA</td><td>Life Insurance Council and General Insurance Council</td></tr>
+    <tr><td class="sec-num">Part IIB</td><td>Tariff Advisory Committee and Control of Tariff Rates</td></tr>
+    <tr><td class="sec-num">Part IIC</td><td>Solvency Margin, Advance Payment of Premium, Restrictions on New Place of Business</td></tr>
+    <tr><td class="sec-num">Part IVA</td><td>Re-insurance (Sections 101A–101C)</td></tr>
+    <tr><td class="sec-num">Part V</td><td>Miscellaneous (Section 102 onwards)</td></tr>
+  </table>
+
+  <h3>Critical Section Numbers — Must Know</h3>
+
+  <table class="sec-table">
+    <thead>
+      <tr><th>Section</th><th>Subject</th><th>Key Content</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sec-num">§ 2(1A)</td>
+        <td>"Authority"</td>
+        <td>The Insurance Regulatory and Development Authority of India (IRDAI)</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(6A)</td>
+        <td>"Fire insurance business"</td>
+        <td>Business of effecting contracts of insurance against loss by or incidental to fire</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(6B)</td>
+        <td>"General insurance business"</td>
+        <td>Fire, marine, or miscellaneous insurance business</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(6C)</td>
+        <td>"Health insurance business"</td>
+        <td>Inserted by Act 5 of 2015</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(9)</td>
+        <td>"Insurer"</td>
+        <td>Substituted by Act 5 of 2015: (a) Indian Insurance Company; (b) Statutory body by Parliament; (c) Insurance co-operative; (d) Foreign company doing re-insurance through India branch</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(11)</td>
+        <td>"Life insurance business"</td>
+        <td>Business of effecting contracts of insurance upon human life</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(13A)</td>
+        <td>"Marine insurance business"</td>
+        <td>Insurance on vessels, cargoes, freights, transit by land or water</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(13B)</td>
+        <td>"Miscellaneous insurance business"</td>
+        <td>Insurance not principally or wholly fire, life or marine</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2(16B)</td>
+        <td>"Re-insurance"</td>
+        <td>Insurance of part of one insurer's risk by another insurer for a mutually acceptable premium</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 2C</td>
+        <td>Prohibition — certain persons</td>
+        <td>Only (a) public company, (b) co-operative society, or (c) foreign body corporate (not private) can carry on insurance business. From IRDA Act 1999: only Indian insurance companies can begin new business.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 3</td>
+        <td>Registration</td>
+        <td>Certificate of registration from Authority required before commencing or continuing any class of insurance business. S. 3(2A): Grounds for granting registration — financial condition, adequate capital, public interest, compliance.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 3A</td>
+        <td>Annual Fee</td>
+        <td>Insurer shall pay annual fee to Authority as specified by regulations. Failure renders registration liable to cancellation.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 6</td>
+        <td>Capital Requirements</td>
+        <td>Life / General: ₹100 crore paid-up equity; Health: ₹100 crore; Re-insurance: ₹200 crore; Foreign re-insurer branch: net owned funds ₹5,000 crore (S. 6(2)); IFSC branch: ₹1,000 crore (S. 6(3), ins. Act 23/2019)</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 10</td>
+        <td>Separation of Accounts</td>
+        <td>Insurer carrying on more than one class must keep separate accounts. Life insurance fund (S. 10(2)) — absolutely the security of life policyholders; assets kept distinct and separate.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 13</td>
+        <td>Actuarial Report</td>
+        <td>Life insurer: actuarial investigation at least once per year into financial condition, including valuation of liabilities.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 38</td>
+        <td>Assignment &amp; Transfer</td>
+        <td>Substituted by Act 5/2015. By endorsement on policy itself or separate instrument, signed by assignor, attested by at least one witness. Insurer may refuse if not bona fide or against public interest.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 39</td>
+        <td>Nomination</td>
+        <td>Substituted by Act 5/2015. S. 39(7)&(8): where nominee is spouse, parent, or child — beneficial entitlement. Overruled (partially) <em>Sarbati Devi v. Usha Devi</em> (nominee = mere receiver).</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 45</td>
+        <td>Incontestability</td>
+        <td>Substituted by Act 5/2015. Policy cannot be questioned after <mark>3 years</mark> (changed from 2 years). Within 3 years: challengeable on fraud or misstatement of material facts affecting life expectancy.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 64VA</td>
+        <td>Sufficiency of Assets (Solvency)</td>
+        <td>Every insurer shall at all times maintain excess of assets over liabilities of not less than <mark>50%</mark> of minimum capital under § 6. Failure = deemed insolvent.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 64VB</td>
+        <td>Advance Premium</td>
+        <td>No risk to be assumed unless premium received in advance. Cheque/money order: risk attaches on date of posting.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 101A</td>
+        <td>Re-insurance — Indian Re-insurers</td>
+        <td>Every insurer shall re-insure with Indian re-insurers. Maximum re-insurance: <mark>30%</mark> of sum assured on each policy.</td>
+      </tr>
+      <tr>
+        <td class="sec-num">§ 114A</td>
+        <td>IRDAI Regulations</td>
+        <td>Power of IRDAI to make regulations. Inserted by Act 41/1999.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider"><span>IRDAI</span></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <div class="section-num">V</div>
+    <div class="section-title">Insurance Regulatory &amp; Development Authority of India — <em>IRDAI</em></div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-cell"><div class="k">Constituted Under</div><div class="v">IRDA Act, 1999 (Act 41 of 1999)</div></div>
+    <div class="info-cell"><div class="k">Incorporated</div><div class="v">April 2000</div></div>
+    <div class="info-cell"><div class="k">Composition (§ 4 IRDA Act)</div><div class="v gold">10 members</div></div>
+    <div class="info-cell"><div class="k">Composition Breakdown</div><div class="v">1 Chairman + 5 Full-time + 4 Part-time</div></div>
+    <div class="info-cell"><div class="k">Appointed By</div><div class="v">Government of India</div></div>
+    <div class="info-cell"><div class="k">Functions Defined In</div><div class="v burgundy">Section 14, IRDA Act 1999</div></div>
+  </div>
+
+  <h3>Functions of IRDAI (Section 14, IRDA Act 1999)</h3>
+  <ul class="func-list">
+    <li><span class="func-num">01</span>Issuing, renewing, modifying, withdrawing, suspending or cancelling registrations of insurers and intermediaries.</li>
+    <li><span class="func-num">02</span>Protecting policyholder interests — including complaints redressal.</li>
+    <li><span class="func-num">03</span>Specifying qualifications, code of conduct, and training for intermediaries and agents.</li>
+    <li><span class="func-num">04</span>Specifying the code of conduct for surveyors and loss assessors.</li>
+    <li><span class="func-num">05</span>Promoting efficiency in the conduct of insurance businesses.</li>
+    <li><span class="func-num">06</span>Promoting and regulating professional organizations connected with insurance and re-insurance.</li>
+    <li><span class="func-num">07</span>Levying fees and other charges.</li>
+    <li><span class="func-num">08</span>Inspecting and investigating insurers, intermediaries, and other relevant organizations.</li>
+    <li><span class="func-num">09</span>Regulating rates, advantages, terms, and conditions not covered by the Tariff Advisory Committee under Section 64U.</li>
+    <li><span class="func-num">10</span>Specifying how books should be kept.</li>
+    <li><span class="func-num">11</span>Regulating company investment of funds.</li>
+    <li><span class="func-num">12</span>Regulating a margin of solvency.</li>
+    <li><span class="func-num">13</span>Adjudicating disputes between insurers and intermediaries.</li>
+    <li><span class="func-num">14</span>Supervising the Tariff Advisory Committee.</li>
+    <li><span class="func-num">15</span>Specifying the percentage of premium income to finance schemes for promoting professional organizations.</li>
+    <li><span class="func-num">16</span>Specifying the percentage of life and general insurance business to be undertaken in rural or social sectors.</li>
+    <li><span class="func-num">17</span>Specifying the form and manner in which books of accounts shall be maintained by insurers.</li>
+  </ul>
+
+  <div class="exam-alert">
+    <div class="label">Social Obligation Provisions (Liberalized Era)</div>
+    <p><strong>Section 32B</strong> (ins. by Act 41/1999): Every insurer shall undertake specified percentages of life and general insurance business in rural and social sectors.<br>
+    <strong>Section 32C:</strong> Insurers shall provide insurance policies to persons in rural areas, workers in unorganized/informal sectors, economically vulnerable classes — including insurance for crops.</p>
+  </div>
+</section>
+
+<div class="divider"><span>Key Amendments</span></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <div class="section-num">VI</div>
+    <div class="section-title">Key Legislative Amendments — <em>Chronological Digest</em></div>
+  </div>
+
+  <table class="amend-table">
+    <thead>
+      <tr><th>Year</th><th>Amendment</th><th>Key Contributions</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="amend-year">1939</td><td>Insurance (Amendment) Act, 1939</td><td>Minor adjustments</td></tr>
+      <tr><td class="amend-year">1946</td><td>Insurance (Amendment) Act, 1946</td><td>Custody and inspection provisions</td></tr>
+      <tr><td class="amend-year">1950</td><td>Insurance (Amendment) Act, 1950 — <strong>Act 47 of 1950</strong></td><td>Most significant pre-nationalization amendment; abolished principal agencies; introduced strict capital requirements</td></tr>
+      <tr><td class="amend-year">1956</td><td>LIC Act, 1956</td><td>Nationalized life insurance; established LIC</td></tr>
+      <tr><td class="amend-year">1968</td><td>Insurance (Amendment) Act, 1968 — <strong>Act 62 of 1968</strong></td><td>Investment regulation; Tariff Advisory Committee established; extended Act to general insurance</td></tr>
+      <tr><td class="amend-year">1972</td><td>GIBNA, 1972</td><td>Nationalized general insurance; 4 subsidiary companies</td></tr>
+      <tr><td class="amend-year">1999</td><td>IRDA Act, 1999 — <strong>Act 41 of 1999</strong></td><td>Created IRDAI; liberalized insurance sector</td></tr>
+      <tr><td class="amend-year">2002</td><td>Insurance (Amendment) Act, 2002 — <strong>Act 42 of 2002</strong></td><td>Allowed insurance co-operative societies; de-linked GIC subsidiaries</td></tr>
+      <tr><td class="amend-year">2015</td><td>Insurance Laws (Amendment) Act, 2015 — <strong>Act 5 of 2015</strong></td><td>Most comprehensive recent amendment: FDI to 49%; § 45 changed 2→3 years; amended nomination, assignment, registration provisions</td></tr>
+      <tr><td class="amend-year">2021</td><td>Insurance Laws (Amendment) Act, 2021 — <strong>Act 6 of 2021</strong></td><td>Modified FDI provisions (amended § 2(7A)(b))</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider"><span>Exam Quick Facts</span></div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <div class="section-num">VII</div>
+    <div class="section-title">Examination Quick Facts &amp; <em>Master Revision Panel</em></div>
+  </div>
+
+  <div class="fact-panel">
+    <h3>Critical Dates &amp; Numbers — Exam Gold</h3>
+    <div class="fact-grid">
+      <div class="fact-item">
+        <div class="fk">First Life Ins. Co. India</div>
+        <div class="fv">Oriental Life Ins. Co., Calcutta — 1818</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">First Life Ins. Statute</div>
+        <div class="fv">Indian Life Assurance Companies Act, 1912</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">Insurance Act Enacted</div>
+        <div class="fv">26th Feb 1938 (in force: 1st Jul 1939)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">LIC Nationalization (Ordinance)</div>
+        <div class="fv">19th January, 1956 ★</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">LIC Operational</div>
+        <div class="fv">1st September, 1956</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">Companies Nationalized (LIC)</div>
+        <div class="fv">245 (154 Indian + 16 Non-Indian + 75 Provident)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">GIBNA Effective</div>
+        <div class="fv">1st January, 1973</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">Insurers Nationalized (GIC)</div>
+        <div class="fv">107 → grouped into 4 companies</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">Malhotra Committee</div>
+        <div class="fv">1993 (Report: 1994)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">IRDA Act</div>
+        <div class="fv">1999 (Act 41 of 1999)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">Market Opened / FDI (Initial)</div>
+        <div class="fv">August 2000 / 26%</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">FDI Raised to 49% / 100%</div>
+        <div class="fv">2015 (Act 5) / Budget 2019</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">IRDAI Composition (§4)</div>
+        <div class="fv">10 members (1+5+4)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">§ 6 Capital — Life/General</div>
+        <div class="fv">₹100 crore paid-up equity</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">§ 6 Capital — Re-insurance</div>
+        <div class="fv">₹200 crore paid-up equity</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">§ 45 Incontestability Period</div>
+        <div class="fv">3 years (changed from 2 by Act 5/2015)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">§ 64VA Solvency Margin</div>
+        <div class="fv">50% of minimum capital under § 6</div>
+      </div>
+      <div class="fact-item">
+        <div class="fk">§ 101A Re-insurance Cap</div>
+        <div class="fv">Maximum 30% of sum assured</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exam-alert">
+    <div class="label">Five Stages Summary — Examination Format</div>
+    <ul>
+      <li><strong>Stage 1 (1900–1912):</strong> Mushroom Growth — Swadeshi movement → Indian Life Assurance Companies Act, 1912 (first regulatory statute); returns published from 1914.</li>
+      <li><strong>Stage 2 (1913–1938):</strong> Struggle &amp; Steady Growth — Indian Insurance Companies Act 1928 (first data collection for general insurance); Sen (1934), Sircar Committee (1936); Insurance Act 1938.</li>
+      <li><strong>Stage 3 (1938–1950):</strong> Stability &amp; Consolidation — Cowasji Jehangir Committee (1945); S.R. Ranganathan review; Amendment Act 1950 (abolished principal agencies).</li>
+      <li><strong>Stage 4 (1950 onwards):</strong> Boom &amp; Nationalization — LIC ordinance 19 Jan 1956; LIC Act 1956 (245 companies); GIC 1972 (107 companies, 4 subsidiaries); GIBNA effective 1 Jan 1973.</li>
+      <li><strong>Stage 5 (1991 onwards):</strong> Privatization — Malhotra Committee 1993; IRDA Act 1999; IRDAI operational Apr 2000; market opened Aug 2000; FDI 26%→49%→100%.</li>
+    </ul>
+  </div>
+
+  <div class="exam-alert">
+    <div class="label">Case Law References — Topic 1</div>
+    <ul>
+      <li><strong>Carter v. Boehm (1766)</strong> — Lord Mansfield; established doctrine of <em>uberrima fides</em> (utmost good faith) as cornerstone of all insurance contracts.</li>
+      <li><strong>Prudential Insurance Company v. Inland Revenue Commissioner</strong> — Channel J.; judicial definition of insurance contract (uncertainty as to happening/time of event).</li>
+      <li><strong>Sarbati Devi v. Usha Devi</strong> — Supreme Court; nominee under § 39 is merely "the hand to receive" — not beneficial owner. (Modified by Insurance Laws (Amendment) Act, 2015 via § 39(7) and (8).)</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    "The history of insurance law in India is the story of a nation learning, through painful experience, how to balance individual enterprise with collective welfare, private profit with public protection."
+    <cite>— Topic synthesis</cite>
+  </blockquote>
+</section>
+
+</main>
+
+<footer class="footer">
+  Insurance Law Study Notes · <span>Part 1 of 5</span> · Topic 1: Origin &amp; History · Compiled from Comprehensive Lecture Sessions
+</footer>
+
+<script>
+  function toggleStage(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('open');
+  }
+  // Open first stage by default
+  document.getElementById('stage1').classList.add('open');
+  document.getElementById('stage4').classList.add('open');
+  document.getElementById('stage5').classList.add('open');
+</script>
+</body>
+</html>
